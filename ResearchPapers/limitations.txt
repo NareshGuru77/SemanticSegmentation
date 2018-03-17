@@ -1,0 +1,8 @@
+Simultaneous detection and segmentation not considered..
+Methods to improve training not considered..
+Video segmentation not considered..
+Not instance segmentation..
+Part segmentation approaches not in detail..
+no depth or point cloud information...
+approaches using recurrent networks not considered..
+binary, ternary kind of networks not considered...

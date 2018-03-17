@@ -1,0 +1,46 @@
+\documentclass[10pt]
+{beamer}
+\mode<presentation>{\usetheme{Warsaw}}
+\usepackage{hyperref}
+\usepackage{wrapfig} 
+\usepackage[style=ieee]{biblatex}
+\addbibresource{references.bib}
+%% preamble
+\title{Semantic Segmentation using Resource Efficient Deep Learning}
+\author{Naresh Kumar Gurulingan}
+\begin{document}
+%% title frame
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dataset}
+		\begin{itemize}
+			\item Images taken in different settings..
+			\item Labeling with MATLAB Image Labeler.
+			\item Using "https://www.kaggle.com/gaborfodor/augmentation-methods" to augment data.. mat to csv..
+			\item Not sure regarding the possibility to augment data while training (without saving).
+		\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{implementations to look into}
+	\begin{itemize}
+		\item already focusing on efficiency: ENet, ICNet, SQ.
+		\item accuracy: DeepLabv3, ResNet38, PSPNet.
+		\item pruning and low rank decomposition.
+		\item converting to tensorflow lite (the existing implementations could be in different frameworks)..is this ok?
+		\item as of now going through tensorflow and keras documentation..
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{References:}
+	\begin{thebibliography}{9}
+		\bibitem{1}
+
+	\end{thebibliography}
+\end{frame}
+
+\end{document}

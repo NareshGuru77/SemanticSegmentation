@@ -1,0 +1,90 @@
+\documentclass[14pt]{extarticle}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{enumitem}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+%\usepackage[shortlabels]{enumerate}
+
+\graphicspath{ {/home/nareshguru77/Documents/learning_materials/Semester_2/RandD/Semantic_Segmentation/first_report} }
+
+\usepackage[letterpaper, portrait, margin=0.8in]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\rhead{Share\LaTeX}
+\lhead{Semantic Segmentation}
+\rfoot{Page \thepage}
+\lfoot{ HBRS [MAS WS17-18]}
+
+\begin{document}
+
+\begin{center}
+\begin{Large}
+
+\underline{\textbf{Embedded Semantic Segmentation}}
+
+\end{Large}
+\end{center}
+
+\begin{itemize}
+
+\item The goal of semantic segmentation is to achieve pixelwise classification of an image into different object classes/categories of interest. 
+
+\item A value from the label space L = $\{ l_1, l_1, ..., l_k \}$ is required to be mapped to the pixel space P = $\{ p_1, p_1, ..., p_{WxH} \}$, where W and H are the width and height of the image.
+
+\item The different deep learning architectures used for Semantic Segmentation are:
+\begin{itemize}
+
+\item Fully Convolutional Network: The last fully connected layer of a convolutional neural network is replaced with a convolutional layer in order to obtain a semantic map as a result.
+
+\item Encoder-Decoder architectures:
+
+\item Dilated convolutions:
+
+\end{itemize}
+
+\item The restriction of an embedded environment makes the usage of deep learning challenging. This restriction affects the number of free parameters the network can have. For instance, the FCN network based on VGG-net, pretrained weights trained on the PASCAL VOC dataset is large (514 MB and has 134M parameters.)\cite{1},\cite{2}.
+
+\item The second restriction of achieving less than 1 sec to obtain a semantic map of an image (during inference) could benefit from reduced number of free parameters in a lean model.
+
+\item A lean model could also pose a restriction on the expressiveness of learned representations. In turn this could restrict the number of object classes.
+
+\item The following could be the list of tasks:
+\begin{itemize}
+
+\item Understanding and implementing convolutional neural networks.
+\item Reviewing literature on deep learning methods used for semantic segmentation.
+\item Reviewing literature on approaches to deploy deep networks in an embedded environment.
+\item Reviewing traditional approaches to semantic segmentation (the possibilty of adapting such techniques in a deep learning setting).
+\item Implementing and comparing the best few approaches based on accuracy, runtime during inference, model size, RAM required during runtime.
+\item Further reasearch on instance segmentation (which requires both object detection and semantic segmentation).
+
+\end{itemize}
+
+\end{itemize}
+
+
+\begin{thebibliography}{9}
+
+\bibitem{1}
+J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation,” in Proceedings of the IEEE
+Conference on Computer Vision and Pattern Recognition, 2015, pp.
+3431–3440.
+\href{https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf}{Weblink}
+
+\bibitem{2}
+ \href{https://github.com/shelhamer/fcn.berkeleyvision.org/blob/master/voc-fcn16s/caffemodel-url}{Weblink}
+ 
+\bibitem{3}
+A. Garcia-Garcia, S. Orts-Escolano, S.O. Oprea, V. Villena-Martinez, and J. Garcia-Rodriguez, “A Review on Deep Learning Techniques
+Applied to Semantic Segmentation” in arXiv.
+\href{https://arxiv.org/abs/1704.06857}{Weblink}
+
+\end{thebibliography}
+
+\end{document}

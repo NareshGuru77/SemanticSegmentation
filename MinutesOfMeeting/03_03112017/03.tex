@@ -1,0 +1,87 @@
+\documentclass[14pt]{extarticle}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{enumitem}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+%\usepackage[shortlabels]{enumerate}
+
+\graphicspath{ {/home/nareshguru77/Documents/learning_materials/Semester_2/RandD/Semantic_Segmentation/first_report} }
+
+\usepackage[letterpaper, portrait, margin=0.8in]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\rhead{Share\LaTeX}
+\lhead{Embedded Semantic Segmentation}
+\rfoot{Page \thepage}
+\lfoot{ HBRS [MAS WS17-18]}
+
+
+\begin{document}
+
+\begin{center}
+\begin{Large}
+
+\underline{\textbf{Third meeting}}\\
+\vspace{3mm}
+\today
+
+\end{Large}
+\end{center}
+
+\textbf{Graph based image segmentation}
+
+\begin{enumerate}
+	\item Initial results in Efficient Graph based image segmentation.
+	\item The image is first smoothed with a gaussian filter to remove noise.
+	\item Every pixel is considered as a vertex and is connected to 4/8 neighbour pixels through edges.
+	\item Each edge is assigned a weight. In the implementation the distance between [r,g,b] vector of connected vertices is taken as weights.
+	\item The vertices are then sorted and build in the form of a minimum spanning tree.
+	\item The tree is then cut into several components and components with a minimum component size is taken as a cluster and given a color.
+	\item Yet to completely understand the method..
+
+\end{enumerate}
+
+\textbf{Current state-of-the-art for ASW:}
+\begin{enumerate}
+	\item Methods focusing on accuracy such as \cite{1} seems to be deep architectures which may not be suitable for embedded implementations.
+	\item There are papers which focus on deep learning for embedded applications such as \cite{2}\cite{3}.
+	\item Which direction to focus on first?
+\end{enumerate}
+
+\textbf{Initial problem formulation for ASW:}
+\begin{itemize}
+	\item Robocup specific dataset generation.
+	\item Lean model (<1 s and 10MB).
+	\item implementing and integrating the model to the robocup environment.
+	
+\end{itemize}
+
+\textbf{Notes:}
+\begin{itemize}
+	\item Dataset generation along with Debaraj.
+	\item 
+\end{itemize}
+
+\begin{thebibliography}{9}
+
+\bibitem{1}
+Liang-Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, Alan L. Yuille, " DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs", arXiv preprint, 2016. \href{https://arxiv.org/abs/1606.00915}{Weblink}
+
+\bibitem{2}
+Adam Paszke, Abhishek Chaurasia, Sangpil Kim, Eugenio Culurciello, " ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation", arXiv preprint, 2016. \href{https://arxiv.org/abs/1606.02147}{Weblink}
+
+\bibitem{3}
+Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, Hartwig Adam, " MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications ", arXiv preprint, 2017. \href{https://arxiv.org/abs/1704.04861}{Weblink}
+ 
+\bibitem{4}
+Github link with paper collection for embedded/mobile neural nets \href{https://github.com/csarron/emdl}{Github}
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,1547 @@
+% This file was created with JabRef 2.10b2.
+% Encoding: ISO8859_1
+
+
+@InBook{Alvarez2012,
+  Title                    = {Road Scene Segmentation from a Single Image},
+  Author                   = {Alvarez, Jose M. and Gevers, Theo and LeCun, Yann and Lopez, Antonio M.},
+  Editor                   = {Fitzgibbon, Andrew and Lazebnik, Svetlana and Perona, Pietro and Sato, Yoichi and Schmid, Cordelia},
+  Pages                    = {376--389},
+  Publisher                = {Springer Berlin Heidelberg},
+  Year                     = {2012},
+
+  Address                  = {Berlin, Heidelberg},
+
+  Abstract                 = {Road scene segmentation is important in computer vision for different applications such as autonomous driving and pedestrian detection. Recovering the 3D structure of road scenes provides relevant contextual information to improve their understanding.},
+  Booktitle                = {Computer Vision -- ECCV 2012: 12th European Conference on Computer Vision, Florence, Italy, October 7-13, 2012, Proceedings, Part VII},
+  Citations                = {125},
+  Doi                      = {10.1007/978-3-642-33786-4_28},
+  ISBN                     = {978-3-642-33786-4},
+  Url                      = {https://doi.org/10.1007/978-3-642-33786-4_28}
+}
+
+@Article{DBLP:journals/corr/AnwarHS15,
+  Title                    = {Structured Pruning of Deep Convolutional Neural Networks},
+  Author                   = {Sajid Anwar and Kyuyeon Hwang and Wonyong Sung},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1512.08571},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/AnwarHS15},
+  Citations                = {38},
+  Eprint                   = {1512.08571},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:13 +0200},
+  Url                      = {http://arxiv.org/abs/1512.08571}
+}
+
+@Article{DBLP:journals/corr/BadrinarayananK15,
+  Title                    = {SegNet: {A} Deep Convolutional Encoder-Decoder Architecture for Image Segmentation},
+  Author                   = {Vijay Badrinarayanan and Alex Kendall and Roberto Cipolla},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.00561},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/BadrinarayananK15},
+  Citations                = {452},
+  Eprint                   = {1511.00561},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:10 +0200},
+  Url                      = {http://arxiv.org/abs/1511.00561}
+}
+
+@InProceedings{7298977,
+  Title                    = {Scene labeling with LSTM recurrent neural networks},
+  Author                   = {W. Byeon and T. M. Breuel and F. Raue and M. Liwicki},
+  Booktitle                = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2015},
+  Month                    = {June},
+  Pages                    = {3547-3555},
+
+  Citations                = {109},
+  Doi                      = {10.1109/CVPR.2015.7298977},
+  ISSN                     = {1063-6919},
+  Keywords                 = {computational complexity;graphics processing units;image classification;image colour analysis;image segmentation;image sequences;learning (artificial intelligence);natural scenes;recurrent neural nets;2D LSTM network;CPU;GPU;LSTM recurrent neural network;RGB value;SIFT flow dataset;Stanford background;complex scene image;complex spatial dependency;computational complexity;context integration;feature map;global contextual information;graphics processing unit;image processing;image segmentation;learning-based approach;local contextual information;long short term memory recurrent neural network;natural scene image;pixel-level segmentation;scene image classification;scene labeling;sequence classification;single-core central processing unit;spatial model parameter;Accuracy;Feedforward neural networks;Roads;Weaving}
+}
+
+@Article{DBLP:journals/corr/ChandraK16,
+  Title                    = {Fast, Exact and Multi-Scale Inference for Semantic Image Segmentation with Deep Gaussian CRFs},
+  Author                   = {Siddhartha Chandra and Iasonas Kokkinos},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1603.08358},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ChandraK16},
+  Citations                = {30},
+  Eprint                   = {1603.08358},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:21 +0200},
+  Url                      = {http://arxiv.org/abs/1603.08358}
+}
+
+@Article{DBLP:journals/corr/ChenBPMY15,
+  Title                    = {Semantic Image Segmentation with Task-Specific Edge Detection Using CNNs and a Discriminatively Trained Domain Transform},
+  Author                   = {Liang{-}Chieh Chen and Jonathan T. Barron and George Papandreou and Kevin Murphy and Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.03328},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ChenBPMY15},
+  Citations                = {60},
+  Eprint                   = {1511.03328},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:40 +0200},
+  Url                      = {http://arxiv.org/abs/1511.03328}
+}
+
+@Article{DBLP:journals/corr/ChenPK0Y16,
+  Title                    = {DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs},
+  Author                   = {Liang{-}Chieh Chen and George Papandreou and Iasonas Kokkinos and Kevin Murphy and Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1606.00915},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ChenPK0Y16},
+  Citations                = {1164},
+  Eprint                   = {1606.00915},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:37 +0200},
+  Url                      = {http://arxiv.org/abs/1606.00915}
+}
+
+@Article{DBLP:journals/corr/ChenYWXY15,
+  Title                    = {Attention to Scale: Scale-aware Semantic Image Segmentation},
+  Author                   = {Liang{-}Chieh Chen and Yi Yang and Jiang Wang and Wei Xu and Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.03339},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ChenYWXY15},
+  Citations                = {114},
+  Eprint                   = {1511.03339},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:55 +0200},
+  Url                      = {http://arxiv.org/abs/1511.03339}
+}
+
+@Article{DBLP:journals/corr/ChenWTWC15,
+  Title                    = {Compressing Neural Networks with the Hashing Trick},
+  Author                   = {Wenlin Chen and James T. Wilson and Stephen Tyree and Kilian Q. Weinberger and Yixin Chen},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1504.04788},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ChenWTWC15},
+  Citations                = {203},
+  Eprint                   = {1504.04788},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:21 +0200},
+  Url                      = {http://arxiv.org/abs/1504.04788}
+}
+
+@InProceedings{7551407,
+  Title                    = {Eyeriss: A Spatial Architecture for Energy-Efficient Dataflow for Convolutional Neural Networks},
+  Author                   = {Y. H. Chen and J. Emer and V. Sze},
+  Booktitle                = {2016 ACM/IEEE 43rd Annual International Symposium on Computer Architecture (ISCA)},
+  Year                     = {2016},
+  Month                    = {June},
+  Pages                    = {367-379},
+
+  Citations                = {87},
+  Doi                      = {10.1109/ISCA.2016.40},
+  ISSN                     = {1063-6897},
+  Keywords                 = {computer architecture;convolution;data flow computing;neural nets;power aware computing;AlexNet CNN configurations;Eyeriss;PE local storage;RS dataflow;computational complexity;data movement energy consumption minimization;deep CNNs;deep convolutional neural networks;direct interPE communication;energy-efficient CNN processing;energy-efficient dataflow;feature map pixels;high-dimensional convolutions;local data reuse;parallel processing;partial sum accumulations;processing engine local storage;row-stationary dataflow;spatial architecture;spatial parallelism;Arrays;Parallel processing;Radio frequency;Random access memory;Shape;Throughput;Convolutional Neural Networks;Dataflow;Energy Efficiency;Spatial Architecture}
+}
+
+@Article{DBLP:journals/corr/abs-1710-09282,
+  Title                    = {A Survey of Model Compression and Acceleration for Deep Neural Networks},
+  Author                   = {Yu Cheng and Duo Wang and Pan Zhou and Tao Zhang},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1710.09282},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/abs-1710-09282},
+  Citations                = {0},
+  Eprint                   = {1710.09282},
+  Timestamp                = {Mon, 08 Jan 2018 16:19:01 +0100},
+  Url                      = {http://arxiv.org/abs/1710.09282}
+}
+
+@Article{DBLP:journals/corr/CollinsK14,
+  Title                    = {Memory Bounded Deep Convolutional Networks},
+  Author                   = {Maxwell D. Collins and Pushmeet Kohli},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.1442},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/CollinsK14},
+  Citations                = {59},
+  Eprint                   = {1412.1442},
+  Timestamp                = {Wed, 07 Jun 2017 14:43:05 +0200},
+  Url                      = {http://arxiv.org/abs/1412.1442}
+}
+
+@InBook{Cong2014,
+  Title                    = {Minimizing Computation in Convolutional Neural Networks},
+  Author                   = {Cong, Jason and Xiao, Bingjun},
+  Editor                   = {Wermter, Stefan and Weber, Cornelius and Duch, W{\l}odzis{\l}aw and Honkela, Timo and Koprinkova-Hristova, Petia and Magg, Sven and Palm, G{\"u}nther and Villa, Alessandro E. P.},
+  Pages                    = {281--290},
+  Publisher                = {Springer International Publishing},
+  Year                     = {2014},
+
+  Address                  = {Cham},
+
+  Abstract                 = {Convolutional Neural Networks (CNNs) have been successfully used for many computer vision applications. It would be beneficial to these applications if the computational workload of CNNs could be reduced. In this work we analyze the linear algebraic properties of CNNs and propose an algorithmic modification to reduce their computational workload. An up to a 47{\%} reduction can be achieved without any change in the image recognition results or the addition of any hardware accelerators.},
+  Booktitle                = {Artificial Neural Networks and Machine Learning -- ICANN 2014: 24th International Conference on Artificial Neural Networks, Hamburg, Germany, September 15-19, 2014. Proceedings},
+  Citations                = {61},
+  Doi                      = {10.1007/978-3-319-11179-7_36},
+  ISBN                     = {978-3-319-11179-7},
+  Url                      = {https://doi.org/10.1007/978-3-319-11179-7_36}
+}
+
+@Article{DBLP:journals/corr/CourbariauxB16,
+  Title                    = {BinaryNet: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1},
+  Author                   = {Matthieu Courbariaux and Yoshua Bengio},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1602.02830},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/CourbariauxB16},
+  Citations                = {233},
+  Eprint                   = {1602.02830},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:37 +0200},
+  Url                      = {http://arxiv.org/abs/1602.02830}
+}
+
+@Article{DBLP:journals/corr/CourbariauxBD15,
+  Title                    = {BinaryConnect: Training Deep Neural Networks with binary weights during propagations},
+  Author                   = {Matthieu Courbariaux and Yoshua Bengio and Jean{-}Pierre David},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.00363},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/CourbariauxBD15},
+  Citations                = {257},
+  Eprint                   = {1511.00363},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:24 +0200},
+  Url                      = {http://arxiv.org/abs/1511.00363}
+}
+
+@Article{DBLP:journals/corr/CourbariauxBD14,
+  Title                    = {Low precision arithmetic for deep learning},
+  Author                   = {Matthieu Courbariaux and Yoshua Bengio and Jean{-}Pierre David},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.7024},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/CourbariauxBD14},
+  Citations                = {63},
+  Eprint                   = {1412.7024},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:38 +0200},
+  Url                      = {http://arxiv.org/abs/1412.7024}
+}
+
+@Article{DBLP:journals/corr/DaiH015,
+  Title                    = {BoxSup: Exploiting Bounding Boxes to Supervise Convolutional Networks for Semantic Segmentation},
+  Author                   = {Jifeng Dai and Kaiming He and Jian Sun},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1503.01640},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/DaiH015},
+  Citations                = {162},
+  Eprint                   = {1503.01640},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:55 +0200},
+  Url                      = {http://arxiv.org/abs/1503.01640}
+}
+
+@Article{DBLP:journals/corr/DaiH014,
+  Title                    = {Convolutional Feature Masking for Joint Object and Stuff Segmentation},
+  Author                   = {Jifeng Dai and Kaiming He and Jian Sun},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.1283},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/DaiH014},
+  Citations                = {173},
+  Eprint                   = {1412.1283},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:03 +0200},
+  Url                      = {http://arxiv.org/abs/1412.1283}
+}
+
+@Article{DBLP:journals/corr/DentonZBLF14,
+  Title                    = {Exploiting Linear Structure Within Convolutional Networks for Efficient Evaluation},
+  Author                   = {Emily Denton and Wojciech Zaremba and Joan Bruna and Yann LeCun and Rob Fergus},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1404.0736},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/DentonZBLF14},
+  Citations                = {265},
+  Eprint                   = {1404.0736},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:37 +0200},
+  Url                      = {http://arxiv.org/abs/1404.0736}
+}
+
+@Article{6338939,
+  Title                    = {Learning Hierarchical Features for Scene Labeling},
+  Author                   = {C. Farabet and C. Couprie and L. Najman and Y. LeCun},
+  Journal                  = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  Year                     = {2013},
+
+  Month                    = {Aug},
+  Number                   = {8},
+  Pages                    = {1915-1929},
+  Volume                   = {35},
+
+  Citations                = {1206},
+  Doi                      = {10.1109/TPAMI.2012.231},
+  ISSN                     = {0162-8828},
+  Keywords                 = {feature extraction;image classification;image segmentation;image texture;shape recognition;transforms;trees (mathematics);Barcelona dataset;SIFT flow dataset;Stanford background dataset;contextual information capturing;dense feature vector extraction;hierarchical feature learning;image labeling;image pixel labeling;multiple size region encoding;multiscale convolutional network;near-record accuracy;object category;scene labeling;segmentation components;segmentation tree;shape information capturing;texture information capturing;Accuracy;Context;Feature extraction;Image edge detection;Image segmentation;Labeling;Vectors;Convolutional networks;deep learning;image classification;image segmentation;scene parsing}
+}
+
+@Article{DBLP:journals/corr/Garcia-GarciaOO17,
+  Title                    = {A Review on Deep Learning Techniques Applied to Semantic Segmentation},
+  Author                   = {Alberto Garcia{-}Garcia and Sergio Orts{-}Escolano and Sergiu Oprea and Victor Villena{-}Martinez and Jos{\'{e}} Garc{\'{\i}}a Rodr{\'{\i}}guez},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1704.06857},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/Garcia-GarciaOO17},
+  Citations                = {14},
+  Eprint                   = {1704.06857},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:09 +0200},
+  Url                      = {http://arxiv.org/abs/1704.06857}
+}
+
+@Article{DBLP:journals/corr/GhiasiF16,
+  Title                    = {Laplacian Reconstruction and Refinement for Semantic Segmentation},
+  Author                   = {Golnaz Ghiasi and Charless C. Fowlkes},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1605.02264},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/GhiasiF16},
+  Citations                = {59},
+  Eprint                   = {1605.02264},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:53 +0200},
+  Url                      = {http://arxiv.org/abs/1605.02264}
+}
+
+@Article{DBLP:journals/corr/GongLYB14,
+  Title                    = {Compressing Deep Convolutional Networks using Vector Quantization},
+  Author                   = {Yunchao Gong and Liu Liu and Ming Yang and Lubomir D. Bourdev},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.6115},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/GongLYB14},
+  Citations                = {176},
+  Eprint                   = {1412.6115},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:50 +0200},
+  Url                      = {http://arxiv.org/abs/1412.6115}
+}
+
+@Article{Guillaumin:2014:IAS:2688231.2688257,
+  Title                    = {ImageNet Auto-Annotation with Segmentation Propagation},
+  Author                   = {Guillaumin, Matthieu and K\"{u}ttel, Daniel and Ferrari, Vittorio},
+  Journal                  = {Int. J. Comput. Vision},
+  Year                     = {2014},
+
+  Month                    = dec,
+  Number                   = {3},
+  Pages                    = {328--348},
+  Volume                   = {110},
+
+  Acmid                    = {2688257},
+  Address                  = {Hingham, MA, USA},
+  Citations                = {54},
+  Doi                      = {10.1007/s11263-014-0713-9},
+  ISSN                     = {0920-5691},
+  Issue_date               = {December 2014},
+  Keywords                 = {Figure-ground segmentation, ImageNet, Knowledge transfer, Large-scale computer vision, Object localization},
+  Numpages                 = {21},
+  Publisher                = {Kluwer Academic Publishers},
+  Url                      = {http://dx.doi.org/10.1007/s11263-014-0713-9}
+}
+
+@Article{DBLP:journals/corr/GuoYC16,
+  Title                    = {Dynamic Network Surgery for Efficient DNNs},
+  Author                   = {Yiwen Guo and Anbang Yao and Yurong Chen},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1608.04493},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/GuoYC16},
+  Citations                = {40},
+  Eprint                   = {1608.04493},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:32 +0200},
+  Url                      = {http://arxiv.org/abs/1608.04493}
+}
+
+@Article{DBLP:journals/corr/GuptaAGN15,
+  Title                    = {Deep Learning with Limited Numerical Precision},
+  Author                   = {Suyog Gupta and Ankur Agrawal and Kailash Gopalakrishnan and Pritish Narayanan},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1502.02551},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/GuptaAGN15},
+  Citations                = {257},
+  Eprint                   = {1502.02551},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:55 +0200},
+  Url                      = {http://arxiv.org/abs/1502.02551}
+}
+
+@Article{DBLP:journals/corr/HanLMPPHD16,
+  Title                    = {{EIE:} Efficient Inference Engine on Compressed Deep Neural Network},
+  Author                   = {Song Han and Xingyu Liu and Huizi Mao and Jing Pu and Ardavan Pedram and Mark A. Horowitz and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1602.01528},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HanLMPPHD16},
+  Citations                = {207},
+  Eprint                   = {1602.01528},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:13 +0200},
+  Url                      = {http://arxiv.org/abs/1602.01528}
+}
+
+@Article{DBLP:journals/corr/HanMD15,
+  Title                    = {Deep Compression: Compressing Deep Neural Network with Pruning, Trained Quantization and Huffman Coding},
+  Author                   = {Song Han and Huizi Mao and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1510.00149},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HanMD15},
+  Citations                = {510},
+  Eprint                   = {1510.00149},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:25 +0200},
+  Url                      = {http://arxiv.org/abs/1510.00149}
+}
+
+@Article{DBLP:journals/corr/HanPTD15,
+  Title                    = {Learning both Weights and Connections for Efficient Neural Networks},
+  Author                   = {Song Han and Jeff Pool and John Tran and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1506.02626},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HanPTD15},
+  Citations                = {377},
+  Eprint                   = {1506.02626},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:54 +0200},
+  Url                      = {http://arxiv.org/abs/1506.02626}
+}
+
+@Article{DBLP:journals/corr/He014,
+  Title                    = {Convolutional Neural Networks at Constrained Time Cost},
+  Author                   = {Kaiming He and Jian Sun},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.1710},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/He014},
+  Citations                = {111},
+  Eprint                   = {1412.1710},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:30 +0200},
+  Url                      = {http://arxiv.org/abs/1412.1710}
+}
+
+@Article{DBLP:journals/corr/HongNH15,
+  Title                    = {Decoupled Deep Neural Network for Semi-supervised Semantic Segmentation},
+  Author                   = {Seunghoon Hong and Hyeonwoo Noh and Bohyung Han},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1506.04924},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HongNH15},
+  Citations                = {91},
+  Eprint                   = {1506.04924},
+  Timestamp                = {Wed, 07 Jun 2017 14:43:13 +0200},
+  Url                      = {http://arxiv.org/abs/1506.04924}
+}
+
+@Article{DBLP:journals/corr/HowardZCKWWAA17,
+  Title                    = {MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications},
+  Author                   = {Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1704.04861},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HowardZCKWWAA17},
+  Citations                = {83},
+  Eprint                   = {1704.04861},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:11 +0200},
+  Url                      = {http://arxiv.org/abs/1704.04861}
+}
+
+@Article{DBLP:journals/corr/HuPTT16,
+  Title                    = {Network Trimming: {A} Data-Driven Neuron Pruning Approach towards Efficient Deep Architectures},
+  Author                   = {Hengyuan Hu and Rui Peng and Yu{-}Wing Tai and Chi{-}Keung Tang},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1607.03250},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HuPTT16},
+  Citations                = {17},
+  Eprint                   = {1607.03250},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:29 +0200},
+  Url                      = {http://arxiv.org/abs/1607.03250}
+}
+
+@Article{DBLP:journals/corr/HubaraCSEB16,
+  Title                    = {Quantized Neural Networks: Training Neural Networks with Low Precision Weights and Activations},
+  Author                   = {Itay Hubara and Matthieu Courbariaux and Daniel Soudry and Ran El{-}Yaniv and Yoshua Bengio},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1609.07061},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/HubaraCSEB16},
+  Citations                = {81},
+  Eprint                   = {1609.07061},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:35 +0200},
+  Url                      = {http://arxiv.org/abs/1609.07061}
+}
+
+@InProceedings{6986082,
+  Title                    = {Fixed-point feedforward deep neural network design using weights +1, 0, -1 },
+  Author                   = {K. Hwang and W. Sung},
+  Booktitle                = {2014 IEEE Workshop on Signal Processing Systems (SiPS)},
+  Year                     = {2014},
+  Month                    = {Oct},
+  Pages                    = {1-6},
+
+  Citations                = {71},
+  Doi                      = {10.1109/SiPS.2014.6986082},
+  ISSN                     = {2162-3562},
+  Keywords                 = {backpropagation;character recognition;feedforward neural nets;fixed point arithmetic;signal processing;3-bit signal;backpropagation based retraining;character recognition;fixed-point feedforward deep neural network design;fixed-point signal;hardware complexity;phoneme recognition;quantized weights;ternary weights;Backpropagation;Error analysis;Feedforward neural networks;Hardware;Quantization (signal);Training}
+}
+
+@Article{DBLP:journals/corr/IandolaMAHDK16,
+  Title                    = {SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size},
+  Author                   = {Forrest N. Iandola and Matthew W. Moskewicz and Khalid Ashraf and Song Han and William J. Dally and Kurt Keutzer},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1602.07360},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/IandolaMAHDK16},
+  Citations                = {255},
+  Eprint                   = {1602.07360},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:50 +0200},
+  Url                      = {http://arxiv.org/abs/1602.07360}
+}
+
+@Article{DBLP:journals/corr/JaderbergVZ14,
+  Title                    = {Speeding up Convolutional Neural Networks with Low Rank Expansions},
+  Author                   = {Max Jaderberg and Andrea Vedaldi and Andrew Zisserman},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1405.3866},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/JaderbergVZ14},
+  Citations                = {224},
+  Eprint                   = {1405.3866},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:22 +0200},
+  Url                      = {http://arxiv.org/abs/1405.3866}
+}
+
+@Article{DBLP:journals/corr/KendallBC15,
+  Title                    = {Bayesian SegNet: Model Uncertainty in Deep Convolutional Encoder-Decoder Architectures for Scene Understanding},
+  Author                   = {Alex Kendall and Vijay Badrinarayanan and Roberto Cipolla},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.02680},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/KendallBC15},
+  Citations                = {100},
+  Eprint                   = {1511.02680},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:27 +0200},
+  Url                      = {http://arxiv.org/abs/1511.02680}
+}
+
+@Article{DBLP:journals/corr/KimS16,
+  Title                    = {Bitwise Neural Networks},
+  Author                   = {Minje Kim and Paris Smaragdis},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1601.06071},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/KimS16},
+  Citations                = {55},
+  Eprint                   = {1601.06071},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:27 +0200},
+  Url                      = {http://arxiv.org/abs/1601.06071}
+}
+
+@Article{DBLP:journals/corr/KimPYCYS15,
+  Title                    = {Compression of Deep Convolutional Neural Networks for Fast and Low Power Mobile Applications},
+  Author                   = {Yong{-}Deok Kim and Eunhyeok Park and Sungjoo Yoo and Taelim Choi and Lu Yang and Dongjun Shin},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.06530},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/KimPYCYS15},
+  Citations                = {96},
+  Eprint                   = {1511.06530},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:55 +0200},
+  Url                      = {http://arxiv.org/abs/1511.06530}
+}
+
+@InProceedings{7460664,
+  Title                    = {DeepX: A Software Accelerator for Low-Power Deep Learning Inference on Mobile Devices},
+  Author                   = {N. D. Lane and S. Bhattacharya and P. Georgiev and C. Forlivesi and L. Jiao and L. Qendro and F. Kawsar},
+  Booktitle                = {2016 15th ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN)},
+  Year                     = {2016},
+  Month                    = {April},
+  Pages                    = {1-12},
+
+  __markedentry            = {[nareshguru77:1]},
+  Citations                = {49},
+  Doi                      = {10.1109/IPSN.2016.7460664},
+  Keywords                 = {inference mechanisms;learning (artificial intelligence);mobile computing;power aware computing;DeepX;cloud-based offloading;heterogeneous local device processors;high-level information extraction;low-power deep learning inference;mobile apps;mobile devices;mobile processors;monolithic deep model network architectures;resource control algorithms;sensor data;software accelerator;Computational modeling;Computer architecture;Inference algorithms;Machine learning;Mobile communication;Program processors;Runtime}
+}
+
+@Article{DBLP:journals/corr/Lavin15b,
+  Title                    = {Fast Algorithms for Convolutional Neural Networks},
+  Author                   = {Andrew Lavin},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1509.09308},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/Lavin15b},
+  Citations                = {93},
+  Eprint                   = {1509.09308},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:45 +0200},
+  Url                      = {http://arxiv.org/abs/1509.09308}
+}
+
+@Article{DBLP:journals/corr/LebedevGROL14,
+  Title                    = {Speeding-up Convolutional Neural Networks Using Fine-tuned CP-Decomposition},
+  Author                   = {Vadim Lebedev and Yaroslav Ganin and Maksim Rakhuba and Ivan V. Oseledets and Victor S. Lempitsky},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.6553},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LebedevGROL14},
+  Citations                = {96},
+  Eprint                   = {1412.6553},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:31 +0200},
+  Url                      = {http://arxiv.org/abs/1412.6553}
+}
+
+@Article{DBLP:journals/corr/LebedevL15,
+  Title                    = {Fast ConvNets Using Group-wise Brain Damage},
+  Author                   = {Vadim Lebedev and Victor S. Lempitsky},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1506.02515},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LebedevL15},
+  Citations                = {40},
+  Eprint                   = {1506.02515},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:13 +0200},
+  Url                      = {http://arxiv.org/abs/1506.02515}
+}
+
+@InProceedings{7953288,
+  Title                    = {LogNet: Energy-efficient neural networks using logarithmic computation},
+  Author                   = {E. H. Lee and D. Miyashita and E. Chai and B. Murmann and S. S. Wong},
+  Booktitle                = {2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  Year                     = {2017},
+  Month                    = {March},
+  Pages                    = {5900-5904},
+
+  Citations                = {0},
+  Doi                      = {10.1109/ICASSP.2017.7953288},
+  Keywords                 = {inference mechanisms;neural nets;LogNet;LogNet inference engine;bitshift-add convolutions;energy-efficient neural networks;linear encoding;logarithmic computation;nonuniformly distributed weights;Encoding;Energy resolution;Engines;Field programmable gate arrays;Hardware;Neural networks;Quantization (signal);Neural networks;approximate computing;hardware-software co-design;logarithmic computation}
+}
+
+@Article{DBLP:journals/corr/LiL16,
+  Title                    = {Ternary Weight Networks},
+  Author                   = {Fengfu Li and Bin Liu},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1605.04711},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LiL16},
+  Citations                = {58},
+  Eprint                   = {1605.04711},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:50 +0200},
+  Url                      = {http://arxiv.org/abs/1605.04711}
+}
+
+@Article{DBLP:journals/corr/LiKDSG16,
+  Title                    = {Pruning Filters for Efficient ConvNets},
+  Author                   = {Hao Li and Asim Kadav and Igor Durdanovic and Hanan Samet and Hans Peter Graf},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1608.08710},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LiKDSG16},
+  Citations                = {45},
+  Eprint                   = {1608.08710},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:20 +0200},
+  Url                      = {http://arxiv.org/abs/1608.08710}
+}
+
+@Article{DBLP:journals/corr/LinMS016,
+  Title                    = {RefineNet: Multi-Path Refinement Networks for High-Resolution Semantic Segmentation},
+  Author                   = {Guosheng Lin and Anton Milan and Chunhua Shen and Ian D. Reid},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1611.06612},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LinMS016},
+  Citations                = {59},
+  Eprint                   = {1611.06612},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:30 +0200},
+  Url                      = {http://arxiv.org/abs/1611.06612}
+}
+
+@InProceedings{7298681,
+  Title                    = {Sparse Convolutional Neural Networks},
+  Author                   = {Baoyuan Liu and Min Wang and H. Foroosh and M. Tappen and M. Penksy},
+  Booktitle                = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2015},
+  Month                    = {June},
+  Pages                    = {806-814},
+
+  Citations                = {116},
+  Doi                      = {10.1109/CVPR.2015.7298681},
+  ISSN                     = {1063-6919},
+  Keywords                 = {matrix decomposition;matrix multiplication;neural nets;object detection;SCNN model;cascade model;object detection problem;sparse convolutional neural networks;sparse decomposition;sparse fully connected layers;sparse matrix multiplication algorithm;Accuracy;Convolutional codes;Kernel;Matrix decomposition;Neural networks;Redundancy;Sparse matrices}
+}
+
+@Article{DBLP:journals/corr/LiuLLLT15,
+  Title                    = {Semantic Image Segmentation via Deep Parsing Network},
+  Author                   = {Ziwei Liu and Xiaoxiao Li and Ping Luo and Chen Change Loy and Xiaoou Tang},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1509.02634},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LiuLLLT15},
+  Citations                = {161},
+  Eprint                   = {1509.02634},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:33 +0200},
+  Url                      = {http://arxiv.org/abs/1509.02634}
+}
+
+@Article{DBLP:journals/corr/LongSD14,
+  Title                    = {Fully Convolutional Networks for Semantic Segmentation},
+  Author                   = {Jonathan Long and Evan Shelhamer and Trevor Darrell},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1411.4038},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LongSD14},
+  Citations                = {3090},
+  Eprint                   = {1411.4038},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:28 +0200},
+  Url                      = {http://arxiv.org/abs/1411.4038}
+}
+
+@Article{DBLP:journals/corr/LucCCV16,
+  Title                    = {Semantic Segmentation using Adversarial Networks},
+  Author                   = {Pauline Luc and Camille Couprie and Soumith Chintala and Jakob Verbeek},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1611.08408},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/LucCCV16},
+  Citations                = {42},
+  Eprint                   = {1611.08408},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:08 +0200},
+  Url                      = {http://arxiv.org/abs/1611.08408}
+}
+
+@Article{openreview,
+  Title                    = {Speeding up semantic segmentation for autonomous driving},
+  Author                   = {M. Treml, J. Arjona-Medina, T. Unterthiner, R. Durgesh, F. Friedmann, P. Schuberth, A. Mayr, M. Heusel, M. Hofmarcher, M. Widrich, B. Nessler1, and S. Hochreiter.},
+  Journal                  = {NIPSW},
+  Year                     = {2016},
+
+  Citations                = {10},
+  Owner                    = {nareshguru77},
+  Timestamp                = {2017.12.30},
+  Url                      = {https://openreview.net/forum?id=S1uHiFyyg}
+}
+
+@Article{DBLP:journals/corr/MaoHPLLWD17,
+  Title                    = {Exploring the Regularity of Sparse Structure in Convolutional Neural Networks},
+  Author                   = {Huizi Mao and Song Han and Jeff Pool and Wenshuo Li and Xingyu Liu and Yu Wang and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1705.08922},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/MaoHPLLWD17},
+  Citations                = {0},
+  Eprint                   = {1705.08922},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:39 +0200},
+  Url                      = {http://arxiv.org/abs/1705.08922}
+}
+
+@Article{DBLP:journals/corr/MiyashitaLM16,
+  Title                    = {Convolutional Neural Networks using Logarithmic Data Representation},
+  Author                   = {Daisuke Miyashita and Edward H. Lee and Boris Murmann},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1603.01025},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/MiyashitaLM16},
+  Citations                = {31},
+  Eprint                   = {1603.01025},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:40 +0200},
+  Url                      = {http://arxiv.org/abs/1603.01025}
+}
+
+@Article{DBLP:journals/corr/MolchanovTKAK16,
+  Title                    = {Pruning Convolutional Neural Networks for Resource Efficient Transfer Learning},
+  Author                   = {Pavlo Molchanov and Stephen Tyree and Tero Karras and Timo Aila and Jan Kautz},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1611.06440},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/MolchanovTKAK16},
+  Citations                = {18},
+  Eprint                   = {1611.06440},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:59 +0200},
+  Url                      = {http://arxiv.org/abs/1611.06440}
+}
+
+@Article{DBLP:journals/corr/MostajabiYS14,
+  Title                    = {Feedforward semantic segmentation with zoom-out features},
+  Author                   = {Mohammadreza Mostajabi and Payman Yadollahpour and Gregory Shakhnarovich},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.0774},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/MostajabiYS14},
+  Citations                = {188},
+  Eprint                   = {1412.0774},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:41 +0200},
+  Url                      = {http://arxiv.org/abs/1412.0774}
+}
+
+@InProceedings{6909514,
+  Title                    = {The Role of Context for Object Detection and Semantic Segmentation in the Wild},
+  Author                   = {R. Mottaghi and X. Chen and X. Liu and N. G. Cho and S. W. Lee and S. Fidler and R. Urtasun and A. Yuille},
+  Booktitle                = {2014 IEEE Conference on Computer Vision and Pattern Recognition},
+  Year                     = {2014},
+  Month                    = {June},
+  Pages                    = {891-898},
+
+  Citations                = {86},
+  Doi                      = {10.1109/CVPR.2014.119},
+  ISSN                     = {1063-6919},
+  Keywords                 = {image segmentation;inference mechanisms;object detection;PASCAL VOC 2010 detection challenge;PASCAL imagery;contextual reasoning;deformable part-based model;nearest neighbor based approach;object detection;semantic category;semantic segmentation;Buildings;Context;Context modeling;Image segmentation;Object detection;Semantics;Vegetation}
+}
+
+@Article{DBLP:journals/corr/NohHH15,
+  Title                    = {Learning Deconvolution Network for Semantic Segmentation},
+  Author                   = {Hyeonwoo Noh and Seunghoon Hong and Bohyung Han},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1505.04366},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/NohHH15},
+  Citations                = {647},
+  Eprint                   = {1505.04366},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:13 +0200},
+  Url                      = {http://arxiv.org/abs/1505.04366}
+}
+
+@Article{DBLP:journals/corr/PapandreouCMY15,
+  Title                    = {Weakly- and Semi-Supervised Learning of a {DCNN} for Semantic Image Segmentation},
+  Author                   = {George Papandreou and Liang{-}Chieh Chen and Kevin Murphy and Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1502.02734},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/PapandreouCMY15},
+  Citations                = {144},
+  Eprint                   = {1502.02734},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:54 +0200},
+  Url                      = {http://arxiv.org/abs/1502.02734}
+}
+
+@Article{DBLP:journals/corr/abs-1708-04485,
+  Title                    = {SCNN: An Accelerator for Compressed-sparse Convolutional Neural Networks},
+  Author                   = {Angshuman Parashar and Minsoo Rhu and Anurag Mukkara and Antonio Puglielli and Rangharajan Venkatesan and Brucek Khailany and Joel S. Emer and Stephen W. Keckler and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1708.04485},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/abs-1708-04485},
+  Citations                = {10},
+  Eprint                   = {1708.04485},
+  Timestamp                = {Wed, 06 Sep 2017 08:50:04 +0200},
+  Url                      = {http://arxiv.org/abs/1708.04485}
+}
+
+@Article{DBLP:journals/corr/PaszkeCKC16,
+  Title                    = {ENet: {A} Deep Neural Network Architecture for Real-Time Semantic Segmentation},
+  Author                   = {Adam Paszke and Abhishek Chaurasia and Sangpil Kim and Eugenio Culurciello},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1606.02147},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/PaszkeCKC16},
+  Citations                = {74},
+  Eprint                   = {1606.02147},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:20 +0200},
+  Url                      = {http://arxiv.org/abs/1606.02147}
+}
+
+@Article{DBLP:journals/corr/PathakKD15,
+  Title                    = {Constrained Convolutional Neural Networks for Weakly Supervised Segmentation},
+  Author                   = {Deepak Pathak and Philipp Kr{\"{a}}henb{\"{u}}hl and Trevor Darrell},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1506.03648},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/PathakKD15},
+  Citations                = {108},
+  Eprint                   = {1506.03648},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:52 +0200},
+  Url                      = {http://arxiv.org/abs/1506.03648}
+}
+
+@Article{DBLP:journals/corr/PinheiroC14,
+  Title                    = {Weakly Supervised Semantic Segmentation with Convolutional Networks},
+  Author                   = {Pedro H. O. Pinheiro and Ronan Collobert},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1411.6228},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/PinheiroC14},
+  Citations                = {138},
+  Eprint                   = {1411.6228},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:42 +0200},
+  Url                      = {http://arxiv.org/abs/1411.6228}
+}
+
+@InProceedings{Pinheiro:2014:RCN:3044805.3044816,
+  Title                    = {Recurrent Convolutional Neural Networks for Scene Labeling},
+  Author                   = {Pinheiro, Pedro O. and Collobert, Ronan},
+  Booktitle                = {Proceedings of the 31st International Conference on International Conference on Machine Learning - Volume 32},
+  Year                     = {2014},
+  Pages                    = {I-82--I-90},
+  Publisher                = {JMLR.org},
+  Series                   = {ICML'14},
+
+  Acmid                    = {3044816},
+  Citations                = {305},
+  Location                 = {Beijing, China},
+  Url                      = {http://dl.acm.org/citation.cfm?id=3044805.3044816}
+}
+
+@Article{DBLP:journals/corr/PohlenHML16,
+  Title                    = {Full-Resolution Residual Networks for Semantic Segmentation in Street Scenes},
+  Author                   = {Tobias Pohlen and Alexander Hermans and Markus Mathias and Bastian Leibe},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1611.08323},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/PohlenHML16},
+  Citations                = {20},
+  Eprint                   = {1611.08323},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:06 +0200},
+  Url                      = {http://arxiv.org/abs/1611.08323}
+}
+
+@Article{DBLP:journals/corr/RastegariORF16,
+  Title                    = {XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks},
+  Author                   = {Mohammad Rastegari and Vicente Ordonez and Joseph Redmon and Ali Farhadi},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1603.05279},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/RastegariORF16},
+  Citations                = {303},
+  Eprint                   = {1603.05279},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:59 +0200},
+  Url                      = {http://arxiv.org/abs/1603.05279}
+}
+
+@Article{DBLP:journals/corr/RonnebergerFB15,
+  Title                    = {U-Net: Convolutional Networks for Biomedical Image Segmentation},
+  Author                   = {Olaf Ronneberger and Philipp Fischer and Thomas Brox},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1505.04597},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/RonnebergerFB15},
+  Citations                = {920},
+  Eprint                   = {1505.04597},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:33 +0200},
+  Url                      = {http://arxiv.org/abs/1505.04597}
+}
+
+@InCollection{NIPS2014_5282,
+  Title                    = {Recursive Context Propagation Network for Semantic Scene Labeling},
+  Author                   = {Sharma, Abhishek and Tuzel, Oncel and Liu, Ming-Yu},
+  Booktitle                = {Advances in Neural Information Processing Systems 27},
+  Publisher                = {Curran Associates, Inc.},
+  Year                     = {2014},
+  Editor                   = {Z. Ghahramani and M. Welling and C. Cortes and N. D. Lawrence and K. Q. Weinberger},
+  Pages                    = {2447--2455},
+
+  Citations                = {40},
+  Url                      = {http://papers.nips.cc/paper/5282-recursive-context-propagation-network-for-semantic-scene-labeling.pdf}
+}
+
+@InProceedings{7299053,
+  Title                    = {Integrating parametric and non-parametric models for scene labeling},
+  Author                   = {B. Shuai and G. Wang and Z. Zuo and B. Wang and L. Zhao},
+  Booktitle                = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2015},
+  Month                    = {June},
+  Pages                    = {4249-4258},
+
+  Citations                = {33},
+  Doi                      = {10.1109/CVPR.2015.7299053},
+  ISSN                     = {1063-6919},
+  Keywords                 = {estimation theory;image classification;learning (artificial intelligence);natural scenes;neural nets;SiftFlow;Stanford background benchmark;classifiers;convolutional neural networks;discriminative features;final pixel class prediction;global potential estimation;global scene constraint;large margin based CNN metric learning method;local patch classification;nonparametric models;parametric models;scene labeling;visually similar pixels;Context;Estimation;Labeling;Measurement;Roads;Semantics;Yttrium}
+}
+
+@Article{DBLP:journals/corr/ShuaiZWW15,
+  Title                    = {DAG-Recurrent Neural Networks For Scene Labeling},
+  Author                   = {Bing Shuai and Zhen Zuo and Gang Wang and Bing Wang},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1509.00552},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ShuaiZWW15},
+  Citations                = {36},
+  Eprint                   = {1509.00552},
+  Timestamp                = {Thu, 23 Nov 2017 16:18:52 +0100},
+  Url                      = {http://arxiv.org/abs/1509.00552}
+}
+
+@Article{DBLP:journals/corr/SrinivasB15,
+  Title                    = {Data-free parameter pruning for Deep Neural Networks},
+  Author                   = {Suraj Srinivas and R. Venkatesh Babu},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1507.06149},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/SrinivasB15},
+  Citations                = {41},
+  Eprint                   = {1507.06149},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:21 +0200},
+  Url                      = {http://arxiv.org/abs/1507.06149}
+}
+
+@Article{DBLP:journals/corr/SungSH15,
+  Title                    = {Resiliency of Deep Neural Networks under Quantization},
+  Author                   = {Wonyong Sung and Sungho Shin and Kyuyeon Hwang},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.06488},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/SungSH15},
+  Citations                = {23},
+  Eprint                   = {1511.06488},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:02 +0200},
+  Url                      = {http://arxiv.org/abs/1511.06488}
+}
+
+@Article{DBLP:journals/corr/SzeCYE17,
+  Title                    = {Efficient Processing of Deep Neural Networks: {A} Tutorial and Survey},
+  Author                   = {Vivienne Sze and Yu{-}Hsin Chen and Tien{-}Ju Yang and Joel S. Emer},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1703.09039},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/SzeCYE17},
+  Citations                = {29},
+  Eprint                   = {1703.09039},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:40 +0200},
+  Url                      = {http://arxiv.org/abs/1703.09039}
+}
+
+@Article{DBLP:journals/corr/TaiXWE15,
+  Title                    = {Convolutional neural networks with low-rank regularization},
+  Author                   = {Cheng Tai and Tong Xiao and Xiaogang Wang and Weinan E},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.06067},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/TaiXWE15},
+  Citations                = {29},
+  Eprint                   = {1511.06067},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:53 +0200},
+  Url                      = {http://arxiv.org/abs/1511.06067}
+}
+
+@Article{DBLP:journals/corr/Thoma16a,
+  Title                    = {A Survey of Semantic Segmentation},
+  Author                   = {Martin Thoma},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1602.06541},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/Thoma16a},
+  Citations                = {7},
+  Eprint                   = {1602.06541},
+  Timestamp                = {Mon, 28 Aug 2017 20:59:27 +0200},
+  Url                      = {http://arxiv.org/abs/1602.06541}
+}
+
+@InProceedings{7780720,
+  Title                    = {Gaussian Conditional Random Field Network for Semantic Segmentation},
+  Author                   = {R. Vemulapalli and O. Tuzel and M. Y. Liu and R. Chellappa},
+  Booktitle                = {2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2016},
+  Month                    = {June},
+  Pages                    = {3224-3233},
+
+  Citations                = {21},
+  Doi                      = {10.1109/CVPR.2016.351},
+  Keywords                 = {Gaussian processes;image segmentation;inference mechanisms;neural nets;CNN-based pairwise network;CNN-based unary network;CNNs;GMF network;Gaussian CRF inference;Gaussian CRF network;Gaussian mean field;PASCALVOC 2012 segmentation dataset;deep convolutional neural networks;deep network network;end-to-end trainable Gaussian conditional random field network;mean field inference;pairwise potentials generation;semantic segmentation;unary potential generation;Graphical models;Image segmentation;Labeling;Linear systems;Neural networks;Proposals;Semantics}
+}
+
+@InProceedings{6126299,
+  Title                    = {Weakly supervised semantic segmentation with a multi-image model},
+  Author                   = {A. Vezhnevets and V. Ferrari and J. M. Buhmann},
+  Booktitle                = {2011 International Conference on Computer Vision},
+  Year                     = {2011},
+  Month                    = {Nov},
+  Pages                    = {643-650},
+
+  Citations                = {119},
+  Doi                      = {10.1109/ICCV.2011.6126299},
+  ISSN                     = {1550-5499},
+  Keywords                 = {image resolution;image segmentation;learning (artificial intelligence);set theory;LabelMe subset;appearance similarity;data-driven fashion;graphical model;learned multiple kernel metric;multiimage model;objectness potential;pixel labels;training set;weakly supervised semantic segmentation;Histograms;Image segmentation;Kernel;Measurement;Roads;Semantics;Training}
+}
+
+@Article{DBLP:journals/corr/WangCYLHHC17,
+  Title                    = {Understanding Convolution for Semantic Segmentation},
+  Author                   = {Panqu Wang and Pengfei Chen and Ye Yuan and Ding Liu and Zehua Huang and Xiaodi Hou and Garrison W. Cottrell},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1702.08502},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/WangCYLHHC17},
+  Citations                = {14},
+  Eprint                   = {1702.08502},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:01 +0200},
+  Url                      = {http://arxiv.org/abs/1702.08502}
+}
+
+@Article{DBLP:journals/corr/WenWWCL16,
+  Title                    = {Learning Structured Sparsity in Deep Neural Networks},
+  Author                   = {Wei Wen and Chunpeng Wu and Yandan Wang and Yiran Chen and Hai Li},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1608.03665},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/WenWWCL16},
+  Citations                = {98},
+  Eprint                   = {1608.03665},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:20 +0200},
+  Url                      = {http://arxiv.org/abs/1608.03665}
+}
+
+@InProceedings{7780890,
+  Title                    = {Quantized Convolutional Neural Networks for Mobile Devices},
+  Author                   = {J. Wu and C. Leng and Y. Wang and Q. Hu and J. Cheng},
+  Booktitle                = {2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2016},
+  Month                    = {June},
+  Pages                    = {4820-4828},
+
+  Citations                = {71},
+  Doi                      = {10.1109/CVPR.2016.521},
+  Keywords                 = {computer vision;image classification;matrix algebra;minimisation;mobile computing;neural nets;quantisation (signal);ILSVRC-12 benchmark;computer vision;convolutional layers;estimation error minimization;filter kernels;fully-connected layer quantization;image classification;mobile devices;quantized CNN;quantized convolutional neural networks;weighting matrices;Acceleration;Computational modeling;Convolutional codes;Estimation error;Image coding;Kernel;Quantization (signal)}
+}
+
+@Article{DBLP:journals/corr/YangCS16a,
+  Title                    = {Designing Energy-Efficient Convolutional Neural Networks using Energy-Aware Pruning},
+  Author                   = {Tien{-}Ju Yang and Yu{-}Hsin Chen and Vivienne Sze},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1611.05128},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/YangCS16a},
+  Citations                = {18},
+  Eprint                   = {1611.05128},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:06 +0200},
+  Url                      = {http://arxiv.org/abs/1611.05128}
+}
+
+@Article{DBLP:journals/corr/YuK15,
+  Title                    = {Multi-Scale Context Aggregation by Dilated Convolutions},
+  Author                   = {Fisher Yu and Vladlen Koltun},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.07122},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/YuK15},
+  Citations                = {497},
+  Eprint                   = {1511.07122},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:43 +0200},
+  Url                      = {http://arxiv.org/abs/1511.07122}
+}
+
+@Article{DBLP:journals/corr/ZhangZMH014,
+  Title                    = {Efficient and Accurate Approximations of Nonlinear Convolutional Networks},
+  Author                   = {Xiangyu Zhang and Jianhua Zou and Xiang Ming and Kaiming He and Jian Sun},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1411.4229},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhangZMH014},
+  Citations                = {51},
+  Eprint                   = {1411.4229},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:17 +0200},
+  Url                      = {http://arxiv.org/abs/1411.4229}
+}
+
+@Article{DBLP:journals/corr/ZhaoQSSJ17,
+  Title                    = {ICNet for Real-Time Semantic Segmentation on High-Resolution Images},
+  Author                   = {Hengshuang Zhao and Xiaojuan Qi and Xiaoyong Shen and Jianping Shi and Jiaya Jia},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1704.08545},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhaoQSSJ17},
+  Citations                = {7},
+  Eprint                   = {1704.08545},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:18 +0200},
+  Url                      = {http://arxiv.org/abs/1704.08545}
+}
+
+@Article{DBLP:journals/corr/ZhaoSQWJ16,
+  Title                    = {Pyramid Scene Parsing Network},
+  Author                   = {Hengshuang Zhao and Jianping Shi and Xiaojuan Qi and Xiaogang Wang and Jiaya Jia},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1612.01105},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhaoSQWJ16},
+  Citations                = {123},
+  Eprint                   = {1612.01105},
+  Timestamp                = {Wed, 07 Jun 2017 14:43:14 +0200},
+  Url                      = {http://arxiv.org/abs/1612.01105}
+}
+
+@Article{DBLP:journals/corr/ZhouYGXC17,
+  Title                    = {Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights},
+  Author                   = {Aojun Zhou and Anbang Yao and Yiwen Guo and Lin Xu and Yurong Chen},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1702.03044},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhouYGXC17},
+  Citations                = {28},
+  Eprint                   = {1702.03044},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:17 +0200},
+  Url                      = {http://arxiv.org/abs/1702.03044}
+}
+
+@Article{DBLP:journals/corr/ZhouZPFBT16,
+  Title                    = {Semantic Understanding of Scenes through the {ADE20K} Dataset},
+  Author                   = {Bolei Zhou and Hang Zhao and Xavier Puig and Sanja Fidler and Adela Barriuso and Antonio Torralba},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1608.05442},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhouZPFBT16},
+  Citations                = {56},
+  Eprint                   = {1608.05442},
+  Timestamp                = {Thu, 13 Jul 2017 11:49:40 +0200},
+  Url                      = {http://arxiv.org/abs/1608.05442}
+}
+
+@Article{DBLP:journals/corr/ZhouNZWWZ16,
+  Title                    = {DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients},
+  Author                   = {Shuchang Zhou and Zekun Ni and Xinyu Zhou and He Wen and Yuxin Wu and Yuheng Zou},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1606.06160},
+
+  __markedentry            = {[nareshguru77:1]},
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhouNZWWZ16},
+  Citations                = {76},
+  Eprint                   = {1606.06160},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:53 +0200},
+  Url                      = {http://arxiv.org/abs/1606.06160}
+}
+
+@Article{DBLP:journals/corr/ZhuHMD16,
+  Title                    = {Trained Ternary Quantization},
+  Author                   = {Chenzhuo Zhu and Song Han and Huizi Mao and William J. Dally},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1612.01064},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/ZhuHMD16},
+  Citations                = {40},
+  Eprint                   = {1612.01064},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:28 +0200},
+  Url                      = {http://arxiv.org/abs/1612.01064}
+}
+
+@comment{jabref-meta: groupsversion:3;}
+
+@comment{jabref-meta: groupstree:
+0 AllEntriesGroup:;
+1 ExplicitGroup:Real-Time-SS\;0\;DBLP:journals/corr/ZhaoQSSJ17\;openre
+view\;;
+1 ExplicitGroup:Accuracy-SS\;0\;6126299\;6338939\;6909514\;7298977\;72
+99053\;7780720\;Alvarez2012\;DBLP:journals/corr/ChandraK16\;DBLP:journ
+als/corr/ChenBPMY15\;DBLP:journals/corr/ChenPK0Y16\;DBLP:journals/corr
+/ChenYWXY15\;DBLP:journals/corr/DaiH014\;DBLP:journals/corr/GhiasiF16\
+;DBLP:journals/corr/HongNH15\;DBLP:journals/corr/KendallBC15\;DBLP:jou
+rnals/corr/LinMS016\;DBLP:journals/corr/LiuLLLT15\;DBLP:journals/corr/
+LongSD14\;DBLP:journals/corr/LucCCV16\;DBLP:journals/corr/MostajabiYS1
+4\;DBLP:journals/corr/NohHH15\;DBLP:journals/corr/PapandreouCMY15\;DBL
+P:journals/corr/PathakKD15\;DBLP:journals/corr/PinheiroC14\;DBLP:journ
+als/corr/PohlenHML16\;DBLP:journals/corr/RonnebergerFB15\;DBLP:journal
+s/corr/ShuaiZWW15\;DBLP:journals/corr/WangCYLHHC17\;DBLP:journals/corr
+/YuK15\;DBLP:journals/corr/ZhaoSQWJ16\;NIPS2014_5282\;Pinheiro:2014:RC
+N:3044805.3044816\;;
+1 ExplicitGroup:Storage-SS\;0\;;
+1 ExplicitGroup:Energy-Effi\;0\;DBLP:journals/corr/HanLMPPHD16\;DBLP:j
+ournals/corr/YangCS16a\;;
+1 ExplicitGroup:Storage-Effi\;0\;7298681\;DBLP:journals/corr/AnwarHS15
+\;DBLP:journals/corr/ChenWTWC15\;DBLP:journals/corr/CollinsK14\;DBLP:j
+ournals/corr/GongLYB14\;DBLP:journals/corr/GuoYC16\;DBLP:journals/corr
+/HanMD15\;DBLP:journals/corr/HanPTD15\;DBLP:journals/corr/HuPTT16\;DBL
+P:journals/corr/IandolaMAHDK16\;DBLP:journals/corr/KimPYCYS15\;DBLP:jo
+urnals/corr/LebedevL15\;DBLP:journals/corr/MolchanovTKAK16\;DBLP:journ
+als/corr/SrinivasB15\;DBLP:journals/corr/TaiXWE15\;;
+1 ExplicitGroup:Real-Time-Effi\;0\;DBLP:journals/corr/DentonZBLF14\;DB
+LP:journals/corr/He014\;DBLP:journals/corr/JaderbergVZ14\;DBLP:journal
+s/corr/Lavin15b\;DBLP:journals/corr/LebedevGROL14\;DBLP:journals/corr/
+LiKDSG16\;DBLP:journals/corr/MaoHPLLWD17\;DBLP:journals/corr/ZhangZMH0
+14\;;
+1 ExplicitGroup:SS\;0\;6126299\;6338939\;6909514\;7298977\;7299053\;77
+80720\;Alvarez2012\;DBLP:journals/corr/BadrinarayananK15\;DBLP:journal
+s/corr/ChandraK16\;DBLP:journals/corr/ChenBPMY15\;DBLP:journals/corr/C
+henPK0Y16\;DBLP:journals/corr/ChenYWXY15\;DBLP:journals/corr/DaiH014\;
+DBLP:journals/corr/Garcia-GarciaOO17\;DBLP:journals/corr/GhiasiF16\;DB
+LP:journals/corr/HongNH15\;DBLP:journals/corr/KendallBC15\;DBLP:journa
+ls/corr/LinMS016\;DBLP:journals/corr/LiuLLLT15\;DBLP:journals/corr/Lon
+gSD14\;DBLP:journals/corr/LucCCV16\;DBLP:journals/corr/MostajabiYS14\;
+DBLP:journals/corr/NohHH15\;DBLP:journals/corr/PapandreouCMY15\;DBLP:j
+ournals/corr/PaszkeCKC16\;DBLP:journals/corr/PathakKD15\;DBLP:journals
+/corr/PinheiroC14\;DBLP:journals/corr/PohlenHML16\;DBLP:journals/corr/
+RonnebergerFB15\;DBLP:journals/corr/ShuaiZWW15\;DBLP:journals/corr/Tho
+ma16a\;DBLP:journals/corr/WangCYLHHC17\;DBLP:journals/corr/YuK15\;DBLP
+:journals/corr/ZhaoQSSJ17\;DBLP:journals/corr/ZhaoSQWJ16\;NIPS2014_528
+2\;Pinheiro:2014:RCN:3044805.3044816\;openreview\;;
+1 ExplicitGroup:Effi\;0\;6986082\;7298681\;7460664\;7551407\;7780890\;
+7953288\;Cong2014\;DBLP:journals/corr/AnwarHS15\;DBLP:journals/corr/Ch
+enWTWC15\;DBLP:journals/corr/CollinsK14\;DBLP:journals/corr/Courbariau
+xB16\;DBLP:journals/corr/CourbariauxBD14\;DBLP:journals/corr/Courbaria
+uxBD15\;DBLP:journals/corr/DentonZBLF14\;DBLP:journals/corr/GongLYB14\
+;DBLP:journals/corr/GuoYC16\;DBLP:journals/corr/GuptaAGN15\;DBLP:journ
+als/corr/HanLMPPHD16\;DBLP:journals/corr/HanMD15\;DBLP:journals/corr/H
+anPTD15\;DBLP:journals/corr/He014\;DBLP:journals/corr/HowardZCKWWAA17\
+;DBLP:journals/corr/HuPTT16\;DBLP:journals/corr/HubaraCSEB16\;DBLP:jou
+rnals/corr/IandolaMAHDK16\;DBLP:journals/corr/JaderbergVZ14\;DBLP:jour
+nals/corr/KimPYCYS15\;DBLP:journals/corr/KimS16\;DBLP:journals/corr/La
+vin15b\;DBLP:journals/corr/LebedevGROL14\;DBLP:journals/corr/LebedevL1
+5\;DBLP:journals/corr/LiKDSG16\;DBLP:journals/corr/LiL16\;DBLP:journal
+s/corr/MaoHPLLWD17\;DBLP:journals/corr/MiyashitaLM16\;DBLP:journals/co
+rr/MolchanovTKAK16\;DBLP:journals/corr/RastegariORF16\;DBLP:journals/c
+orr/SrinivasB15\;DBLP:journals/corr/SungSH15\;DBLP:journals/corr/SzeCY
+E17\;DBLP:journals/corr/TaiXWE15\;DBLP:journals/corr/WenWWCL16\;DBLP:j
+ournals/corr/YangCS16a\;DBLP:journals/corr/ZhangZMH014\;DBLP:journals/
+corr/ZhouNZWWZ16\;DBLP:journals/corr/ZhouYGXC17\;DBLP:journals/corr/Zh
+uHMD16\;DBLP:journals/corr/abs-1708-04485\;;
+1 ExplicitGroup:Real-Time-&-Storage-SS\;0\;DBLP:journals/corr/Badrinar
+ayananK15\;DBLP:journals/corr/PaszkeCKC16\;;
+1 ExplicitGroup:Dataset\;0\;DBLP:journals/corr/DaiH015\;DBLP:journals/
+corr/ZhouZPFBT16\;Guillaumin:2014:IAS:2688231.2688257\;;
+1 ExplicitGroup:General-Effi\;0\;6986082\;7460664\;7551407\;7780890\;7
+953288\;Cong2014\;DBLP:journals/corr/CourbariauxB16\;DBLP:journals/cor
+r/CourbariauxBD14\;DBLP:journals/corr/CourbariauxBD15\;DBLP:journals/c
+orr/GuptaAGN15\;DBLP:journals/corr/HowardZCKWWAA17\;DBLP:journals/corr
+/HubaraCSEB16\;DBLP:journals/corr/KimS16\;DBLP:journals/corr/LiL16\;DB
+LP:journals/corr/MiyashitaLM16\;DBLP:journals/corr/RastegariORF16\;DBL
+P:journals/corr/SungSH15\;DBLP:journals/corr/WenWWCL16\;DBLP:journals/
+corr/ZhouNZWWZ16\;DBLP:journals/corr/ZhouYGXC17\;DBLP:journals/corr/Zh
+uHMD16\;DBLP:journals/corr/abs-1708-04485\;;
+1 ExplicitGroup:Surveys\;0\;DBLP:journals/corr/Garcia-GarciaOO17\;DBLP
+:journals/corr/SzeCYE17\;DBLP:journals/corr/Thoma16a\;;
+}
+
