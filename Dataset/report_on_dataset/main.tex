@@ -149,9 +149,48 @@ The final folder structure is shown in \ref{Fig:6}. The image folder and label f
 		\item Labeling images with multiple objects would take an even longer time.
 	\end{itemize}
 	
-These drawbacks could be overcome by randomly placing objects on a variety of different background images.
+These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically using code.
 
+\subsection{Working}
+The following steps are performed to result in the generation of augmented images:
+	\begin{itemize}
+	\label{List:1}
+		\item[1] Given the path to the background images (for example, ''./backgrounds'), the images in the path are read and stored in a list.
+		\item[2] Given the path to the 'image' folder (for example, './objects/image') and the 'label' folder (for example, './objects/label'), the script fetches the paths of the label files and the corresponding paths of the image files. The number of label files available is also counted.
+		\item[3] Each image and its corresponding label for each class of objects is read one by one. Different scales of the image and label for each image is also created based on the NUM\_OF\_SCALES keyword argument and added to a list. If an added object is too small (determined using MIN\_OBJ\_AREA\_PERCENT) or too big (determined using MAX\_OBJ\_AREA\_PERCENT), it is removed from the list.
+		\item[4] The list of objects contains the following details about each object:
+			\begin{itemize}
+				\item 'obj\_loc': The pixel locations in the image where the object is in the original image.
+				\item 'obj\_vals': Intensity values of the object corresponding to 'obj\_loc'.
+				\item 'label\_vals': Label values of the object corresponding to 'obj\_loc'.
+				\item 'obj\_name': The name of the object.
+				\item 'rect\_points': The top left and bottom right coordinates of the bounding rectangle of the object in pixel space.
+				\item 'obj\_area': The area occupied by the object in pixel space.
+			\end{itemize}
+		An example is shown in the figure\ref{Fig:7}.
+		\item[5] A list called 'augment\_vector' is created with each element in the list containing the following details. Each of these elements denote an augmented image and determine how objects are placed on a background.
+			\begin{itemize}
+				\item 'background\_image': A randomly choosen background image. It is also made sure that each available background is used atleast once before reselecting a background.
+				\item 'num\_objects\_to\_place': Number of objects to be placed in the current augmented image.
+				\item 'what\_objects': A list of random numbers which determines what objects from the objects list is selected.
+				\item 'locations': A list of random locations in the pixel space where the selected objects need to be placed.
+			\end{itemize}
+		\item[6] Each of the elements in the augment\_vector is evaluated and elements whose objects occupy an area above MAX\_OCCUPIED\_AREA and whose object locations are too close to each other determined by MIN\_DIST\_BTW\_LOCATIONS, are removed.
+		\item 
+	\end{itemize}
+	
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[scale=0.33]{obj_details}
+		\caption{Details about an example object stored in the objects list}
+		\label{Fig:7}
+	\end{figure}
+	
+About the class and the object. Steps 1 to 4 in \ref{List:1} are done by the class initialization and the rest using an object.
+	
+\subsection{Keyword arguments}
 
+\subsection{Sample results}
 
 \section{Meta-data of the dataset}
 
