@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.7)  21 APR 2018 22:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.7)  22 APR 2018 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1505,12 +1505,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip66
 )
-Package hyperref Info: Option `unicode' set `false' on input line 135.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 135.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 135.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 135.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 135.
-Package hyperref Info: Option `colorlinks' set `false' on input line 135.
+Package hyperref Info: Option `unicode' set `false' on input line 136.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 136.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 136.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 136.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 136.
+Package hyperref Info: Option `colorlinks' set `false' on input line 136.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1520,28 +1520,28 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (./main.aux (./titlepage.aux) (./acronym.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 5.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1617,7 +1617,7 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 5.
+Package hyperref Info: Link coloring OFF on input line 4.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1626,9 +1626,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count297
 )
-LaTeX Info: Redefining \ref on input line 5.
-LaTeX Info: Redefining \pageref on input line 5.
-LaTeX Info: Redefining \nameref on input line 5.
+LaTeX Info: Redefining \ref on input line 4.
+LaTeX Info: Redefining \pageref on input line 4.
+LaTeX Info: Redefining \nameref on input line 4.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1637,7 +1637,7 @@ LaTeX Info: Redefining \nameref on input line 5.
 \openout2 = `titlepage.aux'.
 
  (./titlepage.tex
-<./logos/logo_hbrs.png, id=46, 896.68333pt x 175.25475pt>
+<./logos/logo_hbrs.png, id=58, 896.68333pt x 175.25475pt>
 File: ./logos/logo_hbrs.png Graphic file (type png)
 
 <use ./logos/logo_hbrs.png>
@@ -1683,7 +1683,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 13.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 12.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1727,7 +1727,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 \openout6 = `main.toc'.
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 16.
+(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 15.
  [3
 
 
@@ -1749,62 +1749,62 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
 
 
 No file acronym.tex.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 44.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 43.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 	\end{itemize}
+l.52 	\end{itemize}
                     [1
 
 
 
 
-] <images/labelDef.png, id=95, 467.7475pt x 493.845pt>
+] <images/labelDef.png, id=118, 467.7475pt x 493.845pt>
 File: images/labelDef.png Graphic file (type png)
 
 <use images/labelDef.png>
-Package pdftex.def Info: images/labelDef.png used on input line 61.
+Package pdftex.def Info: images/labelDef.png used on input line 60.
 (pdftex.def)             Requested size: 327.421pt x 345.68913pt.
 
-<images/label_tools.png, id=97, 690.58pt x 123.46124pt>
+<images/label_tools.png, id=120, 690.58pt x 123.46124pt>
 File: images/label_tools.png Graphic file (type png)
 
 <use images/label_tools.png>
-Package pdftex.def Info: images/label_tools.png used on input line 69.
+Package pdftex.def Info: images/label_tools.png used on input line 68.
 (pdftex.def)             Requested size: 379.82018pt x 67.90387pt.
  [2 <./images/labelDef.png>]
-<images/roi_label_defintions.png, id=103, 377.41pt x 622.325pt>
+<images/roi_label_defintions.png, id=126, 377.41pt x 622.325pt>
 File: images/roi_label_defintions.png Graphic file (type png)
 
 <use images/roi_label_defintions.png>
-Package pdftex.def Info: images/roi_label_defintions.png used on input line 86.
+Package pdftex.def Info: images/roi_label_defintions.png used on input line 85.
 
 (pdftex.def)             Requested size: 226.44774pt x 373.39787pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 
+l.102 
        [3 <./images/label_tools.png>]
-<images/folder_structure.png, id=111, 397.485pt x 194.7275pt>
+<images/folder_structure.png, id=134, 397.485pt x 194.7275pt>
 File: images/folder_structure.png Graphic file (type png)
 
 <use images/folder_structure.png>
-Package pdftex.def Info: images/folder_structure.png used on input line 108.
+Package pdftex.def Info: images/folder_structure.png used on input line 107.
 (pdftex.def)             Requested size: 192.0561pt x 94.08913pt.
 
-<images/folder_structure_aug.png, id=112, 385.44pt x 215.80624pt>
+<images/folder_structure_aug.png, id=135, 385.44pt x 215.80624pt>
 File: images/folder_structure_aug.png Graphic file (type png)
 
 <use images/folder_structure_aug.png>
-Package pdftex.def Info: images/folder_structure_aug.png used on input line 114
+Package pdftex.def Info: images/folder_structure_aug.png used on input line 113
 .
 (pdftex.def)             Requested size: 192.0561pt x 107.53075pt.
 
-Overfull \hbox (2.0805pt too wide) in paragraph at lines 106--118
+Overfull \hbox (2.0805pt too wide) in paragraph at lines 105--117
 []$[]$ $[]$ 
  []
 
@@ -1812,24 +1812,24 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 
+l.123 
        [4 <./images/roi_label_defintions.png> <./images/folder_structure.png> <
 ./images/folder_structure_aug.png>]
-<images/folder_image.png, id=117, 380.42125pt x 486.81876pt>
+<images/folder_image.png, id=140, 380.42125pt x 486.81876pt>
 File: images/folder_image.png Graphic file (type png)
 
 <use images/folder_image.png>
-Package pdftex.def Info: images/folder_image.png used on input line 129.
+Package pdftex.def Info: images/folder_image.png used on input line 128.
 (pdftex.def)             Requested size: 192.0561pt x 245.77838pt.
 
-<images/folder_label.png, id=118, 382.42876pt x 510.90875pt>
+<images/folder_label.png, id=141, 382.42876pt x 510.90875pt>
 File: images/folder_label.png Graphic file (type png)
 
 <use images/folder_label.png>
-Package pdftex.def Info: images/folder_label.png used on input line 135.
+Package pdftex.def Info: images/folder_label.png used on input line 134.
 (pdftex.def)             Requested size: 192.0561pt x 256.57634pt.
 
-Overfull \hbox (2.0805pt too wide) in paragraph at lines 127--139
+Overfull \hbox (2.0805pt too wide) in paragraph at lines 126--138
 []$[]$ $[]$ 
  []
 
@@ -1837,36 +1837,99 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.161 		\item I
-               ntegrating 'rest of the pixels are background' into MATLAB Im...
-[5 <./images/folder_image.png> <./images/folder_label.png>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
- (./main.aux (./titlepage.aux) (./acronym.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
+l.157 		\item[1]
+                 Given the path to the background images (for example, ''./b...
+[5 <./images/folder_image.png> <./images/folder_label.png>]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 162.
+ [6]
+Overfull \hbox (20.89117pt too wide) in paragraph at lines 178--179
+\T1/ptm/m/n/10.95 be saved in './data_augmentation_results/image_and_gt/' by se
+t-ting save_data_preview
+ []
+
+<images/obj_details.png, id=151, 1285.80376pt x 339.2675pt>
+File: images/obj_details.png Graphic file (type png)
+
+<use images/obj_details.png>
+Package pdftex.def Info: images/obj_details.png used on input line 183.
+(pdftex.def)             Requested size: 424.31656pt x 111.95862pt.
+
+Overfull \hbox (40.20435pt too wide) in paragraph at lines 183--184
+ [][] 
+ []
+
+
+Overfull \hbox (27.4436pt too wide) in paragraph at lines 194--235
+ [][] 
+ []
+
+[7 <./images/obj_details.png>]
+<images/sample_result_1.png, id=161, 983.675pt x 431.6125pt>
+File: images/sample_result_1.png Graphic file (type png)
+
+<use images/sample_result_1.png>
+Package pdftex.def Info: images/sample_result_1.png used on input line 293.
+(pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
+
+<images/sample_result_2.png, id=162, 983.675pt x 431.6125pt>
+File: images/sample_result_2.png Graphic file (type png)
+
+<use images/sample_result_2.png>
+Package pdftex.def Info: images/sample_result_2.png used on input line 294.
+(pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
+
+<images/sample_result_3.png, id=163, 983.675pt x 431.6125pt>
+File: images/sample_result_3.png Graphic file (type png)
+
+<use images/sample_result_3.png>
+Package pdftex.def Info: images/sample_result_3.png used on input line 295.
+(pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
+
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+ [][] 
+ []
+
+
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+ [] 
+ []
+
+
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+ [] 
+ []
+
+[8] [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
+ [10 <./images/sample_result_1.png (PNG copy)> <./images/sample_result_2.png (P
+NG copy)> <./images/sample_result_3.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
+ (./main.aux
+(./titlepage.aux) (./acronym.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5561C7FB26B4F91DF5D78A06183F8ED8;604.
+(rerunfilecheck)             Checksum: 5A54031C800AE86B96C3BFCD91A7BF5D;792.
  ) 
 Here is how much of TeX's memory you used:
- 26395 strings out of 493304
- 454353 string characters out of 6139871
- 633371 words of memory out of 5000000
- 29222 multiletter control sequences out of 15000+600000
- 45086 words of font info for 61 fonts, out of 8000000 for 9000
+ 26442 strings out of 493304
+ 455219 string characters out of 6139871
+ 645710 words of memory out of 5000000
+ 29254 multiletter control sequences out of 15000+600000
+ 47889 words of font info for 63 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 83i,10n,83p,987b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,15n,83p,987b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
 /fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (11 pages, 161543 bytes).
+Output written on main.pdf (14 pages, 877435 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

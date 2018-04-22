@@ -6,6 +6,9 @@
 \contentsline {section}{\numberline {3}Description of the labeling process}{2}{section.3}
 \contentsline {section}{\numberline {4}About the augmentation script}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}Motivation}{5}{subsection.4.1}
-\contentsline {section}{\numberline {5}Meta-data of the dataset}{6}{section.5}
-\contentsline {section}{\numberline {6}Conclusion and possible directions of improvement}{6}{section.6}
-\contentsline {section}{References}{7}{section.6}
+\contentsline {subsection}{\numberline {4.2}Working}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Keyword arguments}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Sample results}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}Meta-data of the dataset}{9}{section.5}
+\contentsline {section}{\numberline {6}Conclusion and possible directions of improvement}{9}{section.6}
+\contentsline {section}{References}{10}{section.6}
