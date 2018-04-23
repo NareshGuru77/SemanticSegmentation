@@ -31,7 +31,126 @@
 \section{Overview of the dataset}
 Since semantic segmentation using deep learning is framed as a pixelwise classification task, an image of dimensions H$\times$W$\times$C requires a ground truth of dimensions H$\times$W, where H and W are the height and width of the image in the dataset having C number of channels. 
 
-The scope of the dataset is to include objects associated to RoboCup @Work. The selected 18 objects are shown below:
+The scope of the dataset is to include objects associated to RoboCup @Work. The selected 18 objects are shown in \ref{Fig:1}.
+
+\begin{figure}[!htb]
+\centering
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{axis}
+  \caption{axis \cite{github_robocup@work}}
+  \label{fig:axis}
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{bearing}
+  \caption{bearing \cite{github_robocup@work}}
+  \label{fig:bearing}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{bearingBoxAX01}
+  \caption{bearing box AX01 \cite{github_robocup@work}}
+  \label{fig:bearingBoxAX01}
+\end{subfigure}\\
+\vspace{3mm}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{bearingBoxAX16}
+  \caption{bearing box AX16}
+  \label{fig:bearingBoxAX16}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{container_blue}
+  \caption{container blue \cite{github_robocup@work}}
+  \label{fig:container_blue}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{container_red}
+  \caption{container red \cite{github_robocup@work}}
+  \label{fig:container_red}
+\end{subfigure}\\
+\vspace{3mm}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{distanceTube}
+  \caption{distance tube \cite{github_robocup@work}}
+  \label{fig:distanceTube}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{F20_20_B}
+  \caption{F20\_20\_B \cite{github_robocup@work}}
+  \label{fig:F20_20_B}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{F20_20_G}
+  \caption{F20\_20\_G \cite{github_robocup@work}}
+  \label{fig:F20_20_G}
+\end{subfigure}\\
+\vspace{3mm}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{M20}
+  \caption{M20 \cite{github_robocup@work}}
+  \label{fig:M20}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{M20_100}
+  \caption{M20\_100 \cite{github_robocup@work}}
+  \label{fig:M20_100}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{M30}
+  \caption{M30 \cite{github_robocup@work}}
+  \label{fig:M30}
+\end{subfigure}\\
+\vspace{3mm}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{motor}
+  \caption{motor \cite{github_robocup@work}}
+  \label{fig:motor}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{R20}
+  \caption{R20 \cite{github_robocup@work}}
+  \label{fig:R20}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{S40_40_B}
+  \caption{S40\_40\_B \cite{github_robocup@work}}
+  \label{fig:S40_40_B}
+\end{subfigure}\\
+\vspace{3mm}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{S40_40_G}
+  \caption{S40\_40\_G \cite{github_robocup@work}}
+  \label{fig:S40_40_G}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{em_01}
+  \caption{em\_01}
+  \label{fig:em_01}
+\end{subfigure}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{em_02}
+  \caption{em\_02}
+  \label{fig:em_02}
+\end{subfigure}
+\caption{Different objects required in the dataset}
+\label{Fig:1}
+\end{figure}
 
 Each of the objects were taken individually, placed on 3 different backgrounds and 30 images were taken. This lead to a total of 540 images which were to be manually labeled. Since, every pixel of the images needs to be labeled, the process of manual annotation would be time consuming. Therefore, a decision was made to first annotate the 540 images and later decide whether more images could be taken based on the effort required for annotation.
 
@@ -87,18 +206,16 @@ The ImageLabeler app by default assigns different colors to different objects to
 		\label{Fig:4}
 	\end{figure}
 	
-The ImageLabeler app does not provide any tool to label all unlabeled pixels as background. In order to save time, each of the images taken, only have one object
-
-In order to save time, the following workarounds have been used:
+The ImageLabeler app does not provide any tool to label all unlabeled pixels as background. In order to save time, the following workarounds have been used:
 	\begin{itemize}
 		\item The images taken for the dataset each have only one object in them.
 		\item Only the object region is labeled.
 		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which simply reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
 	\end{itemize}
 	
-The Export Labels -> To File option can be used to save the annotations. This is done for all images individually to arrive at the folder structure shown in \ref{Fig:5a}:
+The Export Labels -> To File option can be used to save the annotations. This is done for all images individually to arrive at the folder structure shown in \ref{Fig:5a}.
 	
-The saved .mat file can be loaded into ImageLabeler again to further modify labels if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in \ref{Fig:5a}) is the label image. This image is renamed to have the same name as the image file and the following folder structure is created by using a python code\ref{Fig:5b}.
+The saved .mat file can be loaded into ImageLabeler again to further modify labels if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in \ref{Fig:5a}) is the label image. This image is renamed to have the same name as the image file and a folder structure as in \ref{Fig:5b} is created by using a python code.
 	
 \begin{center}
 	\begin{figure}[!htb]
@@ -140,7 +257,7 @@ The final folder structure is shown in \ref{Fig:6}. The image folder and label f
 	\end{figure}
 \end{center}
 
-\section{About the augmentation script}
+\section{About the augmentation algorithm}
 \subsection{Motivation}
 	\begin{itemize}
 		\item Manually labeling 540 images with the described process in \ref{section:process} takes roughly 2160 minutes (roughly 4 minutes per image). This is equivalent to around 4 working days. Hence, creating a large dataset with manual labeling is not feasible.
@@ -148,26 +265,26 @@ The final folder structure is shown in \ref{Fig:6}. The image folder and label f
 		\item Labeling images with multiple objects would take an even longer time.
 	\end{itemize}
 	
-These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically using code.
+These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically using an algorithm.
 
 \subsection{Working}
 The following steps are performed to result in the generation of augmented images:
 	\begin{itemize}
 	\label{List:1}
 		\item[1] Given the path to the background images (for example, ''./backgrounds'), the images in the path are read and stored in a list.
-		\item[2] Given the path to the 'image' folder (for example, './objects/image') and the 'label' folder (for example, './objects/label'), the script fetches the paths of the label files and the corresponding paths of the image files. The number of label files available is also counted.
-		\item[3] Each image and its corresponding label for each class of objects is read one by one. Different scales of the image and label for each image is also created based on the NUM\_OF\_SCALES keyword argument and added to a list. NUM\_OF\_SCALES argument can also be set to 'RANDAMIZE' in which case random number of scales in the range 1 to 5, will be used. If an added object is too small (determined using the MIN\_OBJ\_AREA\_PERCENT argument) or too big (determined using the MAX\_OBJ\_AREA\_PERCENT argument), it is removed from the list.
+		\item[2] Given the path to the 'image' folder (for example, './objects/image') and the 'label' folder (for example, './objects/label'), the algorithm fetches the paths of the label files and the corresponding paths of the image files. The number of label files available is also counted.
+		\item[3] Each image and its corresponding label for each class of objects is read one by one. Different scales of the image and label for each image is also created based on the NUM\_OF\_SCALES keyword argument and added to an objects list. NUM\_OF\_SCALES argument can also be set to 'RANDOMIZE' in which case random number of scales in the range 1 to 5, will be used. If an added object is too small (determined using the MIN\_OBJ\_AREA\_PERCENT argument) or too big (determined using the MAX\_OBJ\_AREA\_PERCENT argument), it is removed from the list.
 		\item[4] The list of objects contains the following details about each object:
 			\begin{itemize}
-				\item 'obj\_loc': The pixel locations in the image where the object is in the original image.
+				\item 'obj\_loc': The pixel locations of the object in the original image.
 				\item 'obj\_vals': Intensity values of the object corresponding to 'obj\_loc'.
 				\item 'label\_vals': Label values of the object corresponding to 'obj\_loc'.
 				\item 'obj\_name': The name of the object.
-				\item 'rect\_points': The top left and bottom right coordinates of the bounding rectangle of the object in pixel space.
+				\item 'rect\_points': The top-left and bottom-right coordinates of the bounding rectangle of the object in pixel space.
 				\item 'obj\_area': The area occupied by the object in pixel space.
 			\end{itemize}
 		An example is shown in the figure\ref{Fig:7}.
-		\item[5] A list called 'augment\_vector' is created with each element in the list containing the following details. Each of these elements denote an augmented image and determine how objects are placed on a background.
+		\item[5] A list called 'augment\_vector' is created with each element denoting an augmented image, contains the following details.
 			\begin{itemize}
 				\item 'background\_image': A randomly choosen background image. It is also made sure that each available background is used atleast once before reselecting a background.
 				\item 'num\_objects\_to\_place': Number of objects to be placed in the current augmented image.
@@ -175,7 +292,8 @@ The following steps are performed to result in the generation of augmented image
 				\item 'locations': A list of random locations in the pixel space where the selected objects need to be placed.
 			\end{itemize}
 		\item[6] Each of the elements in the augment\_vector is evaluated and elements whose objects occupy an area above MAX\_OCCUPIED\_AREA and whose object locations are too close to each other determined by MIN\_DIST\_BTW\_LOCATIONS, are removed.
-		\item[7] The elements in the augment\_vector are taken one by one and based on the taken element, objects are placed on the background. The resulting augmented image in saved in './data\_augmentation\_results/image/' and ground truth is saved in './data\_augmentation\_results/ground\_truth/'. Additionally object detection labels are also saved in csv files in the location './data\_augmentation\_results/obj\_det/'. The plot function is provided to visualize the labels and visualized labels can also be saved in './data\_augmentation\_results/image\_and\_gt/' by setting save\_data\_preview to true.
+		\item[7] A defined number of reattempts are made to regenerate the removed augment\_vectors. This number is set sufficiently high to obtain same number of augmented images as required by the user. However, it is possible that sometimes less number of images are generated because of the randomness invovled in the generation of augment\_vectors.
+		\item[8] The elements in the augment\_vector are taken one by one and based on the taken element, objects are placed on the background. The resulting augmented image is saved in './data\_augmentation\_results/image/' and ground truth is saved in './data\_augmentation\_results/ground\_truth/'. Additionally object detection labels are also saved in csv files in the location './data\_augmentation\_results/obj\_det/'. A plot function is provided to visualize the labels and the visualized labels is also saved in './data\_augmentation\_results/image\_and\_gt/'.
 	\end{itemize}
 	
 	\begin{figure}[htb!]
@@ -185,9 +303,11 @@ The following steps are performed to result in the generation of augmented image
 		\label{Fig:7}
 	\end{figure}
 	
-About the class and the object. Steps 1 to 4 in \ref{List:1} are done by the class initialization and the rest using an object.
+In \ref{List:1}, steps 1 to 4 are done by initializing the DataAugmentation class, steps 5 to 7 are done by calling the class method 'create\_augment\_vector' and step 8 is done by calling the class method 'perform\_augmentation'.
 	
 \subsection{Keyword arguments}
+
+Details regarding the keyword arguments are provided in \ref{Table:1} and \ref{Table:2}. Apart from these arguments, a label definition dictionary containing the object names and corresponding label values needs to be created and passed as argument to the class initialization.
 
 \begin{table}[!htb]
 \centering
@@ -209,7 +329,7 @@ About the class and the object. Steps 1 to 4 in \ref{List:1} are done by the cla
 \hline 
 \textbf{MIN\_OBJ\_AREA\_PERCENT} & \makecell{The minimum area an object should occupy \\ in the pixel space in percentage.} \\ 
 \hline 
-\textbf{MAX\_OBJ\_AREA\_PERCENT} & \makecell{The maximum area an object should occupy \\ in the pixel space in percentage.} \\ 
+\textbf{MAX\_OBJ\_AREA\_PERCENT} & \makecell{The maximum area an object can occupy \\ in the pixel space in percentage.} \\ 
 \hline 
 \textbf{REMOVE\_CLUTTER} & \makecell{If set to true, augmented images with too \\ many objects and with objects which \\ are too close to each other are removed.} \\ 
 \hline 
@@ -221,11 +341,11 @@ About the class and the object. Steps 1 to 4 in \ref{List:1} are done by the cla
 \hline 
 \textbf{CLEAR\_AUGMENT\_VECTOR} & \makecell{Can be used to clear generated augment vectors.} \\ 
 \hline 
-\textbf{MIN\_DIST\_BTW\_LOCATIONS} & \makecell{Minimum distance in terms of number of pixels \\ which can be allowed between two random locations \\ in an augment vector.} \\ 
+\textbf{MIN\_DIST\_BTW\_LOCATIONS} & \makecell{Minimum distance in terms of number of pixels \\ which can be allowed between two random locations \\ in an augmented image.} \\ 
 \hline 
 \textbf{MAX\_OCCUPIED\_AREA} & \makecell{The maximum area which can be occupied by all \\ the objects in the augment vector.} \\ 
 \hline 
-\textbf{PREVIEW\_DATA} & \makecell{If set to true, the generated objects and labels \\ are displayed inline in the notebook.} \\ 
+\textbf{PREVIEW\_DATA} & \makecell{If set to true, the generated objects and labels \\ are displayed inline in the jupyter notebook.} \\ 
 \hline 
 \textbf{SAVE\_DATA\_PREVIEW} & \makecell{If set to true, the generated visualization \\ plot for image and label is saved.} \\ 
 \hline 
@@ -283,8 +403,6 @@ About the class and the object. Steps 1 to 4 in \ref{List:1} are done by the cla
 \label{Table:2}
 \end{table}
 
-Details regarding the keyword arguments are provided in \ref{Table:1} and \ref{Table:2}. Apart from these arguments, a label definition dictionary containing the object names and corresponding label values needs to be created and passed as argument to the class initialization.
-
 \subsection{Sample results}
 Some sample results can be seen in \ref{Fig:8}. The yellow bounding box represents the object detection label and the different colors of the segmentation labels denote different label values.
 
@@ -298,21 +416,41 @@ Some sample results can be seen in \ref{Fig:8}. The yellow bounding box represen
 	\end{figure}
 	
 
-\section{Meta-data of the dataset}
+\section{Metadata of the dataset}
 
+Details regarding the dataset is provided in table \ref{Table:3}.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+    & Training & Validation & Test \\ 
+\hline 
+Real Images & \makecell{30 per object.\\ Total: 30$\times$18=540} & \makecell{5 per object.\\ Total: 5$\times$18=90} & \makecell{5 per object.\\ Total: 5$\times$18=90} \\ 
+\hline 
+Augmented Images & 5000 & 810 & 810 \\ 
+\hline 
+Total Images & 5540 & 900 & 900 \\ 
+\hline 
+\end{tabular}
+\caption{Metadata of the dataset} 
+\label{Table:3}
+\end{table}
 
 \section{Conclusion and possible directions of improvement}
+
+Creating a custom dataset for a desired application is evidently challenging. To overcome the time consuming nature of creating annotations for semantic segmentation, choices such as 1. placing just 1 object per image while taking real images and 2. augmenting the objects on a random selection of diverse backgrounds, were made. This method of augmentation, although inspired by dataset generation method used in \cite{DBLP:journals/corr/abs-1709-00849} and the Synthia dataset \cite{RosCVPR16}, takes a different approach. Unlike \cite{DBLP:journals/corr/abs-1709-00849}, which uses 3D CAD models, this approach does not require any 3D models. Also, this approach does not require a virtual world as used by the Synthia dataset \cite{RosCVPR16}. However, the effectiveness of the dataset is yet to be verified by training and testing available segmentation models.
+The following list provides possible directions of improvement:
 	\begin{itemize}
-		\item Improve the way in which PixelLabelData is saved.
-		\item Integrating 'rest of the pixels are background' into MATLAB ImageLabeler.
-		\item Integration of augmentation script with MATLAB ImageLabeler.
-		\item GUI for the augmentation script.
+		\item The ImageLabeler app by default saves the label '.png' file with the name 'Label\_1.png' in a folder called PixelLabelData. A automation script can be written and added to the ImageLabeler to provide options to save the label file in a way the user wants.
+		\item Creating a way to replace all unlabeled pixels with the label value of 'background' from within the ImageLabeler would be helpful. For now, this is done by first exporting the label, then loading the label using opencv in python to replace 0 (value of unlabeled pixels) with 19 (value of 'background').
+		\item The augmentation script is written in python and is independent of the MATLAB ImageLabeler app. This can be improved by including a way to start augmentation right from the ImageLabeler.
+		\item A GUI for the augmentation script can be created to improve the ease of use.
 	\end{itemize}
 
 \newpage
 \addcontentsline{toc}{section}{References}
-\begin{thebibliography}{9}
-\bibitem{1}
 
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{references}
 \end{document}

@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: titlepage.aux
+A level-1 auxiliary file: acronym.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--string name "cvpr" is undefined
+--line 38 of file references.bib
+Warning--to sort, need author or key in github_robocup@work
+Warning--empty booktitle in RosCVPR16
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            513 strings with 4585 characters,
+and the built_in function-call counts, 831 in all, are:
+= -- 68
+> -- 52
+< -- 0
++ -- 21
+- -- 18
+* -- 54
+:= -- 143
+add.period$ -- 7
+call.type$ -- 3
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 30
+empty$ -- 67
+format.name$ -- 18
+if$ -- 168
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 16
+num.names$ -- 4
+pop$ -- 26
+preamble$ -- 1
+purify$ -- 15
+quote$ -- 0
+skip$ -- 25
+stack$ -- 0
+substring$ -- 15
+swap$ -- 3
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 2
+while$ -- 4
+width$ -- 4
+write$ -- 27
+(There were 3 warnings)

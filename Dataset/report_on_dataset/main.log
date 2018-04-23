@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.7)  22 APR 2018 19:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.7)  23 APR 2018 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1749,87 +1749,211 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
 
 
 No file acronym.tex.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 43.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.52 	\end{itemize}
-                    [1
+<images/axis.jpg, id=118, 401.5pt x 301.125pt>
+File: images/axis.jpg Graphic file (type jpg)
+ <use images/axis.jpg>
+Package pdftex.def Info: images/axis.jpg used on input line 40.
+(pdftex.def)             Requested size: 57.61742pt x 43.20941pt.
 
+<images/bearing.jpg, id=121, 401.5pt x 301.125pt>
+File: images/bearing.jpg Graphic file (type jpg)
+ <use images/bearing.jpg>
+Package pdftex.def Info: images/bearing.jpg used on input line 46.
+(pdftex.def)             Requested size: 57.61742pt x 43.20941pt.
 
+<images/bearingBoxAX01.jpg, id=124, 401.5pt x 301.125pt>
+File: images/bearingBoxAX01.jpg Graphic file (type jpg)
 
+<use images/bearingBoxAX01.jpg>
+Package pdftex.def Info: images/bearingBoxAX01.jpg used on input line 52.
+(pdftex.def)             Requested size: 57.61742pt x 43.20941pt.
 
-] <images/labelDef.png, id=118, 467.7475pt x 493.845pt>
-File: images/labelDef.png Graphic file (type png)
+<images/bearingBoxAX16.png, id=127, 311.1625pt x 285.065pt>
+File: images/bearingBoxAX16.png Graphic file (type png)
 
-<use images/labelDef.png>
-Package pdftex.def Info: images/labelDef.png used on input line 60.
-(pdftex.def)             Requested size: 327.421pt x 345.68913pt.
+<use images/bearingBoxAX16.png>
+Package pdftex.def Info: images/bearingBoxAX16.png used on input line 59.
+(pdftex.def)             Requested size: 57.61742pt x 52.78404pt.
 
-<images/label_tools.png, id=120, 690.58pt x 123.46124pt>
-File: images/label_tools.png Graphic file (type png)
+<images/container_blue.jpg, id=128, 501.875pt x 444.66125pt>
+File: images/container_blue.jpg Graphic file (type jpg)
 
-<use images/label_tools.png>
-Package pdftex.def Info: images/label_tools.png used on input line 68.
-(pdftex.def)             Requested size: 379.82018pt x 67.90387pt.
- [2 <./images/labelDef.png>]
-<images/roi_label_defintions.png, id=126, 377.41pt x 622.325pt>
-File: images/roi_label_defintions.png Graphic file (type png)
+<use images/container_blue.jpg>
+Package pdftex.def Info: images/container_blue.jpg used on input line 65.
+(pdftex.def)             Requested size: 57.61742pt x 51.04337pt.
 
-<use images/roi_label_defintions.png>
-Package pdftex.def Info: images/roi_label_defintions.png used on input line 85.
+<images/container_red.jpg, id=131, 501.875pt x 444.66125pt>
+File: images/container_red.jpg Graphic file (type jpg)
 
-(pdftex.def)             Requested size: 226.44774pt x 373.39787pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+<use images/container_red.jpg>
+Package pdftex.def Info: images/container_red.jpg used on input line 71.
+(pdftex.def)             Requested size: 57.61742pt x 51.04337pt.
+
+<images/distanceTube.jpg, id=134, 401.5pt x 301.125pt>
+File: images/distanceTube.jpg Graphic file (type jpg)
+
+<use images/distanceTube.jpg>
+Package pdftex.def Info: images/distanceTube.jpg used on input line 78.
+(pdftex.def)             Requested size: 57.61742pt x 43.20941pt.
+
+<images/F20_20_B.jpg, id=137, 1382.16376pt x 1084.05pt>
+File: images/F20_20_B.jpg Graphic file (type jpg)
+
+<use images/F20_20_B.jpg>
+Package pdftex.def Info: images/F20_20_B.jpg used on input line 84.
+(pdftex.def)             Requested size: 57.61742pt x 45.17415pt.
+
+<images/F20_20_G.jpg, id=140, 1524.69624pt x 1043.9pt>
+File: images/F20_20_G.jpg Graphic file (type jpg)
+
+<use images/F20_20_G.jpg>
+Package pdftex.def Info: images/F20_20_G.jpg used on input line 90.
+(pdftex.def)             Requested size: 57.61742pt x 39.43924pt.
+ <images/M20.jpg, id=143, 658.46pt x 610.28pt>
+File: images/M20.jpg Graphic file (type jpg)
+
+<use images/M20.jpg>
+Package pdftex.def Info: images/M20.jpg used on input line 97.
+(pdftex.def)             Requested size: 57.61742pt x 53.39563pt.
+ <images/M20_100.jpg, id=146, 1599.9775pt x 1045.9075pt>
+File: images/M20_100.jpg Graphic file (type jpg)
+
+<use images/M20_100.jpg>
+Package pdftex.def Info: images/M20_100.jpg used on input line 103.
+(pdftex.def)             Requested size: 57.61742pt x 37.6638pt.
+ <images/M30.jpg, id=149, 965.6075pt x 841.1425pt>
+File: images/M30.jpg Graphic file (type jpg)
+
+<use images/M30.jpg>
+Package pdftex.def Info: images/M30.jpg used on input line 109.
+(pdftex.def)             Requested size: 57.61742pt x 50.184pt.
+ <images/motor.jpg, id=152, 401.5pt x 301.125pt>
+File: images/motor.jpg Graphic file (type jpg)
+
+<use images/motor.jpg>
+Package pdftex.def Info: images/motor.jpg used on input line 116.
+(pdftex.def)             Requested size: 57.61742pt x 43.20941pt.
+ <images/R20.jpg, id=155, 955.57pt x 886.31125pt>
+File: images/R20.jpg Graphic file (type jpg)
+
+<use images/R20.jpg>
+Package pdftex.def Info: images/R20.jpg used on input line 122.
+(pdftex.def)             Requested size: 57.61742pt x 53.43333pt.
+ <images/S40_40_B.jpg, id=158, 1474.50874pt x 1084.05pt>
+File: images/S40_40_B.jpg Graphic file (type jpg)
+
+<use images/S40_40_B.jpg>
+Package pdftex.def Info: images/S40_40_B.jpg used on input line 128.
+(pdftex.def)             Requested size: 57.61742pt x 42.3456pt.
+
+<images/S40_40_G.jpg, id=161, 1494.58376pt x 1007.765pt>
+File: images/S40_40_G.jpg Graphic file (type jpg)
+
+<use images/S40_40_G.jpg>
+Package pdftex.def Info: images/S40_40_G.jpg used on input line 135.
+(pdftex.def)             Requested size: 57.61742pt x 38.8429pt.
+ <images/em_01.png, id=164, 340.27126pt x 250.9375pt>
+File: images/em_01.png Graphic file (type png)
+
+<use images/em_01.png>
+Package pdftex.def Info: images/em_01.png used on input line 141.
+(pdftex.def)             Requested size: 57.61742pt x 42.49033pt.
+ <images/em_02.png, id=165, 334.24875pt x 216.81pt>
+File: images/em_02.png Graphic file (type png)
+
+<use images/em_02.png>
+Package pdftex.def Info: images/em_02.png used on input line 147.
+(pdftex.def)             Requested size: 57.61742pt x 37.37329pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.102 
-       [3 <./images/label_tools.png>]
-<images/folder_structure.png, id=134, 397.485pt x 194.7275pt>
-File: images/folder_structure.png Graphic file (type png)
+l.156 
+       [1
 
-<use images/folder_structure.png>
-Package pdftex.def Info: images/folder_structure.png used on input line 107.
-(pdftex.def)             Requested size: 192.0561pt x 94.08913pt.
 
-<images/folder_structure_aug.png, id=135, 385.44pt x 215.80624pt>
-File: images/folder_structure_aug.png Graphic file (type png)
 
-<use images/folder_structure_aug.png>
-Package pdftex.def Info: images/folder_structure_aug.png used on input line 113
+
+ <./images/axis.jpg> <./images/bearing.jpg> <./images/bearingBoxAX01.jpg> <./im
+ages/bearingBoxAX16.png> <./images/container_blue.jpg> <./images/container_red.
+jpg> <./images/distanceTube.jpg> <./images/F20_20_B.jpg> <./images/F20_20_G.jpg
+> <./images/M20.jpg> <./images/M20_100.jpg> <./images/M30.jpg> <./images/motor.
+jpg> <./images/R20.jpg> <./images/S40_40_B.jpg> <./images/S40_40_G.jpg> <./imag
+es/em_01.png> <./images/em_02.png>]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 162.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+<images/labelDef.png, id=172, 467.7475pt x 493.845pt>
+File: images/labelDef.png Graphic file (type png)
+
+<use images/labelDef.png>
+Package pdftex.def Info: images/labelDef.png used on input line 179.
+(pdftex.def)             Requested size: 327.421pt x 345.68913pt.
+
+<images/label_tools.png, id=174, 690.58pt x 123.46124pt>
+File: images/label_tools.png Graphic file (type png)
+
+<use images/label_tools.png>
+Package pdftex.def Info: images/label_tools.png used on input line 187.
+(pdftex.def)             Requested size: 379.82018pt x 67.90387pt.
+ [2]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.196 		\item F
+               lood Fill: This tool provides same labels to pixels which are...
+[3 <./images/labelDef.png> <./images/label_tools.png>]
+<images/roi_label_defintions.png, id=184, 377.41pt x 622.325pt>
+File: images/roi_label_defintions.png Graphic file (type png)
+
+<use images/roi_label_defintions.png>
+Package pdftex.def Info: images/roi_label_defintions.png used on input line 204
 .
-(pdftex.def)             Requested size: 192.0561pt x 107.53075pt.
-
-Overfull \hbox (2.0805pt too wide) in paragraph at lines 105--117
-[]$[]$ $[]$ 
- []
-
+(pdftex.def)             Requested size: 226.44774pt x 373.39787pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.123 
-       [4 <./images/roi_label_defintions.png> <./images/folder_structure.png> <
-./images/folder_structure_aug.png>]
-<images/folder_image.png, id=140, 380.42125pt x 486.81876pt>
+l.211 		\item T
+               he images taken for the dataset each have only one object in ...
+[4 <./images/roi_label_defintions.png>]
+<images/folder_structure.png, id=192, 397.485pt x 194.7275pt>
+File: images/folder_structure.png Graphic file (type png)
+
+<use images/folder_structure.png>
+Package pdftex.def Info: images/folder_structure.png used on input line 224.
+(pdftex.def)             Requested size: 192.0561pt x 94.08913pt.
+
+<images/folder_structure_aug.png, id=193, 385.44pt x 215.80624pt>
+File: images/folder_structure_aug.png Graphic file (type png)
+
+<use images/folder_structure_aug.png>
+Package pdftex.def Info: images/folder_structure_aug.png used on input line 230
+.
+(pdftex.def)             Requested size: 192.0561pt x 107.53075pt.
+
+Overfull \hbox (2.0805pt too wide) in paragraph at lines 222--234
+[]$[]$ $[]$ 
+ []
+
+<images/folder_image.png, id=195, 380.42125pt x 486.81876pt>
 File: images/folder_image.png Graphic file (type png)
 
 <use images/folder_image.png>
-Package pdftex.def Info: images/folder_image.png used on input line 128.
+Package pdftex.def Info: images/folder_image.png used on input line 245.
 (pdftex.def)             Requested size: 192.0561pt x 245.77838pt.
 
-<images/folder_label.png, id=141, 382.42876pt x 510.90875pt>
+<images/folder_label.png, id=196, 382.42876pt x 510.90875pt>
 File: images/folder_label.png Graphic file (type png)
 
 <use images/folder_label.png>
-Package pdftex.def Info: images/folder_label.png used on input line 134.
+Package pdftex.def Info: images/folder_label.png used on input line 251.
 (pdftex.def)             Requested size: 192.0561pt x 256.57634pt.
 
-Overfull \hbox (2.0805pt too wide) in paragraph at lines 126--138
+Overfull \hbox (2.0805pt too wide) in paragraph at lines 243--255
 []$[]$ $[]$ 
  []
 
@@ -1837,99 +1961,101 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.157 		\item[1]
-                 Given the path to the background images (for example, ''./b...
-[5 <./images/folder_image.png> <./images/folder_label.png>]
+l.264 		\item T
+               aking images in a variety of real world backgrounds is also t...
+[5 <./images/folder_structure.png> <./images/folder_structure_aug.png>]
+[6 <./images/folder_image.png> <./images/folder_label.png>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 162.
- [6]
-Overfull \hbox (20.89117pt too wide) in paragraph at lines 178--179
-\T1/ptm/m/n/10.95 be saved in './data_augmentation_results/image_and_gt/' by se
-t-ting save_data_preview
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 279.
+ [7]
+Overfull \hbox (14.26645pt too wide) in paragraph at lines 295--296
+[]\T1/ptm/m/n/10.95 A de-fined num-ber of reat-tempts are made to re-gen-er-ate
+ the re-moved aug-ment_vectors.
  []
 
-<images/obj_details.png, id=151, 1285.80376pt x 339.2675pt>
+<images/obj_details.png, id=210, 1285.80376pt x 339.2675pt>
 File: images/obj_details.png Graphic file (type png)
 
 <use images/obj_details.png>
-Package pdftex.def Info: images/obj_details.png used on input line 183.
+Package pdftex.def Info: images/obj_details.png used on input line 301.
 (pdftex.def)             Requested size: 424.31656pt x 111.95862pt.
 
-Overfull \hbox (40.20435pt too wide) in paragraph at lines 183--184
+Overfull \hbox (40.20435pt too wide) in paragraph at lines 301--302
  [][] 
  []
 
 
-Overfull \hbox (27.4436pt too wide) in paragraph at lines 194--235
+Overfull \hbox (27.4436pt too wide) in paragraph at lines 314--355
  [][] 
  []
 
-[7 <./images/obj_details.png>]
-<images/sample_result_1.png, id=161, 983.675pt x 431.6125pt>
+[8 <./images/obj_details.png>]
+<images/sample_result_1.png, id=219, 983.675pt x 431.6125pt>
 File: images/sample_result_1.png Graphic file (type png)
 
 <use images/sample_result_1.png>
-Package pdftex.def Info: images/sample_result_1.png used on input line 293.
+Package pdftex.def Info: images/sample_result_1.png used on input line 411.
 (pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
 
-<images/sample_result_2.png, id=162, 983.675pt x 431.6125pt>
+<images/sample_result_2.png, id=220, 983.675pt x 431.6125pt>
 File: images/sample_result_2.png Graphic file (type png)
 
 <use images/sample_result_2.png>
-Package pdftex.def Info: images/sample_result_2.png used on input line 294.
+Package pdftex.def Info: images/sample_result_2.png used on input line 412.
 (pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
 
-<images/sample_result_3.png, id=163, 983.675pt x 431.6125pt>
+<images/sample_result_3.png, id=221, 983.675pt x 431.6125pt>
 File: images/sample_result_3.png Graphic file (type png)
 
 <use images/sample_result_3.png>
-Package pdftex.def Info: images/sample_result_3.png used on input line 295.
+Package pdftex.def Info: images/sample_result_3.png used on input line 413.
 (pdftex.def)             Requested size: 393.46303pt x 172.64194pt.
 
-Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 411--414
  [][] 
  []
 
 
-Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 411--414
  [] 
  []
 
 
-Overfull \hbox (9.35081pt too wide) in paragraph at lines 293--296
+Overfull \hbox (9.35081pt too wide) in paragraph at lines 411--414
  [] 
  []
 
-[8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
- [10 <./images/sample_result_1.png (PNG copy)> <./images/sample_result_2.png (P
-NG copy)> <./images/sample_result_3.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
- (./main.aux
-(./titlepage.aux) (./acronym.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
+[9] [10] [11 <./images/sample_result_1.png (PNG copy)> <./images/sample_result_
+2.png (PNG copy)> <./images/sample_result_3.png (PNG copy)>] [12] (./main.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
+
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
+ (./main.aux (./titlepage.aux) (./acronym.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5A54031C800AE86B96C3BFCD91A7BF5D;792.
+(rerunfilecheck)             Checksum: 4DCF057FECCAFA01B96A7799A59BE6FA;794.
  ) 
 Here is how much of TeX's memory you used:
- 26442 strings out of 493304
- 455219 string characters out of 6139871
- 645710 words of memory out of 5000000
- 29254 multiletter control sequences out of 15000+600000
- 47889 words of font info for 63 fonts, out of 8000000 for 9000
+ 26629 strings out of 493304
+ 458657 string characters out of 6139871
+ 648059 words of memory out of 5000000
+ 29410 multiletter control sequences out of 15000+600000
+ 50737 words of font info for 65 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 83i,15n,83p,987b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
-/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/
+ 83i,16n,83p,987b,688s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
+fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (14 pages, 877435 bytes).
+nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmri8a.pfb>
+Output written on main.pdf (17 pages, 5958750 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 267 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{github_robocup@work}
+github: robocup-at-work/rulebook/images; link:
+  https://github.com/robocup-at-work/rulebook/tree/master/images.
+
+\bibitem{DBLP:journals/corr/abs-1709-00849}
+Param~S. Rajpura, Manik Goyal, Hristo Bojinov, and Ravi~S. Hegde.
+\newblock Dataset augmentation with synthetic images improves semantic
+  segmentation.
+\newblock {\em CoRR}, abs/1709.00849, 2017.
+
+\bibitem{RosCVPR16}
+German Ros, Laura Sellart, Joanna Materzynska, David Vazquez, and Antonio
+  Lopez.
+\newblock {The SYNTHIA Dataset}: A large collection of synthetic images for
+  semantic segmentation of urban scenes.
+\newblock 2016.
+
+\end{thebibliography}
