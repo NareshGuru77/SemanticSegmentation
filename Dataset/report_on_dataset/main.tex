@@ -286,13 +286,13 @@ The following steps are performed to result in the generation of augmented image
 		An example is shown in the figure\ref{Fig:7}.
 		\item[5] A list called 'augment\_vector' is created with each element denoting an augmented image, contains the following details.
 			\begin{itemize}
-				\item 'background\_image': A randomly choosen background image. It is also made sure that each available background is used atleast once before reselecting a background.
+				\item 'background\_image': A randomly chosen background image. It is also made sure that each available background is used at least once before reselecting a background.
 				\item 'num\_objects\_to\_place': Number of objects to be placed in the current augmented image.
 				\item 'what\_objects': A list of random numbers which determines what objects from the objects list is selected.
 				\item 'locations': A list of random locations in the pixel space where the selected objects need to be placed.
 			\end{itemize}
 		\item[6] Each of the elements in the augment\_vector is evaluated and elements whose objects occupy an area above MAX\_OCCUPIED\_AREA and whose object locations are too close to each other determined by MIN\_DIST\_BTW\_LOCATIONS, are removed.
-		\item[7] A defined number of reattempts are made to regenerate the removed augment\_vectors. This number is set sufficiently high to obtain same number of augmented images as required by the user. However, it is possible that sometimes less number of images are generated because of the randomness invovled in the generation of augment\_vectors.
+		\item[7] A defined number of reattempts are made to regenerate the removed augment\_vectors. This number is set sufficiently high to obtain same number of augmented images as required by the user. However, it is possible that sometimes less number of images are generated because of the randomness involved in the generation of augment\_vectors.
 		\item[8] The elements in the augment\_vector are taken one by one and based on the taken element, objects are placed on the background. The resulting augmented image is saved in './data\_augmentation\_results/image/' and ground truth is saved in './data\_augmentation\_results/ground\_truth/'. Additionally object detection labels are also saved in csv files in the location './data\_augmentation\_results/obj\_det/'. A plot function is provided to visualize the labels and the visualized labels is also saved in './data\_augmentation\_results/image\_and\_gt/'.
 	\end{itemize}
 	
@@ -416,7 +416,7 @@ Some sample results can be seen in \ref{Fig:8}. The yellow bounding box represen
 	\end{figure}
 	
 
-\section{Metadata of the dataset}
+\section{Meta-data of the dataset}
 
 Details regarding the dataset is provided in table \ref{Table:3}.
 
@@ -433,7 +433,7 @@ Augmented Images & 5000 & 810 & 810 \\
 Total Images & 5540 & 900 & 900 \\ 
 \hline 
 \end{tabular}
-\caption{Metadata of the dataset} 
+\caption{Meta-data of the dataset} 
 \label{Table:3}
 \end{table}
 
