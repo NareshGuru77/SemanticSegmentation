@@ -43,6 +43,9 @@ parser.add_argument('image_save_path', type=str,
 parser.add_argument('label_save_path', type=str,
                     help='Path where the generated segmentation label needs to be saved.')
 
+parser.add_argument('--preview_save_path', default=None, type=str, required=False,
+                    help='Path where object detection labels needs to be saved')
+
 parser.add_argument('--obj_det_save_path', default=None, type=str, required=False,
                     help='Path where object detection labels needs to be saved')
 
@@ -89,6 +92,9 @@ if args.save_obj_det_label and args.obj_det_save_path is None:
 if args.save_mask and args.mask_save_path is None:
     parser.error('Path to save segmentation masks is also required.')
 
+if args.save_label_preview and args.preview_save_path is None:
+    parser.error('Path to save label preview is also required.')
+
 
 class GeneratorOptions(
     collections.namedtuple('GeneratorOptions', [
@@ -105,6 +111,7 @@ class GeneratorOptions(
         'save_mask',
         'image_save_path',
         'label_save_path',
+        'preview_save_path',
         'obj_det_save_path',
         'mask_save_path',
         'start_index',
@@ -127,6 +134,6 @@ class GeneratorOptions(
             args.image_path, args.label_path, args.real_img_type, args.min_obj_area,
             args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
             args.save_mask, args.image_save_path, args.label_save_path,
-            args.obj_det_save_path, args.mask_save_path, args.start_index,
-            args.name_format, args.remove_clutter, args.num_images, args.max_objects,
-            args.num_regenerate, args.min_distance, args.max_occupied_area)
+            args.preview_save_path, args.obj_det_save_path, args.mask_save_path,
+            args.start_index, args.name_format, args.remove_clutter, args.num_images,
+            args.max_objects, args.num_regenerate, args.min_distance, args.max_occupied_area)

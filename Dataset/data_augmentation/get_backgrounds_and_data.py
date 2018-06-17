@@ -83,6 +83,7 @@ def read_image_labels(object_files):
 
     return class_name_to_data
 
+
 background_images = fetch_background_images()
 
 files_count, object_files = fetch_image_gt_paths()
