@@ -1,9 +1,0 @@
-\select@language {english}
-\contentsline {figure}{\numberline {1}{\ignorespaces Different objects required in the dataset\relax }}{1}{figure.caption.4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Contents of the labelDefs .mat file\relax }}{3}{figure.caption.5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Tools provided by the ImageLabeler app\relax }}{3}{figure.caption.6}
-\contentsline {figure}{\numberline {4}{\ignorespaces ROI Label Definitions window\relax }}{4}{figure.caption.7}
-\contentsline {figure}{\numberline {5}{\ignorespaces Different folder structures\relax }}{5}{figure.caption.8}
-\contentsline {figure}{\numberline {6}{\ignorespaces Folder structure showing different object folders in both image and label folders.\relax }}{6}{figure.caption.9}
-\contentsline {figure}{\numberline {7}{\ignorespaces Details about an example object stored in the objects list\relax }}{8}{figure.caption.10}
-\contentsline {figure}{\numberline {8}{\ignorespaces Sample results produced by the augmentation script\relax }}{11}{figure.caption.13}
