@@ -4,7 +4,7 @@ import collections
 parser = argparse.ArgumentParser(
     description='Arguments to control artificial image generation.')
 
-parser.add_argument('--image_dimension', default=[480,640], type=list, required=False,
+parser.add_argument('--image_dimension', default=[480, 640], type=list, required=False,
                     help='Dimension of the real images.')
 
 parser.add_argument('--num_scales', default='randomize', type=str, required=False,
@@ -77,12 +77,12 @@ parser.add_argument('--max_occupied_area', default=0.8, type=float, required=Fal
                     help='Maximum object occupancy area allowed.')
 
 
-LABEL_DEF_MATLAB={'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
-                  's40_40_G': 4,  'm20_100': 5, 'm20': 6, 'm30': 7,
-                  'r20': 8, 'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11,
-                  'distance_tube': 12, 'motor': 13, 'container_box_blue': 14,
-                  'container_box_red': 15, 'bearing_box_ax16': 16,
-                  'em_01': 17, 'em_02': 18, 'background': 19}
+LABEL_DEF_MATLAB = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
+                    's40_40_G': 4,  'm20_100': 5, 'm20': 6, 'm30': 7,
+                    'r20': 8, 'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11,
+                    'distance_tube': 12, 'motor': 13, 'container_box_blue': 14,
+                    'container_box_red': 15, 'bearing_box_ax16': 16,
+                    'em_01': 17, 'em_02': 18, 'background': 19}
 
 args = parser.parse_args()
 

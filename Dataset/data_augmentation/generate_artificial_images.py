@@ -80,12 +80,12 @@ def make_save_dirs():
 
 def get_mask(label):
     colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
-                               [102, 102, 156], [190, 153, 153], [153, 153, 153],
-                               [250, 170, 30], [220, 220, 0], [107, 142, 35],
-                               [152, 251, 152], [70, 130, 180], [220, 20, 60],
-                               [255, 0, 0], [0, 0, 142], [0, 0, 70],
-                               [0, 60, 100], [0, 80, 100],[0, 0, 230],
-                               [119, 11, 32], [0, 0, 0]])
+                           [102, 102, 156], [190, 153, 153], [153, 153, 153],
+                           [250, 170, 30], [220, 220, 0], [107, 142, 35],
+                           [152, 251, 152], [70, 130, 180], [220, 20, 60],
+                           [255, 0, 0], [0, 0, 142], [0, 0, 70],
+                           [0, 60, 100], [0, 80, 100], [0, 0, 230],
+                           [119, 11, 32], [0, 0, 0]])
 
     return colormap[np.array(label, dtype=np.uint8)]
 
@@ -160,7 +160,7 @@ def perform_augmentation():
                     get_augmented_image(augmented_image,
                                         augmented_label,
                                         object_details.objects[
-                                        vector['what_objects'][i]],
+                                            vector['what_objects'][i]],
                                         vector['locations'][i]))
                 obj_det_label.append(rect_label)
             else:
@@ -168,7 +168,7 @@ def perform_augmentation():
                     get_augmented_image(augmented_image,
                                         augmented_label,
                                         object_details.objects[
-                                        vector['what_objects'][i]],
+                                            vector['what_objects'][i]],
                                         vector['locations'][i]))
 
         save_data(augmented_image, augmented_label, obj_det_label, index)
