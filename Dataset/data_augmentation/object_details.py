@@ -10,13 +10,13 @@ generator_options = arguments.GeneratorOptions()
 def get_num_scales_and_objects():
 
     if generator_options.num_scales is 'randomize':
-        num_of_scales = np.random.randint(
+        number_of_scales = np.random.randint(
                                 1, 5,
                                 size=get_backgrounds_and_data.files_count)
     else:
-        num_of_scales = generator_options.num_scales
+        number_of_scales = generator_options.num_scales
 
-    return num_of_scales
+    return number_of_scales
 
 
 def find_obj_loc_and_vals(image, label, label_value, obj_name):
@@ -48,18 +48,18 @@ def find_obj_loc_and_vals(image, label, label_value, obj_name):
 
 
 def get_different_scales(image, image_label, label_value,
-                            num_of_scales, obj_name, obj_num):
+                         number_of_scales, obj_name, obj_num):
     """
     This functions creates different scales of the object based on the
     number of scales parameter and removes objects which are too small..
     """
 
-    if type(num_of_scales) is np.ndarray:
-        num_scales = num_of_scales[obj_num]
-        scale_difference = 1.2 / num_of_scales[obj_num]
+    if type(number_of_scales) is np.ndarray:
+        num_scales = number_of_scales[obj_num]
+        scale_difference = 1.2 / number_of_scales[obj_num]
     else:
-        num_scales = num_of_scales
-        scale_difference = 1.2 / num_of_scales
+        num_scales = number_of_scales
+        scale_difference = 1.2 / number_of_scales
     scales = [i * scale_difference for i in range(1, num_scales + 1)]
 
     scaled_objects = list()
@@ -80,12 +80,12 @@ def get_different_scales(image, image_label, label_value,
     return scaled_objects
 
 
-def get_scaled_objects(num_of_scales):
+def get_scaled_objects(number_of_scales):
     """
     This function reads all the images and its coresponding labels...
     Creates a dictionary which maps the object name to the list of objects and labels...
     """
-    objects = list()
+    objects_list = list()
     obj_num = -1
 
     class_name_to_data = get_backgrounds_and_data.class_name_to_data
@@ -95,12 +95,13 @@ def get_scaled_objects(num_of_scales):
             data_list = class_name_to_data[key]
             for data in data_list:
                 obj_num += 1
-                objects += get_different_scales(data[0], data[1],
-                                                arguments.LABEL_DEF_MATLAB[key],
-                                                num_of_scales,
-                                                key, obj_num)
+                objects_list += get_different_scales(data[0],
+                                                     data[1],
+                                                     arguments.LABEL_DEF_MATLAB[key],
+                                                     number_of_scales,
+                                                     key, obj_num)
 
-    return objects
+    return objects_list
 
 
 num_of_scales = get_num_scales_and_objects()
