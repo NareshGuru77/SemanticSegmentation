@@ -60,7 +60,13 @@ def get_different_scales(image, image_label, label_value,
     else:
         num_scales = number_of_scales
         scale_difference = 1.2 / number_of_scales
-    scales = [i * scale_difference for i in range(1, num_scales + 1)]
+
+    zoom_range = arguments.SCALES_RANGE_DICT[obj_name]
+    if zoom_range is None:
+        scales = [i * scale_difference for i in range(1, num_scales + 1)]
+    else:
+        scales = np.linspace(zoom_range[0], zoom_range[1],
+                             num=num_scales)
 
     scaled_objects = list()
 

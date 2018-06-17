@@ -1,6 +1,37 @@
 import argparse
 import collections
 
+
+LABEL_DEF_MATLAB = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
+                    's40_40_G': 4,  'm20_100': 5, 'm20': 6, 'm30': 7,
+                    'r20': 8, 'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11,
+                    'distance_tube': 12, 'motor': 13, 'container_box_blue': 14,
+                    'container_box_red': 15, 'bearing_box_ax16': 16,
+                    'em_01': 17, 'em_02': 18, 'background': 19}
+
+SCALES_RANGE_DICT = {'f20_20_B': None, 's40_40_B': None, 'f20_20_G': None,
+                     's40_40_G': None,  'm20_100': None, 'm20': None, 'm30': None,
+                     'r20': None, 'bearing_box_ax01': None, 'bearing': None, 'axis': None,
+                     'distance_tube': None, 'motor': None, 'container_box_blue': None,
+                     'container_box_red': None, 'bearing_box_ax16': None,
+                     'em_01': None, 'em_02': None}
+
+
+class StoreScalesDict(argparse.Action):
+    def __call__(self, parser, namespace, arg_vals, option_string=None):
+
+        for items in arg_vals.split(';'):
+            key, value = items.split('=')
+
+            if not any(key == object_key
+                       for object_key in list(SCALES_RANGE_DICT.keys())):
+                parser.error('Object {} is not recognized.'.format(key))
+
+            value = value.split(',')
+            SCALES_RANGE_DICT[key] = [float(v) for v in value]
+        setattr(namespace, self.dest, SCALES_RANGE_DICT)
+
+
 parser = argparse.ArgumentParser(
     description='Arguments to control artificial image generation.')
 
@@ -76,13 +107,11 @@ parser.add_argument('--min_distance', default=70, type=int, required=False,
 parser.add_argument('--max_occupied_area', default=0.8, type=float, required=False,
                     help='Maximum object occupancy area allowed.')
 
+parser.add_argument('--scale_ranges', dest='SCALES_RANGE_DICT', required=False,
+                    action=StoreScalesDict,
+                    metavar='Object=min_scale,max_scale;Object=min_scale,max_scale;...',
+                    help='Can be used to change the zoom range of specific objects.')
 
-LABEL_DEF_MATLAB = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
-                    's40_40_G': 4,  'm20_100': 5, 'm20': 6, 'm30': 7,
-                    'r20': 8, 'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11,
-                    'distance_tube': 12, 'motor': 13, 'container_box_blue': 14,
-                    'container_box_red': 15, 'bearing_box_ax16': 16,
-                    'em_01': 17, 'em_02': 18, 'background': 19}
 
 args = parser.parse_args()
 
@@ -122,7 +151,7 @@ class GeneratorOptions(
         'num_regenerate',
         'min_distance',
         'max_occupied_area',
-    ])):
+        ])):
     """Immutable class to hold artificial image generation options."""
 
     __slots__ = ()
