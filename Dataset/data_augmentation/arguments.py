@@ -52,14 +52,26 @@ parser.add_argument('--mask_save_path', default=None, type=str, required=False,
 parser.add_argument('--start_index', default=0, type=int, required=False,
                     help='Index from which image and label names should start.')
 
-parser.add_argument('--image_name_format', default='%5d', type=str, required=False,
+parser.add_argument('--name_format', default='%05d', type=str, required=False,
                     help='The format for image file names.')
 
-parser.add_argument('--label_name_format', default='%5d', type=str, required=False,
-                    help='The format for label file names.')
+parser.add_argument('--remove_clutter', default=True, type=bool, required=False,
+                    help='Remove images cluttered with objects.')
 
-parser.add_argument('--mask_name_format', default='%5d', type=str, required=False,
-                    help='The format for mask file names.')
+parser.add_argument('--num_images', default=20, type=int, required=False,
+                    help='Number of artificial images to generate.')
+
+parser.add_argument('--max_objects', default=10, type=int, required=False,
+                    help='Maximum number of objects allowed in an image.')
+
+parser.add_argument('--num_regenerate', default=100, type=int, required=False,
+                    help='Number of regeneration attempts of removed details dict.')
+
+parser.add_argument('--min_distance', default=70, type=int, required=False,
+                    help='Minimum pixel distance required between two objects.')
+
+parser.add_argument('--max_occupied_area', default=0.8, type=float, required=False,
+                    help='Maximum object occupancy area allowed.')
 
 
 LABEL_DEF_MATLAB={'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
@@ -76,6 +88,7 @@ if args.save_obj_det_label and args.obj_det_save_path is None:
 
 if args.save_mask and args.mask_save_path is None:
     parser.error('Path to save segmentation masks is also required.')
+
 
 class GeneratorOptions(
     collections.namedtuple('GeneratorOptions', [
@@ -95,9 +108,13 @@ class GeneratorOptions(
         'obj_det_save_path',
         'mask_save_path',
         'start_index',
-        'image_name_format',
-        'label_name_format',
-        'mask_name_format',
+        'name_format',
+        'remove_clutter',
+        'num_images',
+        'max_objects',
+        'num_regenerate',
+        'min_distance',
+        'max_occupied_area',
     ])):
     """Immutable class to hold artificial image generation options."""
 
@@ -111,4 +128,5 @@ class GeneratorOptions(
             args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
             args.save_mask, args.image_save_path, args.label_save_path,
             args.obj_det_save_path, args.mask_save_path, args.start_index,
-            args.image_name_format, args.label_name_format, args.mask_name_format)
+            args.name_format, args.remove_clutter, args.num_images, args.max_objects,
+            args.num_regenerate, args.min_distance, args.max_occupied_area)
