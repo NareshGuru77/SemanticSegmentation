@@ -106,7 +106,7 @@ def save_data(augmented_image, augmented_label, obj_det_label, index):
 
     if generator_options.save_obj_det_label:
         with open(os.path.join(
-                generator_options.label_save_path,
+                generator_options.obj_det_save_path,
                 generator_options.name_format %
                 (index + generator_options.start_index) + '.csv'), 'w') as f:
 
