@@ -13,51 +13,55 @@ generator_options = arguments.GeneratorOptions()
 
 
 def get_augmented_image(original_image, original_label,
-                        obj_vals, location):
+                        obj_details, location):
     """
-    This function gets the image and label which needs
-    to be augmented, the object details
-    and the random location in which the object needs
-    to be placed as arguments..
+    This function gets an image, label and object details and returns
+    a new image and label with the object placed.
 
-    The existing object location is shifted based
-    on the location argument and the
-    intensity values of the object are now placed
-    in the shifted location...
-
-    The resultant augmented image and label is returned...
+    :param original_image: The image on which an object needs to be placed.
+    :param original_label: The corresponding label image.
+    :param obj_details: The details dictionary of the object to be placed.
+    :param location: The location in pixel coordinates where the object
+                     needs to be placed.
+    :return: returns image and label augmented with the object to be placed.
     """
+
     augmented_image = original_image.copy()
     augmented_label = original_label.copy()
-    obj_vals_to_augment = copy.deepcopy(obj_vals)
+    obj_details_to_augment = copy.deepcopy(obj_details)
 
-    row_shift = min(obj_vals_to_augment['obj_loc'][:, 0]
+    row_shift = min(obj_details_to_augment['obj_loc'][:, 0]
                     ) - location[0]
-    col_shift = min(obj_vals_to_augment['obj_loc'][:, 1]
+    col_shift = min(obj_details_to_augment['obj_loc'][:, 1]
                     ) - location[1]
-    obj_vals_to_augment['obj_loc'][:, 0] -= row_shift
-    obj_vals_to_augment['obj_loc'][:, 1] -= col_shift
+    obj_details_to_augment['obj_loc'][:, 0] -= row_shift
+    obj_details_to_augment['obj_loc'][:, 1] -= col_shift
 
-    for index, loc in enumerate(obj_vals_to_augment['obj_loc']):
+    for index, loc in enumerate(obj_details_to_augment['obj_loc']):
         if (0 < loc[0] < generator_options.image_dimension[0]
                 and 0 < loc[1] < generator_options.image_dimension[1]):
-            augmented_image[tuple(loc)] = obj_vals_to_augment[
+            augmented_image[tuple(loc)] = obj_details_to_augment[
                                     'obj_vals'][index]
-            augmented_label[tuple(loc)] = obj_vals_to_augment[
+            augmented_label[tuple(loc)] = obj_details_to_augment[
                                     'label_vals'][index]
 
     if generator_options.save_obj_det_label:
         rect_points = [r - s for r, s in zip(
-            obj_vals_to_augment['rect_points'],
+            obj_details_to_augment['rect_points'],
             [row_shift, col_shift, row_shift, col_shift])]
 
-        obj_det_label = [obj_vals_to_augment['obj_name']] + rect_points
+        obj_det_label = [obj_details_to_augment['obj_name']] + rect_points
         return augmented_image, augmented_label, obj_det_label
 
     return augmented_image, augmented_label
 
 
 def make_save_dirs():
+    """
+    This function checks whether the save paths exists. Creates them if
+    they do not exist.
+    :return: No returns.
+    """
 
     if not os.path.isdir(generator_options.image_save_path):
         os.makedirs(generator_options.image_save_path)
@@ -79,6 +83,10 @@ def make_save_dirs():
 
 
 def get_mask(label):
+    """
+    :param label: The label image for which mask needs to be generated.
+    :return: A 3 channel image mask for the label.
+    """
     colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
                            [102, 102, 156], [190, 153, 153], [153, 153, 153],
                            [250, 170, 30], [220, 220, 0], [107, 142, 35],
@@ -90,19 +98,32 @@ def get_mask(label):
     return colormap[np.array(label, dtype=np.uint8)]
 
 
-def save_data(augmented_image, augmented_label, obj_det_label, index):
+def save_data(artificial_image, semantic_label, obj_det_label, index):
+    """
+    This function saves the artificial image and its corresponding semantic
+    label. Also saves object detection labels, plot preview and segmentation
+    mask images based on "generator_options".
+
+    :param artificial_image: The artificial image which needs to be saved.
+    :param semantic_label: The semantic segmentation label image which
+                           needs to be saved.
+    :param obj_det_label: The object detection label which needs to be
+                          saved. Can be None if "save_obj_det_label" is false.
+    :param index: The index value to be included in the name of the files.
+    :return: No returns.
+    """
 
     cv2.imwrite(os.path.join(
         generator_options.image_save_path,
         generator_options.name_format %
         (index + generator_options.start_index) + '.jpg'),
-        augmented_image)
+        artificial_image)
 
     cv2.imwrite(os.path.join(
         generator_options.label_save_path,
         generator_options.name_format %
         (index + generator_options.start_index) + '.png'),
-        augmented_label)
+        semantic_label)
 
     if generator_options.save_obj_det_label:
         with open(os.path.join(
@@ -116,7 +137,7 @@ def save_data(augmented_image, augmented_label, obj_det_label, index):
         obj_det_label = None
 
     if generator_options.save_label_preview:
-        plotter.plot_preview(augmented_image, augmented_label,
+        plotter.plot_preview(artificial_image, semantic_label,
                              obj_det_label, index)
 
     if generator_options.save_mask:
@@ -124,21 +145,19 @@ def save_data(augmented_image, augmented_label, obj_det_label, index):
             generator_options.mask_save_path,
             generator_options.name_format %
             (index + generator_options.start_index) + '.png'),
-            get_mask(augmented_label))
+            get_mask(semantic_label))
 
 
 def perform_augmentation():
-
     """
-    This function goes through the augment vector and performs augmentation
-    for each augment vector.. The result is saved along with semantic segmentation
-    labels and object detection labels (if get_obj_det_label is true)...
 
-    In each augment vector, objects in 'what_objects' is taken and pasted on top
-    of the 'background_image' in the augment vector...
+    This function goes through the augmenter list and generates an artificial
+    image for each element in the augmenter list. The results are saved in the
+    corresponding locations specified by "generator_options".
 
-    The augmented image and label are then saved. Object detection labels are saved
-    in a csv (one for every augment vector) if get_obj_det_label is true...
+    In each element of augmenter list, objects in 'what_objects' is taken and
+    pasted on top of the 'background_image' in the element...
+    :return: No returns.
     """
 
     make_save_dirs()
@@ -147,31 +166,31 @@ def perform_augmentation():
         generator_options.image_dimension)) * (
         arguments.LABEL_DEF_MATLAB['background'])
 
-    for index, vector in enumerate(tqdm.tqdm(
+    for index, element in enumerate(tqdm.tqdm(
             generate_augmenter_list.augmenter_list,
-            desc='Generating synthetic images')):
-        augmented_image = vector['background_image']
-        augmented_label = background_label.copy()
+            desc='Generating artificial images')):
+        artificial_image = element['background_image']
+        semantic_label = background_label.copy()
         obj_det_label.clear()
-        for i in range(vector['num_objects_to_place']):
+        for i in range(element['num_objects_to_place']):
 
             if generator_options.save_obj_det_label:
-                augmented_image, augmented_label, rect_label = (
-                    get_augmented_image(augmented_image,
-                                        augmented_label,
+                artificial_image, semantic_label, rect_label = (
+                    get_augmented_image(artificial_image,
+                                        semantic_label,
                                         object_details.objects[
-                                            vector['what_objects'][i]],
-                                        vector['locations'][i]))
+                                            element['what_objects'][i]],
+                                        element['locations'][i]))
                 obj_det_label.append(rect_label)
             else:
-                augmented_image, augmented_label = (
-                    get_augmented_image(augmented_image,
-                                        augmented_label,
+                artificial_image, semantic_label = (
+                    get_augmented_image(artificial_image,
+                                        semantic_label,
                                         object_details.objects[
-                                            vector['what_objects'][i]],
-                                        vector['locations'][i]))
+                                            element['what_objects'][i]],
+                                        element['locations'][i]))
 
-        save_data(augmented_image, augmented_label, obj_det_label, index)
+        save_data(artificial_image, semantic_label, obj_det_label, index)
 
 
 if __name__ == '__main__':

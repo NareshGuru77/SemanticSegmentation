@@ -8,6 +8,18 @@ generator_options = arguments.GeneratorOptions()
 
 def plot_preview(image, label, obj_det_label, index):
 
+    """
+    This function can be used to plot a preview image,
+    which shows the image and labels alongside each other.
+
+    :param image: Image to plot.
+    :param label: Corresponding segmentation label.
+    :param obj_det_label: Corresponding object detection label.
+                          Can be None.
+    :param index: The index number of the image.
+    :return: Nothing is returned.
+    """
+
     label = label.copy()
     if obj_det_label is not None:
         for l in obj_det_label:

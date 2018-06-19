@@ -10,8 +10,11 @@ generator_options = arguments.GeneratorOptions()
 
 def fetch_background_images():
     """
-    This function reads the background images and creates a list...
+    :return: Returns a list of background images.
+    :raises: Warning if background does not have the required dimension.
+            The background is then resized.
     """
+
     backgrounds_path = generator_options.backgrounds_path
     background_files = os.listdir(backgrounds_path)
     background_files = [os.path.join(backgrounds_path, file)
@@ -36,11 +39,13 @@ def fetch_background_images():
 def fetch_image_gt_paths():
     """
     This function counts the number of annotated images and
-    fetches the path of the images and corresponding labels..
+    fetches the path of the images and corresponding labels.
 
-    Returns the number of annotated images and a dictionary mapping
-    the object name to the corresponding image and label paths...
+    :return: files_counter: The number of images read.
+             object_files_dict: A dictionary which maps object names
+                                to corresponding image and label paths.
     """
+
     object_files_dict = dict()
     files_counter = 0
 
@@ -70,6 +75,13 @@ def fetch_image_gt_paths():
 
 
 def read_image_labels(object_files_dict):
+    """
+
+    :param object_files_dict: A dictionary which maps object names
+                                to corresponding image and label paths.
+    :return: A dictionary which maps object names to corresponding
+             image and label data.
+    """
 
     class_name_to_data_dict = {}
     for key in arguments.LABEL_DEF_MATLAB:

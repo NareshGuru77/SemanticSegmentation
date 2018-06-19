@@ -10,7 +10,16 @@ generator_options = arguments.GeneratorOptions()
 
 def remove_clutter(augmenter_list, regenerate_count):
     """
-    This function removes vectors with too many objects and too much object occlusion
+    This function removes elements from the augmenter list which have
+    objects occupy an area in image space larger than "max_occupied_area"
+    or have objects which are too close to each other determined my
+    "min_distance".
+
+    :param augmenter_list: Augmenter list containing details regarding the
+                            artificial image.
+    :param regenerate_count: Count of attempts already made to create new
+                            elements for augmenter list.
+    :return: No returns.
     """
 
     removed_vectors = 0
@@ -31,30 +40,51 @@ def remove_clutter(augmenter_list, regenerate_count):
             and removed_vectors is not 0):
         regenerate_count += 1
         create_augmenter_list(is_regeneration=True,
-                              removed_vectors=removed_vectors,
+                              removed_elements=removed_vectors,
                               regenerate_count=regenerate_count,
                               augmenter_list=augmenter_list)
 
 
-def get_random_locations(num_objects_to_place):
+def get_random_locations(num_random_locations):
     """
-    Generate a list of random (x,y) points..
+    :param num_random_locations: Number of random locations in pixel space.
+    :return: A list of random (x,y) locations in pixel space.
     """
+
     location = [[random.randrange(0, 440, 120), random.randrange(0, 600, 120)]
-                for _ in range(num_objects_to_place)]
+                for _ in range(num_random_locations)]
 
     return np.array(location)
 
 
-def create_augmenter_list(is_regeneration=False, removed_vectors=None,
+def create_augmenter_list(is_regeneration=False, removed_elements=None,
                           regenerate_count=None, augmenter_list=None):
+    """
+
+    :param is_regeneration: Currently regenerate elements or create new
+                            list of elements.
+    :param removed_elements: How many elements have been removed and needs
+                            to be regenerated.
+    :param regenerate_count: How many regeneration attempts have already
+                            been made.
+    :param augmenter_list: A list of elements where each element is a dictionary
+                            containing the following details regarding the artificial
+                            image:
+                            1. 'background_image': The background image to use.
+                            2. 'num_objects_to_place': Number of objects to be placed.
+                            3. 'what_objects': A list of indexes indication what objects
+                                                need to be placed.
+                            4. 'locations': A list of coordinates in the image where
+                                            each object needs to be placed.
+    :return: The generated augmenter list.
+    """
 
     num_objects = object_details.num_of_objects
     objects_index = np.arange(0, num_objects)
 
     if is_regeneration:
         augmenter_list = augmenter_list
-        num_images = removed_vectors
+        num_images = removed_elements
         regenerate_count = regenerate_count
     else:
         augmenter_list = []

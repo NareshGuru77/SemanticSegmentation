@@ -9,6 +9,13 @@ generator_options = arguments.GeneratorOptions()
 
 def get_num_scales_and_objects():
 
+    """
+    This function picks a random number of scales in the range 1 to 5
+    for each real image if num_scales is randomize. Else takes num_scales.
+
+    :return: num_scales which is either an array of number of scales or a
+             single number of scales.
+    """
     if generator_options.num_scales is 'randomize':
         number_of_scales = np.random.randint(
                                 1, 5,
@@ -20,17 +27,26 @@ def get_num_scales_and_objects():
 
 
 def find_obj_loc_and_vals(image, label, label_value, obj_name):
+
     """
-    This function returns a dictionary which links:
-        1. 'obj_loc' to (x,y) locations of the object obtained using
-            the label definition...
-        2. 'obj_vals' to the intensity values of the object in the
-            corresponding 'obj_loc'...
-        3. 'label_vals' to an array whose all elements is the value of
-            the object label...
-        4. 'obj_name' to the name of the object..
-        5. 'rect_points' to the coordinates of the points to obtain bounding rectangle.
-        6. 'obj_area' to the area occupied by the object in pixel space.
+    This function creates a dictionary containing details regarding
+    an object in an image.
+
+    :param image: Image from which found object needs to be extracted.
+    :param label: Label on which object needs to be searched.
+    :param label_value: The label value of the object to be searched.
+    :param obj_name: The name of the object to be searched.
+    :return: returns a dictionary which links:
+                1. 'obj_loc' to (x,y) locations of the object obtained using
+                    the label definition...
+                2. 'obj_vals' to the intensity values of the object in the
+                    corresponding 'obj_loc'...
+                3. 'label_vals' to an array whose all elements is the value of
+                    the object label...
+                4. 'obj_name' to the name of the object..
+                5. 'rect_points' to the coordinates of the points to obtain
+                    bounding rectangle.
+                6. 'obj_area' to the area occupied by the object in pixel space.
 
     """
     obj_loc = np.argwhere(label == label_value)
@@ -51,7 +67,15 @@ def get_different_scales(image, image_label, label_value,
                          number_of_scales, obj_name, obj_num):
     """
     This functions creates different scales of the object based on the
-    number of scales parameter and removes objects which are too small..
+    number of scales parameter and removes objects which are too small.
+
+    :param image: Image of which different scales needs to be created.
+    :param image_label: The corresponding label of the image.
+    :param label_value: The label value of the object in the image.
+    :param number_of_scales: The number of scales required for the object.
+    :param obj_name: The name of the object.
+    :param obj_num: Current image number.
+    :return: A list of dictionaries containing details of the scaled objects.
     """
 
     if type(number_of_scales) is np.ndarray:
@@ -88,9 +112,12 @@ def get_different_scales(image, image_label, label_value,
 
 def get_scaled_objects(number_of_scales):
     """
-    This function reads all the images and its coresponding labels...
-    Creates a dictionary which maps the object name to the list of objects and labels...
+    This function returns a list of details of all objects.
+
+    :param number_of_scales: The number of scales required for the objects.
+    :return: A list of dictionaries containing details of all the scaled objects.
     """
+
     objects_list = list()
     obj_num = -1
 
