@@ -1,0 +1,15 @@
+List of experiments:
+
+MobileNet on 4 variants of dataset.
+Xception on 4 variants of dataset.
+MobileNet on 4 variants only on real data.
+Xception on 4 variants only on real data.
+MobileNet on augmented data and test on real unseen data.
+Xception on augmented data and test on real unseen data.
+MobileNet and Xception on 4 variants with weight balancing loss.
+
+
+
+MobileNet and Xception pruned on all 4 variants.
+MobileNet and Xception optimized and quantized on all 4 variants.
+MobileNet and Xception pruned, optimized and quantized on all 4 variants.
