@@ -8,6 +8,8 @@ import tqdm
 import cv2
 import os
 import csv
+from joblib import Parallel, delayed
+import multiprocessing
 
 generator_options = arguments.GeneratorOptions()
 
@@ -148,6 +150,41 @@ def save_data(artificial_image, semantic_label, obj_det_label, index):
             get_mask(semantic_label))
 
 
+def worker(index, element, obj_det_label, background_label):
+    """
+    This is a worker function created for parallel processing
+     of "perform_augmentation" function.
+    :param index: The index of the current element.
+    :param element: The current element in the augment vector.
+    :param obj_det_label: Object detection label.
+    :param background_label: A 1 channel image filled with
+                             background label value.
+    :return: No returns.
+    """
+    artificial_image = element['background_image']
+    semantic_label = background_label.copy()
+    obj_det_label.clear()
+    for i in range(element['num_objects_to_place']):
+
+        if generator_options.save_obj_det_label:
+            artificial_image, semantic_label, rect_label = (
+                get_augmented_image(artificial_image,
+                                    semantic_label,
+                                    object_details.objects[
+                                        element['what_objects'][i]],
+                                    element['locations'][i]))
+            obj_det_label.append(rect_label)
+        else:
+            artificial_image, semantic_label = (
+                get_augmented_image(artificial_image,
+                                    semantic_label,
+                                    object_details.objects[
+                                        element['what_objects'][i]],
+                                    element['locations'][i]))
+
+    save_data(artificial_image, semantic_label, obj_det_label, index)
+
+
 def perform_augmentation():
     """
 
@@ -166,31 +203,12 @@ def perform_augmentation():
         generator_options.image_dimension)) * (
         arguments.LABEL_DEF_MATLAB['background'])
 
-    for index, element in enumerate(tqdm.tqdm(
-            generate_augmenter_list.augmenter_list,
-            desc='Generating artificial images')):
-        artificial_image = element['background_image']
-        semantic_label = background_label.copy()
-        obj_det_label.clear()
-        for i in range(element['num_objects_to_place']):
-
-            if generator_options.save_obj_det_label:
-                artificial_image, semantic_label, rect_label = (
-                    get_augmented_image(artificial_image,
-                                        semantic_label,
-                                        object_details.objects[
-                                            element['what_objects'][i]],
-                                        element['locations'][i]))
-                obj_det_label.append(rect_label)
-            else:
-                artificial_image, semantic_label = (
-                    get_augmented_image(artificial_image,
-                                        semantic_label,
-                                        object_details.objects[
-                                            element['what_objects'][i]],
-                                        element['locations'][i]))
-
-        save_data(artificial_image, semantic_label, obj_det_label, index)
+    num_cores = multiprocessing.cpu_count()
+    Parallel(n_jobs=num_cores)(delayed(worker)(index,
+                                               element, obj_det_label, background_label)
+                               for index, element in enumerate(tqdm.tqdm(
+                                                    generate_augmenter_list.augmenter_list,
+                                                    desc='Generating artificial images')))
 
 
 if __name__ == '__main__':

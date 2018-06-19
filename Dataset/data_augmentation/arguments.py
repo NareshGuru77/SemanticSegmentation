@@ -101,7 +101,7 @@ parser.add_argument('--max_objects', default=10, type=int, required=False,
 parser.add_argument('--num_regenerate', default=100, type=int, required=False,
                     help='Number of regeneration attempts of removed details dict.')
 
-parser.add_argument('--min_distance', default=70, type=int, required=False,
+parser.add_argument('--min_distance', default=100, type=int, required=False,
                     help='Minimum pixel distance required between two objects.')
 
 parser.add_argument('--max_occupied_area', default=0.8, type=float, required=False,
