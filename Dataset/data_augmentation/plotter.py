@@ -2,6 +2,7 @@ from data_augmentation import arguments
 import matplotlib.pyplot as plt
 import cv2
 import os
+import numpy as np
 
 generator_options = arguments.GeneratorOptions()
 
@@ -23,19 +24,17 @@ def plot_preview(image, label, obj_det_label, index):
     label = label.copy()
     if obj_det_label is not None:
         for l in obj_det_label:
+            box_value = len(arguments.LABEL_DEF_MATLAB) + (
+                arguments.LABEL_DEF_MATLAB[l[0]] - 1)
             for i in range(l[1], l[3] + 1):
                 if i < generator_options.image_dimension[0]:
-                    label[i, l[2]:l[2] + 3] = len(
-                            arguments.LABEL_DEF_MATLAB) + 1
-                    label[i, l[4] - 3:l[4]] = len(
-                            arguments.LABEL_DEF_MATLAB) + 1
+                    label[i, l[2]:l[2] + 3] = box_value
+                    label[i, l[4] - 3:l[4]] = box_value
 
             for i in range(l[2], l[4] + 1):
                 if i < generator_options.image_dimension[1]:
-                    label[l[1]:l[1] + 3, i] = len(
-                            arguments.LABEL_DEF_MATLAB) + 1
-                    label[l[3] - 3:l[3], i] = len(
-                            arguments.LABEL_DEF_MATLAB) + 1
+                    label[l[1]:l[1] + 3, i] = box_value
+                    label[l[3] - 3:l[3], i] = box_value
 
     figure = plt.figure()
     figure.set_figheight(15)

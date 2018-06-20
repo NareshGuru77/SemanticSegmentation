@@ -123,7 +123,7 @@ def get_scaled_objects(number_of_scales):
 
     class_name_to_data = get_backgrounds_and_data.class_name_to_data
     for key in tqdm.tqdm(arguments.LABEL_DEF_MATLAB,
-                         desc='Loading images and gts class by class'):
+                         desc='Loading images and labels class by class'):
         if key is not 'background':
             data_list = class_name_to_data[key]
             for data in data_list:

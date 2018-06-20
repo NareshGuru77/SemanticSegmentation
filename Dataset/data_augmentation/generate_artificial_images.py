@@ -164,22 +164,25 @@ def worker(index, element, obj_det_label, background_label):
     artificial_image = element['background_image']
     semantic_label = background_label.copy()
     obj_det_label.clear()
+    obj_details_list = [object_details.objects[this_object]
+                        for this_object in element['what_objects']]
+    obj_details_list = sorted(obj_details_list,
+                              key=lambda k: k['obj_area'],
+                              reverse=True)
     for i in range(element['num_objects_to_place']):
 
         if generator_options.save_obj_det_label:
             artificial_image, semantic_label, rect_label = (
                 get_augmented_image(artificial_image,
                                     semantic_label,
-                                    object_details.objects[
-                                        element['what_objects'][i]],
+                                    obj_details_list[i],
                                     element['locations'][i]))
             obj_det_label.append(rect_label)
         else:
             artificial_image, semantic_label = (
                 get_augmented_image(artificial_image,
                                     semantic_label,
-                                    object_details.objects[
-                                        element['what_objects'][i]],
+                                    obj_details_list[i],
                                     element['locations'][i]))
 
     save_data(artificial_image, semantic_label, obj_det_label, index)
