@@ -1,8 +1,8 @@
 from data_augmentation import arguments
+from data_augmentation import generate_artificial_images
 import matplotlib.pyplot as plt
 import cv2
 import os
-import numpy as np
 
 generator_options = arguments.GeneratorOptions()
 
@@ -42,7 +42,7 @@ def plot_preview(image, label, obj_det_label, index):
     figure.add_subplot(1, 2, 1)
     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     figure.add_subplot(1, 2, 2)
-    plt.imshow(label)
+    plt.imshow(generate_artificial_images.get_mask(label))
     save_path = os.path.join(
                     generator_options.preview_save_path,
                     generator_options.name_format %
