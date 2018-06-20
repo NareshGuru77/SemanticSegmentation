@@ -14,6 +14,20 @@ import multiprocessing
 generator_options = arguments.GeneratorOptions()
 
 
+def get_locations_in_image(obj_locations):
+    """
+    :param obj_locations: List of (x,y) locations.
+    :return: array of locations within the image space.
+    """
+    locs_within_image = []
+    for index, location in enumerate(obj_locations):
+        if (0 <= location[0] <= generator_options.image_dimension[0]
+                and 0 <= location[1] <= generator_options.image_dimension[1]):
+            locs_within_image.append(location)
+
+    return np.array(locs_within_image)
+
+
 def get_augmented_image(original_image, original_label,
                         obj_details, location):
     """
@@ -48,9 +62,10 @@ def get_augmented_image(original_image, original_label,
                                     'label_vals'][index]
 
     if generator_options.save_obj_det_label:
-        rect_points = [r - s for r, s in zip(
-            obj_details_to_augment['rect_points'],
-            [row_shift, col_shift, row_shift, col_shift])]
+        obj_locations = get_locations_in_image(
+                                obj_details_to_augment['obj_loc'])
+        rect_points = [min(obj_locations[:, 0]), min(obj_locations[:, 1]),
+                       max(obj_locations[:, 0]), max(obj_locations[:, 1])]
 
         obj_det_label = [obj_details_to_augment['obj_name']] + rect_points
         return augmented_image, augmented_label, obj_det_label
