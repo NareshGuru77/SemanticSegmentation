@@ -57,8 +57,10 @@ def plot_preview(image, label, obj_det_label, index):
                          loc=3, ncol=2, mode="expand",
                          borderaxespad=0., prop={'size': 20})
 
-        for l in leg.legendHandles:
-            l.set_linewidth(15)
+        for handle, line, text in zip(leg.legendHandles,
+                                      leg.get_lines(), leg.get_texts()):
+            handle.set_linewidth(15)
+            text.set_color(line.get_color())
 
     plt.imshow(generate_artificial_images.colormap[
                    np.array(label, dtype=np.uint8)])
