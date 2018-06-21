@@ -13,6 +13,20 @@ import multiprocessing
 
 generator_options = arguments.GeneratorOptions()
 
+colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
+                           [102, 102, 156], [190, 153, 153], [153, 153, 153],
+                           [250, 170, 30], [220, 220, 0], [107, 142, 35],
+                           [152, 251, 152], [70, 130, 180], [220, 20, 60],
+                           [255, 0, 0], [0, 0, 142], [0, 0, 70],
+                           [0, 60, 100], [0, 80, 100], [0, 0, 230],
+                           [119, 11, 32], [255, 255, 255], [0, 0, 0],
+                           [0, 204, 255], [20, 0, 255], [10, 190, 212],
+                           [0, 153, 255], [0, 41, 255], [0, 255, 204],
+                           [41, 0, 255], [41, 255, 0], [173, 0, 255],
+                           [25, 194, 194], [71, 0, 255], [122, 0, 255],
+                           [0, 255, 184], [0, 92, 255], [184, 255, 0],
+                           [0, 133, 255], [255, 154, 0]])
+
 
 def get_locations_in_image(obj_locations):
     """
@@ -99,28 +113,6 @@ def make_save_dirs():
             os.makedirs(generator_options.preview_save_path)
 
 
-def get_mask(label):
-    """
-    :param label: The label image for which mask needs to be generated.
-    :return: A 3 channel image mask for the label.
-    """
-    colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
-                           [102, 102, 156], [190, 153, 153], [153, 153, 153],
-                           [250, 170, 30], [220, 220, 0], [107, 142, 35],
-                           [152, 251, 152], [70, 130, 180], [220, 20, 60],
-                           [255, 0, 0], [0, 0, 142], [0, 0, 70],
-                           [0, 60, 100], [0, 80, 100], [0, 0, 230],
-                           [119, 11, 32], [255, 255, 255], [0, 0, 0],
-                           [0, 204, 255], [20, 0, 255], [10, 190, 212],
-                           [0, 153, 255], [0, 41, 255], [0, 255, 204],
-                           [41, 0, 255], [41, 255, 0], [173, 0, 255],
-                           [25, 194, 194], [71, 0, 255], [122, 0, 255],
-                           [0, 255, 184], [0, 92, 255], [184, 255, 0],
-                           [0, 133, 255], [255, 154, 0]])
-
-    return colormap[np.array(label, dtype=np.uint8)]
-
-
 def save_data(artificial_image, semantic_label, obj_det_label, index):
     """
     This function saves the artificial image and its corresponding semantic
@@ -168,7 +160,7 @@ def save_data(artificial_image, semantic_label, obj_det_label, index):
             generator_options.mask_save_path,
             generator_options.name_format %
             (index + generator_options.start_index) + '.png'),
-            get_mask(semantic_label))
+            colormap[np.array(semantic_label, dtype=np.uint8)])
 
 
 def worker(index, element, obj_det_label, background_label):

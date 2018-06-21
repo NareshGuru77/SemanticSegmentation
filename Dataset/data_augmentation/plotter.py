@@ -3,6 +3,7 @@ from data_augmentation import generate_artificial_images
 import matplotlib.pyplot as plt
 import cv2
 import os
+import numpy as np
 
 generator_options = arguments.GeneratorOptions()
 
@@ -22,7 +23,9 @@ def plot_preview(image, label, obj_det_label, index):
     """
 
     label = label.copy()
+    unique_objects = []
     if obj_det_label is not None:
+        objects_in_image = []
         for l in obj_det_label:
             box_value = len(arguments.LABEL_DEF_MATLAB) + (
                 arguments.LABEL_DEF_MATLAB[l[0]])
@@ -35,20 +38,33 @@ def plot_preview(image, label, obj_det_label, index):
                 if i < generator_options.image_dimension[1]:
                     label[l[1]:l[1] + 3, i] = box_value
                     label[l[3] - 3:l[3], i] = box_value
+            objects_in_image.append(l[0])
+        unique_objects = np.unique(objects_in_image)
 
     figure = plt.figure()
     figure.set_figheight(15)
-    figure.set_figwidth(15)
+    figure.set_figwidth(20)
     figure.add_subplot(1, 2, 1)
     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     figure.add_subplot(1, 2, 2)
-    plt.imshow(generate_artificial_images.get_mask(label))
+    plt.imshow(generate_artificial_images.colormap[
+                   np.array(label, dtype=np.uint8)])
+
+    if obj_det_label is not None:
+        [plt.plot(0, 0, '-', c=generate_artificial_images.colormap[
+            arguments.LABEL_DEF_MATLAB[obj]]/255., label=obj)
+         for obj in unique_objects]
+
+        leg = plt.legend(bbox_to_anchor=(0., 1.02, 1., .102),
+                         loc=3, ncol=2, mode="expand",
+                         borderaxespad=0., prop={'size': 20})
+
+        for l in leg.legendHandles:
+            l.set_linewidth(15)
+
     save_path = os.path.join(
                     generator_options.preview_save_path,
                     generator_options.name_format %
                     (index + generator_options.start_index) + '.png')
-    plt.savefig(save_path)
-    result = cv2.imread(save_path, 1)
-    result = result[500:1000, 100:1400, :]
-    cv2.imwrite(save_path, result)
+    plt.savefig(save_path, bbox_inches="tight")
     plt.close(figure)
