@@ -34,8 +34,7 @@ def plot_preview(image, label, obj_det_label, index):
     if obj_det_label is not None:
         objects_in_image = []
         for l in obj_det_label:
-            box_value = len(arguments.LABEL_DEF_MATLAB) + (
-                arguments.LABEL_DEF_MATLAB[l[0]])
+            box_value = arguments.LABEL_DEF_MATLAB[l[0]]
             for i in range(l[1], l[3] + 1):
                 if i < generator_options.image_dimension[0]:
                     label[i, l[2]:l[2] + 3] = box_value
