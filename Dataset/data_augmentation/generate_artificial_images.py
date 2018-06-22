@@ -60,12 +60,10 @@ def get_augmented_image(original_image, original_label,
     augmented_label = original_label.copy()
     obj_details_to_augment = copy.deepcopy(obj_details)
 
-    row_shift = min(obj_details_to_augment['obj_loc'][:, 0]
-                    ) - location[0]
-    col_shift = min(obj_details_to_augment['obj_loc'][:, 1]
-                    ) - location[1]
-    obj_details_to_augment['obj_loc'][:, 0] -= row_shift
-    obj_details_to_augment['obj_loc'][:, 1] -= col_shift
+    min_loc_index = np.argmin(np.sum(
+        obj_details_to_augment['obj_loc'], axis=1))
+    obj_details_to_augment['obj_loc'] -= (obj_details_to_augment['obj_loc'][
+                                          min_loc_index, :] - location)
 
     for index, loc in enumerate(obj_details_to_augment['obj_loc']):
         if (0 < loc[0] < generator_options.image_dimension[0]
