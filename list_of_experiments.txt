@@ -6,10 +6,10 @@ MobileNet on 4 variants only on real data.
 Xception on 4 variants only on real data.
 MobileNet on augmented data and test on real unseen data.
 Xception on augmented data and test on real unseen data.
-MobileNet and Xception on 4 variants with weight balancing loss.
+MobileNet on 1 variant with weight balancing loss; different background weights.
 
+shades_of_white dataset: binary and best variant, mobileNet and Xception.
 
-
-MobileNet and Xception pruned on all 4 variants.
-MobileNet and Xception optimized and quantized on all 4 variants.
-MobileNet and Xception pruned, optimized and quantized on all 4 variants.
+MobileNet and Xception pruned on best & binary variants.
+MobileNet and Xception optimized and quantized on best & binary variants.
+MobileNet and Xception pruned, optimized and quantized on best & binary variants.
