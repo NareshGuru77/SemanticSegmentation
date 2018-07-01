@@ -57,7 +57,7 @@ parser.add_argument('--min_obj_area', default=20, type=int, required=False,
                     help='Minimum area in percentage allowed for an object in image space.')
 
 parser.add_argument('--max_obj_area', default=70, type=int, required=False,
-                    help='Minimum area in percentage allowed for an object in image space.')
+                    help='Maximum area in percentage allowed for an object in image space.')
 
 parser.add_argument('--save_label_preview', default=False, type=bool, required=False,
                     help='Save image+label in single image for preview.')
