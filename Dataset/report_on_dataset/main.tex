@@ -355,51 +355,51 @@ A number of arguments can be configured to control the generation process. Confi
 \hline 
 \textbf{num\_scales} & \makecell{'randomize'} & \makecell{Not required} \\ 
 \hline 
-\textbf{backgrounds\_path} & \makecell{-} & \makecell{} \\ 
+\textbf{backgrounds\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
-\textbf{image\_path} & \makecell{-} & \makecell{} \\ 
+\textbf{image\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
-\textbf{label\_path} & \makecell{-} & \makecell{} \\ 
+\textbf{label\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
-\textbf{real\_img\_type} & \makecell{'.jpg'} & \makecell{} \\ 
+\textbf{real\_img\_type} & \makecell{'.jpg'} & \makecell{Not required} \\ 
 \hline 
-\textbf{min\_obj\_area} & \makecell{20} & \makecell{} \\ 
+\textbf{min\_obj\_area} & \makecell{20} & \makecell{Not required} \\ 
 \hline 
-\textbf{max\_obj\_area} & \makecell{70} & \makecell{} \\ 
+\textbf{max\_obj\_area} & \makecell{70} & \makecell{Not required} \\ 
 \hline 
-\textbf{save\_label\_preview} & \makecell{False} & \makecell{} \\ 
+\textbf{save\_label\_preview} & \makecell{False} & \makecell{Not required} \\ 
 \hline 
-\textbf{save\_obj\_det\_label} & \makecell{False} & \makecell{} \\ 
+\textbf{save\_obj\_det\_label} & \makecell{False} & \makecell{Not required} \\ 
 \hline  
-\textbf{save\_mask} & \makecell{False} & \makecell{} \\ 
+\textbf{save\_mask} & \makecell{False} & \makecell{Not required} \\ 
 \hline 
-\textbf{image\_save\_path} & \makecell{-} & \makecell{} \\ 
+\textbf{image\_save\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
-\textbf{label\_save\_path} & \makecell{-} & \makecell{} \\ 
+\textbf{label\_save\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
-\textbf{preview\_save\_path} & \makecell{None} & \makecell{} \\ 
+\textbf{preview\_save\_path} & \makecell{None} & \makecell{Required if \\save\_label\_preview is True} \\ 
 \hline 
-\textbf{obj\_det\_save\_path} & \makecell{None} & \makecell{} \\ 
+\textbf{obj\_det\_save\_path} & \makecell{None} & \makecell{Required if \\save\_obj\_det\_label is True} \\ 
 \hline 
-\textbf{mask\_save\_path} & \makecell{None} & \makecell{} \\ 
+\textbf{mask\_save\_path} & \makecell{None} & \makecell{Required if \\save\_mask is True} \\ 
 \hline 
-\textbf{start\_index} & \makecell{0} & \makecell{} \\ 
+\textbf{start\_index} & \makecell{0} & \makecell{Not required} \\ 
 \hline 
-\textbf{name\_format} & \makecell{'\%05d'} & \makecell{} \\
+\textbf{name\_format} & \makecell{'\%05d'} & \makecell{Not required} \\
 \hline 
-\textbf{remove\_clutter} & \makecell{True} & \makecell{} \\
+\textbf{remove\_clutter} & \makecell{True} & \makecell{Not required} \\
 \hline 
-\textbf{num\_images} & \makecell{20} & \makecell{} \\ 
+\textbf{num\_images} & \makecell{20} & \makecell{Not required} \\ 
 \hline 
-\textbf{max\_objects} & \makecell{10} & \makecell{} \\ 
+\textbf{max\_objects} & \makecell{10} & \makecell{Not required} \\ 
 \hline 
-\textbf{num\_regenerate} & \makecell{100} & \makecell{} \\ 
+\textbf{num\_regenerate} & \makecell{100} & \makecell{Not required} \\ 
 \hline 
-\textbf{min\_distance} & \makecell{100} & \makecell{} \\ 
+\textbf{min\_distance} & \makecell{100} & \makecell{Not required} \\ 
 \hline 
-\textbf{max\_occupied\_area} & \makecell{0.8} & \makecell{} \\ 
+\textbf{max\_occupied\_area} & \makecell{0.8} & \makecell{Not required} \\ 
 \hline 
-\textbf{scale\_ranges} & \makecell{None} & \makecell{} \\ 
+\textbf{scale\_ranges} & \makecell{None} & \makecell{Not required} \\ 
 \hline 
 \end{tabular}
 \caption{Default value of generator options and whether the options are required to be set.}
@@ -417,7 +417,32 @@ Sample results of the artificial image generation algorithm can be seen in \ref{
 		\caption{Sample results produced by the artificial image generation algorithm. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated.}
 		\label{Fig:8}
 	\end{figure}
-	
+
+\section{Dataset variants:}
+Different variants of the dataset are created based on the properties of the objects in the dataset, and the type of  background images used for generation of artificial images.
+	\subsection{Motivation}
+		Looking into the objects present in the dataset, it is apparant that some objects are similar in certain aspects. For instance, the objects m20 and m30 are very similar to each other except that m30 is bigger in size and has a slightly different color. Because of the similarities existing among objects, the segmentation model could face certain difficulties as listed below:
+		\begin{itemize}
+			\item Inability to distinguish size: The segmentation model is given no information regarding the positions of the camera or the object in the real world. If camera extrinsic calibration information is available to the segmentation model, the model could possibly learn to distinguish different sizes. However, such information is not available. In addition, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
+			\item Inability to distinguish subtle variations in color: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes. This makes it difficult for the segmentation model to learn patterns in color information.
+			\item Inability to distinguish shapes: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in Fig. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
+			
+			\begin{figure}[htb!]
+    			\centering
+    			\begin{subfigure}{0.5\textwidth}
+        			\centering
+        			\includegraphics[scale=0.3]{ax01_diff}
+        			\caption{Lorem ipsum}
+    			\end{subfigure}
+    			~ 
+    			\begin{subfigure}{0.5\textwidth}
+        			\centering
+        			\includegraphics[scale=0.4]{ax16_diff}
+        			\caption{Lorem ipsum, lorem ipsum,Lorem ipsum, lorem ipsum,Lorem ipsum}
+    			\end{subfigure}
+    			\caption{Caption place holder}
+			\end{figure}
+	\end{itemize}
 
 \section{Meta-data of the dataset}
 
