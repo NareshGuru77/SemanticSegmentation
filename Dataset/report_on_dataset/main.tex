@@ -407,7 +407,7 @@ A number of arguments can be configured to control the generation process. Confi
 \end{table}
 
 \subsection{Sample results}
-Sample results of the artificial image generation algorithm can be seen in \ref{Fig:8}. The bounding box represents the object detection label and the different colors of the segmentation labels denote different label values.
+Sample results of the artificial image generation algorithm can be seen in \ref{Fig:7}. The bounding box represents the object detection label and the different colors of the segmentation labels denote different label values.
 
 	\begin{figure}[htb!]
 		\centering
@@ -415,35 +415,228 @@ Sample results of the artificial image generation algorithm can be seen in \ref{
 		\includegraphics[scale=0.3]{sample_result_2}
 		\includegraphics[scale=0.3]{sample_result_3}
 		\caption{Sample results produced by the artificial image generation algorithm. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated.}
-		\label{Fig:8}
+		\label{Fig:7}
 	\end{figure}
+	
+\section{Splits of the dataset}
 
-\section{Dataset variants:}
+
+\section{Creation of dataset variants:}
 Different variants of the dataset are created based on the properties of the objects in the dataset, and the type of  background images used for generation of artificial images.
 	\subsection{Motivation}
 		Looking into the objects present in the dataset, it is apparant that some objects are similar in certain aspects. For instance, the objects m20 and m30 are very similar to each other except that m30 is bigger in size and has a slightly different color. Because of the similarities existing among objects, the segmentation model could face certain difficulties as listed below:
 		\begin{itemize}
-			\item Inability to distinguish size: The segmentation model is given no information regarding the positions of the camera or the object in the real world. If camera extrinsic calibration information is available to the segmentation model, the model could possibly learn to distinguish different sizes. However, such information is not available. In addition, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
-			\item Inability to distinguish subtle variations in color: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes. This makes it difficult for the segmentation model to learn patterns in color information.
-			\item Inability to distinguish shapes: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in Fig. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
+			\item \textbf{Inability to distinguish size}: The segmentation model is given no information regarding the positions of the camera or the object in the real world. If camera extrinsic calibration information is available to the segmentation model, the model could possibly learn to distinguish different sizes. However, such information is not available. In addition, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
+			\item \textbf{Inability to distinguish subtle variations in color}: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes. This makes it difficult for the segmentation model to learn patterns in color information.
+			\item \textbf{Inability to distinguish shapes}: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in \ref{Fig:8} and \ref{Fig:9}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
 			
-			\begin{figure}[htb!]
-    			\centering
-    			\begin{subfigure}{0.5\textwidth}
-        			\centering
-        			\includegraphics[scale=0.3]{ax01_diff}
-        			\caption{Lorem ipsum}
-    			\end{subfigure}
-    			~ 
-    			\begin{subfigure}{0.5\textwidth}
-        			\centering
-        			\includegraphics[scale=0.4]{ax16_diff}
-        			\caption{Lorem ipsum, lorem ipsum,Lorem ipsum, lorem ipsum,Lorem ipsum}
-    			\end{subfigure}
-    			\caption{Caption place holder}
-			\end{figure}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}{.3\textwidth}
+  		\centering
+  		\includegraphics[width=.5\linewidth]{ax01_diff}
+  		\caption{A viewpoint of \\bearing box ax01}
+  		\label{Fig:8a}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+  		\centering
+  		\includegraphics[width=.5\linewidth]{ax16_diff}
+  		\caption{A viewpoint of \\bearing box ax16}
+  		\label{Fig:8b}
+	\end{subfigure}%
+	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where the difference in shapes between the two objects is clearly visible.}
+	\label{Fig:8}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}{.3\textwidth}
+  		\centering
+  		\includegraphics[width=.5\linewidth]{ax01_similar}
+  		\caption{A viewpoint of \\bearing box ax01}
+  		\label{Fig:9a}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+  		\centering
+  		\includegraphics[width=.5\linewidth]{ax16_similar}
+  		\caption{A viewpoint of \\bearing box ax16}
+  		\label{Fig:9b}
+	\end{subfigure}%
+	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where the appear similar in shape.}
+	\label{Fig:9}
+\end{figure}	
+	\end{itemize}
+	
+	\subsection{Dataset variants}
+	Four different dataset variants have been created as listed below:
+	\begin{itemize}
+		\item \textbf{atWork\_full}: This variant has different label values for all the 18 objects in the dataset and an additional label value for background. The total number of classes is 19 including background and the label values range from 0 to 18. The different classes in this variant along with their label values are listed in \ref{Table:3}.
+		\item \textbf{atWork\_size\_invariant}: In this variant, objects which are similar to each other in terms of shape but differ in size are combined together into one class. On this regard, f20\_20\_B and s40\_40\_B are combined and named f\_s20\_40\_20\_40\_B. Similarly, f20\_20\_G and s40\_40\_G are combined and named f\_s20\_40\_20\_40\_G. m20 and m30 are combined and named m20\_30. The two bearing boxes, bearing\_box\_ax01 and bearing\_box\_ax16 are also combined together as they are similar to each other in certain viewpoints. They form the new class bearing\_box. The objects in this variant along with their label values are listed in \ref{Table:4}. This variant is named "atWork\_size\_invariant" as in this variant, the major change deals with the ignorance of the size of the objects as distinguishing information.
+		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, f\_s20\_40\_20\_40\_B and f\_s20\_40\_20\_40\_G are combined and named f\_s20\_40\_20\_40\_B\_G. The container boxes, container\_box\_red and container\_box\_blue were also combined to form the new class container\_box. This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in \ref{Table:5}.
+		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where are the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in \ref{Table:6}.
+		
+		\begin{table}[!htb]
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+  			\textbf{Variant Name} & \textbf{Object Name} & \textbf{Label Value} \\ 
+			\hline
+			\multirow{19}{*}{atWork\_full} & background & 0 \\ 
+			\cline{2-3}%\hline 
+			 & f20\_20\_B & 1 \\ 
+			\cline{2-3} 
+			& s40\_40\_B & 2 \\
+			\cline{2-3} 
+			& f20\_20\_G & 3 \\
+			\cline{2-3} 
+			& s40\_40\_G & 4 \\
+			\cline{2-3} 
+			& m20\_100 & 5 \\
+			\cline{2-3} 
+			& m20 & 6 \\
+			\cline{2-3} 
+			& m30 & 7 \\
+			\cline{2-3} 
+			& r20 & 8 \\
+			\cline{2-3} 
+			& bearing\_box\_ax01 & 9 \\
+			\cline{2-3} 
+			& bearing & 10 \\
+			\cline{2-3} 
+			& axis & 11 \\
+			\cline{2-3} 
+			& distance\_tube & 12 \\
+			\cline{2-3} 
+			& motor & 13 \\
+			\cline{2-3} 
+			& container\_box\_blue & 14 \\
+			\cline{2-3} 
+			& container\_box\_red & 15 \\
+			\cline{2-3} 
+			& bearing\_box\_ax16 & 16 \\
+			\cline{2-3} 
+			& em\_01 & 17 \\
+			\cline{2-3} 
+			& em\_02 & 18 \\
+			\hline
+			\end{tabular}
+			\caption{Details of the "atWork\_full" variant} 
+			\label{Table:3}
+		\end{table}
+		
+		\begin{table}[!htb]
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+  			\textbf{Variant Name} & \textbf{Object Name} & \textbf{Label Value} \\ 
+			\hline
+			\multirow{15}{*}{atWork\_size\_invariant} & background & 0 \\ 
+			\cline{2-3}%\hline 
+			 & f\_s20\_40\_20\_40\_B & 1 \\ 
+			\cline{2-3} 
+			& f\_s20\_40\_20\_40\_G & 2 \\
+			\cline{2-3}
+			& m20\_100 & 3 \\
+			\cline{2-3} 
+			& m20\_30 & 4 \\
+			\cline{2-3} 
+			& r20 & 5 \\
+			\cline{2-3} 
+			& bearing\_box & 6 \\
+			\cline{2-3} 
+			& bearing & 7 \\
+			\cline{2-3} 
+			& axis & 8 \\
+			\cline{2-3} 
+			& distance\_tube & 9 \\
+			\cline{2-3} 
+			& motor & 10 \\
+			\cline{2-3} 
+			& container\_box\_blue & 11 \\
+			\cline{2-3} 
+			& container\_box\_red & 12 \\
+			\cline{2-3} 
+			& em\_01 & 13 \\
+			\cline{2-3} 
+			& em\_02 & 14 \\
+			\hline
+			\end{tabular}
+			\caption{Details of the "atWork\_size\_invariant" variant} 
+			\label{Table:4}
+		\end{table}
+		
+		\begin{table}[!htb]
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+  			\textbf{Variant Name} & \textbf{Object Name} & \textbf{Label Value} \\ 
+			\hline
+			\multirow{13}{*}{atWork\_similar\_shapes} & background & 0 \\ 
+			\cline{2-3}%\hline 
+			 & f\_s20\_40\_20\_40\_B\_G & 1 \\
+			\cline{2-3}
+			& m20\_100 & 2 \\
+			\cline{2-3} 
+			& m20\_30 & 3 \\
+			\cline{2-3} 
+			& r20 & 4 \\
+			\cline{2-3} 
+			& bearing\_box & 5 \\
+			\cline{2-3} 
+			& bearing & 6 \\
+			\cline{2-3} 
+			& axis & 7 \\
+			\cline{2-3} 
+			& distance\_tube & 8 \\
+			\cline{2-3} 
+			& motor & 9 \\
+			\cline{2-3} 
+			& container & 10 \\
+			\cline{2-3} 
+			& em\_01 & 11 \\
+			\cline{2-3} 
+			& em\_02 & 12 \\
+			\hline
+			\end{tabular}
+			\caption{Details of the "atWork\_similar\_shapes" variant} 
+			\label{Table:5}
+		\end{table}
+		
+		\begin{table}[!htb]
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+  			\textbf{Variant Name} & \textbf{Object Name} & \textbf{Label Value} \\ 
+			\hline
+			\multirow{2}{*}{atWork\_binary} & background & 0 \\ 
+			\cline{2-3}%\hline 
+			 & foreground & 1 \\
+			\hline
+			\end{tabular}
+			\caption{Details of the "atWork\_binary" variant} 
+			\label{Table:6}
+		\end{table}
+
 	\end{itemize}
 
+	\subsection{The shades of white dataset}
+The backgrounds used for the artificial image generation process are images with a variety of different colors, textures and so on. In essense, the background images do not seem to follow any pattern as such. As a result, the generated artificial images are unlikely to be similar to an image taken by an atWork robot. In order to address this, the background images used in the artificial image generation process are all replaced with images which mostly contain shades of white color in them. With this as the only change, the entire artificial image generation process and variant creation process is repeated to arrive at a new dataset which is named "shades of white".
+
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[scale=0.3]{sample_white_1}
+		\includegraphics[scale=0.3]{sample_white_2}
+		\includegraphics[scale=0.3]{sample_white_3}
+		\caption{Sample results produced by the artificial image generation algorithm for the "shades of white" dataset.}
+		\label{Fig:7}
+	\end{figure}
+	
+\section{Data analysis:}
+	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each classs appears.
+	
+	\subsection{Analysing the "atWork\_full" variant:}
+		
+	
 \section{Meta-data of the dataset}
 
 Details regarding the dataset is provided in table \ref{Table:3}.
@@ -462,7 +655,7 @@ Total Images & 5540 & 900 & 900 \\
 \hline 
 \end{tabular}
 \caption{Meta-data of the dataset} 
-\label{Table:3}
+\label{Table:4}
 \end{table}
 
 \section{Notable features of the artificial image generator}
