@@ -1,11 +1,9 @@
-from data_augmentation import arguments
-from data_augmentation import get_backgrounds_and_data
-from data_augmentation import object_details
+from data_augmentation.arguments import generator_options
+from data_augmentation.get_backgrounds_and_data import background_images
+from data_augmentation.object_details import objects, num_of_objects
 import numpy as np
 import random
 from scipy.spatial.distance import cdist
-
-generator_options = arguments.GeneratorOptions()
 
 
 def remove_clutter(augmenter_list, regenerate_count):
@@ -26,7 +24,7 @@ def remove_clutter(augmenter_list, regenerate_count):
     for index, vector in enumerate(augmenter_list):
         vector_area = 0
         for i in range(vector['num_objects_to_place']):
-            vector_area += object_details.objects[vector['what_objects'][i]]['obj_area']
+            vector_area += objects[vector['what_objects'][i]]['obj_area']
         dist_btw_locations = cdist(vector['locations'], vector['locations'])
         np.fill_diagonal(dist_btw_locations, np.inf)
 
@@ -79,8 +77,7 @@ def create_augmenter_list(is_regeneration=False, removed_elements=None,
     :return: The generated augmenter list.
     """
 
-    num_objects = object_details.num_of_objects
-    objects_index = np.arange(0, num_objects)
+    objects_index = np.arange(0, num_of_objects)
 
     if is_regeneration:
         augmenter_list = augmenter_list
@@ -96,7 +93,6 @@ def create_augmenter_list(is_regeneration=False, removed_elements=None,
                                                  high=generator_options.max_objects)
         what_objects = [objects_index[i] for i in range(num_objects_to_place)]
 
-        background_images = get_backgrounds_and_data.background_images
         if i % len(background_images) == 0:
             np.random.shuffle(background_images)
 

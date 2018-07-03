@@ -1,7 +1,7 @@
-from data_augmentation import arguments
-from data_augmentation import object_details
-from data_augmentation import generate_augmenter_list
-from data_augmentation import plotter
+from data_augmentation.arguments import generator_options, LABEL_DEF_MATLAB
+from data_augmentation.object_details import objects
+from data_augmentation.generate_augmenter_list import augmenter_list
+from data_augmentation.plotter import colormap, plot_preview
 import copy
 import numpy as np
 import tqdm
@@ -10,22 +10,6 @@ import os
 import csv
 from joblib import Parallel, delayed
 import multiprocessing
-
-generator_options = arguments.GeneratorOptions()
-
-colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
-                       [102, 102, 156], [190, 153, 153], [153, 153, 153],
-                       [250, 170, 30], [220, 220, 0], [107, 142, 35],
-                       [152, 251, 152], [70, 130, 180], [220, 20, 60],
-                       [255, 0, 0], [0, 0, 142], [0, 0, 70],
-                       [0, 60, 100], [0, 80, 100], [0, 0, 230],
-                       [119, 11, 32], [255, 255, 255], [0, 0, 0],
-                       [0, 204, 255], [20, 0, 255], [10, 190, 212],
-                       [0, 153, 255], [0, 41, 255], [0, 255, 204],
-                       [41, 0, 255], [41, 255, 0], [173, 0, 255],
-                       [25, 194, 194], [71, 0, 255], [122, 0, 255],
-                       [0, 255, 184], [0, 92, 255], [184, 255, 0],
-                       [0, 133, 255], [255, 154, 0]])
 
 
 def get_locations_in_image(obj_locations):
@@ -150,7 +134,7 @@ def save_data(artificial_image, semantic_label, obj_det_label, index):
         obj_det_label = None
 
     if generator_options.save_label_preview:
-        plotter.plot_preview(artificial_image, semantic_label,
+        plot_preview(artificial_image, semantic_label,
                              obj_det_label, index)
 
     if generator_options.save_mask:
@@ -175,7 +159,7 @@ def worker(index, element, obj_det_label, background_label):
     artificial_image = element['background_image']
     semantic_label = background_label.copy()
     obj_det_label.clear()
-    obj_details_list = [object_details.objects[this_object]
+    obj_details_list = [objects[this_object]
                         for this_object in element['what_objects']]
     obj_details_list = sorted(obj_details_list,
                               key=lambda k: k['obj_area'],
@@ -215,13 +199,13 @@ def perform_augmentation():
     obj_det_label = list()
     background_label = np.ones(tuple(
         generator_options.image_dimension)) * (
-        arguments.LABEL_DEF_MATLAB['background'])
+        LABEL_DEF_MATLAB['background'])
 
     num_cores = multiprocessing.cpu_count()
     Parallel(n_jobs=num_cores)(delayed(worker)(index,
                                                element, obj_det_label, background_label)
                                for index, element in enumerate(tqdm.tqdm(
-                                                    generate_augmenter_list.augmenter_list,
+                                                    augmenter_list,
                                                     desc='Generating artificial images')))
 
 

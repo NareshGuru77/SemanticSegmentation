@@ -1,11 +1,10 @@
-from data_augmentation import arguments
+from data_augmentation.arguments import GeneratorOptions
+from data_augmentation.arguments import LABEL_DEF_MATLAB
 import os
 import logging
-import tqdm
 import cv2
-import numpy as np
 
-generator_options = arguments.GeneratorOptions()
+generator_options = GeneratorOptions()
 
 
 def fetch_background_images():
@@ -84,7 +83,7 @@ def read_image_labels(object_files_dict):
     """
 
     class_name_to_data_dict = {}
-    for key in arguments.LABEL_DEF_MATLAB:
+    for key in LABEL_DEF_MATLAB:
         if key is not 'background':
             data_list = object_files_dict[key]
             class_name_to_data_dict[key] = list()

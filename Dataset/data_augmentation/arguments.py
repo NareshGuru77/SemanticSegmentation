@@ -166,3 +166,6 @@ class GeneratorOptions(
             args.preview_save_path, args.obj_det_save_path, args.mask_save_path,
             args.start_index, args.name_format, args.remove_clutter, args.num_images,
             args.max_objects, args.num_regenerate, args.min_distance, args.max_occupied_area)
+
+
+generator_options = GeneratorOptions()

@@ -1,10 +1,9 @@
-from data_augmentation import arguments
+from data_augmentation.arguments import generator_options, \
+    LABEL_DEF_MATLAB, SCALES_RANGE_DICT
 from data_augmentation import get_backgrounds_and_data
 import tqdm
 import numpy as np
 import cv2
-
-generator_options = arguments.GeneratorOptions()
 
 
 def get_num_scales_and_objects():
@@ -85,7 +84,7 @@ def get_different_scales(image, image_label, label_value,
         num_scales = number_of_scales
         scale_difference = 1.2 / number_of_scales
 
-    zoom_range = arguments.SCALES_RANGE_DICT[obj_name]
+    zoom_range = SCALES_RANGE_DICT[obj_name]
     if zoom_range is None:
         scales = [i * scale_difference for i in range(1, num_scales + 1)]
     else:
@@ -122,7 +121,7 @@ def get_scaled_objects(number_of_scales):
     obj_num = -1
 
     class_name_to_data = get_backgrounds_and_data.class_name_to_data
-    for key in tqdm.tqdm(arguments.LABEL_DEF_MATLAB,
+    for key in tqdm.tqdm(LABEL_DEF_MATLAB,
                          desc='Loading images and labels class by class'):
         if key is not 'background':
             data_list = class_name_to_data[key]
@@ -130,7 +129,7 @@ def get_scaled_objects(number_of_scales):
                 obj_num += 1
                 objects_list += get_different_scales(data[0],
                                                      data[1],
-                                                     arguments.LABEL_DEF_MATLAB[key],
+                                                     LABEL_DEF_MATLAB[key],
                                                      number_of_scales,
                                                      key, obj_num)
 
