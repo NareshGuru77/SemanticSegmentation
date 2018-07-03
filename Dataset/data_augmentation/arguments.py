@@ -68,6 +68,12 @@ parser.add_argument('--save_obj_det_label', default=False, type=bool, required=F
 parser.add_argument('--save_mask', default=False, type=bool, required=False,
                     help='Save images showing the segmentation mask.')
 
+parser.add_argument('--save_overlay', default=False, type=bool, required=False,
+                    help='Save segmentation label overlayed on image.')
+
+parser.add_argument('--overlay_opacity', default=0.7, type=float, required=False,
+                    help='Opacity of label on the overlayed image.')
+
 parser.add_argument('image_save_path', type=str,
                     help='Path where the generated artificial image needs to be saved.')
 
@@ -82,6 +88,9 @@ parser.add_argument('--obj_det_save_path', default=None, type=str, required=Fals
 
 parser.add_argument('--mask_save_path', default=None, type=str, required=False,
                     help='Path where segmentation masks needs to be saved')
+
+parser.add_argument('--overlay_save_path', default=None, type=str, required=False,
+                    help='Path where overlay images needs to be saved')
 
 parser.add_argument('--start_index', default=0, type=int, required=False,
                     help='Index from which image and label names should start.')
@@ -124,6 +133,9 @@ if args.save_mask and args.mask_save_path is None:
 if args.save_label_preview and args.preview_save_path is None:
     parser.error('Path to save label preview is also required.')
 
+if args.save_overlay and args.overlay_save_path is None:
+    parser.error('Path to save overlay is also required.')
+
 
 class GeneratorOptions(
     collections.namedtuple('GeneratorOptions', [
@@ -138,11 +150,14 @@ class GeneratorOptions(
         'save_label_preview',
         'save_obj_det_label',
         'save_mask',
+        'save_overlay',
+        'overlay_opacity',
         'image_save_path',
         'label_save_path',
         'preview_save_path',
         'obj_det_save_path',
         'mask_save_path',
+        'overlay_save_path',
         'start_index',
         'name_format',
         'remove_clutter',
@@ -162,10 +177,11 @@ class GeneratorOptions(
             cls, args.image_dimension, args.num_scales, args.backgrounds_path,
             args.image_path, args.label_path, args.real_img_type, args.min_obj_area,
             args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
-            args.save_mask, args.image_save_path, args.label_save_path,
-            args.preview_save_path, args.obj_det_save_path, args.mask_save_path,
-            args.start_index, args.name_format, args.remove_clutter, args.num_images,
-            args.max_objects, args.num_regenerate, args.min_distance, args.max_occupied_area)
+            args.save_mask, args.save_overlay, args.overlay_opacity, args.image_save_path,
+            args.label_save_path, args.preview_save_path, args.obj_det_save_path,
+            args.mask_save_path, args.overlay_save_path, args.start_index, args.name_format,
+            args.remove_clutter, args.num_images, args.max_objects, args.num_regenerate,
+            args.min_distance, args.max_occupied_area)
 
 
 generator_options = GeneratorOptions()

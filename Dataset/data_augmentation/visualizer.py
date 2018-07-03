@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import os
 import numpy as np
-import csv
+from matplotlib.colors import LinearSegmentedColormap
 
 
 colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
@@ -42,7 +42,6 @@ def plot_preview(image, label, obj_det_label, index):
     figure.set_figwidth(20)
     figure.add_subplot(1, 2, 1)
     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    #plt.imshow(label, 'jet', interpolation='none', alpha=0.5)
     figure.add_subplot(1, 2, 2)
 
     if obj_det_label is not None:
@@ -60,7 +59,8 @@ def plot_preview(image, label, obj_det_label, index):
                     label[l[3] - 3:l[3], i] = box_value
             objects_in_image.append(l[0])
 
-        unique_objects = np.unique(objects_in_image)
+        unique_objects = sorted(np.unique(objects_in_image),
+                                key=lambda k: len(k))
         [plt.plot(0, 0, '-', c=colormap[
                                    LABEL_DEF_MATLAB[obj]] / 255.,
                   label=obj)
@@ -84,3 +84,35 @@ def plot_preview(image, label, obj_det_label, index):
                     (index + generator_options.start_index) + '.png')
     plt.savefig(save_path, bbox_inches="tight")
     plt.close(figure)
+
+
+def save_overlay(image, label, index):
+
+    figure = plt.figure()
+    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    plt.imshow(label, cmap='Accent', interpolation='none',
+               alpha=generator_options.overlay_opacity)
+    save_path = os.path.join(
+        generator_options.overlay_save_path,
+        generator_options.name_format %
+        (index + generator_options.start_index) + '.png')
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig(save_path, bbox_inches="tight")
+    plt.close(figure)
+
+
+def save_visuals(image, label, obj_det_label, index):
+
+    if generator_options.save_mask:
+        cv2.imwrite(os.path.join(
+            generator_options.mask_save_path,
+            generator_options.name_format %
+            (index + generator_options.start_index) + '.png'),
+            colormap[np.array(label, dtype=np.uint8)])
+
+    if generator_options.save_label_preview:
+        plot_preview(image, label, obj_det_label, index)
+
+    if generator_options.save_overlay:
+        save_overlay(image, label, index)

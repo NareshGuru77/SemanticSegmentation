@@ -1,7 +1,7 @@
 from data_augmentation.arguments import generator_options, LABEL_DEF_MATLAB
 from data_augmentation.object_details import objects
 from data_augmentation.generate_augmenter_list import augmenter_list
-from data_augmentation.plotter import colormap, plot_preview
+from data_augmentation.visualizer import save_visuals
 import copy
 import numpy as np
 import tqdm
@@ -94,6 +94,10 @@ def make_save_dirs():
         if not os.path.isdir(generator_options.preview_save_path):
             os.makedirs(generator_options.preview_save_path)
 
+    if generator_options.save_overlay:
+        if not os.path.isdir(generator_options.overlay_save_path):
+            os.makedirs(generator_options.overlay_save_path)
+
 
 def save_data(artificial_image, semantic_label, obj_det_label, index):
     """
@@ -133,16 +137,11 @@ def save_data(artificial_image, semantic_label, obj_det_label, index):
     else:
         obj_det_label = None
 
-    if generator_options.save_label_preview:
-        plot_preview(artificial_image, semantic_label,
-                             obj_det_label, index)
-
-    if generator_options.save_mask:
-        cv2.imwrite(os.path.join(
-            generator_options.mask_save_path,
-            generator_options.name_format %
-            (index + generator_options.start_index) + '.png'),
-            colormap[np.array(semantic_label, dtype=np.uint8)])
+    if (generator_options.save_mask or
+            generator_options.save_label_preview or
+            generator_options.save_overlay):
+        save_visuals(artificial_image, semantic_label,
+                     obj_det_label, index)
 
 
 def worker(index, element, obj_det_label, background_label):
