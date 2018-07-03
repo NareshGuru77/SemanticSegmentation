@@ -418,6 +418,11 @@ Sample results of the artificial image generation algorithm can be seen in \ref{
 	\end{figure}
 	
 \subsection{Notable features of the artificial image generator}
+In this section, certain features of the artificial image generator which are noteworthy are listed.
+	\begin{itemize}
+		\item The generator automatically creates object detection labels in addition to semantic labels. The object detection labels are obtained by finding the rectangle points which describe a bounding rectangle around the semantic labels.
+		\item 
+	\end{itemize}
 	
 \subsection{Artificial images for each dataset split}
 The real images are split into training, validation and test sets. Real images in each of these sets are used to generate artificial images for the coresponding set. This ensures that the final training, validation and test sets are different from each other. The scale range of distance\_tube was set to 1.1 to 2.0 for generating training artificial images and to 0.6 to 1.2 for generating validation and test artificial images. The reason for this setting is provided in the data analysis section \ref{section:analysis}.
@@ -630,18 +635,185 @@ The backgrounds used for the artificial image generation process are images with
 		\includegraphics[scale=0.3]{sample_white_2}
 		\includegraphics[scale=0.3]{sample_white_3}
 		\caption{Sample results produced by the artificial image generation algorithm for the "shades of white" dataset.}
-		\label{Fig:7}
+		\label{Fig:9}
 	\end{figure}
 	
 \section{Data analysis:}
 	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each classs appears.
 	
 	\subsection{Analysing the "atWork\_full" variant:}
+		\begin{itemize}
+			\item \textbf{Percentage of pixels}: The total pixels occupied by each class in each of the training, validation and test sets is calculated. Next, this count of pixels is converted to percentage with respect to the total number of pixels in the corresponding dataset split. The resulting plots are shown in \ref{Fig:10} and \ref{Fig:11}. In \ref{Fig:10}, it is evident that compared to the background class, the object classes occupy almost negligible pixel area. This is desired as the background class is present in all images and in most of them, occupies the most pixel area. The larger object classes occupy the most pixel area as can be seen in \ref{Fig:11}. A direct reason is infact that larger size occupies more pixel area. Indirectly however, the larger objects are less likely to be rejected by the artificial image generation algorithm after being randomly scaled. This again leads to increased pixel area occupied by the larger objects.
+			
+			\begin{figure}[!htb]
+				\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_f}
+				\caption{Percentage of pixels occupied by every class in the atWork\_full variant. With respect to the background, the other classes occupy negligible number of pixels.}
+				\label{Fig:10}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_f_noB}
+				\caption{Percentage of pixels occupied by every class, except the background class, in the atWork\_full variant. The larger objects such as "container\_box\_blue" occupy more number of pixels in comparision to smaller objects such as "distance\_tube".}
+				\label{Fig:11}
+			\end{figure}
+			
+			\item \textbf{Class count:} The number of images in which each class in the "atWork\_full" variant appears in each of set in the dataset split is also analyzed. 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_f}
+				\caption{Number of images in which each class in the atWork\_full variant appears.}
+				\label{Fig:12}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_f_noB}
+				\caption{Number of images in which each class except the background class in the atWork\_full variant appears.}
+				\label{Fig:13}
+			\end{figure}
+		\end{itemize}
 		
+	\subsection{Analysing the "atWork\_size\_invariant" variant:}
 	
+		\begin{itemize}
+			\item \textbf{Percentage of pixels}: 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_si}
+				\caption{.}
+				\label{Fig:14}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_si_noB}
+				\caption{.}
+				\label{Fig:15}
+			\end{figure}
+			
+			\item \textbf{Class count:} 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_si}
+				\caption{.}
+				\label{Fig:16}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_si_noB}
+				\caption{.}
+				\label{Fig:17}
+			\end{figure}
+		\end{itemize}
+		
+	\subsection{Analysing the "atWork\_similar\_shapes" variant:}
+	
+		\begin{itemize}
+			\item \textbf{Percentage of pixels}: 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_sh}
+				\caption{.}
+				\label{Fig:18}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_sh_noB}
+				\caption{.}
+				\label{Fig:19}
+			\end{figure}
+			
+			\item \textbf{Class count:} 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_sh}
+				\caption{.}
+				\label{Fig:20}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_sh_noB}
+				\caption{.}
+				\label{Fig:21}
+			\end{figure}
+		\end{itemize}
+		
+	\subsection{Analysing the "atWork\_binary" variant:}
+	
+		\begin{itemize}
+			\item \textbf{Percentage of pixels}: 
+			
+			\begin{figure}[!htb]
+				\centering
+				\begin{subfigure}{.49\textwidth}
+  					\centering
+  					\includegraphics[width=.9\linewidth]{percentage_of_pixels_b}
+  					\caption{}
+  					\label{Fig:22a}
+				\end{subfigure}%
+				\begin{subfigure}{.49\textwidth}
+  					\centering
+  					\includegraphics[width=.93\linewidth]{class_count_b}
+  					\caption{}
+  					\label{Fig:22b}
+				\end{subfigure}%
+			\caption{.}
+			\label{Fig:22}
+		\end{figure}
+		
+		\item \textbf{Class count:}
+		\end{itemize}
+		
+		\subsection{Analysing the real images:}
+	
+		\begin{itemize}
+			\item \textbf{Percentage of pixels}: 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_rf}
+				\caption{.}
+				\label{Fig:18}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{percentage_of_pixels_rf_noB}
+				\caption{.}
+				\label{Fig:19}
+			\end{figure}
+			
+			\item \textbf{Class count:} 
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_rf}
+				\caption{.}
+				\label{Fig:20}
+			\end{figure}
+			
+			\begin{figure}[!htb]
+			\centering
+				\includegraphics[scale=0.4]{class_count_rf_noB}
+				\caption{.}
+				\label{Fig:21}
+			\end{figure}
+		\end{itemize}
+
+\newpage
 \section{Meta-data of the dataset}
 
-Details regarding the dataset is provided in table \ref{Table:3}.
+Meta-data of the dataset is provided in table \ref{Table:3}. These numbers hold true for all four dataset variants and also for the shades of white dataset. Initially, 30 images were captured for each of the 18 objects leading to a total of 540 images. However, 1 image of "axis" object and 2 images of "s40\_40\_B" were removed as they were blurred.
 
 \begin{table}[!htb]
 \centering
@@ -649,14 +821,14 @@ Details regarding the dataset is provided in table \ref{Table:3}.
 \hline 
     & Training & Validation & Test \\ 
 \hline 
-Real Images & \makecell{30 per object.\\ Total: 30$\times$18=540} & \makecell{5 per object.\\ Total: 5$\times$18=90} & \makecell{5 per object.\\ Total: 5$\times$18=90} \\ 
+Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & \makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$18)-3=69} \\ 
 \hline 
-Augmented Images & 5000 & 810 & 810 \\ 
+Augmented Images & 7104 & 870 & 870 \\ 
 \hline 
-Total Images & 5540 & 900 & 900 \\ 
+Total Images & 7500 & 942 & 939 \\ 
 \hline 
 \end{tabular}
-\caption{Meta-data of the dataset} 
+\caption{Meta-data of all 4 variants and also the shades of white dataset.} 
 \label{Table:4}
 \end{table}
 
