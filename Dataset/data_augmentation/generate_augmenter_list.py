@@ -1,12 +1,11 @@
 from data_augmentation.arguments import generator_options
-from data_augmentation.get_backgrounds_and_data import background_images
-from data_augmentation.object_details import objects, num_of_objects
+from data_augmentation.get_backgrounds_and_data import fetch_background_images
 import numpy as np
 import random
 from scipy.spatial.distance import cdist
 
 
-def remove_clutter(augmenter_list, regenerate_count):
+def remove_clutter(objects_list, augmenter_list, regenerate_count):
     """
     This function removes elements from the augmenter list which have
     objects occupy an area in image space larger than "max_occupied_area"
@@ -24,7 +23,7 @@ def remove_clutter(augmenter_list, regenerate_count):
     for index, vector in enumerate(augmenter_list):
         vector_area = 0
         for i in range(vector['num_objects_to_place']):
-            vector_area += objects[vector['what_objects'][i]]['obj_area']
+            vector_area += objects_list[vector['what_objects'][i]]['obj_area']
         dist_btw_locations = cdist(vector['locations'], vector['locations'])
         np.fill_diagonal(dist_btw_locations, np.inf)
 
@@ -37,7 +36,7 @@ def remove_clutter(augmenter_list, regenerate_count):
     if (regenerate_count < generator_options.num_regenerate
             and removed_vectors is not 0):
         regenerate_count += 1
-        create_augmenter_list(is_regeneration=True,
+        create_augmenter_list(objects_list, is_regeneration=True,
                               removed_elements=removed_vectors,
                               regenerate_count=regenerate_count,
                               augmenter_list=augmenter_list)
@@ -55,7 +54,7 @@ def get_random_locations(num_random_locations):
     return np.array(location)
 
 
-def create_augmenter_list(is_regeneration=False, removed_elements=None,
+def create_augmenter_list(objects_list, is_regeneration=False, removed_elements=None,
                           regenerate_count=None, augmenter_list=None):
     """
 
@@ -77,7 +76,8 @@ def create_augmenter_list(is_regeneration=False, removed_elements=None,
     :return: The generated augmenter list.
     """
 
-    objects_index = np.arange(0, num_of_objects)
+    objects_index = np.arange(0, len(objects_list))
+    background_images = fetch_background_images()
 
     if is_regeneration:
         augmenter_list = augmenter_list
@@ -105,10 +105,7 @@ def create_augmenter_list(is_regeneration=False, removed_elements=None,
                                     'locations': get_random_locations(num_objects_to_place)})
 
     if generator_options.remove_clutter:
-        remove_clutter(augmenter_list,
+        remove_clutter(objects_list, augmenter_list,
                        regenerate_count)
 
     return augmenter_list
-
-
-augmenter_list = create_augmenter_list()

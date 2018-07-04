@@ -92,7 +92,7 @@ parser.add_argument('--mask_save_path', default=None, type=str, required=False,
 parser.add_argument('--overlay_save_path', default=None, type=str, required=False,
                     help='Path where overlay images needs to be saved')
 
-parser.add_argument('--start_index', default=0, type=int, required=False,
+parser.add_argument('--start_index', default=0, required=False,
                     help='Index from which image and label names should start.')
 
 parser.add_argument('--name_format', default='%05d', type=str, required=False,

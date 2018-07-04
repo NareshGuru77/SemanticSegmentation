@@ -1,10 +1,8 @@
-from data_augmentation.arguments import GeneratorOptions
+from data_augmentation.arguments import generator_options
 from data_augmentation.arguments import LABEL_DEF_MATLAB
 import os
 import logging
 import cv2
-
-generator_options = GeneratorOptions()
 
 
 def fetch_background_images():
@@ -93,9 +91,3 @@ def read_image_labels(object_files_dict):
                 class_name_to_data_dict[key].append([img, label])
 
     return class_name_to_data_dict
-
-
-background_images = fetch_background_images()
-
-files_count, object_files = fetch_image_gt_paths()
-class_name_to_data = read_image_labels(object_files)

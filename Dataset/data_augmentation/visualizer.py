@@ -1,9 +1,9 @@
 from data_augmentation.arguments import generator_options, LABEL_DEF_MATLAB
+from data_augmentation.get_backgrounds_and_data import fetch_image_gt_paths
 import matplotlib.pyplot as plt
 import cv2
 import os
 import numpy as np
-from matplotlib.colors import LinearSegmentedColormap
 
 
 colormap = np.asarray([[128, 64, 128], [244, 35, 232], [70, 70, 70],
@@ -89,16 +89,23 @@ def plot_preview(image, label, obj_det_label, index):
 def save_overlay(image, label, index):
 
     figure = plt.figure()
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.imshow(label, cmap='Accent', interpolation='none',
-               alpha=generator_options.overlay_opacity)
+    ax = figure.add_subplot(111)
+    ax.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), aspect='auto')
+    ax.imshow(label, cmap='Accent', interpolation='none',
+              alpha=generator_options.overlay_opacity, aspect='auto')
+
     save_path = os.path.join(
         generator_options.overlay_save_path,
         generator_options.name_format %
         (index + generator_options.start_index) + '.png')
     plt.xticks([])
     plt.yticks([])
-    plt.savefig(save_path, bbox_inches="tight")
+    ax.axes.get_yaxis().set_visible(False)
+    ax.axes.get_xaxis().set_visible(False)
+    ax.set_frame_on(False)
+    plt.axis('off')
+
+    plt.savefig(save_path, bbox_inches="tight", dpi=figure.dpi)
     plt.close(figure)
 
 
@@ -116,3 +123,17 @@ def save_visuals(image, label, obj_det_label, index):
 
     if generator_options.save_overlay:
         save_overlay(image, label, index)
+
+
+def get_mask_overlay():
+
+    _, object_files = fetch_image_gt_paths()
+
+    for key in LABEL_DEF_MATLAB:
+        if key is not 'background':
+            data_list = object_files[key]
+            for index, data in enumerate(data_list):
+                img = cv2.imread(data[0])
+                label = cv2.imread(data[1], 0)
+                name = data[1].split('/')[-1].split('.')[0]
+                save_visuals(img, label, None, name)

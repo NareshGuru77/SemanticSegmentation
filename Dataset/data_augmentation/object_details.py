@@ -1,12 +1,13 @@
 from data_augmentation.arguments import generator_options, \
     LABEL_DEF_MATLAB, SCALES_RANGE_DICT
-from data_augmentation import get_backgrounds_and_data
+from data_augmentation.get_backgrounds_and_data import read_image_labels, \
+    fetch_image_gt_paths
 import tqdm
 import numpy as np
 import cv2
 
 
-def get_num_scales_and_objects():
+def get_num_scales_and_objects(files_count):
 
     """
     This function picks a random number of scales in the range 1 to 5
@@ -18,7 +19,7 @@ def get_num_scales_and_objects():
     if generator_options.num_scales is 'randomize':
         number_of_scales = np.random.randint(
                                 1, 5,
-                                size=get_backgrounds_and_data.files_count)
+                                size=files_count)
     else:
         number_of_scales = generator_options.num_scales
 
@@ -109,7 +110,7 @@ def get_different_scales(image, image_label, label_value,
     return scaled_objects
 
 
-def get_scaled_objects(number_of_scales):
+def get_scaled_objects():
     """
     This function returns a list of details of all objects.
 
@@ -120,7 +121,10 @@ def get_scaled_objects(number_of_scales):
     objects_list = list()
     obj_num = -1
 
-    class_name_to_data = get_backgrounds_and_data.class_name_to_data
+    files_count, object_files = fetch_image_gt_paths()
+    number_of_scales = get_num_scales_and_objects(files_count)
+    class_name_to_data = read_image_labels(object_files)
+
     for key in tqdm.tqdm(LABEL_DEF_MATLAB,
                          desc='Loading images and labels class by class'):
         if key is not 'background':
@@ -134,8 +138,3 @@ def get_scaled_objects(number_of_scales):
                                                      key, obj_num)
 
     return objects_list
-
-
-num_of_scales = get_num_scales_and_objects()
-objects = get_scaled_objects(num_of_scales)
-num_of_objects = len(objects)
