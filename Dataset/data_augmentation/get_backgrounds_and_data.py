@@ -79,7 +79,7 @@ def fetch_image_gt_paths():
 
     else:
         data_paths = []
-        for label_files in os.listdir(generator_options.label_path):
+        for label_files in sorted(os.listdir(generator_options.label_path)):
             img_path = os.path.join(generator_options.image_path,
                                     label_files.split('.')[0] +
                                     generator_options.real_img_type)

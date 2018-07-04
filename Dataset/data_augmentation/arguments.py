@@ -36,7 +36,7 @@ parser = argparse.ArgumentParser(
     description='Arguments to control artificial image generation.')
 
 parser.add_argument('--mode', default=1, type=int, required=False,
-                    help='1: Generate artificial images; 2: Save visuals')
+                    help='1: Generate artificial images; 2: Save visuals.')
 
 parser.add_argument('--image_dimension', default=[480, 640], type=list, required=False,
                     help='Dimension of the real images.')
@@ -75,10 +75,10 @@ parser.add_argument('--save_mask', default=False, type=bool, required=False,
                     help='Save images showing the segmentation mask.')
 
 parser.add_argument('--save_overlay', default=False, type=bool, required=False,
-                    help='Save segmentation label overlayed on image.')
+                    help='Save segmentation label overlaid on image.')
 
-parser.add_argument('--overlay_opacity', default=0.5, type=float, required=False,
-                    help='Opacity of label on the overlayed image.')
+parser.add_argument('--overlay_opacity', default=0.6, type=float, required=False,
+                    help='Opacity of label on the overlaid image.')
 
 parser.add_argument('--image_save_path', default=None, type=str, required=False,
                     help='Path where the generated artificial image needs to be saved.')
@@ -87,16 +87,16 @@ parser.add_argument('--label_save_path', default=None, type=str, required=False,
                     help='Path where the generated segmentation label needs to be saved.')
 
 parser.add_argument('--preview_save_path', default=None, type=str, required=False,
-                    help='Path where object detection labels needs to be saved')
+                    help='Path where object detection labels needs to be saved.')
 
 parser.add_argument('--obj_det_save_path', default=None, type=str, required=False,
-                    help='Path where object detection labels needs to be saved')
+                    help='Path where object detection labels needs to be saved.')
 
 parser.add_argument('--mask_save_path', default=None, type=str, required=False,
-                    help='Path where segmentation masks needs to be saved')
+                    help='Path where segmentation masks needs to be saved.')
 
 parser.add_argument('--overlay_save_path', default=None, type=str, required=False,
-                    help='Path where overlay images needs to be saved')
+                    help='Path where overlaid images needs to be saved.')
 
 parser.add_argument('--start_index', default=None, required=False,
                     help='Index from which image and label names should start.')
@@ -201,8 +201,8 @@ class GeneratorOptions(
 
         return super(GeneratorOptions, cls).__new__(
             cls, args.mode, args.image_dimension, args.num_scales, args.backgrounds_path,
-            args.image_path, args.label_path, args.obj_det_label_path, args.real_img_type, args.min_obj_area,
-            args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
+            args.image_path, args.label_path, args.obj_det_label_path, args.real_img_type,
+            args.min_obj_area, args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
             args.save_mask, args.save_overlay, args.overlay_opacity, args.image_save_path,
             args.label_save_path, args.preview_save_path, args.obj_det_save_path,
             args.mask_save_path, args.overlay_save_path, args.start_index, args.name_format,
