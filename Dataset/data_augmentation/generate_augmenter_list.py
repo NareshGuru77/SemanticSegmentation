@@ -12,6 +12,7 @@ def remove_clutter(objects_list, augmenter_list, regenerate_count):
     or have objects which are too close to each other determined my
     "min_distance".
 
+    :param objects_list: List containing details of all objects.
     :param augmenter_list: Augmenter list containing details regarding the
                             artificial image.
     :param regenerate_count: Count of attempts already made to create new
@@ -57,7 +58,7 @@ def get_random_locations(num_random_locations):
 def create_augmenter_list(objects_list, is_regeneration=False, removed_elements=None,
                           regenerate_count=None, augmenter_list=None):
     """
-
+    :param objects_list: List containing details of all objects.
     :param is_regeneration: Currently regenerate elements or create new
                             list of elements.
     :param removed_elements: How many elements have been removed and needs

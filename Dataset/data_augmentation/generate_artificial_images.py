@@ -71,6 +71,7 @@ def worker(objects_list, index, element, obj_det_label, background_label):
     """
     This is a worker function created for parallel processing
      of "perform_augmentation" function.
+    :param objects_list: List containing details of all objects.
     :param index: The index of the current element.
     :param element: The current element in the augment vector.
     :param obj_det_label: Object detection label.

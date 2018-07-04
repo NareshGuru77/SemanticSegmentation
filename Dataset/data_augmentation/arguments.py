@@ -18,14 +18,14 @@ SCALES_RANGE_DICT = {'f20_20_B': None, 's40_40_B': None, 'f20_20_G': None,
 
 
 class StoreScalesDict(argparse.Action):
-    def __call__(self, parser, namespace, arg_vals, option_string=None):
+    def __call__(self, parser_scales, namespace, arg_vals, option_string=None):
 
         for items in arg_vals.split(';'):
             key, value = items.split('=')
 
             if not any(key == object_key
                        for object_key in list(SCALES_RANGE_DICT.keys())):
-                parser.error('Object {} is not recognized.'.format(key))
+                parser_scales.error('Object {} is not recognized.'.format(key))
 
             value = value.split(',')
             SCALES_RANGE_DICT[key] = [float(v) for v in value]

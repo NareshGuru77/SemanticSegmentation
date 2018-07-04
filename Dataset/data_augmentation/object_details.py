@@ -114,7 +114,6 @@ def get_scaled_objects():
     """
     This function returns a list of details of all objects.
 
-    :param number_of_scales: The number of scales required for the objects.
     :return: A list of dictionaries containing details of all the scaled objects.
     """
 
