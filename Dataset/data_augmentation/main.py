@@ -5,6 +5,7 @@ from data_augmentation.saver import make_save_dirs
 from data_augmentation.get_backgrounds_and_data import fetch_image_gt_paths
 import cv2
 import csv
+import tqdm
 
 
 def read_files_and_visualize(paths_list):
@@ -14,7 +15,9 @@ def read_files_and_visualize(paths_list):
     :param paths_list: List containing paths to images and labels.
     :return: No returns.
     """
-    for index, data in enumerate(paths_list):
+
+    for index, data in enumerate(tqdm.tqdm(paths_list,
+                                           desc='Saving visuals')):
         image = cv2.imread(data[0])
         label = cv2.imread(data[1], 0)
         name = data[1].split('/')[-1].split('.')[0]
