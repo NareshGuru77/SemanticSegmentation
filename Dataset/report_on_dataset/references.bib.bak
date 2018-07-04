@@ -1,4 +1,4 @@
-% This file was created with JabRef 2.10b2.
+% This file was created with JabRef 2.10.
 % Encoding: ISO8859_1
 
 
@@ -40,10 +40,18 @@
 }
 
 @Misc{github_robocup@work,
-  Title                    = {github: robocup-at-work/rulebook/images},
+  Title                    = {github: robocup-at-work/rulebook/images; Link: https://github.com/robocup-at-work/rulebook/tree/master/images},
 
   Owner                    = {nareshguru77},
   Timestamp                = {2018.04.23},
   Url                      = {https://github.com/robocup-at-work/rulebook/tree/master/images}
+}
+
+@Misc{,
+  Title                    = {List of 20 Simple, Distinct Colors; Link: https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/},
+
+  Owner                    = {nareshguru77},
+  Timestamp                = {2018.07.04},
+  Url                      = {https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}
 }
 

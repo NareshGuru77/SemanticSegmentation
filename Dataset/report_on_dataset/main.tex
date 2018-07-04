@@ -31,7 +31,7 @@
 \section{Overview of the dataset}
 Since semantic segmentation using deep learning is framed as a pixelwise classification task, an image of dimensions H$\times$W$\times$C requires a ground truth of dimensions H$\times$W, where H and W are the height and width of the image in the dataset having C number of channels. 
 
-The scope of the dataset is to include objects associated to RoboCup @Work. The selected 18 objects are shown in \ref{Fig:1}.
+The scope of the dataset is to include objects associated to RoboCup @Work. The selected 18 objects are shown in \ref{Fig:objects}.
 
 \begin{figure}[!htb]
 \centering
@@ -149,7 +149,7 @@ The scope of the dataset is to include objects associated to RoboCup @Work. The 
   \label{fig:em_02}
 \end{subfigure}
 \caption{Different objects required in the dataset}
-\label{Fig:1}
+\label{Fig:objects}
 \end{figure}
 
 Each of the objects were taken individually, placed on 3 different backgrounds and 30 images were taken. This lead to a total of 540 images which were to be manually labeled. Since, every pixel of the images needs to be labeled, the process of manual annotation would be time consuming. Therefore, a decision was made to first annotate the 540 images and later decide whether more images could be taken based on the effort required for annotation.
@@ -172,21 +172,21 @@ The following available tools were evaluated for ease of use and time taken for 
 
 \section{Description of the labeling process}
 \label{section:process}
-MATLAB ImageLabeler was used for the labeling process. At first, label definitions are created and exported to a .mat file. This file is used to load label definitions for all images to maintain consistency of labels. The contents of the .mat file is shown in the figure\ref{Fig:2}.
+MATLAB ImageLabeler was used for the labeling process. At first, label definitions are created and exported to a .mat file. This file is used to load label definitions for all images to maintain consistency of labels. The contents of the .mat file is shown in the figure\ref{Fig:labeldef}.
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[scale=0.7]{labelDef}
 		\caption{Contents of the labelDefs .mat file}
-		\label{Fig:2}
+		\label{Fig:labeldef}
 	\end{figure}
 	
-The ImageLabeler app, by default, provides different tools which help create pixelwise labels\ref{Fig:3}. These tools become accessible once an image and the label definitions are loaded. A short description of the tools is given below:
+The ImageLabeler app, by default, provides different tools which help create pixelwise labels\ref{Fig:IL_tools}. These tools become accessible once an image and the label definitions are loaded. A short description of the tools is given below:
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[scale=0.55]{label_tools}
 		\caption{Tools provided by the ImageLabeler app}
-		\label{Fig:3}
+		\label{Fig:IL_tools}
 	\end{figure}
 	
 	\begin{itemize}
@@ -198,12 +198,12 @@ The ImageLabeler app, by default, provides different tools which help create pix
 		\item Zoom In, Zoom Out, Pan: These tools improve the ease of labeling by providing means to focus on particular regions by zooming and panning.
 	\end{itemize}
 	
-The ImageLabeler app by default assigns different colors to different objects to aid visualization. The label colors are shown in the ROI Label Definition window\ref{Fig:4}.
+The ImageLabeler app by default assigns different colors to different objects to aid visualization. The label colors are shown in the ROI Label Definition window\ref{Fig:ROI}.
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[scale=0.6]{roi_label_defintions}
 		\caption{ROI Label Definitions window}
-		\label{Fig:4}
+		\label{Fig:ROI}
 	\end{figure}
 	
 The ImageLabeler app does not provide any tool to label all unlabeled pixels as background. In order to save time, the following workarounds have been used:
@@ -213,9 +213,9 @@ The ImageLabeler app does not provide any tool to label all unlabeled pixels as 
 		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which simply reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
 	\end{itemize}
 	
-The Export Labels -> To File option can be used to save the annotations. This is done for all images individually to arrive at the folder structure shown in \ref{Fig:5a}.
+The Export Labels -> To File option can be used to save the annotations. This is done for all images individually to arrive at the folder structure shown in \ref{Fig:fsa}.
 	
-The saved .mat file can be loaded into ImageLabeler again to further modify labels if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in \ref{Fig:5a}) is the label image. This image is renamed to have the same name as the image file and a folder structure as in \ref{Fig:5b} is created by using a python code.
+The saved .mat file can be loaded into ImageLabeler again to further modify labels if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in \ref{Fig:fsa}) is the label image. This image is renamed to have the same name as the image file and a folder structure as in \ref{Fig:fsb} is created by using a python code.
 	
 \begin{center}
 	\begin{figure}[!htb]
@@ -223,20 +223,20 @@ The saved .mat file can be loaded into ImageLabeler again to further modify labe
 			\centering
 			\includegraphics[width=1\linewidth]{folder_structure}
 			\caption{Folder structure of saved labels}
-			\label{Fig:5a}
+			\label{Fig:fsa}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{folder_structure_aug}
 			\caption{Rearranged folder structure}
-			\label{Fig:5b}
+			\label{Fig:fsb}
 		\end{subfigure}
 		\caption{Different folder structures}
-		\label{Fig:5}
+		\label{Fig:fs}
 	\end{figure}
 \end{center}
 
-The final folder structure is shown in \ref{Fig:6}. The image folder and label folder are similar and contain object images and corresponding label images with same names.
+The final folder structure is shown in \ref{Fig:fsil}. The image folder and label folder are similar and contain object images and corresponding label images with same names.
 
 \begin{center}
 	\begin{figure}[!htb]
@@ -244,16 +244,16 @@ The final folder structure is shown in \ref{Fig:6}. The image folder and label f
 			\centering
 			\includegraphics[width=1\linewidth]{folder_image}
 			%\caption{}
-			\label{Fig:6a}
+			\label{Fig:fsila}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{folder_label}
 			%\caption{}
-			\label{Fig:6b}
+			\label{Fig:fsilb}
 		\end{subfigure}
 		\caption{Folder structure showing different object folders in both image and label folders.}
-		\label{Fig:6}
+		\label{Fig:fsil}
 	\end{figure}
 \end{center}
 
@@ -268,26 +268,31 @@ The final folder structure is shown in \ref{Fig:6}. The image folder and label f
 These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically using an algorithm.
 
 \subsection{Working}
-The artificial image generation algorithm requires that every image provided must have just one object. The entire process of artificial image generation can be divided into 6 broad steps:
+The artificial image generation algorithm requires that every image provided must have just one object. The algorithm can be used in two modes named "Generate artificial images" and "Save visuals". The first mode can be used to generate artificial images and if required save visualizations of labels. The second mode can be used to just save visualizations. Under the first mode, the entire process can be divided into 7 broad steps:
 	\begin{itemize}
 		\item[1] \textbf{External interface}: An interface to obtain possible parameters to control the generation process. These parameters are obtaiend through argparse command line GUI and are called generator options.
 		\item[2] \textbf{Get backgrounds and data}: Fetch all the backgrouds, images and corresponding labels from the provided respective background, image and label paths. First, all the images in the backgrounds path are read. Then, all available images in the label path is read and the corresponding image files in the provided image path is read. The images in the image path must have the same name as that of the corresponding labels but can be of a different format. The default image format is ".jpg".
 		\item[3] \textbf{Get object details}: Fetch details regarding every object and its different scales. The details include information regarding object locations in an image, object values, label values, the object name, points in pixel space denoting a bounding rectangle around the object, and object area. The scales for every object is determined at random. Scaled objects which are too small or too big as determined by generator options are removed.
 		\item[4] \textbf{Generate augmenter list}: Every element in the augmenter list denotes an artificial image and contains information including the chosen background image, the number of objects to place in the artificial image, which objects from the object details list are selected and locations in pixel space where the selected objects need to be placed. In this stage, elements which are cluttered with too many objects are removed as determined by the generator options.
 		\item[5] \textbf{Generate artificial images}: Based on every element in the augmenter list, artificial images and corresponding labels are generated. Every element is taken one by one. The selected objects are placed on the selected background in the corresponding specified location, one by one. The resultant artificial image and semantic label is saved in the directory specified using generator options. Additionally, object detection labels, semantic masks and visualization previews can be saved by configuring generator options.
-		\item[6] \textbf{Generate preview}: The generated images and labels are visualized to verify the generation process.
+		\item[6] \textbf{Visualize results}: The generated images and labels are visualized to verify the generation process.
+		\item[7] \textbf{Save results}: The obtained resultant artificial images, corresponding labels and generated visualizations are saved.
 	\end{itemize}
+	
+Under the second mode, steps 3 to 6 in the above process is skipped. Step 2 fetches also the object detection labels in addition to the image and semantic labels. Step 7 saves the visualizations of read image, semantic labels and object detection labels.
 		
 
 \subsection{Generator options}
 
-A number of arguments can be configured to control the generation process. Configuration of generator options is possible through command line GUI. Details regarding the arguments are provided in \ref{Table:1} and \ref{Table:2}. 
+A number of arguments can be configured to control the generation process. Configuration of generator options is possible through command line GUI. Details regarding the arguments are provided in \ref{Table:godes} and \ref{Table:govals}. 
 
 \begin{table}[!htb]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
 \textbf{Generator options} & Description \\ 
+\hline 
+\textbf{mode} & \makecell{1: Generate artificial images; 2: Save visuals.} \\ 
 \hline 
 \textbf{image\_dimension} & \makecell{Dimension of the real images.} \\ 
 \hline 
@@ -298,6 +303,8 @@ A number of arguments can be configured to control the generation process. Confi
 \textbf{image\_path} & \makecell{Path to directory where real images are located.} \\ 
 \hline 
 \textbf{label\_path} & \makecell{Path to directory where labels are located.} \\ 
+\hline 
+\textbf{obj\_det\_label\_path} & \makecell{Path to directory where the object detection \\csv labels are located.} \\ 
 \hline 
 \textbf{real\_img\_type} & \makecell{The format of the real image.} \\ 
 \hline 
@@ -311,6 +318,10 @@ A number of arguments can be configured to control the generation process. Confi
 \hline  
 \textbf{save\_mask} & \makecell{Save images showing the segmentation mask.} \\ 
 \hline 
+\textbf{save\_overlay} & \makecell{Save segmentation label overlaid on image.} \\ 
+\hline 
+\textbf{overlay\_opacity} & \makecell{Opacity of label on the overlaid image.} \\ 
+\hline 
 \textbf{image\_save\_path} & \makecell{Path where the generated artificial image needs\\ to be saved.} \\ 
 \hline 
 \textbf{label\_save\_path} & \makecell{Path where the generated segmentation label needs\\ to be saved.} \\ 
@@ -320,6 +331,8 @@ A number of arguments can be configured to control the generation process. Confi
 \textbf{obj\_det\_save\_path} & \makecell{Path where object detection labels needs to be saved.} \\ 
 \hline 
 \textbf{mask\_save\_path} & \makecell{Path where segmentation masks needs to be saved.} \\ 
+\hline 
+\textbf{overlay\_save\_path} & \makecell{Path where overlaid images needs to be saved.} \\ 
 \hline 
 \textbf{start\_index} & \makecell{Index from which image and label names should start.} \\ 
 \hline 
@@ -341,7 +354,7 @@ A number of arguments can be configured to control the generation process. Confi
 \hline 
 \end{tabular}
 \caption{Description of generator options} 
-\label{Table:1}
+\label{Table:godes}
 \end{table}
 
 \begin{table}[!htb]
@@ -350,15 +363,19 @@ A number of arguments can be configured to control the generation process. Confi
 \hline 
 \textbf{Generator options} & Default value & \makecell{Is required?} \\ 
 \hline 
+\textbf{mode} & \makecell{1} & \makecell{Not required} \\ 
+\hline 
 \textbf{image\_dimension} & \makecell{[480, 640]} & \makecell{Not required} \\ 
 \hline 
 \textbf{num\_scales} & \makecell{'randomize'} & \makecell{Not required} \\ 
 \hline 
-\textbf{backgrounds\_path} & \makecell{-} & \makecell{Required} \\ 
+\textbf{backgrounds\_path} & \makecell{None} & \makecell{Required if \\mode is 1} \\ 
 \hline 
 \textbf{image\_path} & \makecell{-} & \makecell{Required} \\ 
 \hline 
 \textbf{label\_path} & \makecell{-} & \makecell{Required} \\ 
+\hline 
+\textbf{obj\_det\_label\_path} & \makecell{None} & \makecell{Required if \\save\_label\_preview is True \\and mode is 2} \\ 
 \hline 
 \textbf{real\_img\_type} & \makecell{'.jpg'} & \makecell{Not required} \\ 
 \hline 
@@ -372,9 +389,13 @@ A number of arguments can be configured to control the generation process. Confi
 \hline  
 \textbf{save\_mask} & \makecell{False} & \makecell{Not required} \\ 
 \hline 
-\textbf{image\_save\_path} & \makecell{-} & \makecell{Required} \\ 
+\textbf{save\_overlay} & \makecell{False} & \makecell{Not required} \\ 
 \hline 
-\textbf{label\_save\_path} & \makecell{-} & \makecell{Required} \\ 
+\textbf{overlay\_opacity} & \makecell{0.6} & \makecell{Not required} \\ 
+\hline 
+\textbf{image\_save\_path} & \makecell{None} & \makecell{Required if \\mode is 1} \\ 
+\hline 
+\textbf{label\_save\_path} & \makecell{None} & \makecell{Required if \\mode is 1} \\ 
 \hline 
 \textbf{preview\_save\_path} & \makecell{None} & \makecell{Required if \\save\_label\_preview is True} \\ 
 \hline 
@@ -382,7 +403,9 @@ A number of arguments can be configured to control the generation process. Confi
 \hline 
 \textbf{mask\_save\_path} & \makecell{None} & \makecell{Required if \\save\_mask is True} \\ 
 \hline 
-\textbf{start\_index} & \makecell{0} & \makecell{Not required} \\ 
+\textbf{overlay\_save\_path} & \makecell{None} & \makecell{Required if \\save\_overlay is True} \\ 
+\hline 
+\textbf{start\_index} & \makecell{0 if mode is 1 \\ '' if mode is 2} & \makecell{Not required} \\ 
 \hline 
 \textbf{name\_format} & \makecell{'\%05d'} & \makecell{Not required} \\
 \hline 
@@ -402,11 +425,11 @@ A number of arguments can be configured to control the generation process. Confi
 \hline 
 \end{tabular}
 \caption{Default value of generator options and whether the options are required to be set.}
-\label{Table:2}
+\label{Table:govals}
 \end{table}
 
 \subsection{Sample results}
-Sample results of the artificial image generation algorithm can be seen in \ref{Fig:7}. The bounding box represents the object detection label and the different colors of the segmentation labels denote different label values.
+Sample results of the artificial image generation algorithm can be seen in \ref{Fig:sample}. The bounding box represents the object detection label and the different colors of the segmentation labels denote different label values. The colors were chosen in such a way that they are as distinct from each other as possible\cite{simple_colors}.
 
 	\begin{figure}[htb!]
 		\centering
@@ -414,14 +437,61 @@ Sample results of the artificial image generation algorithm can be seen in \ref{
 		\includegraphics[scale=0.3]{sample_result_2}
 		\includegraphics[scale=0.3]{sample_result_3}
 		\caption{Sample results produced by the artificial image generation algorithm. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated.}
-		\label{Fig:7}
+		\label{Fig:sample}
 	\end{figure}
+	
+\subsection{Downloading background images}
+Different background images were used for the artificial image generation process. Since a large number of backgrounds were required, manual download was time consuming. Hence, the "google-images-download" \cite{image_downloader} script was used to auto download images. The search keywords used to obtain the background images are listed in \ref{Table:download}. From the downloaded images, the rquired number of images for each dataset split were selected. For the shades of white dataset, many different search keywords were tried as is evident from the \ref{Table:download}. This was because many of the downloaded images did not contain sufficient white regions. Images which were not of the dimensions used in the dataset (480$\times$640) were rescaled.
+
+\begin{table}[!htb]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline 
+    Used in & Search keyword(s) & \makecell{Number of \\images selected} \\ 
+	\hline 
+	Training set & \makecell{640x480 background images, \\640x480 textures images, \\640x480 wallpapers} & 150 \\ 
+	\hline 
+	Validation set & 640x480 abstract & 25 \\ 
+	\hline 
+	Test set & 640x480 paintings & 25 \\ 
+	\hline 
+	Shades of white & \makecell{640x480 white abstract, \\640x480 white backgrounds, \\640x480 white textures, \\640x480 white wallpaper, \\light gray, white, white clouds, \\white floors, white frost, white mist, \\white pebbles, white snow, \\white table textures} & 150 \\ 
+	\hline 
+	\end{tabular}
+	\caption{This table lists the keywords used to download images used as background for artificial image generation.} 
+	\label{Table:download}
+\end{table}
+
 	
 \subsection{Notable features of the artificial image generator}
 In this section, certain features of the artificial image generator which are noteworthy are listed.
 	\begin{itemize}
 		\item The generator automatically creates object detection labels in addition to semantic labels. The object detection labels are obtained by finding the rectangle points which describe a bounding rectangle around the semantic labels.
-		\item 
+		\item The generated artificial images and labels can be visualized in three different ways. A preview which shows the image alongside the generated labels. A mask image showing the different classes in different colors. An overlay image in which the generated labels are overlayed on top of the corresponding generated images. The opacity of overlay can be configured through generator options. Examples of visualizations can be seen in \ref{Fig:visuals} and \ref{Fig:sample}
+		\begin{figure}[!htb]
+			\centering
+			\begin{subfigure}{.3\textwidth}
+  				\centering
+  				\includegraphics[width=.9\linewidth]{eg_image}
+  				\caption{Image containing \\object em\_01}
+  				\label{Fig:visualsa}
+			\end{subfigure}%
+			\begin{subfigure}{.3\textwidth}
+  				\centering
+  				\includegraphics[width=.9\linewidth]{eg_mask}
+  				\caption{Corresponding \\segmentation mask}
+  				\label{Fig:visualsb}
+			\end{subfigure}%
+			\begin{subfigure}{.3\textwidth}
+  				\centering
+  				\includegraphics[width=.9\linewidth]{eg_overlay}
+  				\caption{Corresponding overlay visualization}
+  				\label{Fig:visualsc}
+			\end{subfigure}%
+		\caption{This figure shows examples of two different types of visualization, "mask" and "overlay". The third type "preview" can be seen in figure \ref{Fig:sample}}
+		\label{Fig:visuals}
+		\end{figure}
+		
 	\end{itemize}
 	
 \subsection{Artificial images for each dataset split}
@@ -434,7 +504,7 @@ Different variants of the dataset are created based on the properties of the obj
 		\begin{itemize}
 			\item \textbf{Inability to distinguish size}: The segmentation model is given no information regarding the positions of the camera or the object in the real world. If camera extrinsic calibration information is available to the segmentation model, the model could possibly learn to distinguish different sizes. However, such information is not available. In addition, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
 			\item \textbf{Inability to distinguish subtle variations in color}: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes. This makes it difficult for the segmentation model to learn patterns in color information.
-			\item \textbf{Inability to distinguish shapes}: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in \ref{Fig:8} and \ref{Fig:9}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
+			\item \textbf{Inability to distinguish shapes}: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in \ref{Fig:sim1} and \ref{Fig:sim2}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
 			
 \begin{figure}[!htb]
 	\centering
@@ -442,16 +512,16 @@ Different variants of the dataset are created based on the properties of the obj
   		\centering
   		\includegraphics[width=.5\linewidth]{ax01_diff}
   		\caption{A viewpoint of \\bearing box ax01}
-  		\label{Fig:8a}
+  		\label{Fig:sim1a}
 	\end{subfigure}%
 	\begin{subfigure}{.3\textwidth}
   		\centering
   		\includegraphics[width=.5\linewidth]{ax16_diff}
   		\caption{A viewpoint of \\bearing box ax16}
-  		\label{Fig:8b}
+  		\label{Fig:sim1a}
 	\end{subfigure}%
 	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where the difference in shapes between the two objects is clearly visible.}
-	\label{Fig:8}
+	\label{Fig:sim1}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -460,16 +530,16 @@ Different variants of the dataset are created based on the properties of the obj
   		\centering
   		\includegraphics[width=.5\linewidth]{ax01_similar}
   		\caption{A viewpoint of \\bearing box ax01}
-  		\label{Fig:9a}
+  		\label{Fig:sim2a}
 	\end{subfigure}%
 	\begin{subfigure}{.3\textwidth}
   		\centering
   		\includegraphics[width=.5\linewidth]{ax16_similar}
   		\caption{A viewpoint of \\bearing box ax16}
-  		\label{Fig:9b}
+  		\label{Fig:sim2b}
 	\end{subfigure}%
 	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where the appear similar in shape.}
-	\label{Fig:9}
+	\label{Fig:sim2}
 \end{figure}	
 	\end{itemize}
 	
@@ -477,10 +547,10 @@ Different variants of the dataset are created based on the properties of the obj
 	\label{section:analysis}
 	Four different dataset variants have been created as listed below:
 	\begin{itemize}
-		\item \textbf{atWork\_full}: This variant has different label values for all the 18 objects in the dataset and an additional label value for background. The total number of classes is 19 including background and the label values range from 0 to 18. The different classes in this variant along with their label values are listed in \ref{Table:3}.
-		\item \textbf{atWork\_size\_invariant}: In this variant, objects which are similar to each other in terms of shape but differ in size are combined together into one class. On this regard, f20\_20\_B and s40\_40\_B are combined and named f\_s20\_40\_20\_40\_B. Similarly, f20\_20\_G and s40\_40\_G are combined and named f\_s20\_40\_20\_40\_G. m20 and m30 are combined and named m20\_30. The two bearing boxes, bearing\_box\_ax01 and bearing\_box\_ax16 are also combined together as they are similar to each other in certain viewpoints. They form the new class bearing\_box. The objects in this variant along with their label values are listed in \ref{Table:4}. This variant is named "atWork\_size\_invariant" as in this variant, the major change deals with the ignorance of the size of the objects as distinguishing information.
-		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, f\_s20\_40\_20\_40\_B and f\_s20\_40\_20\_40\_G are combined and named f\_s20\_40\_20\_40\_B\_G. The container boxes, container\_box\_red and container\_box\_blue were also combined to form the new class container\_box. This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in \ref{Table:5}.
-		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where are the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in \ref{Table:6}.
+		\item \textbf{atWork\_full}: This variant has different label values for all the 18 objects in the dataset and an additional label value for background. The total number of classes is 19 including background and the label values range from 0 to 18. The different classes in this variant along with their label values are listed in \ref{Table:full}.
+		\item \textbf{atWork\_size\_invariant}: In this variant, objects which are similar to each other in terms of shape but differ in size are combined together into one class. On this regard, f20\_20\_B and s40\_40\_B are combined and named f\_s20\_40\_20\_40\_B. Similarly, f20\_20\_G and s40\_40\_G are combined and named f\_s20\_40\_20\_40\_G. m20 and m30 are combined and named m20\_30. The two bearing boxes, bearing\_box\_ax01 and bearing\_box\_ax16 are also combined together as they are similar to each other in certain viewpoints. They form the new class bearing\_box. The objects in this variant along with their label values are listed in \ref{Table:size}. This variant is named "atWork\_size\_invariant" as in this variant, the major change deals with the ignorance of the size of the objects as distinguishing information.
+		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, f\_s20\_40\_20\_40\_B and f\_s20\_40\_20\_40\_G are combined and named f\_s20\_40\_20\_40\_B\_G. The container boxes, container\_box\_red and container\_box\_blue were also combined to form the new class container\_box. This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in \ref{Table:shape}.
+		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where are the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in \ref{Table:binary}.
 		
 		\begin{table}[!htb]
 			\centering
@@ -528,7 +598,7 @@ Different variants of the dataset are created based on the properties of the obj
 			\hline
 			\end{tabular}
 			\caption{Details of the "atWork\_full" variant} 
-			\label{Table:3}
+			\label{Table:full}
 		\end{table}
 		
 		\begin{table}[!htb]
@@ -569,7 +639,7 @@ Different variants of the dataset are created based on the properties of the obj
 			\hline
 			\end{tabular}
 			\caption{Details of the "atWork\_size\_invariant" variant} 
-			\label{Table:4}
+			\label{Table:size}
 		\end{table}
 		
 		\begin{table}[!htb]
@@ -606,7 +676,7 @@ Different variants of the dataset are created based on the properties of the obj
 			\hline
 			\end{tabular}
 			\caption{Details of the "atWork\_similar\_shapes" variant} 
-			\label{Table:5}
+			\label{Table:shape}
 		\end{table}
 		
 		\begin{table}[!htb]
@@ -621,13 +691,13 @@ Different variants of the dataset are created based on the properties of the obj
 			\hline
 			\end{tabular}
 			\caption{Details of the "atWork\_binary" variant} 
-			\label{Table:6}
+			\label{Table:binary}
 		\end{table}
 
 	\end{itemize}
 
 	\subsection{The shades of white dataset}
-The backgrounds used for the artificial image generation process are images with a variety of different colors, textures and so on. In essense, the background images do not seem to follow any pattern as such. As a result, the generated artificial images are unlikely to be similar to an image taken by an atWork robot. In order to address this, the background images used in the artificial image generation process are all replaced with images which mostly contain shades of white color in them. With this as the only change, the entire artificial image generation process and variant creation process is repeated to arrive at a new dataset which is named "shades of white".
+The backgrounds used for the artificial image generation process are images with a variety of different colors, textures and so on. In essense, the background images do not seem to follow any pattern as such. As a result, the generated artificial images are unlikely to be similar to an image taken by an atWork robot. In order to address this, the background images used in the artificial image generation process are all replaced with images which mostly contain shades of white color in them. With this as the only change, the entire artificial image generation process and variant creation process is repeated to arrive at a new dataset which is named "shades of white". Sample visualizations of artificial images generated for this dataset can be seen in \ref{Fig:samplewhite}.
 
 	\begin{figure}[htb!]
 		\centering
@@ -635,7 +705,7 @@ The backgrounds used for the artificial image generation process are images with
 		\includegraphics[scale=0.3]{sample_white_2}
 		\includegraphics[scale=0.3]{sample_white_3}
 		\caption{Sample results produced by the artificial image generation algorithm for the "shades of white" dataset.}
-		\label{Fig:9}
+		\label{Fig:samplewhite}
 	\end{figure}
 	
 \section{Data analysis:}
@@ -813,23 +883,23 @@ The backgrounds used for the artificial image generation process are images with
 \newpage
 \section{Meta-data of the dataset}
 
-Meta-data of the dataset is provided in table \ref{Table:3}. These numbers hold true for all four dataset variants and also for the shades of white dataset. Initially, 30 images were captured for each of the 18 objects leading to a total of 540 images. However, 1 image of "axis" object and 2 images of "s40\_40\_B" were removed as they were blurred.
+Meta-data of the dataset is provided in table \ref{Table:meta}. These numbers hold true for all four dataset variants and also for the shades of white dataset. Initially, 30 images were captured for each of the 18 objects leading to a total of 540 images. However, 1 image of "axis" object and 2 images of "s40\_40\_B" were removed as they were blurred.
 
 \begin{table}[!htb]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline 
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline 
     & Training & Validation & Test \\ 
-\hline 
-Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & \makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$18)-3=69} \\ 
-\hline 
-Augmented Images & 7104 & 870 & 870 \\ 
-\hline 
-Total Images & 7500 & 942 & 939 \\ 
-\hline 
-\end{tabular}
-\caption{Meta-data of all 4 variants and also the shades of white dataset.} 
-\label{Table:4}
+	\hline 
+	Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & 				\makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$18)-3=69} \\ 
+	\hline 
+	Augmented Images & 7104 & 870 & 870 \\ 
+	\hline 
+	Total Images & 7500 & 942 & 939 \\ 
+	\hline 
+	\end{tabular}
+	\caption{Meta-data of all 4 variants and also the shades of white dataset.} 
+	\label{Table:meta}
 \end{table}
 
 \section{Conclusion and possible directions of improvement}
