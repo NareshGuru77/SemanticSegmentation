@@ -12,11 +12,12 @@ def make_save_dirs():
     :return: No returns.
     """
 
-    if not os.path.isdir(generator_options.image_save_path):
-        os.makedirs(generator_options.image_save_path)
+    if generator_options.mode == 1:
+        if not os.path.isdir(generator_options.image_save_path):
+            os.makedirs(generator_options.image_save_path)
 
-    if not os.path.isdir(generator_options.label_save_path):
-        os.makedirs(generator_options.label_save_path)
+        if not os.path.isdir(generator_options.label_save_path):
+            os.makedirs(generator_options.label_save_path)
 
     if generator_options.save_obj_det_label:
         if not os.path.isdir(generator_options.obj_det_save_path):

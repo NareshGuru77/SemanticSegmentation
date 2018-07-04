@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import cv2
 import os
 import numpy as np
+import csv
 
 
 # https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/
@@ -43,7 +44,7 @@ def plot_preview(image, label, obj_det_label, index):
     figure.add_subplot(1, 2, 2)
 
     if obj_det_label is not None:
-        objects_in_image = []
+        objects_in_image = ['background']
         for l in obj_det_label:
             box_value = LABEL_DEF_MATLAB[l[0]]
             for i in range(l[1], l[3] + 1):
@@ -59,8 +60,8 @@ def plot_preview(image, label, obj_det_label, index):
 
         unique_objects = sorted(np.unique(objects_in_image),
                                 key=lambda k: len(k))
-        [plt.plot(0, 0, '-', c=colormap[
-                                   LABEL_DEF_MATLAB[obj]] / 255.,
+        [plt.plot(0, 0, '-', c=np.flip(colormap[
+                                   LABEL_DEF_MATLAB[obj]], 0) / 255.,
                   label=obj)
          for obj in unique_objects]
 
@@ -73,8 +74,8 @@ def plot_preview(image, label, obj_det_label, index):
             handle.set_linewidth(15)
             text.set_color(line.get_color())
 
-    plt.imshow(colormap[
-                   np.array(label, dtype=np.uint8)])
+    mask = colormap[np.array(label, dtype=np.uint8)]
+    plt.imshow(cv2.cvtColor(mask, cv2.COLOR_BGR2RGB))
     plt.xticks([])
     plt.yticks([])
 
@@ -87,6 +88,14 @@ def plot_preview(image, label, obj_det_label, index):
 
 
 def save_overlay(image, label, index):
+    """
+    This function overlays the segmentation label on the image and
+    saves the resultant image.
+    :param image: Image to be overlaid.
+    :param label: Label to overlay.
+    :param index: Index to be appended to save file name.
+    :return: No returns.
+    """
 
     image = image.copy()
     label = label.copy()
@@ -103,7 +112,16 @@ def save_overlay(image, label, index):
 
 
 def save_visuals(image, label, obj_det_label, index):
-
+    """
+    This function saves the mask if generator option requires
+    mask saving. Also calls preview plotting and saving image
+    overlay based on generator options.
+    :param image: The image whose labels are to be visualized.
+    :param label: The corresponding semantic labels.
+    :param obj_det_label: The corresponding object detection labels.
+    :param index: Index to be appended to save file name.
+    :return: No returns.
+    """
     if generator_options.save_mask:
         cv2.imwrite(os.path.join(
             generator_options.mask_save_path,
@@ -116,17 +134,3 @@ def save_visuals(image, label, obj_det_label, index):
 
     if generator_options.save_overlay:
         save_overlay(image, label, index)
-
-
-def get_mask_overlay():
-
-    _, object_files = fetch_image_gt_paths()
-
-    for key in LABEL_DEF_MATLAB:
-        if key is not 'background':
-            data_list = object_files[key]
-            for index, data in enumerate(data_list):
-                img = cv2.imread(data[0])
-                label = cv2.imread(data[1], 0)
-                name = data[1].split('/')[-1].split('.')[0]
-                save_visuals(img, label, None, name)

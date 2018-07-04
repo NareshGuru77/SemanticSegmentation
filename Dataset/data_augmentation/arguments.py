@@ -35,13 +35,16 @@ class StoreScalesDict(argparse.Action):
 parser = argparse.ArgumentParser(
     description='Arguments to control artificial image generation.')
 
+parser.add_argument('--mode', default=1, type=int, required=False,
+                    help='1: Generate artificial images; 2: Save visuals')
+
 parser.add_argument('--image_dimension', default=[480, 640], type=list, required=False,
                     help='Dimension of the real images.')
 
 parser.add_argument('--num_scales', default='randomize', type=str, required=False,
                     help='Number of scales including original object scale.')
 
-parser.add_argument('backgrounds_path', type=str,
+parser.add_argument('--backgrounds_path', default=None, type=str, required=False,
                     help='Path to directory where the background images are located.')
 
 parser.add_argument('image_path', type=str,
@@ -49,6 +52,9 @@ parser.add_argument('image_path', type=str,
 
 parser.add_argument('label_path', type=str,
                     help='Path to directory where labels are located.')
+
+parser.add_argument('--obj_det_label_path', default=None, type=str, required=False,
+                    help='Path to directory where the object detection csv labels are located.')
 
 parser.add_argument('--real_img_type', default='.jpg', type=str, required=False,
                     help='The format of the real image.')
@@ -71,13 +77,13 @@ parser.add_argument('--save_mask', default=False, type=bool, required=False,
 parser.add_argument('--save_overlay', default=False, type=bool, required=False,
                     help='Save segmentation label overlayed on image.')
 
-parser.add_argument('--overlay_opacity', default=0.7, type=float, required=False,
+parser.add_argument('--overlay_opacity', default=0.5, type=float, required=False,
                     help='Opacity of label on the overlayed image.')
 
-parser.add_argument('image_save_path', type=str,
+parser.add_argument('--image_save_path', default=None, type=str, required=False,
                     help='Path where the generated artificial image needs to be saved.')
 
-parser.add_argument('label_save_path', type=str,
+parser.add_argument('--label_save_path', default=None, type=str, required=False,
                     help='Path where the generated segmentation label needs to be saved.')
 
 parser.add_argument('--preview_save_path', default=None, type=str, required=False,
@@ -92,7 +98,7 @@ parser.add_argument('--mask_save_path', default=None, type=str, required=False,
 parser.add_argument('--overlay_save_path', default=None, type=str, required=False,
                     help='Path where overlay images needs to be saved')
 
-parser.add_argument('--start_index', default=0, required=False,
+parser.add_argument('--start_index', default=None, required=False,
                     help='Index from which image and label names should start.')
 
 parser.add_argument('--name_format', default='%05d', type=str, required=False,
@@ -136,14 +142,34 @@ if args.save_label_preview and args.preview_save_path is None:
 if args.save_overlay and args.overlay_save_path is None:
     parser.error('Path to save overlay is also required.')
 
+if args.start_index is None:
+    if list(args.name_format)[-1] == 'd':
+        args.start_index = 0
+    else:
+        args.start_index = ''
+
+if args.mode == 1:
+    if args.backgrounds_path is None:
+        parser.error('Backgrounds path is also required.')
+    if args.image_save_path is None:
+        parser.error('Path to save artificial images is also required.')
+    if args.label_save_path is None:
+        parser.error('Path to save artificial image labels is also required.')
+
+else:
+    if args.obj_det_label_path is None and args.save_label_preview:
+        parser.error('Object detection label path is required to save preview.')
+
 
 class GeneratorOptions(
     collections.namedtuple('GeneratorOptions', [
+        'mode',
         'image_dimension',
         'num_scales',
         'backgrounds_path',
         'image_path',
         'label_path',
+        'obj_det_label_path',
         'real_img_type',
         'min_obj_area',
         'max_obj_area',
@@ -174,8 +200,8 @@ class GeneratorOptions(
     def __new__(cls):
 
         return super(GeneratorOptions, cls).__new__(
-            cls, args.image_dimension, args.num_scales, args.backgrounds_path,
-            args.image_path, args.label_path, args.real_img_type, args.min_obj_area,
+            cls, args.mode, args.image_dimension, args.num_scales, args.backgrounds_path,
+            args.image_path, args.label_path, args.obj_det_label_path, args.real_img_type, args.min_obj_area,
             args.max_obj_area, args.save_label_preview, args.save_obj_det_label,
             args.save_mask, args.save_overlay, args.overlay_opacity, args.image_save_path,
             args.label_save_path, args.preview_save_path, args.obj_det_save_path,
