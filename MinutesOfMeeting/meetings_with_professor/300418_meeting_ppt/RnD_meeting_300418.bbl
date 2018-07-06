@@ -1,0 +1,217 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{github_robocup@work}{misc}{}
+  \field{title}{github: robocup-at-work/rulebook/images}
+  \verb{url}
+  \verb https://github.com/robocup-at-work/rulebook/tree/master/images
+  \endverb
+\endentry
+
+\entry{google_images_download}{misc}{}
+  \field{title}{github: hardikvasa/google-images-download}
+  \verb{url}
+  \verb https://github.com/hardikvasa/google-images-download
+  \endverb
+\endentry
+
+\entry{deeplabv3plus2018}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Liang-Chieh}{L.-C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Yukun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papandreou}{P.}%
+     {George}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schroff}{S.}%
+     {Florian}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adam}{A.}%
+     {Hartwig}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CLC+1}
+  \strng{fullhash}{CLCZYPGSFAH1}
+  \field{title}{Encoder-Decoder with Atrous Separable Convolution for Semantic
+  Image Segmentation}
+  \field{journaltitle}{arXiv:1802.02611}
+  \field{year}{2018}
+\endentry
+
+\entry{cityscapes_leaderboard}{misc}{}
+  \field{title}{Cityscapes leaderboad}
+  \verb{url}
+  \verb https://www.cityscapes-dataset.com/benchmarks/
+  \endverb
+\endentry
+
+\entry{tf_models_deeplab}{misc}{}
+  \field{title}{Tensorflow models: deeplab}
+  \verb{url}
+  \verb https://github.com/tensorflow/models/tree/master/research/deeplab
+  \endverb
+\endentry
+
+\entry{DBLP:journals/corr/ZhaoSQWJ16}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Zhao}{Z.}%
+     {Hengshuang}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shi}{S.}%
+     {Jianping}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qi}{Q.}%
+     {Xiaojuan}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Xiaogang}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jia}{J.}%
+     {Jiaya}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{ZH+1}
+  \strng{fullhash}{ZHSJQXWXJJ1}
+  \verb{eprint}
+  \verb 1612.01105
+  \endverb
+  \field{title}{Pyramid Scene Parsing Network}
+  \verb{url}
+  \verb http://arxiv.org/abs/1612.01105
+  \endverb
+  \field{volume}{abs/1612.01105}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2016}
+\endentry
+
+\entry{DBLP:journals/corr/ZhaoQSSJ17}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Zhao}{Z.}%
+     {Hengshuang}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qi}{Q.}%
+     {Xiaojuan}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shen}{S.}%
+     {Xiaoyong}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shi}{S.}%
+     {Jianping}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jia}{J.}%
+     {Jiaya}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{ZH+1}
+  \strng{fullhash}{ZHQXSXSJJJ1}
+  \verb{eprint}
+  \verb 1704.08545
+  \endverb
+  \field{title}{ICNet for Real-Time Semantic Segmentation on High-Resolution
+  Images}
+  \verb{url}
+  \verb http://arxiv.org/abs/1704.08545
+  \endverb
+  \field{volume}{abs/1704.08545}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2017}
+\endentry
+
+\entry{mobilenetv22018}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Sandler}{S.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howard}{H.}%
+     {Andrew}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Menglong}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhmoginov}{Z.}%
+     {Andrey}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Liang-Chieh}{L.-C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SM+1}
+  \strng{fullhash}{SMHAZMZACLC1}
+  \field{booktitle}{CVPR}
+  \field{title}{Inverted Residuals and Linear Bottlenecks: Mobile Networks for
+  Classification, Detection and Segmentation}
+  \field{year}{2018}
+\endentry
+
+\entry{tf_models_mobilenetv2}{misc}{}
+  \field{title}{Tensorflow models: MobileNetV2}
+  \verb{url}
+  \verb https://github.com/tensorflow/models/tree/master/research/slim/nets/mob
+  \verb ilenet
+  \endverb
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

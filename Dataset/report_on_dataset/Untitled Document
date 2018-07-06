@@ -1,0 +1,26 @@
+% This file was created with JabRef 2.10b2.
+% Encoding: ISO8859_1
+
+
+@Article{DBLP:journals/corr/abs-1709-00849,
+  Title                    = {Dataset Augmentation with Synthetic Images Improves Semantic Segmentation},
+  Author                   = {Param S. Rajpura and Manik Goyal and Hristo Bojinov and Ravi S. Hegde},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1709.00849},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/abs-1709-00849},
+  Eprint                   = {1709.00849},
+  Timestamp                = {Thu, 05 Oct 2017 09:43:01 +0200},
+  Url                      = {http://arxiv.org/abs/1709.00849}
+}
+
+@InProceedings{RosCVPR16,
+  Title                    = { {The SYNTHIA Dataset}: A Large Collection of Synthetic Images for Semantic Segmentation of Urban Scenes},
+  Author                   = {German Ros and Laura Sellart and Joanna Materzynska and David Vazquez and Antonio Lopez},
+  Booktitle                = CVPR,
+  Year                     = {2016}
+}
+

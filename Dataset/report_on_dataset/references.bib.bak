@@ -1,0 +1,57 @@
+% This file was created with JabRef 2.10.
+% Encoding: ISO8859_1
+
+
+@Article{DBLP:journals/corr/FischerDIHHGSCB15,
+  Title                    = {FlowNet: Learning Optical Flow with Convolutional Networks},
+  Author                   = {Philipp Fischer and Alexey Dosovitskiy and Eddy Ilg and Philip H{\"{a}}usser and Caner Hazirbas and Vladimir Golkov and Patrick van der Smagt and Daniel Cremers and Thomas Brox},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1504.06852},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/FischerDIHHGSCB15},
+  Eprint                   = {1504.06852},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:04 +0200},
+  Url                      = {http://arxiv.org/abs/1504.06852}
+}
+
+@Article{DBLP:journals/corr/abs-1709-00849,
+  Title                    = {Dataset Augmentation with Synthetic Images Improves Semantic Segmentation},
+  Author                   = {Param S. Rajpura and Manik Goyal and Hristo Bojinov and Ravi S. Hegde},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1709.00849},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/abs-1709-00849},
+  Eprint                   = {1709.00849},
+  Timestamp                = {Thu, 05 Oct 2017 09:43:01 +0200},
+  Url                      = {http://arxiv.org/abs/1709.00849}
+}
+
+@InProceedings{RosCVPR16,
+  Title                    = { {The SYNTHIA Dataset}: A Large Collection of Synthetic Images for Semantic Segmentation of Urban Scenes},
+  Author                   = {German Ros and Laura Sellart and Joanna Materzynska and David Vazquez and Antonio Lopez},
+  Booktitle                = CVPR,
+  Year                     = {2016}
+}
+
+@Misc{github_robocup@work,
+  Title                    = {github: robocup-at-work/rulebook/images; Link: https://github.com/robocup-at-work/rulebook/tree/master/images},
+
+  Owner                    = {nareshguru77},
+  Timestamp                = {2018.04.23},
+  Url                      = {https://github.com/robocup-at-work/rulebook/tree/master/images}
+}
+
+@Misc{,
+  Title                    = {List of 20 Simple, Distinct Colors; Link: https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/},
+
+  Owner                    = {nareshguru77},
+  Timestamp                = {2018.07.04},
+  Url                      = {https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}
+}
+
