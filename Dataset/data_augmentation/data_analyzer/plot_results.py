@@ -4,21 +4,24 @@ import numpy as np
 import operator
 import copy
 
-def plot(results, label_def, ignore_background=True,
-         bar_width=0.3, set_fonts=17, fig_width=15,
-         fig_height=5, display_title=False, plot_weight=False):
+
+def plot(results, ignore_background=True,
+         bar_width=0.3, set_fonts=14, fig_width=10,
+         fig_height=6, display_title=False, plot_weight=False):
 
     any_result = copy.deepcopy(results[tags_keys.data_key][
                                    tags_keys.percentage_key][0])
 
     if ignore_background:
         any_result.pop('background', None)
-    classes = list(any_result.keys())
+    #classes = list(any_result.keys())
+    classes = np.array(sorted(any_result.items(),
+                            key=operator.itemgetter(1)))[:,0]
     x = np.arange(0, len(classes))
 
     cmap = plt.cm.get_cmap('Paired')
-    colors = [cmap(0.3), cmap(0.5), cmap(0.7)]
-    figure = plt.figure(figsize=(15, 10))
+    colors = [cmap(0.4), cmap(0.6), cmap(0.8)]
+    figure = plt.figure(figsize=(fig_width, fig_height))
 
     if not plot_weight:
         results[tags_keys.data_key].pop(tags_keys.weight_key, None)
@@ -40,7 +43,11 @@ def plot(results, label_def, ignore_background=True,
         plt.ylabel(key, fontsize=set_fonts)
         plt.grid(zorder=0, axis='y')
         plt.tick_params(axis='both', which='major', labelsize=set_fonts)
-        plt.legend(fontsize=set_fonts)
+
+        if index == 0:
+            plt.legend(bbox_to_anchor=(0., 1.02, 1., .102),
+                       loc=3, ncol=3,
+                       borderaxespad=0., prop={'size': set_fonts})
 
     plt.xticks(x, classes, rotation=80)
     plt.tight_layout()

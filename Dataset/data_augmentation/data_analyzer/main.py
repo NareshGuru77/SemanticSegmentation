@@ -20,9 +20,8 @@ import pickle
 #     pickle.dump(results, f)
 
 
-label_def = variant_to_label_def['full'][0]
 with open('./atWork_full.txt', 'rb') as f:
     results = pickle.load(f)
 
 #print(results)
-plot(results, label_def)
+plot(results)
