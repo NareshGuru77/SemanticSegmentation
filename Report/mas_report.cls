@@ -55,6 +55,8 @@
 \usepackage{setspace}
 \usepackage{subfiles}
 \usepackage{geometry}
+\usepackage{subcaption}
+\usepackage{makecell}
 % \usepackage{showframe}
 
 

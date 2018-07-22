@@ -7,7 +7,7 @@ import copy
 
 def plot(results, ignore_background=True,
          bar_width=0.3, set_fonts=14, fig_width=10,
-         fig_height=6, display_title=False, plot_weight=False):
+         fig_height=7, display_title=False, plot_weight=False):
 
     any_result = copy.deepcopy(results[tags_keys.data_key][
                                    tags_keys.percentage_key][0])
@@ -16,11 +16,11 @@ def plot(results, ignore_background=True,
         any_result.pop('background', None)
     #classes = list(any_result.keys())
     classes = np.array(sorted(any_result.items(),
-                            key=operator.itemgetter(1)))[:,0]
+                       key=operator.itemgetter(1)))[:, 0]
     x = np.arange(0, len(classes))
 
     cmap = plt.cm.get_cmap('Paired')
-    colors = [cmap(0.4), cmap(0.6), cmap(0.8)]
+    colors = [cmap(0.2), cmap(0.5), cmap(0.7)]
     figure = plt.figure(figsize=(fig_width, fig_height))
 
     if not plot_weight:
@@ -40,7 +40,8 @@ def plot(results, ignore_background=True,
                     zorder=3, label=results[tags_keys.info_key][split])
 
         plt.xticks([])
-        plt.ylabel(key, fontsize=set_fonts)
+        plt.ylabel(key, fontsize=set_fonts, labelpad=30 if key in
+                   tags_keys.percentage_key else None)
         plt.grid(zorder=0, axis='y')
         plt.tick_params(axis='both', which='major', labelsize=set_fonts)
 
