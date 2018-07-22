@@ -10,7 +10,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 
 % both variety of backgrounds and white backgrounds
 
-Each of the two selected network backbones of the deepLabv3+ model, are evaluated on all 4 variants. The performance of mobileNet on all 4 variants.
+Deeplabv3+ with both the mobileNet backbone and the xception backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the Mean IOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset in arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the Mean IOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achives better Mean IOU on these variants. The atWork\_binary variant requries the segmentation model to only distinguish foreground from background leading to the highest MIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNet backbone.
 
 	\begin{figure}[!htb]
 		\begin{subfigure}{.5\textwidth}
