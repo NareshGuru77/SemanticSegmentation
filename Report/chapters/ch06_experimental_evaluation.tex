@@ -264,24 +264,27 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the cosine restarts \textbf{[needs reference]} learning rate policy with the poly learning rate policy used by deepLabv3+.
-		\item \textbf{Expected result}: The 
-		\item \textbf{Inference from the results}:
+		\item \textbf{Expected result}: Either of the two learning rate policies is expected to result in better Mean IOU.
+		\item \textbf{Inference from the results}: DeepLabv3+ with mobileNet backbone is used for this experiment. Evidently, the cosine restart learning rate policy leads to slightly better Mean IOU on both the atWork\_binary and the atWork\_size\_invariant variants.
 	\end{itemize}
 	
 	\begin{figure}
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/lr_train_bin}
+			\caption{}
 		\end{subfigure}
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/lr_binary}
 		\end{subfigure}
+		\caption{}
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/lr_size}
+			\caption{}
 		\end{subfigure}
-		\caption{Learning rate decay with two different policies 1. cosine restarts and 2. poly is compared. Left: learning rate over 30000 steps with the two decay policies. Middle: Mean IOU on the validation set of atWork\_binary variant is 96.06 \% with cosine restarts and 95.75 \% with poly. Right: Mean IOU on the validation set of atWork\_size\_invariant variant is 83.1 \% with cosine restarts and 82.24 \% with poly.}
+		\caption{Learning rate decay with two different policies 1. cosine restarts and 2. poly is compared. (a): learning rate over 30000 steps with the two decay policies. (b): Mean IOU on the validation set of atWork\_binary variant is 96.06 \% with cosine restarts and 95.75 \% with poly. (c): Mean IOU on the validation set of atWork\_size\_invariant variant is 83.1 \% with cosine restarts and 82.24 \% with poly.}
 		\label{Fig:lr}
 	\end{figure}
 
@@ -289,15 +292,15 @@ Since the major contribution of this work is the creation of the dataset, the ex
 
 % About attempt to counter failure in distance tube.
 	\begin{itemize}
-		\item \textbf{Objective}:
-		\item \textbf{Expected result}:
-		\item \textbf{Inference from the results}:
+		\item \textbf{Objective}: The objective of this experiment is to prevent the deepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
+		\item \textbf{Expected result}: The model is expected to achieve good class IOUs on all the objects.
+		\item \textbf{Inference from the results}: 
 	\end{itemize}
 
 \section{Effects of quantizing the inference graph}
 	
 	\begin{itemize}
-		\item \textbf{Objective}:
+		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of Mean IOU, occupied disk memory and inference time.
 		\item \textbf{Expected result}:
 		\item \textbf{Inference from the results}:
 	\end{itemize}
