@@ -11,7 +11,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of deepLabv3+ on the different dataset variants.
 		\item \textbf{Expected result}: The segmentation model is expected to perform better when the number of classes is lower. This is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
-		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNet backbone and the xception backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the Mean IOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset in arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the Mean IOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achives better Mean IOU on these variants. The atWork\_binary variant requries the segmentation model to only distinguish foreground from background leading to the highest MIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNet backbone.
+		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achieves better mIOU on these variants. The atWork\_binary variant requries the segmentation model to only distinguish foreground from background leading to the highest mIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception network backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNetv2 network backbone.
 	\end{itemize}
 
 	\begin{figure}
@@ -27,7 +27,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:mobivarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU of deeplabv3+ with \textbf{mobileNet backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a) Mean IOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 77.47\%, atWork\_size\_invariant = 83.10\%, atWork\_similar\_shapes = 82.10\% and atWork\_binary = 96.06\%. (b). Mean IOU on the 4 variants of the white backgrounds dataset: atWork\_full = 79.26\%, atWork\_size\_invariant = 84.29\%, atWork\_similar\_shapes = 85.33\% and atWork\_binary = 95.83\%.}
+		\caption{mIOU of deeplabv3+ with \textbf{mobileNet network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a) mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 77.47\%, atWork\_size\_invariant = 83.10\%, atWork\_similar\_shapes = 82.10\% and atWork\_binary = 96.06\%. (b). Mean IOU on the 4 variants of the white backgrounds dataset: atWork\_full = 79.26\%, atWork\_size\_invariant = 84.29\%, atWork\_similar\_shapes = 85.33\% and atWork\_binary = 95.83\%.}
 		\label{Fig:mobivars}
 	\end{figure}
 	
@@ -234,27 +234,27 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individial class IOUs and the percentage of pixels occupied by each class in the dataset. 
 			\item \textbf{Expected result}: With increase in percentage of pixels, the class IOU is expected to increase. This is based on the notion that the segmentation model gives preference to objects which dominate the dataset. 
 			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted seperately, (shown in the upper graph of \ref{Fig:clsioua}). Similar observations can be made for the other two variants as shown in \ref{Fig:clsioub} and \ref{Fig:clsiouc}. 
-			Another interesting result is that the segmentation model seems to learn the object bearing well despite the fact that the object only occupies few pixels in the dataset. This could be because of the distint black ring in between two silver rings present in the bearing. This pattern seems unique and the model probably picks up this pattern with ease.
+			Another interesting result is that the segmentation model seems to learn the object "bearing" well despite the fact that the object only occupies few pixels in the dataset. This could be because of the distint black ring in between two silver rings present in the bearing. This pattern seems unique and the model probably picks up this pattern with ease.
 		\end{itemize}
 	
 		\begin{figure}[!htb]
 			\begin{subfigure}{1\textwidth}
 				\centering
 				\includegraphics[width=1\linewidth]{images/cls_iou_full}
-				\label{Fig:clsioua}
 				\caption{}
+				\label{Fig:clsioua}
 			\end{subfigure}
 			\begin{subfigure}{.5\textwidth}
 				\centering
 				\includegraphics[width=1\linewidth]{images/cls_iou_size}
-				\label{Fig:clsioub}
 				\caption{}
+				\label{Fig:clsioub}
 			\end{subfigure}
 			\begin{subfigure}{.5\textwidth}
 				\centering
 				\includegraphics[width=1\linewidth]{images/cls_iou_shape}
-				\label{Fig:clsiouc}
 				\caption{}
+				\label{Fig:clsiouc}
 			\end{subfigure}
 			\caption{Individual class IOUs achieved by deepLabv3+ with mobileNet backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:clsiou}
@@ -277,8 +277,8 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/lr_binary}
+			\caption{}
 		\end{subfigure}
-		\caption{}
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/lr_size}
@@ -293,7 +293,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 % About attempt to counter failure in distance tube.
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to prevent the deepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
-		\item \textbf{Expected result}: The model is expected to achieve good class IOUs on all the objects.
+		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall Mean IOU is also expected to be comparable to the Mean IOU obtained without class balancing.
 		\item \textbf{Inference from the results}: 
 	\end{itemize}
 
@@ -331,21 +331,27 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}:
 		\item \textbf{Expected result}:
-		\item \textbf{Inference from the results}:
+		\item \textbf{Inference from the results}: Size invariant;mobileNet: PASCAL VOC 2012 = 83.1, mobileNet: atWork\_binary = 83.26, xception: PASCAL VOC 2012 = 91.19, xception: atWork\_binary = 92.14...Similar shapes;mobileNet: PASCAL VOC 2012 = 82.1, mobileNet: atWork\_binary = 82.8, xception: PASCAL VOC 2012 = 90.81, xception: atWork\_binary = 92.15...Full;mobileNet: PASCAL VOC 2012 = 77.47, mobileNet: atWork\_binary = 77.73, xception: PASCAL VOC 2012 = 89.38, xception: atWork\_binary = 90.64
 	\end{itemize}
-
-\begin{figure}
-	\includegraphics[scale=0.4]{images/transfer_size}
-	\caption{Size invariant;mobileNet: PASCAL VOC 2012 = 83.1, mobileNet: atWork\_binary = 83.26, xception: PASCAL VOC 2012 = 91.19, xception: atWork\_binary = 92.14}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[scale=0.4]{images/transfer_shape}
-	\caption{Similar shapes;mobileNet: PASCAL VOC 2012 = 82.1, mobileNet: atWork\_binary = 82.8, xception: PASCAL VOC 2012 = 90.81, xception: atWork\_binary = 92.15}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[scale=0.4]{images/transfer_full}
-	\caption{Full;mobileNet: PASCAL VOC 2012 = 77.47, mobileNet: atWork\_binary = 77.73, xception: PASCAL VOC 2012 = 89.38, xception: atWork\_binary = 90.64}
-\end{figure}
+	
+	
+	\begin{figure}
+		\begin{subfigure}{.3\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/transfer_size}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{.3\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/transfer_shape}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{.3\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/transfer_full}
+			\caption{}
+		\end{subfigure}
+		\caption{Mean IOU for 30,000 training steps obtained on three variants by deepLabv3+ with xception and mobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better Mean IOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
+		\label{Fig:transfer}
+	\end{figure}
 
