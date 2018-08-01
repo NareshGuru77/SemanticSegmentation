@@ -1,4 +1,5 @@
 from data_augmentation.arguments import generator_options
+from data_augmentation.arguments import _LABEL_DEF_FULL
 from data_augmentation.generate_artificial_images import perform_augmentation
 from data_augmentation.visualizer import save_visuals
 from data_augmentation.saver import make_save_dirs
@@ -8,6 +9,8 @@ import csv
 import tqdm
 from joblib import Parallel, delayed
 import multiprocessing
+import os
+import numpy as np
 
 
 def read_files_and_visualize(data):
@@ -25,12 +28,18 @@ def read_files_and_visualize(data):
 
     if generator_options.save_label_preview:
         obj_label = []
-        with open(data[2], 'r') as f:
-            obj = csv.reader(f, delimiter=',')
-            for row in obj:
-                row = [int(r.split('.')[0]) if index != 0 else r
-                       for index, r in enumerate(row)]
-                obj_label.append(row)
+        if os.path.isfile(data[2]):
+            with open(data[2], 'r') as f:
+                obj = csv.reader(f, delimiter=',')
+                for row in obj:
+                    row = [int(r.split('.')[0]) if index != 0 else r
+                           for index, r in enumerate(row)]
+                    obj_label.append(row)
+
+        else:
+            label_vals = np.unique(label)
+            for val in label_vals:
+                obj_label.append([_LABEL_DEF_FULL[val], 0, 0, 0, 0])
 
     save_visuals(image, label, obj_label, name)
 

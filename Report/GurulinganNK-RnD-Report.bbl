@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,6 +21,21 @@ List of 20 simple, distinct colors; link:
 \newblock URL
   \url{https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}.
 
+\bibitem[Chen et~al.(2018)Chen, Zhu, Papandreou, Schroff, and
+  Adam]{DBLP:journals/corr/abs-1802-02611}
+Liang{-}Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, and Hartwig
+  Adam.
+\newblock Encoder-decoder with atrous separable convolution for semantic image
+  segmentation.
+\newblock \emph{CoRR}, abs/1802.02611, 2018.
+\newblock URL \url{http://arxiv.org/abs/1802.02611}.
+
+\bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{DBLP:journals/corr/HeZRS15}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock \emph{CoRR}, abs/1512.03385, 2015.
+\newblock URL \url{http://arxiv.org/abs/1512.03385}.
+
 \bibitem[Name(2003)]{art1}
 Author Name.
 \newblock Book title.
@@ -36,6 +51,13 @@ Param~S. Rajpura, Manik Goyal, Hristo Bojinov, and Ravi~S. Hegde.
 \newblock \emph{CoRR}, abs/1709.00849, 2017.
 \newblock URL \url{http://arxiv.org/abs/1709.00849}.
 
+\bibitem[Redmon et~al.(2015)Redmon, Divvala, Girshick, and
+  Farhadi]{DBLP:journals/corr/RedmonDGF15}
+Joseph Redmon, Santosh~Kumar Divvala, Ross~B. Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock \emph{CoRR}, abs/1506.02640, 2015.
+\newblock URL \url{http://arxiv.org/abs/1506.02640}.
+
 \bibitem[Ros et~al.(2016)Ros, Sellart, Materzynska, Vazquez, and
   Lopez]{RosCVPR16}
 German Ros, Laura Sellart, Joanna Materzynska, David Vazquez, and Antonio
@@ -43,5 +65,11 @@ German Ros, Laura Sellart, Joanna Materzynska, David Vazquez, and Antonio
 \newblock {The SYNTHIA Dataset}: A large collection of synthetic images for
   semantic segmentation of urban scenes.
 \newblock 2016.
+
+\bibitem[Simonyan and Zisserman(2014)]{DBLP:journals/corr/SimonyanZ14}
+Karen Simonyan and Andrew Zisserman.
+\newblock Two-stream convolutional networks for action recognition in videos.
+\newblock \emph{CoRR}, abs/1406.2199, 2014.
+\newblock URL \url{http://arxiv.org/abs/1406.2199}.
 
 \end{thebibliography}

@@ -9,6 +9,11 @@ LABEL_DEF_MATLAB = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
                     'container_box_red': 15, 'bearing_box_ax16': 16,
                     'em_01': 17, 'em_02': 18, 'background': 19}
 
+_LABEL_DEF_FULL = {0: 'background', 1: 'f20_20_B', 2: 's40_40_B', 3: 'f20_20_G', 4: 's40_40_G',
+                   5: 'm20_100', 6: 'm20', 7: 'm30', 8: 'r20', 9: 'bearing_box_ax01', 10: 'bearing',
+                   11: 'axis', 12: 'distance_tube', 13: 'motor', 14: 'container_box_blue',
+                   15: 'container_box_red', 16: 'bearing_box_ax16', 17: 'em_01', 18: 'em_02'}
+
 SCALES_RANGE_DICT = {'f20_20_B': None, 's40_40_B': None, 'f20_20_G': None,
                      's40_40_G': None,  'm20_100': None, 'm20': None, 'm30': None,
                      'r20': None, 'bearing_box_ax01': None, 'bearing': None, 'axis': None,

@@ -2,7 +2,7 @@
 
 \chapter{Experimental Evaluation}
 
-Since the major contribution of this work is the creation of the dataset, the experiments are focussed on validating the effectiveness of the dataset. 
+Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. 
 
 % Add visual segmentation masks in all results.
 
@@ -11,7 +11,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of deepLabv3+ on the different dataset variants.
 		\item \textbf{Expected result}: The segmentation model is expected to perform better when the number of classes is lower. This is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
-		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achieves better mIOU on these variants. The atWork\_binary variant requries the segmentation model to only distinguish foreground from background leading to the highest mIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception network backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNetv2 network backbone.
+		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achieves better mIOU on these variants. The atWork\_binary variant requires the segmentation model to only distinguish foreground from background leading to the highest mIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception network backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNetv2 network backbone.
 	\end{itemize}
 
 	\begin{figure}
@@ -27,7 +27,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:mobivarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU of deeplabv3+ with \textbf{mobileNet network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a) mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 77.47\%, atWork\_size\_invariant = 83.10\%, atWork\_similar\_shapes = 82.10\% and atWork\_binary = 96.06\%. (b). Mean IOU on the 4 variants of the white backgrounds dataset: atWork\_full = 79.26\%, atWork\_size\_invariant = 84.29\%, atWork\_similar\_shapes = 85.33\% and atWork\_binary = 95.83\%.}
+		\caption{mIOU of deeplabv3+ with \textbf{mobileNet network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a) mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 77.47\%, atWork\_size\_invariant = 83.10\%, atWork\_similar\_shapes = 82.10\% and atWork\_binary = 96.06\%. (b). mIOU on the 4 variants of the white backgrounds dataset: atWork\_full = 79.26\%, atWork\_size\_invariant = 84.29\%, atWork\_similar\_shapes = 85.33\% and atWork\_binary = 95.83\%.}
 		\label{Fig:mobivars}
 	\end{figure}
 	
@@ -44,16 +44,16 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:xcepvarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU of deeplabv3+ with \textbf{xception backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a). Mean IOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 89.38\%, atWork\_size\_invariant = 91.19\%, atWork\_similar\_shapes = 90.81\% and atWork\_binary = 98.31\%. (b). Mean IOU on the 4 variants of the white backgrounds dataset: atWork\_full = 91.59\%, atWork\_size\_invariant = 94.27\%, atWork\_similar\_shapes = 94.33\% and atWork\_binary = 98.47\%.}
+		\caption{mIOU of deeplabv3+ with \textbf{xception network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a). mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 89.38\%, atWork\_size\_invariant = 91.19\%, atWork\_similar\_shapes = 90.81\% and atWork\_binary = 98.31\%. (b). mIOU on the 4 variants of the white backgrounds dataset: atWork\_full = 91.59\%, atWork\_size\_invariant = 94.27\%, atWork\_similar\_shapes = 94.33\% and atWork\_binary = 98.47\%.}
 		\label{Fig:xcepvars}
 	\end{figure}
 
 \section{Comparing deepLabv3+ backbones}
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the Mean IOUs obtained by deepLabv3+ with mobileNet and xception backbones on each of the datasets and its variants.
-		\item \textbf{Expected result}: The xception backbone is expected to obtain higher Mean IOU because of the higher number of learnable parameters in comparison with the mobileNet backbone. In essence, the xception backbone has more "learning capacity" than the mobileNet backbone leading to the ability to learn a better decision boundary.
-		\item \textbf{Inference from the results}: Across all the dataset variants, the xception backbone achieves higher Mean IOU than the mobileNet backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset perform slightly better than corresponding models trained on variety of backgrounds dataset. This supports the notion that it is easier to distinguish the atWork objects when the image background is predominantly white.
+		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by deepLabv3+ with mobileNet and xception network backbones on each of the datasets and its variants.
+		\item \textbf{Expected result}: The xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the mobileNet network backbone. In essence, the xception network backbone has more "learning capacity" than the mobileNet network backbone leading to the ability to learn a better decision boundary.
+		\item \textbf{Inference from the results}: Across all the dataset variants, the xception network backbone achieves higher mIOU than the mobileNet network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset perform slightly better than corresponding models trained on variety of backgrounds dataset. This supports the notion that it is easier to distinguish the atWork objects when the image background is predominantly white.
 	\end{itemize}
 
 	\begin{figure}
@@ -81,7 +81,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{4varsd}
 			\caption{}
 		\end{subfigure}
-		\caption{Comparision of Mean IOU obtained by deepLabv3+ using mobileNet backbone Vs xception backbone on all 4 variants. VB denotes variety of backgrounds dataset and WB denotes white backgrounds dataset. The dataset variant is (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
+		\caption{Comparison of mIOU obtained by deepLabv3+ using mobileNet network backbone vs xception network backbone on all 4 variants. VB denotes variety of backgrounds dataset and WB denotes white backgrounds dataset. The dataset variant is (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
 		\label{Fig:4vars}
 	\end{figure}
 
@@ -96,15 +96,15 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\item[4] Only the real training images.
 		\end{itemize}
 	The validation set only consists of the real validation images in order to consider only real world conditions.
-		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest Mean IOU. This is based on the notion that the artificial images forces the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the entire variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to perform the worst has it does not introduce the segmentation model to real world conditions.
-		\item \textbf{Inference from the results}: The results show that in all variants, training with just the real images achieves the best performance on the real validation set. This is in contrast to the notion that augmenting with artificial images improves performance. This apparant contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
+		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This is based on the notion that the artificial images forces the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the entire variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to perform the worst as it does not introduce the segmentation model to real world conditions.
+		\item \textbf{Inference from the results}: The results show that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
 		\begin{itemize}
 			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There is no cases of occlusion or existance of multiple objects. 
 			\item[2] The backgrounds in the real validation set is already seen in the training set. Only three different real backgrounds were used.
 		\end{itemize}
-		These two limitations exist in the real validation becuase of the need to reduce the labeling cost. Creating real world variations interms of multiple objects per image and random occlusions is time consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time consuming. These limitations are addressed by the artificial images by placing objects at arbitrary scales in random locations on varied backgrouds.
+		These two limitations exist in the real validation because of the need to reduce the labeling cost. Creating real world variations in terms of multiple objects per image and random occlusions is time consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time consuming. These limitations are addressed by the artificial images by placing objects at arbitrary scales in random locations on varied backgrounds.
 		In addition to the existing limitations, the artificial images inherently impose a regularization effect on the training process. This can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
-		\item Suggestions to improve the experiment: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artifical data. \textbf{[result to be attached]} In this case, the Mean IOU obtained is only around 40 percent proving that this speculation could be further explored.
+		\item Suggestions to improve the experiment: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. \textbf{[result to be attached]} In this case, the mIOU obtained is only around 40 percent proving that this speculation could be further explored.
 	\end{itemize}
 
 	\begin{figure}
@@ -128,7 +128,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/re_val_mob_binary}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU on all 4 variants obtained by deepLabv3+ with mobileNet backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
+		\caption{mIOU on all 4 variants obtained by deepLabv3+ with mobileNet network backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
 		\label{Fig:realvalmob}
 	\end{figure}
 
@@ -147,7 +147,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	atWork\_binary & 94.33 & 93.01 & 90.17 & 43.29 \\ 
 	\hline 
 	\end{tabular}
-	\caption{This table summarizes the results obtained when validating only on the real validation data. The first column denotes the variant. The remaining columns denote on what data was the deepLabv3+ with mobileNet backbone model trained on. All the Mean IOUs are in percentage.} 
+	\caption{This table summarizes the results obtained when validating only on the real validation data. The first column denotes the variant. The remaining columns denote on what data was the deepLabv3+ with mobileNet network backbone model trained on. All the mIOUs are in percentage.} 
 	\label{Table:realvalmob}
 \end{table}
 
@@ -171,7 +171,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/re_val_xcep_binary}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU on all 4 variants obtained by deepLabv3+ with xception backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
+		\caption{mIOU on all 4 variants obtained by deepLabv3+ with xception backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
 		\label{Fig:realvalxcep}
 	\end{figure}
 
@@ -200,8 +200,8 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this section is to analyze the deepLabv3+ models inability to distinguish between different objects. 
 			\item \textbf{Expected result}: The variants with higher number of classes is expected to have more non leading diagonal terms in the confusion matrix. This is based on the belief that the segmentation model would face difficulties distinguishing objects very similar to each other. This problem is expected to be alleviated by the atWork\_size\_invariant and atWork\_similar\_shapes variants. On the atWork\_binary variant, there is a possibility that a certain percentage of foreground pixels are confused with background.
-			\item \textbf{Inference from the results}: On all the confusion matrices, the leading diagonal elements have highest values in each row. This is expected and suggests that the model correclty classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in distance tube are confused with background. This could be because the number of pixels occupied by distance tube in the dataset is small in comparision to the other objects.
-			Confusions between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This can be attrbuted to the combining of similar objects to one class. The confusion between motor and m20\_100 and the confusion between motor and r20 needs to be addressed.
+			\item \textbf{Inference from the results}: On all the confusion matrices, the leading diagonal elements have highest values in each row. This is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in distance tube are confused with background. This could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
+			Confusions between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This can be attributed to the combining of similar objects to one class. The confusion between motor and m20\_100 and the confusion between motor and r20 needs to be addressed.
 		\end{itemize}
 
 		\begin{figure}
@@ -231,10 +231,10 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	
 	\subsection{Class IOUs}	
 		\begin{itemize}
-			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individial class IOUs and the percentage of pixels occupied by each class in the dataset. 
+			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individual class IOUs and the percentage of pixels occupied by each class in the dataset. 
 			\item \textbf{Expected result}: With increase in percentage of pixels, the class IOU is expected to increase. This is based on the notion that the segmentation model gives preference to objects which dominate the dataset. 
-			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted seperately, (shown in the upper graph of \ref{Fig:clsioua}). Similar observations can be made for the other two variants as shown in \ref{Fig:clsioub} and \ref{Fig:clsiouc}. 
-			Another interesting result is that the segmentation model seems to learn the object "bearing" well despite the fact that the object only occupies few pixels in the dataset. This could be because of the distint black ring in between two silver rings present in the bearing. This pattern seems unique and the model probably picks up this pattern with ease.
+			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted separately, (shown in the upper graph of \ref{Fig:clsioua}). Similar observations can be made for the other two variants as shown in \ref{Fig:clsioub} and \ref{Fig:clsiouc}. 
+			Another interesting result is that the segmentation model seems to learn the object "bearing" well despite the fact that the object only occupies few pixels in the dataset. This could be because of the distinct black ring in between two silver rings present in the bearing. This pattern seems unique and the model probably picks up this pattern with ease.
 		\end{itemize}
 	
 		\begin{figure}[!htb]
