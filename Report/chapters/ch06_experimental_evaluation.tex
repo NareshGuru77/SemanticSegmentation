@@ -112,7 +112,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\end{itemize}
 	The validation set only consists of the real validation images in order to consider only real world conditions.
 		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This is based on the notion that the artificial images forces the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the entire variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to perform the worst as it does not introduce the segmentation model to real world conditions.
-		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realvalmob} and in Figure \ref{Fig:realvalxcep} it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
+		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realval} and in Figure \ref{Fig:realvalxcep} it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
 		\begin{itemize}
 			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There is no cases of occlusion or existance of multiple objects. 
 			\item[2] The backgrounds in the real validation set is already seen in the training set. Only three different real backgrounds were used.
@@ -121,30 +121,12 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		In addition to the existing limitations, the artificial images inherently impose a regularization effect on the training process. This can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
 		\item \textbf{Suggestions to improve the experiment}: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. \textbf{[result to be attached]} In this case, the mIOU obtained is only around 40 percent proving that this speculation could be further explored.
 	\end{itemize}
-
+	
 	\begin{figure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_mob_full}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_mob_size}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_mob_shape}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_mob_binary}
-			\caption{}
-		\end{subfigure}
-		\caption{mIOU on all 4 variants obtained by deepLabv3+ with mobileNetv2 network backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The mIOUs are tabulated in \ref{Table:realvalmob}}
-		\label{Fig:realvalmob}
+		\centering
+		\includegraphics[width=1\linewidth]{images/real_val}
+		\caption{This plot shows the mIOUs obtained when training deepLabv3+ on different training sets. "full" denotes the atWork\_full variant, "size" denotes the atWork\_size\_invariant variant, "shape" denotes the atWork\_similar\_shapes variant, "binary" denotes the atWork\_binary variant.}
+		\label{Fig:realval}
 	\end{figure}
 
 \begin{table}
@@ -153,7 +135,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 \hline
 \multicolumn{ 1}{|l|}{\textbf{Dataset variant}} & \multicolumn{ 1}{l|}{\textbf{Backbone}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 3- 6}
 \multicolumn{ 1}{|l|}{} & \multicolumn{ 1}{l|}{} & \textbf{Real} & \makecell{\textbf{VB:} \\ \textbf{All}} & \makecell{\textbf{WB:} \\ \textbf{All}} & \makecell{\textbf{VB:} \\ \textbf{Artificial}} \\ \hline
-\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 83.21 & 71.72 & 70.8 & 40 \\ \cline{ 2- 6}
+\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 83.21 & 71.72 & 70.80 & 40.00 \\ \cline{ 2- 6}
 \multicolumn{ 1}{|l|}{} & Xception & 87.03 & 80.26 & 78.42 & 45.67 \\ \hline
 \multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 85.01 & 80.08 & 77.12 & 47.76 \\ \cline{ 2- 6}
 \multicolumn{ 1}{|l|}{} & Xception & 90.84 & 89.58 & 87.67 & 41.58 \\ \hline
@@ -165,31 +147,6 @@ Since the major contribution of this work is the creation of the dataset, the ex
 \caption{This table summarizes the mIOUs obtained when training with different training data and validating on the real validation data. "Real" denotes real training data, "VB: All" denotes real and artificial data of the variety of backgrounds dataset, "WB: All" denotes real and artificial data of the white backgrounds dataset, "VB: Artificial" denotes artificial data of the variety of backgrounds dataset.}
 \label{Table:realval}
 \end{table}
-
-	\begin{figure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_xcep_full}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_xcep_size}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_xcep_shape}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/re_val_xcep_binary}
-			\caption{}
-		\end{subfigure}
-		\caption{mIOU on all 4 variants obtained by deepLabv3+ with xception backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The mIOUs are tabulated in \ref{Table:realvalxcep}}
-		\label{Fig:realvalxcep}
-	\end{figure}
 
 \section{Comparing individual classes}
 

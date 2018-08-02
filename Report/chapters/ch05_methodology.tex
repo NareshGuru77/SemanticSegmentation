@@ -9,7 +9,7 @@ Fully Convolutional networks were introduced by [] for the task of semantic segm
 
 Atrous convolutions, also called as dilated convolutions, is be used to gather a better global context with enlarged field-of-view on the feature maps. A atrous rate called r, determines the field-of-view of an atrous convolution. With increase in dilation rate, a greater region in the feature map is convolved over. This leads to gathering of more global context. However, it is worth noting that there is no increase in the number of parameters in the convolution filter. Only the convolved region in the input feature map changes. When the dilation rate is 1, usual convolution is performed. The figure \ref{Fig:atconv} illustrates atrous convolution. 
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\begin{subfigure}{.3\textwidth}
 			\centering
 			\includegraphics[width=1.03\linewidth]{images/r_1}
@@ -39,14 +39,14 @@ In DeepLabv2, Atrous Spatial Pyramid Pooling (ASPP) was used in addition to the 
 
 Atrous Spatial Pyramid Pooling, is used to create multiscale feature representations. Atrous convolutions with different atrous rates are applied to the same feature map. The resulting feature maps from each atrous convolution is processed in separate branches in a similar fashion as in deepLabv1 by using two 1$\times$1 convolutions. Each of the branches are then fused together to obtain multiscale information. The difference between in architecture between deepLabv1 and deepLabv2 is illustrated in \ref{Fig:v1vsv2}.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{images/aspp}
 		\caption{Illustration of Atrous Spatial Pyramid Pooling (ASPP). Atrous convolutions with 4 different rates convolve on the same input feature map. The field-of-view of each atrous rate is shown using different colors.}
 		\label{Fig:aspp}
 	\end{figure}
 	
-	\begin{figure}[!htb]
+	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1.03\linewidth]{images/v1_largeFOV}
@@ -66,7 +66,7 @@ In this version of deepLab, the contributions include improvements to the contex
 
 The authors experiment with two different modules to handle context one being a cascade module and the other being an improved version of ASPP module. The cascade module is formed by repeating the last block from ResNet and replacing convolutions with atrous convolutions. The authors report that performing this repetition upto three times improves performance. 	The cascade module is illustrated in \ref{Fig:contextmodulea}. The ASPP module used in deepLabv3 is similar to the one used in deepLabv2. However, the difference now is that the ASPP module uses five branches. The first four branches perform 1$\times$1 convolution, and three 3$\times$3 convolutions with atrous rates 6, 12 and 18. The 5th branch provides image level features by performing global average pooling on the last feature maps of the model. The resulting channels are concatenated and projected to a different channel space using 1$\times$1 convolution.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\begin{subfigure}{1\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/cascade_module}
@@ -89,7 +89,7 @@ DeepLabv3+ is designed to combine the ability of ASPP module which can capture r
 
 The authors call the ratio of input resolution to the output resolution before global average pooling as the output stride. DeepLabv3 is designed to have an output stride of 16. To bring the prediction to the original image resolution, the final features are upsampled by using bilinear interpolation by a factor of 16. This is considered by the authors as a naive decoder module. Instead of this naive approach, the authors propose the use of a better decoder module. The final encoder features are first upsampled by a factor of 4, and are concatenated with the low level features from the encoder with same dimensions. The number of channels in the low level features are first reduced using a 1$\times$1 convolution. A 3$\times$3 convolution convolves over this concatenated features to refine the features and is later followed by an upsampling of 4 to lead to the final prediction. The architecture of deepLabv3+ is depicted in \ref{Fig:deepLabv4}.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/deepLabv4}
 		\caption{An illustration of deepLabv3+ architecture. The encoder extracts features at different scales and the decoder refines object boundary delineation.}
@@ -98,7 +98,7 @@ The authors call the ratio of input resolution to the output resolution before g
 
 The mobileNetv2 and xception encoders make use of depthwise separable convolutions to improve resource efficiency. Sections \ref{section:mn} and \ref{section:xcep} provide details regarding mobileNetv2 and xception architectures respectively. In deepLabv3+, the authors use atrous convolution instead of depthwise convolution in depthwise seperable convolution. The authors call this type of convolutions as atrous separable convolution and state that these convolutions can be used to extract feature maps at arbitrary resolution. The authors use a modified version of the xception architecture as depicted in \ref{Fig:deepLabv4_xcep} as one of the network backbones.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\centering
 		\includegraphics[width=.8\linewidth]{images/deepLabv4_xcep}
 		\caption{Modified xception architecture used as encoder in deepLabv3+. The max pooling operations in the original xception architecture are replaced with depthwise separable convolutions. Batch normalization and ReLU activation is applied after each 3$\times$3 depthwise convolution.}
@@ -118,7 +118,7 @@ The mobileNetv2 architecture is designed to work on mobile and embedded devices 
 
 Depthwise separable convolutions, known for its efficiency, is used in this work. Standard convolution layers are replaced with two layers where the first layer performs depthwise convolution and the second layer performs pointwise convolution. A depthwise convolution layer uses a single fiter per input channel to perform convolution. The pointwise convolution layer consists of 1$\times$1 convolutions which perform weighted linear combination on the input channels and project them to a new channel space. This factorization of standard convolution layer into two separate depthwise and pointwise layers leads to roughly $k^2$ times reduction in computation cost where k is the kernel size of the convolutional filter. Figure \ref{Fig:depthwise} illustrates depthwise convolution. In this case, pointwise convolution performs dimensionality reduction as the number of output channels is less than number of input channels. However, in this case, if more than 3 pointwise convolutions are used, dimensionality output channels can be increased.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{images/depthwise}
 		\caption{An illustration of depthwise separable convolution with 3 input channels and 1 output channel. The first row shows the three input channels. The next three rows illustrate three separate 3$\times$3 convolution convolving over one of the input channels. The fifth row shows the resulting feature maps of the three convolutions being stacked upon each other. Rows 2 to 5 together is the depthwise convolution. The sixth row shows a pointwise convolution convolving over the output of depthwise convolution to get the final output channel}
@@ -129,7 +129,7 @@ In the original residual block [cite], first a 1$\times$1 convolution is used to
 
 The authors of mobileNetv2 propose the use of inverted residual block which takes advantage of the depthwise seperable convolutions. This block consists of a narrow bottleneck layer followed by a 1$\times$1 convolution which performs expansion of number of channels. Depthwise convolution is performed on the expanded input channels followed by a pointwise convolution which brings down the number of channels to create the next bottleneck layer. A skip connection is then added between the input bottleneck and the output bottleneck. The original and inverted residual blocks are depicted in \ref{Fig:residual}. The authors use linear activation in the bottleneck layers and hypothesize that it is better than non-linear activation.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=.8\linewidth]{images/residual}
@@ -148,7 +148,7 @@ This hypothesis is based on the notion that the ReLU activation layer used, lead
 
 The inverted residual block has less number of parameters than the residual block and with linear bottleneck is shown to achieve state-of-the-art performance. The inverted residual block is visualized in the architecture of mobileNetv2 in \ref{Fig:mobileNetv2bb}.
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{images/mobileNetv2_bb}
 		\caption{The building block of mobileNetv2. The compressed representation obtained could be used for tasks such as image classification, object detection and semantic segmentation.}
@@ -162,7 +162,7 @@ The xception architecture is derived based on two hypothesis made by the authors
 
 In the inception architecture, an inception module consists of 4 branches operating on the same input feature maps. The different branches of the inceptionv3 module is shown in \ref{Fig:xceptiona}. In the second branch with 1$\times$1 convolution followed by a 3$\times$3 convolution, the 1$\times$1 convolution calculates the cross-channel correlation between the input channels and performs dimensionality reduction by reducing the number of input channels. Next, the 3$\times$3 convolution is a standard convolution which looks for both spatial and cross-channel correlations in this reduced input channel space. Since this inception module has lead to state-of-the-art classification results, the authors hypothesize that the cross-channel correlations and spacial correlations are decoupled and can be mapped separately. This is evidently based on the fact that the inception module partially handles spatial and cross-channel correlations in a decoupled fashion by using a 1$\times$1 convolution followed by a 3$\times$3 convolution. 
 
-	\begin{figure}[!htb]
+	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=.8\linewidth]{images/inception_v3}
