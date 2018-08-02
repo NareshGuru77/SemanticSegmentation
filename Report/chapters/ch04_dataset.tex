@@ -484,7 +484,7 @@ In this section, certain features of the artificial image generator which are no
 	
 \subsection{Artificial images for each dataset split}
 
-The real images are split into training, validation and test sets. Real images in each of these sets are used to generate artificial images for the coresponding set. This ensures that the final training, validation and test sets are different from each other. The scale range of distance\_tube was set to 1.1 to 2.0 for generating training artificial images and to 0.6 to 1.2 for generating validation and test artificial images. The reason for this setting is provided in the data analysis section \ref{section:analysis}.
+The real images are split into training, validation and test sets. Real images in each of these sets are used to generate artificial images for the coresponding set. This ensures that the final training, validation and test sets are different from each other. The default scale range of [0.24, 1.2] is retained for all objects except for the "distance\_tube". The scale range of "distance\_tube" was set to [1.1, 2.0] for generating training artificial images and to [0.6, 1.2] for generating validation and test artificial images. This is because the lower limit of 0.24 in the default scale range zooms down "distance\_tube" in a manner that it is no longer perceivable which is not desired.
 
 \section{Creation of dataset variants:}
 Different variants of the dataset are created based on the properties of the objects in the dataset, and the type of  background images used for generation of artificial images.
@@ -527,7 +527,7 @@ Different variants of the dataset are created based on the properties of the obj
   		\caption{A viewpoint of \\bearing box ax16}
   		\label{Fig:sim2b}
 	\end{subfigure}%
-	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where the appear similar in shape.}
+	\caption{A similar viewpoint of bearing box ax01 and bearing box ax16 where they appear similar in shape.}
 	\label{Fig:sim2}
 \end{figure}	
 	\end{itemize}
@@ -703,12 +703,12 @@ Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers ho
 	\hline 
 	Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & 				\makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$18)-3=69} \\ 
 	\hline 
-	Augmented Images & 7104 & 870 & 870 \\ 
+	Artificial Images & 7104 & 870 & 870 \\ 
 	\hline 
 	Total Images & 7500 & 942 & 939 \\ 
 	\hline 
 	\end{tabular}
-	\caption{Meta-data of all 4 variants and also the shades of white dataset.} 
+	\caption{Meta-data of all 4 variants of the variety of backgrounds and the white backgrounds dataset.} 
 	\label{Table:meta}
 \end{table}
 

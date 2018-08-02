@@ -10,10 +10,10 @@ Since the major contribution of this work is the creation of the dataset, the ex
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of deepLabv3+ on the different dataset variants.
-		\item \textbf{Expected result}: The segmentation model is expected to perform better when the number of classes is lower. This is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
-		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From \ref{Fig:mobivars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, m20 and m30 have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained in the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, the segmentation model achieves better mIOU on these variants. The atWork\_binary variant requires the segmentation model to only distinguish foreground from background leading to the highest mIOU. From \ref{Fig:xcepvars}, deepLabV3+ with the xception network backbone, evidently, also follows a similar trend like deepLabv3+ with mobileNetv2 network backbone.
+		\item \textbf{Expected result}: DeepLabv3+ is expected to obtain a higher mIOU when the number of classes is lower. This is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
+		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, deepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the deepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by deepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
 	\end{itemize}
-
+	
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
@@ -27,11 +27,6 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:mobivarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU of deeplabv3+ with \textbf{mobileNet network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a) mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 77.47\%, atWork\_size\_invariant = 83.10\%, atWork\_similar\_shapes = 82.10\% and atWork\_binary = 96.06\%. (b). mIOU on the 4 variants of the white backgrounds dataset: atWork\_full = 79.26\%, atWork\_size\_invariant = 84.29\%, atWork\_similar\_shapes = 85.33\% and atWork\_binary = 95.83\%.}
-		\label{Fig:mobivars}
-	\end{figure}
-	
-	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/xcep_4vars}
@@ -44,45 +39,65 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:xcepvarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU of deeplabv3+ with \textbf{xception network backbone} on variety of backgrounds dataset and white backgrounds dataset is shown. (a). mIOU on the 4 variants of the variety of backgrounds dataset: atWork\_full = 89.38\%, atWork\_size\_invariant = 91.19\%, atWork\_similar\_shapes = 90.81\% and atWork\_binary = 98.31\%. (b). mIOU on the 4 variants of the white backgrounds dataset: atWork\_full = 91.59\%, atWork\_size\_invariant = 94.27\%, atWork\_similar\_shapes = 94.33\% and atWork\_binary = 98.47\%.}
-		\label{Fig:xcepvars}
+		\caption{mIOU of deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on variety of backgrounds dataset, (b) MobileNetv2 network backbone on white backgrounds dataset, (c) Xception network backbone on variety of backgrounds dataset, (d) Xception network backbone on white backgrounds dataset.}
+		\label{Fig:vars}
 	\end{figure}
+	
+	\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline 
+	\multicolumn{ 1}{|l|}{\makecell{\textbf{Dataset variant}}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 2- 5}
+	\multicolumn{ 1}{|l|}{} & \multicolumn{ 2}{l|}{MobileNetv2 backbone} & \multicolumn{ 2}{l|}{Xception backbone} \\ \cline{ 2- 5}
+	\multicolumn{ 1}{|l|}{} & VB & WB & VB & WB \\ \hline 
+	atWork\_full & 77.47 & 79.26 & 89.63 & 91.59 \\ 
+	\hline 
+	atWork\_size\_invariant & 83.10 & 84.29 & 92.47 & 94.27 \\ 
+	\hline 
+	atWork\_similar\_shapes & 82.10 & 85.33 & 90.71 & 94.33 \\ 
+	\hline 
+	atWork\_binary & 96.06 & 95.83 & 98.68 & 98.47 \\ 
+	\hline 
+	\end{tabular}
+	\caption{This table lists the mIOU obtained by deepLabv3+ with MobileNetv2 and Xception network backbones on 4 dataset variants of VB: variety of backgrounds dataset and WB: white backgrounds dataset.} 
+	\label{Table:vars}
+\end{table}
 
 \section{Comparing deepLabv3+ backbones}
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by deepLabv3+ with mobileNet and xception network backbones on each of the datasets and its variants.
-		\item \textbf{Expected result}: The xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the mobileNet network backbone. In essence, the xception network backbone has more "learning capacity" than the mobileNet network backbone leading to the ability to learn a better decision boundary.
-		\item \textbf{Inference from the results}: Across all the dataset variants, the xception network backbone achieves higher mIOU than the mobileNet network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset perform slightly better than corresponding models trained on variety of backgrounds dataset. This supports the notion that it is easier to distinguish the atWork objects when the image background is predominantly white.
+		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by deepLabv3+ with mobileNetv2 and Xception network backbones on each of the datasets and its variants.
+		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the mobileNet network backbone. In essence, the Xception network backbone has more "learning capacity" than the mobileNetv2 network backbone leading to the ability to learn a better decision boundary.
+		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the mobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieves slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset. This could be because the model has to handle less variations in terms of backgrounds in the white backgrounds dataset as the backgrounds in this dataset are similar to each other.
 	\end{itemize}
 
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobxcep_full}
-			\label{4varsa}
+			\label{backbonesa}
 			\caption{}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobxcep_size}
-			\label{4varsb}
+			\label{backbonesb}
 			\caption{}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobxcep_shape}
-			\label{4varsc}
+			\label{backbonesc}
 			\caption{}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobxcep_binary}
-			\label{4varsd}
+			\label{backbonesd}
 			\caption{}
 		\end{subfigure}
-		\caption{Comparison of mIOU obtained by deepLabv3+ using mobileNet network backbone vs xception network backbone on all 4 variants. VB denotes variety of backgrounds dataset and WB denotes white backgrounds dataset. The dataset variant is (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
-		\label{Fig:4vars}
+		\caption{Comparison of mIOU obtained by deepLabv3+ using mobileNetv2 network backbone vs Xception network backbone on all 4 variants. VB denotes the variety of backgrounds dataset and WB denotes the white backgrounds dataset. The dataset variant is (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
+		\label{Fig:backbones}
 	\end{figure}
 
 \section{Training with different data}
@@ -97,14 +112,14 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\end{itemize}
 	The validation set only consists of the real validation images in order to consider only real world conditions.
 		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This is based on the notion that the artificial images forces the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the entire variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to perform the worst as it does not introduce the segmentation model to real world conditions.
-		\item \textbf{Inference from the results}: The results show that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
+		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realvalmob} and in Figure \ref{Fig:realvalxcep} it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
 		\begin{itemize}
 			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There is no cases of occlusion or existance of multiple objects. 
 			\item[2] The backgrounds in the real validation set is already seen in the training set. Only three different real backgrounds were used.
 		\end{itemize}
 		These two limitations exist in the real validation because of the need to reduce the labeling cost. Creating real world variations in terms of multiple objects per image and random occlusions is time consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time consuming. These limitations are addressed by the artificial images by placing objects at arbitrary scales in random locations on varied backgrounds.
 		In addition to the existing limitations, the artificial images inherently impose a regularization effect on the training process. This can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
-		\item Suggestions to improve the experiment: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. \textbf{[result to be attached]} In this case, the mIOU obtained is only around 40 percent proving that this speculation could be further explored.
+		\item \textbf{Suggestions to improve the experiment}: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. \textbf{[result to be attached]} In this case, the mIOU obtained is only around 40 percent proving that this speculation could be further explored.
 	\end{itemize}
 
 	\begin{figure}
@@ -128,33 +143,34 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/re_val_mob_binary}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU on all 4 variants obtained by deepLabv3+ with mobileNet network backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
+		\caption{mIOU on all 4 variants obtained by deepLabv3+ with mobileNetv2 network backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The mIOUs are tabulated in \ref{Table:realvalmob}}
 		\label{Fig:realvalmob}
 	\end{figure}
 
 \begin{table}
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|}
-	\hline 
-    Variant & \makecell{Real \\training \\data} & \makecell{Variety\\ of backgrounds\\ all \\training data} & \makecell{White \\backgrounds\\ all \\training data} & \makecell{Variety\\ of backgrounds\\ artificial \\training data} \\ 
-	\hline 
-	atWork\_full & 83.21 & 71.72 & 70.8 & 40.0 \\ 
-	\hline 
-	atWork\_size\_invariant & 85.01 & 80.08 & 77.12 & 47.76 \\ 
-	\hline 
-	atWork\_similar\_shapes & 79.83 & 77.33 & 76.47 & 43.31 \\ 
-	\hline 
-	atWork\_binary & 94.33 & 93.01 & 90.17 & 43.29 \\ 
-	\hline 
-	\end{tabular}
-	\caption{This table summarizes the results obtained when validating only on the real validation data. The first column denotes the variant. The remaining columns denote on what data was the deepLabv3+ with mobileNet network backbone model trained on. All the mIOUs are in percentage.} 
-	\label{Table:realvalmob}
+\centering
+\begin{tabular}{|l|l|r|r|r|r|}
+\hline
+\multicolumn{ 1}{|l|}{\textbf{Dataset variant}} & \multicolumn{ 1}{l|}{\textbf{Backbone}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 3- 6}
+\multicolumn{ 1}{|l|}{} & \multicolumn{ 1}{l|}{} & \textbf{Real} & \makecell{\textbf{VB:} \\ \textbf{All}} & \makecell{\textbf{WB:} \\ \textbf{All}} & \makecell{\textbf{VB:} \\ \textbf{Artificial}} \\ \hline
+\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 83.21 & 71.72 & 70.8 & 40 \\ \cline{ 2- 6}
+\multicolumn{ 1}{|l|}{} & Xception & 87.03 & 80.26 & 78.42 & 45.67 \\ \hline
+\multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 85.01 & 80.08 & 77.12 & 47.76 \\ \cline{ 2- 6}
+\multicolumn{ 1}{|l|}{} & Xception & 90.84 & 89.58 & 87.67 & 41.58 \\ \hline
+\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 79.83 & 77.33 & 76.47 & 43.31 \\ \cline{ 2- 6}
+\multicolumn{ 1}{|l|}{} & Xception & 92.85 & 87.76 & 83.58 & 43.32 \\ \hline
+\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 94.33 & 93.01 & 90.17 & 43.29 \\ \cline{ 2- 6}
+\multicolumn{ 1}{|l|}{} & Xception & 98.19 & 95.21 & 94.31 & 47.91 \\ \hline
+\end{tabular}
+\caption{This table summarizes the mIOUs obtained when training with different training data and validating on the real validation data. "Real" denotes real training data, "VB: All" denotes real and artificial data of the variety of backgrounds dataset, "WB: All" denotes real and artificial data of the white backgrounds dataset, "VB: Artificial" denotes artificial data of the variety of backgrounds dataset.}
+\label{Table:realval}
 \end{table}
 
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/re_val_xcep_full}
+			\caption{}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
@@ -171,28 +187,9 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/re_val_xcep_binary}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU on all 4 variants obtained by deepLabv3+ with xception backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The Mean IOUs are tabulated in \ref{Table:realval}}
+		\caption{mIOU on all 4 variants obtained by deepLabv3+ with xception backbone when validated only on the real validation data. VB stands for variety of backgrounds dataset and WB stands for white backgrounds dataset. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary. The mIOUs are tabulated in \ref{Table:realvalxcep}}
 		\label{Fig:realvalxcep}
 	\end{figure}
-
-\begin{table}
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|}
-	\hline 
-    Variant & \makecell{Real \\training \\data} & \makecell{Variety\\ of backgrounds\\ all \\training data} & \makecell{White \\backgrounds\\ all \\training data} & \makecell{Variety\\ of backgrounds\\ artificial \\training data} \\ 
-	\hline 
-	atWork\_full & 87.03 & 80.26 & 78.42 & 45.67 \\ 
-	\hline 
-	atWork\_size\_invariant & 90.84 & 89.58 & 87.67 & 41.58 \\ 
-	\hline 
-	atWork\_similar\_shapes & 92.85 & 87.76 & 83.58 & 43.32 \\ 
-	\hline 
-	atWork\_binary & 98.19 & 95.21 & 94.31 & 47.91 \\ 
-	\hline 
-	\end{tabular}
-	\caption{This table summarizes the results obtained when validating only on the real validation data. The first column denotes the variant. The remaining columns denote on what data was the deepLabv3+ with xception backbone model trained on. All the Mean IOUs are in percentage.} 
-	\label{Table:realvalxcep}
-\end{table}
 
 \section{Comparing individual classes}
 
