@@ -112,9 +112,9 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\end{itemize}
 	The validation set only consists of the real validation images in order to consider only real world conditions.
 		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This is based on the notion that the artificial images forces the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the entire variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to perform the worst as it does not introduce the segmentation model to real world conditions.
-		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realval} and in Figure \ref{Fig:realvalxcep} it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
+		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realval} and in Table \ref{Table:realval}, it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
 		\begin{itemize}
-			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There is no cases of occlusion or existance of multiple objects. 
+			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There is no cases of occlusion or existence of multiple objects. 
 			\item[2] The backgrounds in the real validation set is already seen in the training set. Only three different real backgrounds were used.
 		\end{itemize}
 		These two limitations exist in the real validation because of the need to reduce the labeling cost. Creating real world variations in terms of multiple objects per image and random occlusions is time consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time consuming. These limitations are addressed by the artificial images by placing objects at arbitrary scales in random locations on varied backgrounds.
@@ -154,7 +154,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this section is to analyze the deepLabv3+ models inability to distinguish between different objects. 
 			\item \textbf{Expected result}: The variants with higher number of classes is expected to have more non leading diagonal terms in the confusion matrix. This is based on the belief that the segmentation model would face difficulties distinguishing objects very similar to each other. This problem is expected to be alleviated by the atWork\_size\_invariant and atWork\_similar\_shapes variants. On the atWork\_binary variant, there is a possibility that a certain percentage of foreground pixels are confused with background.
-			\item \textbf{Inference from the results}: On all the confusion matrices, the leading diagonal elements have highest values in each row. This is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in distance tube are confused with background. This could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
+			\item \textbf{Inference from the results}: The obtained confusion matrices are shown in Figure \ref{Fig:cm}. On all the confusion matrices, the leading diagonal elements have highest values in each row. This is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in distance tube are confused with background. This could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
 			Confusions between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This can be attributed to the combining of similar objects to one class. The confusion between motor and m20\_100 and the confusion between motor and r20 needs to be addressed.
 		\end{itemize}
 
@@ -187,11 +187,11 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individual class IOUs and the percentage of pixels occupied by each class in the dataset. 
 			\item \textbf{Expected result}: With increase in percentage of pixels, the class IOU is expected to increase. This is based on the notion that the segmentation model gives preference to objects which dominate the dataset. 
-			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted separately, (shown in the upper graph of \ref{Fig:clsioua}). Similar observations can be made for the other two variants as shown in \ref{Fig:clsioub} and \ref{Fig:clsiouc}. 
+			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in Figure \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in Figure \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted separately, (shown in the upper graph of Figure \ref{Fig:clsioua}). Similar observations can be made for the other two variants as shown in Figure \ref{Fig:clsioub} and in Figure \ref{Fig:clsiouc}. 
 			Another interesting result is that the segmentation model seems to learn the object "bearing" well despite the fact that the object only occupies few pixels in the dataset. This could be because of the distinct black ring in between two silver rings present in the bearing. This pattern seems unique and the model probably picks up this pattern with ease.
 		\end{itemize}
 	
-		\begin{figure}[!htb]
+		\begin{figure}
 			\begin{subfigure}{1\textwidth}
 				\centering
 				\includegraphics[width=1\linewidth]{images/cls_iou_full}
@@ -219,7 +219,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the cosine restarts \textbf{[needs reference]} learning rate policy with the poly learning rate policy used by deepLabv3+.
 		\item \textbf{Expected result}: Either of the two learning rate policies is expected to result in better Mean IOU.
-		\item \textbf{Inference from the results}: DeepLabv3+ with mobileNet backbone is used for this experiment. Evidently, the cosine restart learning rate policy leads to slightly better Mean IOU on both the atWork\_binary and the atWork\_size\_invariant variants.
+		\item \textbf{Inference from the results}: DeepLabv3+ with mobileNetv2 backbone is used for this experiment. The mIOU obtained using the two learning rate decay policies are shown in Figure \ref{Fig:lr}. Evidently, the cosine restart learning rate policy leads to slightly better mIOU on both the atWork\_binary and the atWork\_size\_invariant variants.
 	\end{itemize}
 	
 	\begin{figure}
@@ -238,23 +238,32 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/lr_size}
 			\caption{}
 		\end{subfigure}
-		\caption{Learning rate decay with two different policies 1. cosine restarts and 2. poly is compared. (a): learning rate over 30000 steps with the two decay policies. (b): Mean IOU on the validation set of atWork\_binary variant is 96.06 \% with cosine restarts and 95.75 \% with poly. (c): Mean IOU on the validation set of atWork\_size\_invariant variant is 83.1 \% with cosine restarts and 82.24 \% with poly.}
+		\caption{Learning rate decay with two different policies 1. cosine restarts and 2. poly is compared. (a): learning rate over 30000 steps with the two decay policies. (b): mIOU on the validation set of atWork\_binary variant is 96.06 \% with cosine restarts and 95.75 \% with poly. (c): mIOU on the validation set of atWork\_size\_invariant variant is 83.1 \% with cosine restarts and 82.24 \% with poly.}
 		\label{Fig:lr}
 	\end{figure}
 
 \section{Effects of class balancing}
 
 % About attempt to counter failure in distance tube.
+
+% ref: https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to prevent the deepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
-		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall Mean IOU is also expected to be comparable to the Mean IOU obtained without class balancing.
-		\item \textbf{Inference from the results}: 
+		\item \textbf{Objective}: The objective of this experiment is to prevent the deepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. The weight coefficients of each class is calculated using median-frequency re-weighting \textbf{[cite ref]}: $\alpha_c = median\_freq/freq(c)$. Here, $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
+		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall mIOU is also expected to be at least slightly better than the mIOU obtained without class balancing.
+		\item \textbf{Inference from the results}: From Figure \ref{Fig:clsbal}, clearly, the IOU obtained on each class reduces after performing class balancing. This suggests that class balancing using median-frequency re-weighting is undesirable. The root cause for this result is unclear and needs further analysis.
 	\end{itemize}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/cls_bal_comp}
+		\caption{This plot shows a comparison of mIOUs obtained on each class before and after performing median-frequency re-weighting.}
+		\label{Fig:clsbal}
+	\end{figure}
 
 \section{Effects of quantizing the inference graph}
 	
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of Mean IOU, occupied disk memory and inference time.
+		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
 		\item \textbf{Expected result}:
 		\item \textbf{Inference from the results}:
 	\end{itemize}
@@ -283,7 +292,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 \section{Transfer learning}
 
 	\begin{itemize}
-		\item \textbf{Objective}:
+		\item \textbf{Objective}: The objective of this experiment is to compare the effe
 		\item \textbf{Expected result}:
 		\item \textbf{Inference from the results}: Size invariant;mobileNet: PASCAL VOC 2012 = 83.1, mobileNet: atWork\_binary = 83.26, xception: PASCAL VOC 2012 = 91.19, xception: atWork\_binary = 92.14...Similar shapes;mobileNet: PASCAL VOC 2012 = 82.1, mobileNet: atWork\_binary = 82.8, xception: PASCAL VOC 2012 = 90.81, xception: atWork\_binary = 92.15...Full;mobileNet: PASCAL VOC 2012 = 77.47, mobileNet: atWork\_binary = 77.73, xception: PASCAL VOC 2012 = 89.38, xception: atWork\_binary = 90.64
 	\end{itemize}
