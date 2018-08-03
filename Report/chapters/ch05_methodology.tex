@@ -161,29 +161,33 @@ The inverted residual block has less number of parameters than the residual bloc
 
 The Xception architecture is derived based on two hypothesis made by the authors. One hypothesis is based on the inception architecture and the other is a stronger version of the inception hypothesis. Standard convolution layers has 3D convolution kernals which maps both spatial correlations and cross-channel correlations at the same time. Here spatial correlations is obtained by mapping correlations across the height and the width of every channel separately. Cross-channel correlations is obtained at every spatial location across the height and width of the channels, from each of the channels in the input. 
 
-In the inception architecture, an inception module consists of 4 branches operating on the same input feature maps. The different branches of the inceptionv3 module is shown in \ref{Fig:xceptiona}. In the second branch with 1$\times$1 convolution followed by a 3$\times$3 convolution, the 1$\times$1 convolution calculates the cross-channel correlation between the input channels and performs dimensionality reduction by reducing the number of input channels. Next, the 3$\times$3 convolution is a standard convolution which looks for both spatial and cross-channel correlations in this reduced input channel space. Since this inception module has lead to state-of-the-art classification results, the authors hypothesize that the cross-channel correlations and spacial correlations are decoupled and can be mapped separately. This is evidently based on the fact that the inception module partially handles spatial and cross-channel correlations in a decoupled fashion by using a 1$\times$1 convolution followed by a 3$\times$3 convolution. 
+In the Inception architecture, an inception module consists of 4 branches operating on the same input feature maps. The different branches of the inceptionv3 module is shown in Figure \ref{Fig:xceptiona}. In the second branch with 1$\times$1 convolution followed by a 3$\times$3 convolution, the 1$\times$1 convolution calculates the cross-channel correlation between the input channels and performs dimensionality reduction by reducing the number of input channels. Next, the 3$\times$3 convolution is a standard convolution which looks for both spatial and cross-channel correlations in this reduced input channel space. Since this inception module has lead to state-of-the-art classification results, the authors hypothesize that the cross-channel correlations and spacial correlations are decoupled and can be mapped separately. This is evidently based on the fact that the inception module partially handles spatial and cross-channel correlations in a decoupled fashion by using a 1$\times$1 convolution followed by a 3$\times$3 convolution. 
 
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
-			\includegraphics[width=.8\linewidth]{images/inception_v3}
+			\includegraphics[width=1\linewidth]{images/inception_v3}
 			\caption{Inceptionv3 module}
 			\label{Fig:xceptiona}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
-			\includegraphics[width=.8\linewidth]{images/extreme_inception}
+			\includegraphics[width=1\linewidth]{images/extreme_inception}
 			\caption{Extreme version of inception module}
 			\label{Fig:xceptionb}
 		\end{subfigure}
-		\caption{Illustration of the inception v3 module and an extreme version of the inception module. In the extreme version, each of the 3$\times$3 convolution operates on a single output channel of 1$\times$1 convolution.}
+		\caption{Illustration of the inception v3 module and an extreme version of the inception module. In the extreme version, each of the 3$\times$3 convolution operates on a single output channel of 1$\times$1 convolution \cite{DBLP:journals/corr/Chollet16a}.}
 		\label{Fig:xception}
 	\end{figure}
 
-Based on this hypothesis, the authors propose that the two correlations can be mapped completely independent of each other leading to a stronger hypothesis. An illustration of this stronger hypothesis can be seen in \ref{Fig:xceptionb}. The xception network is based on this stronger hypothesis and is named "xception" as the architecture is a extreme version of inception. The complete decoupling of the two correlations, could be obtained using depthwise separable convolution, as evidently, this type of convolution first performs depthwise convoltion which handles the spatial correlation and then performs pointwise convolution which handles cross-channel correlation.
+Based on this hypothesis, the authors propose that the two correlations can be mapped completely independent of each other leading to a stronger hypothesis. An illustration of this stronger hypothesis can be seen in Figure \ref{Fig:xceptionb}. The Xception network is based on this stronger hypothesis and is named "Xception" as the architecture is a extreme version of inception. The complete decoupling of the two correlations, could be obtained using depthwise separable convolution, as evidently, this type of convolution first performs depthwise convoltion which handles the spatial correlation and then performs pointwise convolution which handles cross-channel correlation.
+
+The authors show that the use of depthwise separable convolutions enables the Xception architecture to achieve a marginally better top-1 and top-5 accuracy than the Inception V3 architecture despite the fact that Xception has less number of parameters. This experimental observation suggests that Xception is resource efficient and is also powerful in terms of "learning capacity".
 
 \section{Pruning}
 
-A trained Deep Convolutional Neural Network (DCNN) might have weights which are redundant in terms of its effect on the performance during inference.
+A trained Deep Convolutional Neural Network (DCNN) might have learnable parameters which are redundant in terms of its effect on the test time accuracy. Pruning aims to identify such redundant learnable parameters and remove them, thereby leading to compression of the DCNN. State-of-the-art methods provide different criteria to determine this redundancy which are discussed in "State of the Art" section.
+
+Most of the literature identified for this work concerning pruning, do not provide open source implementations of their work. 
 
 \section{Quantization}

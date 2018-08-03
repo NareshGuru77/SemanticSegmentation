@@ -486,7 +486,7 @@ In this section, certain features of the artificial image generator which are no
 
 The real images are split into training, validation and test sets. Real images in each of these sets are used to generate artificial images for the coresponding set. This ensures that the final training, validation and test sets are different from each other. The default scale range of [0.24, 1.2] is retained for all objects except for the "distance\_tube". The scale range of "distance\_tube" was set to [1.1, 2.0] for generating training artificial images and to [0.6, 1.2] for generating validation and test artificial images. This is because the lower limit of 0.24 in the default scale range zooms down "distance\_tube" in a manner that it is no longer perceivable which is not desired.
 
-\section{Creation of dataset variants:}
+\section{Creation of dataset variants}
 Different variants of the dataset are created based on the properties of the objects in the dataset, and the type of  background images used for generation of artificial images.
 	\subsection{Motivation}
 		Looking into the objects present in the dataset, it is apparent that some objects are similar in certain aspects. For instance, the objects m20 and m30 are very similar to each other except that m30 is bigger in size and has a slightly different color. Because of the similarities existing among objects, the segmentation model could face certain difficulties as listed below:
@@ -604,7 +604,7 @@ The backgrounds used for the artificial image generation process are images with
 		\label{Fig:samplewhite}
 	\end{figure}
 	
-\section{Data analysis:}
+\section{Data analysis}
 \label{section:analysis}
 	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears.
 	
@@ -714,11 +714,11 @@ Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers ho
 
 \section{Possible directions of improvement}
 
-Creating a custom dataset for a desired application is evidently challenging. To overcome the time consuming nature of creating annotations for semantic segmentation, choices such as 1. placing just 1 object per image while taking real images and 2. augmenting the objects on a random selection of diverse backgrounds, were made. This method of augmentation, although inspired by dataset generation method used in \cite{DBLP:journals/corr/abs-1709-00849} and the Synthia dataset \cite{RosCVPR16}, takes a different approach. Unlike \cite{DBLP:journals/corr/abs-1709-00849}, which uses 3D CAD models, this approach does not require any 3D models. Also, this approach does not require a virtual world as used by the Synthia dataset \cite{RosCVPR16}. However, the effectiveness of the dataset is yet to be verified by training and testing available segmentation models.
+Creating a custom dataset for a desired application is evidently challenging. To overcome the time consuming nature of creating annotations for semantic segmentation, choices such as 1. placing just 1 object per image while taking real images and 2. augmenting the objects on a random selection of diverse backgrounds, were made. This method of augmentation, although inspired by dataset generation method used in \cite{DBLP:journals/corr/abs-1709-00849} and the Synthia dataset \cite{RosCVPR16}, takes a different approach. Unlike \cite{DBLP:journals/corr/abs-1709-00849}, which uses 3D CAD models, this approach does not require any 3D models. Also, this approach does not require a virtual world as used by the Synthia dataset \cite{RosCVPR16}. 
 The following list provides possible directions of improvement:
 	\begin{itemize}
 		\item The ImageLabeler app by default saves the label '.png' file with the name 'Label\_1.png' in a folder called PixelLabelData. A automation script can be written and added to the ImageLabeler to provide options to save the label file in a way the user wants.
 		\item Creating a way to replace all unlabeled pixels with the label value of 'background' from within the ImageLabeler would be helpful. For now, this is done by first exporting the label, then loading the label using opencv in python to replace 0 (value of unlabeled pixels) with 19 (value of 'background').
-		\item The augmentation script is written in python and is independent of the MATLAB ImageLabeler app. This can be improved by including a way to start augmentation right from the ImageLabeler.
+		\item The artificial image generation algorithm is written in python and is independent of the MATLAB ImageLabeler app. This can be improved by including a way to start artificial image generation right from the ImageLabeler.
 	\end{itemize}
 
