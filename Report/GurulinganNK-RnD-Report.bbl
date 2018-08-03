@@ -1,25 +1,50 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[git()]{github_robocup@work}
-github: robocup-at-work/rulebook/images; link:
-  https://github.com/robocup-at-work/rulebook/tree/master/images.
+\bibitem[Bendersky()]{depthwise}
+Eli Bendersky.
+\newblock Depthwise separable convolutions for machine learning.
 \newblock URL
-  \url{https://github.com/robocup-at-work/rulebook/tree/master/images}.
+  \url{https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for-machine-learning/}.
+\newblock Online accessed: 2018-08-03.
 
-\bibitem[ima()]{image_downloader}
-githib: hardikvasa/google-images-download; link:
-  https://github.com/hardikvasa/google-images-download.
-
-\bibitem[sim()]{simple_colors}
-List of 20 simple, distinct colors; link:
-  https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/.
+\bibitem[Carstensen et~al.()Carstensen, Hochgeschwender, Kraetzschmar, Nowak,
+  and Zug]{github_robocup@work}
+Jan Carstensen, Nico Hochgeschwender, Gerhard Kraetzschmar, Walter Nowak, and
+  Sebastian Zug.
+\newblock Robocup@work rulebook version 2016.
 \newblock URL
-  \url{https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}.
+  \url{http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Chen et~al.(2014)Chen, Papandreou, Kokkinos, Murphy, and
+  Yuille]{DBLP:journals/corr/ChenPKMY14}
+Liang{-}Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, and
+  Alan~L. Yuille.
+\newblock Semantic image segmentation with deep convolutional nets and fully
+  connected crfs.
+\newblock \emph{CoRR}, abs/1412.7062, 2014.
+\newblock URL \url{http://arxiv.org/abs/1412.7062}.
+
+\bibitem[Chen et~al.(2016)Chen, Papandreou, Kokkinos, Murphy, and
+  Yuille]{DBLP:journals/corr/ChenPK0Y16}
+Liang{-}Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, and
+  Alan~L. Yuille.
+\newblock Deeplab: Semantic image segmentation with deep convolutional nets,
+  atrous convolution, and fully connected crfs.
+\newblock \emph{CoRR}, abs/1606.00915, 2016.
+\newblock URL \url{http://arxiv.org/abs/1606.00915}.
+
+\bibitem[Chen et~al.(2017)Chen, Papandreou, Schroff, and
+  Adam]{DBLP:journals/corr/ChenPSA17}
+Liang{-}Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam.
+\newblock Rethinking atrous convolution for semantic image segmentation.
+\newblock \emph{CoRR}, abs/1706.05587, 2017.
+\newblock URL \url{http://arxiv.org/abs/1706.05587}.
 
 \bibitem[Chen et~al.(2018)Chen, Zhu, Papandreou, Schroff, and
   Adam]{DBLP:journals/corr/abs-1802-02611}
@@ -30,18 +55,34 @@ Liang{-}Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, and Hartwig
 \newblock \emph{CoRR}, abs/1802.02611, 2018.
 \newblock URL \url{http://arxiv.org/abs/1802.02611}.
 
+\bibitem[Chollet(2016)]{DBLP:journals/corr/Chollet16a}
+Fran{\c{c}}ois Chollet.
+\newblock Xception: Deep learning with depthwise separable convolutions.
+\newblock \emph{CoRR}, abs/1610.02357, 2016.
+\newblock URL \url{http://arxiv.org/abs/1610.02357}.
+
+\bibitem[Garcia{-}Garcia et~al.(2017)Garcia{-}Garcia, Orts{-}Escolano, Oprea,
+  Villena{-}Martinez, and
+  Rodr{\'{\i}}guez]{DBLP:journals/corr/Garcia-GarciaOO17}
+Alberto Garcia{-}Garcia, Sergio Orts{-}Escolano, Sergiu Oprea, Victor
+  Villena{-}Martinez, and Jos{\'{e}}~Garc{\'{\i}}a Rodr{\'{\i}}guez.
+\newblock A review on deep learning techniques applied to semantic
+  segmentation.
+\newblock \emph{CoRR}, abs/1704.06857, 2017.
+\newblock URL \url{http://arxiv.org/abs/1704.06857}.
+
 \bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{DBLP:journals/corr/HeZRS15}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Deep residual learning for image recognition.
 \newblock \emph{CoRR}, abs/1512.03385, 2015.
 \newblock URL \url{http://arxiv.org/abs/1512.03385}.
 
-\bibitem[Name(2003)]{art1}
-Author Name.
-\newblock Book title.
-\newblock \emph{Lecture Notes in Autonomous System}, 1001:\penalty0 900--921,
-  2003.
-\newblock ISSN 0302-2345.
+\bibitem[Long et~al.(2015)Long, Shelhamer, and Darrell]{7298965}
+J.~Long, E.~Shelhamer, and T.~Darrell.
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock In \emph{2015 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 3431--3440, June 2015.
+\newblock \doi{10.1109/CVPR.2015.7298965}.
 
 \bibitem[Rajpura et~al.(2017)Rajpura, Goyal, Bojinov, and
   Hegde]{DBLP:journals/corr/abs-1709-00849}
@@ -66,10 +107,40 @@ German Ros, Laura Sellart, Joanna Materzynska, David Vazquez, and Antonio
   semantic segmentation of urban scenes.
 \newblock 2016.
 
+\bibitem[Sandler and Howard()]{mnbb}
+Mark Sandler and Andrew Howard.
+\newblock Mobilenetv2: The next generation of on-device computer vision
+  networks.
+\newblock URL
+  \url{https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Sandler et~al.(2018)Sandler, Howard, Zhu, Zhmoginov, and
+  Chen]{DBLP:journals/corr/abs-1801-04381}
+Mark Sandler, Andrew~G. Howard, Menglong Zhu, Andrey Zhmoginov, and
+  Liang{-}Chieh Chen.
+\newblock Inverted residuals and linear bottlenecks: Mobile networks for
+  classification, detection and segmentation.
+\newblock \emph{CoRR}, abs/1801.04381, 2018.
+\newblock URL \url{http://arxiv.org/abs/1801.04381}.
+
 \bibitem[Simonyan and Zisserman(2014)]{DBLP:journals/corr/SimonyanZ14}
 Karen Simonyan and Andrew Zisserman.
 \newblock Two-stream convolutional networks for action recognition in videos.
 \newblock \emph{CoRR}, abs/1406.2199, 2014.
 \newblock URL \url{http://arxiv.org/abs/1406.2199}.
+
+\bibitem[Trubetskoy()]{simple_colors}
+Sasha Trubetskoy.
+\newblock List of 20 simple, distinct colors.
+\newblock URL
+  \url{https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Vasa()]{image_downloader}
+Hardik Vasa.
+\newblock hardikvasa/google-images-download.
+\newblock URL \url{https://github.com/hardikvasa/google-images-download/}.
+\newblock Online accessed: 2018-08-03.
 
 \end{thebibliography}

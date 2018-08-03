@@ -4,53 +4,53 @@ The top-level auxiliary file: GurulinganNK-RnD-Report.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--string name "cvpr" is undefined
---line 110 of file bibliography.bib.bib
-Warning--to sort, need author or key in github_robocup@work
-Warning--to sort, need author or key in simple_colors
-Warning--to sort, need author or key in image_downloader
+--line 223 of file bibliography.bib.bib
+Warning--I didn't find a database entry for "art1"
+Warning--empty year in depthwise
 Warning--empty year in github_robocup@work
-Warning--empty year in image_downloader
-Warning--empty year in simple_colors
 Warning--empty booktitle in RosCVPR16
-You've used 10 entries,
+Warning--empty year in mnbb
+Warning--empty year in simple_colors
+Warning--empty year in image_downloader
+You've used 18 entries,
             2773 wiz_defined-function locations,
-            649 strings with 6856 characters,
-and the built_in function-call counts, 4028 in all, are:
-= -- 349
-> -- 244
-< -- 2
-+ -- 85
-- -- 75
-* -- 325
-:= -- 601
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 55
-chr.to.int$ -- 10
-cite$ -- 30
-duplicate$ -- 187
-empty$ -- 338
-format.name$ -- 84
-if$ -- 845
+            696 strings with 8874 characters,
+and the built_in function-call counts, 8315 in all, are:
+= -- 707
+> -- 604
+< -- 7
++ -- 204
+- -- 186
+* -- 674
+:= -- 1337
+add.period$ -- 71
+call.type$ -- 18
+change.case$ -- 116
+chr.to.int$ -- 18
+cite$ -- 42
+duplicate$ -- 352
+empty$ -- 597
+format.name$ -- 208
+if$ -- 1707
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 60
-num.names$ -- 28
-pop$ -- 123
+missing$ -- 13
+newline$ -- 115
+num.names$ -- 72
+pop$ -- 246
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 98
 quote$ -- 0
-skip$ -- 159
+skip$ -- 293
 stack$ -- 0
-substring$ -- 48
-swap$ -- 10
-text.length$ -- 0
+substring$ -- 72
+swap$ -- 31
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 110
-warning$ -- 7
-while$ -- 23
+type$ -- 198
+warning$ -- 6
+while$ -- 56
 width$ -- 0
-write$ -- 133
+write$ -- 263
 (There were 8 warnings)

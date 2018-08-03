@@ -9,9 +9,9 @@ Since the major contribution of this work is the creation of the dataset, the ex
 \section{Comparing dataset variants} 
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the performance of deepLabv3+ on the different dataset variants.
+		\item \textbf{Objective}: The objective of this experiment is to compare the performance of DeepLabv3+ on the different dataset variants.
 		\item \textbf{Expected result}: DeepLabv3+ is expected to obtain a higher mIOU when the number of classes is lower. This is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
-		\item \textbf{Inference from the results}: Deeplabv3+ with both the mobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, deepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the deepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by deepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
+		\item \textbf{Inference from the results}: Deeplabv3+ with both the MobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, DeepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the DeepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by DeepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
 	\end{itemize}
 	
 	\begin{figure}
@@ -39,7 +39,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{Fig:xcepvarsb}
 			\caption{}
 		\end{subfigure}
-		\caption{mIOU of deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on variety of backgrounds dataset, (b) MobileNetv2 network backbone on white backgrounds dataset, (c) Xception network backbone on variety of backgrounds dataset, (d) Xception network backbone on white backgrounds dataset.}
+		\caption{mIOU of Deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on variety of backgrounds dataset, (b) MobileNetv2 network backbone on white backgrounds dataset, (c) Xception network backbone on variety of backgrounds dataset, (d) Xception network backbone on white backgrounds dataset.}
 		\label{Fig:vars}
 	\end{figure}
 	
@@ -59,16 +59,16 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	atWork\_binary & 96.06 & 95.83 & 98.68 & 98.47 \\ 
 	\hline 
 	\end{tabular}
-	\caption{This table lists the mIOU obtained by deepLabv3+ with MobileNetv2 and Xception network backbones on 4 dataset variants of VB: variety of backgrounds dataset and WB: white backgrounds dataset.} 
+	\caption{This table lists the mIOU obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on 4 dataset variants of VB: variety of backgrounds dataset and WB: white backgrounds dataset.} 
 	\label{Table:vars}
 \end{table}
 
-\section{Comparing deepLabv3+ backbones}
+\section{Comparing DeepLabv3+ backbones}
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by deepLabv3+ with mobileNetv2 and Xception network backbones on each of the datasets and its variants.
-		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the mobileNet network backbone. In essence, the Xception network backbone has more "learning capacity" than the mobileNetv2 network backbone leading to the ability to learn a better decision boundary.
-		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the mobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieves slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset. This could be because the model has to handle less variations in terms of backgrounds in the white backgrounds dataset as the backgrounds in this dataset are similar to each other.
+		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on each of the datasets and its variants.
+		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the MobileNetv2 network backbone. In essence, the Xception network backbone has more "learning capacity" than the MobileNetv2 network backbone leading to the ability to learn a better decision boundary.
+		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the MobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieves slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset. This could be because the model has to handle less variations in terms of backgrounds in the white backgrounds dataset as the backgrounds in this dataset are similar to each other.
 	\end{itemize}
 
 	\begin{figure}
@@ -96,14 +96,14 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\label{backbonesd}
 			\caption{}
 		\end{subfigure}
-		\caption{Comparison of mIOU obtained by deepLabv3+ using mobileNetv2 network backbone vs Xception network backbone on all 4 variants. VB denotes the variety of backgrounds dataset and WB denotes the white backgrounds dataset. The dataset variant is (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
+		\caption{Comparison of mIOU obtained by DeepLabv3+ using MobileNetv2 network backbone vs Xception network backbone on all 4 variants. VB denotes the variety of backgrounds dataset and WB denotes the white backgrounds dataset. The dataset variant is (a): atWork\_full, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
 		\label{Fig:backbones}
 	\end{figure}
 
 \section{Training with different data}
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to assess the effectiveness of the created artificial data. On this regards, starting from the same initial weights, deepLabv3+ with each of the two network backbones is trained on:
+		\item \textbf{Objective}: The objective of this experiment is to assess the effectiveness of the created artificial data. On this regards, starting from the same initial weights, DeepLabv3+ with each of the two network backbones is trained on:
 		\begin{itemize}
 			\item[1] Entire training set of the variety of backgrounds dataset consisting of both real and artificial images.
 			\item[2] Only the artificial images in the training set of variety of backgrounds dataset.
@@ -125,7 +125,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/real_val}
-		\caption{This plot shows the mIOUs obtained when training deepLabv3+ on different training sets. "full" denotes the atWork\_full variant, "size" denotes the atWork\_size\_invariant variant, "shape" denotes the atWork\_similar\_shapes variant, "binary" denotes the atWork\_binary variant.}
+		\caption{This plot shows the mIOUs obtained when training DeepLabv3+ on different training sets. "full" denotes the atWork\_full variant, "size" denotes the atWork\_size\_invariant variant, "shape" denotes the atWork\_similar\_shapes variant, "binary" denotes the atWork\_binary variant.}
 		\label{Fig:realval}
 	\end{figure}
 
@@ -152,7 +152,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 
 	\subsection{Confusion matrix}
 		\begin{itemize}
-			\item \textbf{Objective}: The objective of this section is to analyze the deepLabv3+ models inability to distinguish between different objects. 
+			\item \textbf{Objective}: The objective of this section is to analyze the DeepLabv3+ models inability to distinguish between different objects. 
 			\item \textbf{Expected result}: The variants with higher number of classes is expected to have more non leading diagonal terms in the confusion matrix. This is based on the belief that the segmentation model would face difficulties distinguishing objects very similar to each other. This problem is expected to be alleviated by the atWork\_size\_invariant and atWork\_similar\_shapes variants. On the atWork\_binary variant, there is a possibility that a certain percentage of foreground pixels are confused with background.
 			\item \textbf{Inference from the results}: The obtained confusion matrices are shown in Figure \ref{Fig:cm}. On all the confusion matrices, the leading diagonal elements have highest values in each row. This is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in distance tube are confused with background. This could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
 			Confusions between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This can be attributed to the combining of similar objects to one class. The confusion between motor and m20\_100 and the confusion between motor and r20 needs to be addressed.
@@ -161,25 +161,25 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\begin{figure}
 			\begin{subfigure}{1\textwidth}
 				\centering
-				\includegraphics[width=0.8\linewidth]{images/cm_full}
+				\includegraphics[width=0.75\linewidth]{images/cm_full}
 				\caption{}
 			\end{subfigure}
 			\begin{subfigure}{1\textwidth}
 				\centering
-				\includegraphics[width=0.7\linewidth]{images/cm_size}
+				\includegraphics[width=0.6\linewidth]{images/cm_size}
 				\caption{}
 			\end{subfigure}
 			\begin{subfigure}{.6\textwidth}
 				\centering
-				\includegraphics[width=0.9\linewidth]{images/cm_shape}
+				\includegraphics[width=0.75\linewidth]{images/cm_shape}
 				\caption{}
 			\end{subfigure}
 			\begin{subfigure}{.3\textwidth}
 				\centering
-				\includegraphics[width=0.9\linewidth]{images/cm_binary}
+				\includegraphics[width=1\linewidth]{images/cm_binary}
 				\caption{}
 			\end{subfigure}
-			\caption{Confusion matrix of deepLabv3+ with mobileNet backbone based on number of classified pixels on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
+			\caption{Confusion matrix of DeepLabv3+ with MobileNetv2 backbone based on number of classified pixels on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
 			\label{Fig:cm}
 		\end{figure}
 	
@@ -210,16 +210,16 @@ Since the major contribution of this work is the creation of the dataset, the ex
 				\caption{}
 				\label{Fig:clsiouc}
 			\end{subfigure}
-			\caption{Individual class IOUs achieved by deepLabv3+ with mobileNet backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
+			\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:clsiou}
 		\end{figure}
 
 \section{Comparing learning rate policies}
 	
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the cosine restarts \textbf{[needs reference]} learning rate policy with the poly learning rate policy used by deepLabv3+.
+		\item \textbf{Objective}: The objective of this experiment is to compare the cosine restarts \textbf{[needs reference]} learning rate policy with the poly learning rate policy used by DeepLabv3+.
 		\item \textbf{Expected result}: Either of the two learning rate policies is expected to result in better Mean IOU.
-		\item \textbf{Inference from the results}: DeepLabv3+ with mobileNetv2 backbone is used for this experiment. The mIOU obtained using the two learning rate decay policies are shown in Figure \ref{Fig:lr}. Evidently, the cosine restart learning rate policy leads to slightly better mIOU on both the atWork\_binary and the atWork\_size\_invariant variants.
+		\item \textbf{Inference from the results}: DeepLabv3+ with MobileNetv2 backbone is used for this experiment. The mIOU obtained using the two learning rate decay policies are shown in Figure \ref{Fig:lr}. Evidently, the cosine restart learning rate policy leads to slightly better mIOU on both the atWork\_binary and the atWork\_size\_invariant variants.
 	\end{itemize}
 	
 	\begin{figure}
@@ -248,7 +248,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 
 % ref: https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to prevent the deepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. The weight coefficients of each class is calculated using median-frequency re-weighting \textbf{[cite ref]}: $\alpha_c = median\_freq/freq(c)$. Here, $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
+		\item \textbf{Objective}: The objective of this experiment is to prevent the DeepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. The weight coefficients of each class is calculated using median-frequency re-weighting \textbf{[cite ref]}: $\alpha_c = median\_freq/freq(c)$. Here, $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
 		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall mIOU is also expected to be at least slightly better than the mIOU obtained without class balancing.
 		\item \textbf{Inference from the results}: From Figure \ref{Fig:clsbal}, clearly, the IOU obtained on each class reduces after performing class balancing. This suggests that class balancing using median-frequency re-weighting is undesirable. The root cause for this result is unclear and needs further analysis.
 	\end{itemize}
@@ -265,28 +265,44 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
 		\item \textbf{Expected result}: The 8bit models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation. 
-		\item \textbf{Inference from the results}: Across all the variants and network backbones of deepLabv3+, the 8bit model occupies less disk memory than its corresponding full precision model. The 
+		\item \textbf{Inference from the results}: From Figure \ref{Fig:quant} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies rougly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all 4 variants of the variety of backgrounds dataset is 9.56 \%. This suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This suggests that the Xception network backbone is [\textbf{what does it suggest?}]. Table \ref{Table:quantmIOU} shows the mIOUs obtained.
+		
+		The 
 	\end{itemize}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{images/quant}
-		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of deepLabv3+ on all the variants of the variety of backgrounds of dataset.}
+		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset.}
 		\label{Fig:quant}
 	\end{figure}
 	
 	\begin{table}
 		\begin{tabular}{|l|r|r|r|r|}
 		\hline
-		\multicolumn{ 1}{|l|}{Dataset variant} & \multicolumn{ 4}{l|}{mIOU in \%} \\ \cline{ 2- 5}
-		\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{MobileNetv2} & \multicolumn{1}{l|}{MobileNetv2-8} & \multicolumn{1}{l|}{Xception} & \multicolumn{1}{l|}{Xception-8} \\ \hline
-		atWork\_full & 77.69 & 66.08 & 89.41 & 87.86 \\ \hline
-		atWork\_size\_invariant & 82.95 & 68.88 & 91.19 & 89.3 \\ \hline
-		atWork\_similar\_shapes & 81.91 & 72.22 & 90.75 & 87.5 \\ \hline
-		atWork\_binary & 96.1 & 93.49 & 98.32 & 96.92 \\ \hline
+		\makecell{\textbf{Dataset} \\ \textbf{variant}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 2- 5}
+		\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{\textbf{MobileNetv2}} & \multicolumn{1}{l|}{\textbf{MobileNetv2-8}} & \multicolumn{1}{l|}{\textbf{Xception}} & \multicolumn{1}{l|}{\textbf{Xception-8}} \\ \hline
+		\makecell{atWork\_full} & 77.69 & 66.08 & 89.41 & 87.86 \\ \hline
+		\makecell{atWork\_size\_\\invariant} & 82.95 & 68.88 & 91.19 & 89.30 \\ \hline
+		\makecell{atWork\_similar\_\\shapes} & 81.91 & 72.22 & 90.75 & 87.50 \\ \hline
+		\makecell{atWork\_binary} & 96.10 & 93.49 & 98.32 & 96.92 \\ \hline
 		\end{tabular}
+		\caption{This table summrizes the mIOU obtained by the quantized and full precision models of both DeepLabv3+ network backbones on all 4 variants of the variety of backgrounds dataset.}
 		\label{Table:quantmIOU}
-		\caption{}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\makecell{\textbf{Network} \\ \textbf{Backbone}} & \makecell{\textbf{Inference time} \\ \textbf{(ms)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
+		MobileNetv2 &  &  & 6.41B & 8.7 \\ \hline
+		MobileNetv2-8 &  &  & 328.87M & 2.8 \\ \hline
+		Xception &  &  & 126.27B & 165.6 \\ \hline
+		Xception-8 &  &  & 1.94B & 44.7 \\ \hline
+		\end{tabular}
+		\caption{This table summrizes the inference time, number of parameters and floating point operations (FLOPS) of both the quatized and full precision network backbones of DeepLabv3+.}
+		\label{Table:quantMetrics}
 	\end{table}
 
 
@@ -315,7 +331,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/transfer_full}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU for 30,000 training steps obtained on three variants by deepLabv3+ with xception and mobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better mIOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
+		\caption{mIOU for 30,000 training steps obtained on three variants by DeepLabv3+ with Xception and MobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better mIOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
 		\label{Fig:transfer}
 	\end{figure}
 

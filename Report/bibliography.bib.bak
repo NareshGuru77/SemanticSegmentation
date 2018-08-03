@@ -2,6 +2,121 @@
 % Encoding: UTF-8
 
 
+@Misc{depthwise,
+  Title                    = {Depthwise separable convolutions for machine learning},
+
+  Author                   = {Eli Bendersky},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for-machine-learning/}
+}
+
+@Misc{github_robocup@work,
+  Title                    = {RoboCup@Work Rulebook Version 2016 },
+
+  Author                   = {Jan Carstensen and
+ Nico Hochgeschwender and
+ Gerhard Kraetzschmar and
+ Walter Nowak and
+ Sebastian Zug},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf}
+}
+
+@Article{DBLP:journals/corr/ChenPK0Y16,
+  Title                    = {DeepLab: Semantic Image Segmentation with Deep Convolutional Nets,
+ Atrous Convolution, and Fully Connected CRFs},
+  Author                   = {Liang{-}Chieh Chen and
+ George Papandreou and
+ Iasonas Kokkinos and
+ Kevin Murphy and
+ Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1606.00915},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/ChenPK0Y16},
+  Eprint                   = {1606.00915},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:37 +0200},
+  Url                      = {http://arxiv.org/abs/1606.00915}
+}
+
+@Article{DBLP:journals/corr/ChenPKMY14,
+  Title                    = {Semantic Image Segmentation with Deep Convolutional Nets and Fully
+ Connected CRFs},
+  Author                   = {Liang{-}Chieh Chen and
+ George Papandreou and
+ Iasonas Kokkinos and
+ Kevin Murphy and
+ Alan L. Yuille},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1412.7062},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/ChenPKMY14},
+  Eprint                   = {1412.7062},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:19 +0200},
+  Url                      = {http://arxiv.org/abs/1412.7062}
+}
+
+@Article{DBLP:journals/corr/ChenPSA17,
+  Title                    = {Rethinking Atrous Convolution for Semantic Image Segmentation},
+  Author                   = {Liang{-}Chieh Chen and
+ George Papandreou and
+ Florian Schroff and
+ Hartwig Adam},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1706.05587},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/ChenPSA17},
+  Eprint                   = {1706.05587},
+  Timestamp                = {Mon, 03 Jul 2017 13:29:02 +0200},
+  Url                      = {http://arxiv.org/abs/1706.05587}
+}
+
+@Article{DBLP:journals/corr/abs-1802-02611,
+  Title                    = {Encoder-Decoder with Atrous Separable Convolution for Semantic Image
+ Segmentation},
+  Author                   = {Liang{-}Chieh Chen and
+ Yukun Zhu and
+ George Papandreou and
+ Florian Schroff and
+ Hartwig Adam},
+  Journal                  = {CoRR},
+  Year                     = {2018},
+  Volume                   = {abs/1802.02611},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/abs-1802-02611},
+  Eprint                   = {1802.02611},
+  Timestamp                = {Thu, 01 Mar 2018 15:00:45 +0100},
+  Url                      = {http://arxiv.org/abs/1802.02611}
+}
+
+@Article{DBLP:journals/corr/Chollet16a,
+  Title                    = {Xception: Deep Learning with Depthwise Separable Convolutions},
+  Author                   = {Fran{\c{c}}ois Chollet},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1610.02357},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/Chollet16a},
+  Eprint                   = {1610.02357},
+  Timestamp                = {Wed, 07 Jun 2017 14:41:03 +0200},
+  Url                      = {http://arxiv.org/abs/1610.02357}
+}
+
 @Article{DBLP:journals/corr/FischerDIHHGSCB15,
   Title                    = {FlowNet: Learning Optical Flow with Convolutional Networks},
   Author                   = {Philipp Fischer and Alexey Dosovitskiy and Eddy Ilg and Philip H{\"{a}}usser and Caner Hazirbas and Vladimir Golkov and Patrick van der Smagt and Daniel Cremers and Thomas Brox},
@@ -16,6 +131,25 @@
   Owner                    = {nareshguru77},
   Timestamp                = {Wed, 07 Jun 2017 14:41:04 +0200},
   Url                      = {http://arxiv.org/abs/1504.06852}
+}
+
+@Article{DBLP:journals/corr/Garcia-GarciaOO17,
+  Title                    = {A Review on Deep Learning Techniques Applied to Semantic Segmentation},
+  Author                   = {Alberto Garcia{-}Garcia and
+ Sergio Orts{-}Escolano and
+ Sergiu Oprea and
+ Victor Villena{-}Martinez and
+ Jos{\'{e}} Garc{\'{\i}}a Rodr{\'{\i}}guez},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1704.06857},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/Garcia-GarciaOO17},
+  Eprint                   = {1704.06857},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:09 +0200},
+  Url                      = {http://arxiv.org/abs/1704.06857}
 }
 
 @Article{DBLP:journals/corr/HeZRS15,
@@ -36,18 +170,17 @@
   Url                      = {http://arxiv.org/abs/1512.03385}
 }
 
-@Article{art1,
-  Title                    = {Book Title},
-  Author                   = {Author Name},
-  Journal                  = {Lecture Notes in Autonomous System},
-  Year                     = {2003},
-  Pages                    = {900--921},
-  Volume                   = {1001},
+@InProceedings{7298965,
+  Title                    = {Fully convolutional networks for semantic segmentation},
+  Author                   = {J. Long and E. Shelhamer and T. Darrell},
+  Booktitle                = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  Year                     = {2015},
+  Month                    = {June},
+  Pages                    = {3431-3440},
 
-  Bibdate                  = {Sat Dec 7 10:05:42 MST 2003},
-  Coden                    = {LNCSD9},
-  ISSN                     = {0302-2345},
-  Publisher                = {UFO}
+  Doi                      = {10.1109/CVPR.2015.7298965},
+  ISSN                     = {1063-6919},
+  Keywords                 = {image classification;image segmentation;inference mechanisms;learning (artificial intelligence);fully convolutional networks;semantic segmentation;visual models;pixels-to-pixels;inference;learning;contemporary classification networks;PASCAL VOC;NYUDv2;SIFT flow;Semantics;Training;Convolution;Image segmentation;Computer architecture;Deconvolution;Adaptation models}
 }
 
 @Article{DBLP:journals/corr/abs-1709-00849,
@@ -94,6 +227,26 @@
   Timestamp                = {2018.07.23}
 }
 
+@Article{DBLP:journals/corr/abs-1801-04381,
+  Title                    = {Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification,
+ Detection and Segmentation},
+  Author                   = {Mark Sandler and
+ Andrew G. Howard and
+ Menglong Zhu and
+ Andrey Zhmoginov and
+ Liang{-}Chieh Chen},
+  Journal                  = {CoRR},
+  Year                     = {2018},
+  Volume                   = {abs/1801.04381},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/abs-1801-04381},
+  Eprint                   = {1801.04381},
+  Timestamp                = {Thu, 01 Feb 2018 19:52:26 +0100},
+  Url                      = {http://arxiv.org/abs/1801.04381}
+}
+
 @Article{DBLP:journals/corr/SimonyanZ14,
   Title                    = {Two-Stream Convolutional Networks for Action Recognition in Videos},
   Author                   = {Karen Simonyan and
@@ -110,26 +263,30 @@
   Url                      = {http://arxiv.org/abs/1406.2199}
 }
 
-@Misc{github_robocup@work,
-  Title                    = {github: robocup-at-work/rulebook/images; Link: https://github.com/robocup-at-work/rulebook/tree/master/images},
+@Misc{simple_colors,
+  Title                    = {List of 20 Simple, Distinct Colors},
 
-  Owner                    = {nareshguru77},
-  Timestamp                = {2018.04.23},
-  Url                      = {https://github.com/robocup-at-work/rulebook/tree/master/images}
+  Author                   = {Sasha Trubetskoy},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}
 }
 
 @Misc{image_downloader,
-  Title                    = {githib: hardikvasa/google-images-download; Link: https://github.com/hardikvasa/google-images-download},
+  Title                    = {hardikvasa/google-images-download},
 
-  Owner                    = {nareshguru77},
-  Timestamp                = {2018.07.04}
+  Author                   = {Hardik Vasa},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://github.com/hardikvasa/google-images-download/}
 }
 
-@Misc{simple_colors,
-  Title                    = {List of 20 Simple, Distinct Colors; Link: https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/},
+@Misc{mnbb,
+  Title                    = {MobileNetV2: The Next Generation of On-Device Computer Vision Networks },
 
-  Owner                    = {nareshguru77},
-  Timestamp                = {2018.07.04},
-  Url                      = {https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}
+  Author                   = {Hardik Vasa},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html}
 }
 
