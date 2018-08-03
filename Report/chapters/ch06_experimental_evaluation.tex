@@ -264,35 +264,36 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
-		\item \textbf{Expected result}:
-		\item \textbf{Inference from the results}:
+		\item \textbf{Expected result}: The 8bit models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation. 
+		\item \textbf{Inference from the results}: Across all the variants and network backbones of deepLabv3+, the 8bit model occupies less disk memory than its corresponding full precision model. The 
 	\end{itemize}
-
+	
 	\begin{figure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/q_mem_v_full}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/q_mem_v_size}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/q_mem_v_shape}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/q_mem_v_bin}
-		\end{subfigure}
-		\caption{.}
+		\centering
+		\includegraphics[width=.5\linewidth]{images/quant}
+		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of deepLabv3+ on all the variants of the variety of backgrounds of dataset.}
 		\label{Fig:quant}
 	\end{figure}
+	
+	\begin{table}
+		\begin{tabular}{|l|r|r|r|r|}
+		\hline
+		\multicolumn{ 1}{|l|}{Dataset variant} & \multicolumn{ 4}{l|}{mIOU in \%} \\ \cline{ 2- 5}
+		\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{MobileNetv2} & \multicolumn{1}{l|}{MobileNetv2-8} & \multicolumn{1}{l|}{Xception} & \multicolumn{1}{l|}{Xception-8} \\ \hline
+		atWork\_full & 77.69 & 66.08 & 89.41 & 87.86 \\ \hline
+		atWork\_size\_invariant & 82.95 & 68.88 & 91.19 & 89.3 \\ \hline
+		atWork\_similar\_shapes & 81.91 & 72.22 & 90.75 & 87.5 \\ \hline
+		atWork\_binary & 96.1 & 93.49 & 98.32 & 96.92 \\ \hline
+		\end{tabular}
+		\label{Table:quantmIOU}
+		\caption{}
+	\end{table}
+
 
 \section{Transfer learning}
 
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the effe
+		\item \textbf{Objective}: The objective of this experiment is to compare the effects of transfering knowledge from two different tasks. The tasks considered are semantic segmentation on PASCAL VOC 2012 dataset and semantic segmentation on atWork\_binary variant of the variety of backgrounds dataset. 
 		\item \textbf{Expected result}:
 		\item \textbf{Inference from the results}: Size invariant;mobileNet: PASCAL VOC 2012 = 83.1, mobileNet: atWork\_binary = 83.26, xception: PASCAL VOC 2012 = 91.19, xception: atWork\_binary = 92.14...Similar shapes;mobileNet: PASCAL VOC 2012 = 82.1, mobileNet: atWork\_binary = 82.8, xception: PASCAL VOC 2012 = 90.81, xception: atWork\_binary = 92.15...Full;mobileNet: PASCAL VOC 2012 = 77.47, mobileNet: atWork\_binary = 77.73, xception: PASCAL VOC 2012 = 89.38, xception: atWork\_binary = 90.64
 	\end{itemize}
@@ -314,7 +315,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 			\includegraphics[width=1\linewidth]{images/transfer_full}
 			\caption{}
 		\end{subfigure}
-		\caption{Mean IOU for 30,000 training steps obtained on three variants by deepLabv3+ with xception and mobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better Mean IOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
+		\caption{Mean IOU for 30,000 training steps obtained on three variants by deepLabv3+ with xception and mobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better mIOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
 		\label{Fig:transfer}
 	\end{figure}
 
