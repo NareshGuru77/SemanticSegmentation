@@ -2,15 +2,34 @@
 
 \chapter{Experimental Evaluation}
 
-Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. The Table [] provides an overview of the experiments performed.
+Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when differnt training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides further insights gained through the experiments. 
 
 
 \section{About the metrics}
+\label{section:metrics}
 
-The metrics used for evalution are Mean Intersection Over Union (mIOU), inference time, number of parameters, number of floating point operations (FLOPS) and occupied disk memory.
+The metrics used for evalution are Mean Intersection Over Union (mIOU), inference time, number of parameters, floating point operations (FLOPS) and occupied disk memory. 
+	\begin{itemize}
+		\item \textbf{mIOU}: Mean Intersection Over Union is an accuracy metric used for semantic segmentation. IOU of a particular class, is the ratio between pixels shared between the ground truth and the prediction to the total pixels of the corresponding class belonging to the ground truth and prediction.
+		\begin{equation}
+			IOU = \frac{ground\_truth \: \cap \: prediction}{ground\_truth \: \cup \: prediction}.
+		\end{equation}
+		
+		mIOU is the mean of IOUs of all classes in the dataset. IOU could also be interpreted as shown in equation (6.2) on the pixel level where, TP denotes True Positives which is the total number of pixels correctly predicted, FP denotes False Positives which is the total number of pixels which does not belong to the particular class according to the ground truth but is predicted as belonging to the class and FN denotes False Negatives which is the total number of pixels not belonging to the class but is predicted as belonging to the class.
+		\begin{equation}
+			IOU = \frac{TP}{TP+FP+FN}
+		\end{equation}
+		
+		When the ground truth and predictions have no pixels intersecting for a class, the corresponding class IOU will be 0 percent. Similarly, if there is perfect union between the ground truth and the prediction, the corresponding class IOU will be 100 percent.
+		\item \textbf{Inference time}: The time taken, in seconds, by a segmentation model to calculate the output predictions for one input image.
+		\item \textbf{Number of parameters}: The total number of trainable parameters in a segmentation model which are updated during training. Convolution kernel weights, biases, batch normalization parameters are examples of trainable parameters.
+		\item \textbf{Floating point operations (FLOPS)}: The total number of floating point operations performed when one image goes through the network in one forward pass.
+		\item \textbf{Occupied disk memory}: The total storage space occupied by the network in Mega Bytes (MB). 
+	\end{itemize}
 
 
-\section{Comparing dataset variants} 
+\section{Comparing dataset variants}
+\label{section:variants}
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of DeepLabv3+ on the different dataset variants.
@@ -68,6 +87,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 \end{table}
 
 \section{Comparing DeepLabv3+ backbones}
+\label{section:backbones}
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on each of the datasets and its variants.
@@ -105,6 +125,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\end{figure}
 
 \section{Training with different data}
+\label{section:diffdata}
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to assess the effectiveness of the created artificial data. On this regards, starting from the same initial weights, DeepLabv3+ with each of the two network backbones is trained on:
@@ -178,7 +199,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\multicolumn{ 1}{|l|}{} & Xception & 38.54 \\ \hline
 		\multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 22.83 \\ \cline{ 2- 3}
 		\multicolumn{ 1}{|l|}{} & Xception & 35.27 \\ \hline
-		\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 20.7 \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 20.70 \\ \cline{ 2- 3}
 		\multicolumn{ 1}{|l|}{} & Xception & 41.28 \\ \hline
 		\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 65.03 \\ \cline{ 2- 3}
 		\multicolumn{ 1}{|l|}{} & Xception & 62.32 \\ \hline
@@ -189,6 +210,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 
 
 \section{Comparing individual classes}
+\label{section:indcls}
 
 	\subsection{Confusion matrix}
 		\begin{itemize}
@@ -224,6 +246,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\end{figure}
 	
 	\subsection{Class IOUs}	
+	
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individual class IOUs and the percentage of pixels occupied by each class in the dataset. 
 			\item \textbf{Expected result}: With increase in percentage of pixels, the class IOU is expected to increase. This is based on the notion that the segmentation model gives preference to objects which dominate the dataset. 
@@ -255,6 +278,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\end{figure}
 
 \section{Comparing learning rate policies}
+\label{section:lr}
 	
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the cosine restarts \textbf{[needs reference]} learning rate policy with the poly learning rate policy used by DeepLabv3+.
@@ -283,12 +307,15 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\end{figure}
 
 \section{Effects of class balancing}
+\label{section:clsbal}
 
-% About attempt to counter failure in distance tube.
-
-% ref: https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to prevent the DeepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. The weight coefficients of each class is calculated using median-frequency re-weighting \textbf{[cite ref]}: $\alpha_c = median\_freq/freq(c)$. Here, $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
+		\item \textbf{Objective}: The objective of this experiment is to prevent the DeepLabv3+ model from giving preference to dominant classes in the dataset. A weight coefficient is determined for each class based on the percentage of pixels occupied by the class in the dataset. The weight coefficients of each class is calculated using median-frequency re-weighting \cite{cls_bal} shown in equation (6.3).
+		\begin{equation}
+			\alpha_c = median\_freq/freq(c)
+		\end{equation}
+	
+		 In equation (6.3), $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
 		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall mIOU is also expected to be at least slightly better than the mIOU obtained without class balancing.
 		\item \textbf{Inference from the results}: From Figure \ref{Fig:clsbal}, clearly, the IOU obtained on each class reduces after performing class balancing. This suggests that class balancing using median-frequency re-weighting is undesirable. The root cause for this result is unclear and needs further analysis.
 	\end{itemize}
@@ -301,6 +328,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\end{figure}
 
 \section{Effects of quantizing the inference graph}
+\label{section:quant}
 	
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
@@ -312,7 +340,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{images/quant}
-		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset.}
+		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset. The green rectangle represents the desired region in which the mIOU is in the range [90,100] and occupied disk memory is in the range (0,10].}
 		\label{Fig:quant}
 	\end{figure}
 	
@@ -345,4 +373,5 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\end{table}
 	
 \section{Discussions}
+\label{section:dis}
 

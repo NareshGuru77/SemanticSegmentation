@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -60,6 +60,13 @@ Fran{\c{c}}ois Chollet.
 \newblock Xception: Deep learning with depthwise separable convolutions.
 \newblock \emph{CoRR}, abs/1610.02357, 2016.
 \newblock URL \url{http://arxiv.org/abs/1610.02357}.
+
+\bibitem[First350()]{cls_bal}
+First350.
+\newblock Tensorflow — dealing with imbalanced data.
+\newblock URL
+  \url{https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701}.
+\newblock Online accessed: 2018-08-04.
 
 \bibitem[Garcia{-}Garcia et~al.(2017)Garcia{-}Garcia, Orts{-}Escolano, Oprea,
   Villena{-}Martinez, and

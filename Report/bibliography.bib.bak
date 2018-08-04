@@ -117,6 +117,15 @@
   Url                      = {http://arxiv.org/abs/1610.02357}
 }
 
+@Misc{cls_bal,
+  Title                    = {Tensorflow — Dealing with imbalanced data},
+
+  Author                   = {First350},
+  Note                     = {Online accessed: 2018-08-04},
+
+  Url                      = {https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701}
+}
+
 @Article{DBLP:journals/corr/FischerDIHHGSCB15,
   Title                    = {FlowNet: Learning Optical Flow with Convolutional Networks},
   Author                   = {Philipp Fischer and Alexey Dosovitskiy and Eddy Ilg and Philip H{\"{a}}usser and Caner Hazirbas and Vladimir Golkov and Patrick van der Smagt and Daniel Cremers and Thomas Brox},
@@ -297,12 +306,5 @@
   Note                     = {Online accessed: 2018-08-03},
 
   Url                      = {https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}
-}
-
-@Misc{quant_code,
-  Title                    = {quantize_graph.py},
-  Note                     = {Online accessed: 2018-08-03},
-
-  Url                      = {https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/quantization/quantize_graph.py}
 }
 
