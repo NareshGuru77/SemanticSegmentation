@@ -12,45 +12,46 @@ Warning--empty booktitle in RosCVPR16
 Warning--empty year in mnbb
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
-You've used 18 entries,
+Warning--empty year in quant_blog
+You've used 19 entries,
             2773 wiz_defined-function locations,
-            696 strings with 8874 characters,
-and the built_in function-call counts, 8315 in all, are:
-= -- 707
-> -- 604
-< -- 7
-+ -- 204
-- -- 186
-* -- 674
-:= -- 1337
-add.period$ -- 71
-call.type$ -- 18
-change.case$ -- 116
-chr.to.int$ -- 18
-cite$ -- 42
-duplicate$ -- 352
-empty$ -- 597
-format.name$ -- 208
-if$ -- 1707
+            700 strings with 9024 characters,
+and the built_in function-call counts, 8620 in all, are:
+= -- 734
+> -- 614
+< -- 8
++ -- 208
+- -- 189
+* -- 689
+:= -- 1383
+add.period$ -- 75
+call.type$ -- 19
+change.case$ -- 120
+chr.to.int$ -- 19
+cite$ -- 45
+duplicate$ -- 367
+empty$ -- 629
+format.name$ -- 212
+if$ -- 1772
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 13
-newline$ -- 115
-num.names$ -- 72
-pop$ -- 246
+newline$ -- 121
+num.names$ -- 76
+pop$ -- 262
 preamble$ -- 1
-purify$ -- 98
+purify$ -- 101
 quote$ -- 0
-skip$ -- 293
+skip$ -- 303
 stack$ -- 0
-substring$ -- 72
-swap$ -- 31
+substring$ -- 74
+swap$ -- 32
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 198
-warning$ -- 6
-while$ -- 56
+type$ -- 209
+warning$ -- 7
+while$ -- 59
 width$ -- 0
-write$ -- 263
-(There were 8 warnings)
+write$ -- 276
+(There were 9 warnings)

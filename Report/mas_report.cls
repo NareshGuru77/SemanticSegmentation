@@ -23,15 +23,15 @@
 \DeclareOption{rnd}{\project{R\&D Project}}
 
 % Report options
-\DeclareOption{twosides}{
+\DeclareOption{openany}{
   \PassOptionsToClass{\CurrentOption}{book}
 }
-\DeclareOption{oneside}{
+\DeclareOption{openany}{
     \PassOptionsToClass{\CurrentOption}{book}
 }
 % Execute the default option
 \ExecuteOptions{thesis}
-\ExecuteOptions{twosides}
+\ExecuteOptions{openany}
 % Process other options
 \ProcessOptions\relax
 
@@ -52,14 +52,20 @@
 \usepackage{booktabs} % Required for better horizontal rules in tables
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[titletoc]{appendix}
+\usepackage{tabularx}
 \usepackage{setspace}
 \usepackage{subfiles}
 \usepackage{geometry}
 \usepackage{subcaption}
 \usepackage{makecell}
 \usepackage{multirow}
+\usepackage{url}
 % \usepackage{showframe}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{6}
 
+
+\titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
 
 \usepackage{lipsum} % Used to test
 
@@ -118,7 +124,7 @@ not set. Please fix this.}
 \vspace{1.5cm}
 {\huge\bfseries\@title\unskip\strut\par}
 \vspace{2cm}
-{\Large\itshape\@author\unskip\strut\par}
+{\Large\bf\@author\unskip\strut\par}
 \vfill
 
 {\normalsize Submitted to Hochschule Bonn-Rhein-Sieg,\\

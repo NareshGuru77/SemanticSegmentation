@@ -2,9 +2,13 @@
 
 \chapter{Experimental Evaluation}
 
-Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. 
+Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. The Table [] provides an overview of the experiments performed.
 
-% Add visual segmentation masks in all results.
+
+\section{About the metrics}
+
+The metrics used for evalution are Mean Intersection Over Union (mIOU), inference time, number of parameters, number of floating point operations (FLOPS) and occupied disk memory.
+
 
 \section{Comparing dataset variants} 
 
@@ -119,7 +123,7 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\end{itemize}
 		These two limitations exist in the real validation because of the need to reduce the labeling cost. Creating real world variations in terms of multiple objects per image and random occlusions is time consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time consuming. These limitations are addressed by the artificial images by placing objects at arbitrary scales in random locations on varied backgrounds.
 		In addition to the existing limitations, the artificial images inherently impose a regularization effect on the training process. This can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
-		\item \textbf{Suggestions to improve the experiment}: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. \textbf{[result to be attached]} In this case, the mIOU obtained is only around 40 percent proving that this speculation could be further explored.
+		\item \textbf{Suggestions to improve the experiment}: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, model trained only on real data is validated on artificial data. The results are shown in Figure \ref{Fig:realaug} and Table \ref{Table:realaug} summarizes the mIOU values. In this case, training with just the real data consistently obtains low mIOU across all variants using both Xception and MobileNetv2 network backbones. This suggests that the speculations made could be further explored.
 	\end{itemize}
 	
 	\begin{figure}
@@ -129,24 +133,60 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\label{Fig:realval}
 	\end{figure}
 
-\begin{table}
-\centering
-\begin{tabular}{|l|l|r|r|r|r|}
-\hline
-\multicolumn{ 1}{|l|}{\textbf{Dataset variant}} & \multicolumn{ 1}{l|}{\textbf{Backbone}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 3- 6}
-\multicolumn{ 1}{|l|}{} & \multicolumn{ 1}{l|}{} & \textbf{Real} & \makecell{\textbf{VB:} \\ \textbf{All}} & \makecell{\textbf{WB:} \\ \textbf{All}} & \makecell{\textbf{VB:} \\ \textbf{Artificial}} \\ \hline
-\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 83.21 & 71.72 & 70.80 & 40.00 \\ \cline{ 2- 6}
-\multicolumn{ 1}{|l|}{} & Xception & 87.03 & 80.26 & 78.42 & 45.67 \\ \hline
-\multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 85.01 & 80.08 & 77.12 & 47.76 \\ \cline{ 2- 6}
-\multicolumn{ 1}{|l|}{} & Xception & 90.84 & 89.58 & 87.67 & 41.58 \\ \hline
-\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 79.83 & 77.33 & 76.47 & 43.31 \\ \cline{ 2- 6}
-\multicolumn{ 1}{|l|}{} & Xception & 92.85 & 87.76 & 83.58 & 43.32 \\ \hline
-\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 94.33 & 93.01 & 90.17 & 43.29 \\ \cline{ 2- 6}
-\multicolumn{ 1}{|l|}{} & Xception & 98.19 & 95.21 & 94.31 & 47.91 \\ \hline
-\end{tabular}
-\caption{This table summarizes the mIOUs obtained when training with different training data and validating on the real validation data. "Real" denotes real training data, "VB: All" denotes real and artificial data of the variety of backgrounds dataset, "WB: All" denotes real and artificial data of the white backgrounds dataset, "VB: Artificial" denotes artificial data of the variety of backgrounds dataset.}
-\label{Table:realval}
+	\begin{table}
+		\centering
+		\begin{tabular}{|l|l|r|r|r|r|}
+		\hline
+		\multicolumn{ 1}{|l|}{\textbf{Dataset variant}} & \multicolumn{ 1}{l|}{\textbf{Backbone}} & \multicolumn{ 4}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 3- 6}
+		\multicolumn{ 1}{|l|}{} & \multicolumn{ 1}{l|}{} & \textbf{Real} & \makecell{\textbf{VB:} \\ \textbf{All}} & \makecell{\textbf{WB:} \\ \textbf{All}} & \makecell{\textbf{VB:} \\ \textbf{Artificial}} \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 83.21 & 71.72 & 70.80 & 40.00 \\ \cline{ 2- 6}
+		\multicolumn{ 1}{|l|}{} & Xception & 87.03 & 80.26 & 78.42 & 45.67 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 85.01 & 80.08 & 77.12 & 47.76 \\ \cline{ 2- 6}
+		\multicolumn{ 1}{|l|}{} & Xception & 90.84 & 89.58 & 87.67 & 41.58 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 79.83 & 77.33 & 76.47 & 43.31 \\ \cline{ 2- 6}
+		\multicolumn{ 1}{|l|}{} & Xception & 92.85 & 87.76 & 83.58 & 43.32 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 94.33 & 93.01 & 90.17 & 43.29 \\ \cline{ 2- 6}
+		\multicolumn{ 1}{|l|}{} & Xception & 98.19 & 95.21 & 94.31 & 47.91 \\ \hline
+		\end{tabular}
+		\caption{This table summarizes the mIOUs obtained when training with different training data and validating on the real validation data. "Real" denotes real training data, "VB: All" denotes real and artificial data of the variety of backgrounds dataset, "WB: All" denotes real and artificial data of the white backgrounds dataset, "VB: Artificial" denotes artificial data of the variety of backgrounds dataset.}
+		\label{Table:realval}
+	\end{table}
+
+	\begin{figure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/real_aug_mob}
+			\label{realauga}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/real_aug_xcep}
+			\label{realaugb}
+			\caption{}
+		\end{subfigure}
+		\caption{This figure shows the mIOUs obtained when trained on real images and validated on artificial images across all 4 variants of the variety of backgrounds dataset. (a) mIOU obtained by MobileNetv2 network backbone, (b) mIOU obtained by Xception network backbone.}
+		\label{Fig:realaug}
+	\end{figure}
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{|l|l|r|}
+		\hline
+		\textbf{Dataset variant}  & \textbf{Backbone} & \multicolumn{1}{l|}{\textbf{mIOU in \%}} \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_full} & MobileNetv2 & 19.24 \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & Xception & 38.54 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_size\_invariant} & MobileNetv2 & 22.83 \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & Xception & 35.27 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_similar\_shapes} & MobileNetv2 & 20.7 \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & Xception & 41.28 \\ \hline
+		\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 65.03 \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & Xception & 62.32 \\ \hline
+		\end{tabular}
+		\caption{This table summarizes the mIOUs obtained by both the network backbones of DeepLabv3+ model when trained on real images and validated on artificial images across all variants of the variety of backgronds dataset.}
+		\label{Table:realaug}
 \end{table}
+
 
 \section{Comparing individual classes}
 
@@ -265,9 +305,8 @@ Since the major contribution of this work is the creation of the dataset, the ex
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
 		\item \textbf{Expected result}: The 8bit models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation. 
-		\item \textbf{Inference from the results}: From Figure \ref{Fig:quant} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies rougly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all 4 variants of the variety of backgrounds dataset is 9.56 \%. This suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This suggests that the Xception network backbone is [\textbf{what does it suggest?}]. Table \ref{Table:quantmIOU} shows the mIOUs obtained.
+		\item \textbf{Inference from the results}: From Figure \ref{Fig:quant} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit low precision model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies rougly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all 4 variants of the variety of backgrounds dataset is 9.56 \%. This suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This suggests that the Xception network backbone is [\textbf{what does it suggest?}]. Table \ref{Table:quantmIOU} shows the mIOUs obtained.
 		
-		The 
 	\end{itemize}
 	
 	\begin{figure}
@@ -304,34 +343,6 @@ Since the major contribution of this work is the creation of the dataset, the ex
 		\caption{This table summrizes the inference time, number of parameters and floating point operations (FLOPS) of both the quatized and full precision network backbones of DeepLabv3+. "M" denotes million and "B" denotes billion.}
 		\label{Table:quantMetrics}
 	\end{table}
-
-
-\section{Transfer learning}
-
-	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare the effects of transfering knowledge from two different tasks. The tasks considered are semantic segmentation on PASCAL VOC 2012 dataset and semantic segmentation on atWork\_binary variant of the variety of backgrounds dataset. 
-		\item \textbf{Expected result}:
-		\item \textbf{Inference from the results}: Size invariant;mobileNet: PASCAL VOC 2012 = 83.1, mobileNet: atWork\_binary = 83.26, xception: PASCAL VOC 2012 = 91.19, xception: atWork\_binary = 92.14...Similar shapes;mobileNet: PASCAL VOC 2012 = 82.1, mobileNet: atWork\_binary = 82.8, xception: PASCAL VOC 2012 = 90.81, xception: atWork\_binary = 92.15...Full;mobileNet: PASCAL VOC 2012 = 77.47, mobileNet: atWork\_binary = 77.73, xception: PASCAL VOC 2012 = 89.38, xception: atWork\_binary = 90.64
-	\end{itemize}
 	
-	
-	\begin{figure}
-		\begin{subfigure}{.3\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/transfer_size}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/transfer_shape}
-			\caption{}
-		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{images/transfer_full}
-			\caption{}
-		\end{subfigure}
-		\caption{mIOU for 30,000 training steps obtained on three variants by DeepLabv3+ with Xception and MobileNetv2 as network backbones when pretrained on either PASCAL VOC 2012 dataset or atWork\_binary variant. As expected, pretrained weights from atWork\_binary variant leads to a better mIOU. The figures show the results on variants of the variety of backgrounds dataset: (a) atWork\_size\_invariant, (b) atWork\_similar\_shapes, (c) atWork\_full.}
-		\label{Fig:transfer}
-	\end{figure}
+\section{Discussions}
 

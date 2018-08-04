@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -141,6 +141,13 @@ Sasha Trubetskoy.
 Hardik Vasa.
 \newblock hardikvasa/google-images-download.
 \newblock URL \url{https://github.com/hardikvasa/google-images-download/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Warden()]{quant_blog}
+Pete Warden.
+\newblock How to quantize neural networks with tensorflow.
+\newblock URL
+  \url{https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}.
 \newblock Online accessed: 2018-08-03.
 
 \end{thebibliography}

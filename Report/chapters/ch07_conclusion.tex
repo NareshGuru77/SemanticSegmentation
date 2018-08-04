@@ -2,11 +2,16 @@
 
 \chapter{Conclusions}
 
-In this work, state-of-the-art deep learning methods for semantic segmentation was reviewed. One particular model called DeepLabv3+ with MobileNetv2 and Xception network backbones was selected. A dataset consisting of 18 atWork objects was created. This dataset also consists of artificial images generated using a artificial image generation algorithm to augment the dataset. 
+In this work, state-of-the-art deep learning methods for semantic segmentation was reviewed. One particular model called DeepLabv3+ with MobileNetv2 and Xception network backbones was selected. A dataset consisting of 18 atWork objects was created. This dataset also consists of artificial images generated using a artificial image generation algorithm to augment the dataset. Two different datasets called variety of backgrounds dataset and white backgrounds dataset was created which differ in terms of the background images used for the artificial image generation. Four different variants for each of the two datasets were created based on the properties of the objects in the dataset. The DeepLabv3+ model was trained on the created dataset and its performance was assessed in terms of mIOU. A quantized version of the DeepLabv3+ model was then created and was compared with the full precision DeepLabv3+ models.
 
 \section{Contributions}
 
-The major contributions of this work includes
+The major contributions of this work includes:
+	\begin{itemize}
+		\item The creation of a dataset consisting of 18 atWork objects.
+		\item Augmenting this dataset with artificial images created using an artificial image generation algorithm.
+		\item Training DeepLabv3+ models with resource efficient network backbones and analyzing its performance.
+	\end{itemize}
 
 \section{Lessons learned}
 
@@ -18,7 +23,9 @@ Lessons learned out of this work are listed below:
 
 \section{Future work}
 
-The dataset created using the atWork objects at present consist of real images which only have one object per image. Further real images which have multiple objects in them could be added to the dataset. The trained DeepLabv3+ models currently available as a result of this work could in theory reduce the labeling cost of the additional real images. 
+The dataset created using the atWork objects at present consist of real images which only have one object per image. Further real images which have multiple objects in them could be added to the dataset. This would enable better assessement of the effectiveness of the artificial images in terms of aiding generalization. The trained DeepLabv3+ models currently available as a result of this work could in theory reduce the labeling cost of the additional real images. 
+
+The experiments were centered on the created dataset and did not consider hyperparameter tuning to improve results. Further tuning the different hyperparameters involved such as the decoder output stride, regularization parameter (L2 weight decay) and so on could be explored.
 
 The initial goal of this work also included the use of pruning technqiues to compress the trained models. Pruning was not sufficiently explored in order to be implemented. The compressed DeepLabv3+ model with the MobileNetv2 network backbone using quatization suffered a high loss in mIOU of around 9 \%. This is due to the naiveness involved in directly quantizing for the sake of compression. A better approach would be to first prune redundant weights, filters or feature maps and later perform quantization which is reported to be effective in the literature. Recently, reinforcement learning has been applied to train an agent to prune a CNN model [\textbf{cite}]. This approach could also be explored.
 

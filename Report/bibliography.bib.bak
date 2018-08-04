@@ -227,6 +227,15 @@
   Timestamp                = {2018.07.23}
 }
 
+@Misc{mnbb,
+  Title                    = {MobileNetV2: The Next Generation of On-Device Computer Vision Networks },
+
+  Author                   = {Mark Sandler and Andrew Howard},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html}
+}
+
 @Article{DBLP:journals/corr/abs-1801-04381,
   Title                    = {Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification,
  Detection and Segmentation},
@@ -281,12 +290,19 @@
   Url                      = {https://github.com/hardikvasa/google-images-download/}
 }
 
-@Misc{mnbb,
-  Title                    = {MobileNetV2: The Next Generation of On-Device Computer Vision Networks },
+@Misc{quant_blog,
+  Title                    = {How to Quantize Neural Networks with TensorFlow},
 
-  Author                   = {Hardik Vasa},
+  Author                   = {Pete Warden},
   Note                     = {Online accessed: 2018-08-03},
 
-  Url                      = {https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html}
+  Url                      = {https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}
+}
+
+@Misc{quant_code,
+  Title                    = {quantize_graph.py},
+  Note                     = {Online accessed: 2018-08-03},
+
+  Url                      = {https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/quantization/quantize_graph.py}
 }
 
