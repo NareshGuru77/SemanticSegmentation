@@ -2,10 +2,23 @@
 
 \chapter{Conclusions}
 
+In this work, state-of-the-art deep learning methods for semantic segmentation was reviewed. One particular model called DeepLabv3+ with MobileNetv2 and Xception network backbones was selected. A dataset consisting of 18 atWork objects was created. This dataset also consists of artificial images generated using a artificial image generation algorithm to augment the dataset. 
+
 \section{Contributions}
 
+The major contributions of this work includes
 
 \section{Lessons learned}
 
+Lessons learned out of this work are listed below:
+	\begin{itemize}
+		\item Creating a dataset for a machine learning task is often time consuming. Capturing all the images at one stretch often introduces a bias in the dataset as most images end of being taken under the same real world conditions. A best practice would be to progressively create a dataset over a period of many days. During this time, insights from a trained model could be gathered to further improve the variety of the next round of images taken.
+		\item 
+	\end{itemize}
 
 \section{Future work}
+
+The dataset created using the atWork objects at present consist of real images which only have one object per image. Further real images which have multiple objects in them could be added to the dataset. The trained DeepLabv3+ models currently available as a result of this work could in theory reduce the labeling cost of the additional real images. 
+
+The initial goal of this work also included the use of pruning technqiues to compress the trained models. Pruning was not sufficiently explored in order to be implemented. The compressed DeepLabv3+ model with the MobileNetv2 network backbone using quatization suffered a high loss in mIOU of around 9 \%. This is due to the naiveness involved in directly quantizing for the sake of compression. A better approach would be to first prune redundant weights, filters or feature maps and later perform quantization which is reported to be effective in the literature. Recently, reinforcement learning has been applied to train an agent to prune a CNN model [\textbf{cite}]. This approach could also be explored.
+

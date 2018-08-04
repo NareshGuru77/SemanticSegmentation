@@ -190,4 +190,16 @@ A trained Deep Convolutional Neural Network (DCNN) might have learnable paramete
 
 Most of the literature identified for this work concerning pruning, do not provide open source implementations of their work. 
 
+\textbf{[In progress..might be dropped]}
+
 \section{Quantization}
+
+% https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/
+
+This work makes use of the quantization method available in tensorflow source. "eightbit" mode provided by the script is used. % https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/quantization/quantize_graph.py. 
+
+Neural networks, in general, learn features which are robust to noise in the input image such as changes in illumination. As an extension, it is possible to speculate that loss in precision induced by low-precision calculations is ignored by a neural network as another source of noise. High precision calculation, though necessary to handle gradient propagation during training, might not be necessary during inference. Quantizing a neural network calculations to low-precision could therefore be a way to reduce computation cost without much loss in accuracy in order to facilitate usage on an embedded device. More specifically, quantizing calculations to eight bit calculations would make  a neural network faster and reduce storage requirements on embedded devices. 
+
+
+
+
