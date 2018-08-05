@@ -4,55 +4,58 @@ The top-level auxiliary file: GurulinganNK-RnD-Report.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--string name "cvpr" is undefined
---line 232 of file bibliography.bib.bib
+--line 250 of file bibliography.bib.bib
 Warning--I didn't find a database entry for "art1"
 Warning--empty year in depthwise
 Warning--empty year in github_robocup@work
+Warning--empty year in cityscapes
 Warning--empty year in cls_bal
+Warning--empty year in techcrunch
 Warning--empty booktitle in RosCVPR16
 Warning--empty year in mnbb
+Warning--empty year in indoor
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
 Warning--empty year in quant_blog
-You've used 20 entries,
+You've used 23 entries,
             2773 wiz_defined-function locations,
-            705 strings with 9190 characters,
-and the built_in function-call counts, 8925 in all, are:
-= -- 761
-> -- 624
-< -- 9
-+ -- 212
-- -- 192
-* -- 704
-:= -- 1429
-add.period$ -- 79
-call.type$ -- 20
-change.case$ -- 124
-chr.to.int$ -- 20
-cite$ -- 48
-duplicate$ -- 382
-empty$ -- 661
-format.name$ -- 216
-if$ -- 1837
+            717 strings with 9647 characters,
+and the built_in function-call counts, 9840 in all, are:
+= -- 842
+> -- 654
+< -- 12
++ -- 224
+- -- 201
+* -- 749
+:= -- 1567
+add.period$ -- 91
+call.type$ -- 23
+change.case$ -- 136
+chr.to.int$ -- 23
+cite$ -- 57
+duplicate$ -- 427
+empty$ -- 757
+format.name$ -- 228
+if$ -- 2032
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 13
-newline$ -- 127
-num.names$ -- 80
-pop$ -- 278
+newline$ -- 145
+num.names$ -- 92
+pop$ -- 326
 preamble$ -- 1
-purify$ -- 104
+purify$ -- 113
 quote$ -- 0
-skip$ -- 313
+skip$ -- 343
 stack$ -- 0
-substring$ -- 76
-swap$ -- 33
+substring$ -- 82
+swap$ -- 36
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 220
-warning$ -- 8
-while$ -- 62
+type$ -- 253
+warning$ -- 11
+while$ -- 71
 width$ -- 0
-write$ -- 289
-(There were 10 warnings)
+write$ -- 328
+(There were 13 warnings)

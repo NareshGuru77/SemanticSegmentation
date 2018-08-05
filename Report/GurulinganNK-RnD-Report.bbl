@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,6 +61,13 @@ Fran{\c{c}}ois Chollet.
 \newblock \emph{CoRR}, abs/1610.02357, 2016.
 \newblock URL \url{http://arxiv.org/abs/1610.02357}.
 
+\bibitem[dataset()]{cityscapes}
+Cityscapes dataset.
+\newblock Examples of fine annotations.
+\newblock URL
+  \url{https://www.cityscapes-dataset.com/examples/#fine-annotations}.
+\newblock Online accessed: 2018-08-03.
+
 \bibitem[First350()]{cls_bal}
 First350.
 \newblock Tensorflow — dealing with imbalanced data.
@@ -90,6 +97,14 @@ J.~Long, E.~Shelhamer, and T.~Darrell.
 \newblock In \emph{2015 IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, pages 3431--3440, June 2015.
 \newblock \doi{10.1109/CVPR.2015.7298965}.
+
+\bibitem[Perez()]{techcrunch}
+Sarah Perez.
+\newblock Google makes the camera smarter with a google lens update,
+  integration with street view.
+\newblock URL
+  \url{https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-a-google-lens-update-integration-with-street-view/?guccounter=1}.
+\newblock Online accessed: 2018-08-03.
 
 \bibitem[Rajpura et~al.(2017)Rajpura, Goyal, Bojinov, and
   Hegde]{DBLP:journals/corr/abs-1709-00849}
@@ -130,6 +145,12 @@ Mark Sandler, Andrew~G. Howard, Menglong Zhu, Andrey Zhmoginov, and
   classification, detection and segmentation.
 \newblock \emph{CoRR}, abs/1801.04381, 2018.
 \newblock URL \url{http://arxiv.org/abs/1801.04381}.
+
+\bibitem[Silberman()]{indoor}
+Nathan Silberman.
+\newblock Nyu depth dataset v2.
+\newblock URL \url{https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html}.
+\newblock Online accessed: 2018-08-03.
 
 \bibitem[Simonyan and Zisserman(2014)]{DBLP:journals/corr/SimonyanZ14}
 Karen Simonyan and Andrew Zisserman.

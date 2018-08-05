@@ -2,7 +2,7 @@
 
 \chapter{Experimental Evaluation}
 
-Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when differnt training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides further insights gained through the experiments. 
+Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when differnt training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides conclusions and further insights gained through the experiments. 
 
 
 \section{About the metrics}
@@ -38,29 +38,30 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\end{itemize}
 	
 	\begin{figure}
+		\centering
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobi_4vars}
-			\label{Fig:mobivarsa}
 			\caption{}
+			\label{Fig:mobivarsa}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/mobi_4vars_white}
-			\label{Fig:mobivarsb}
 			\caption{}
+			\label{Fig:mobivarsb}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/xcep_4vars}
-			\label{Fig:xcepvarsa}
 			\caption{}
+			\label{Fig:xcepvarsa}
 		\end{subfigure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/xcep_4vars_white}
-			\label{Fig:xcepvarsb}
 			\caption{}
+			\label{Fig:xcepvarsb}
 		\end{subfigure}
 		\caption{mIOU of Deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on variety of backgrounds dataset, (b) MobileNetv2 network backbone on white backgrounds dataset, (c) Xception network backbone on variety of backgrounds dataset, (d) Xception network backbone on white backgrounds dataset.}
 		\label{Fig:vars}
@@ -375,3 +376,4 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 \section{Discussions}
 \label{section:dis}
 
+This chapter addresses the different experiments performed to evaluate the DeepLabv3+ segmentation model and the created dataset. 
