@@ -2,13 +2,13 @@
 
 \chapter{Experimental Evaluation}
 
-Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when differnt training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides conclusions and further insights gained through the experiments. 
+Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when different training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides conclusions and further insights gained through the experiments. 
 
 
 \section{About the metrics}
 \label{section:metrics}
 
-The metrics used for evalution are Mean Intersection Over Union (mIOU), inference time, number of parameters, floating point operations (FLOPS) and occupied disk memory. 
+The metrics used for evaluation are Mean Intersection Over Union (mIOU), inference time, number of parameters, floating point operations (FLOPS) and occupied disk memory. 
 	\begin{itemize}
 		\item \textbf{mIOU}: Mean Intersection Over Union is an accuracy metric used for semantic segmentation. IOU of a particular class, is the ratio between pixels shared between the ground truth and the prediction to the total pixels of the corresponding class belonging to the ground truth and prediction.
 		\begin{equation}
@@ -205,7 +205,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\multicolumn{ 1}{|l|}{atWork\_binary} & MobileNetv2 & 65.03 \\ \cline{ 2- 3}
 		\multicolumn{ 1}{|l|}{} & Xception & 62.32 \\ \hline
 		\end{tabular}
-		\caption{This table summarizes the mIOUs obtained by both the network backbones of DeepLabv3+ model when trained on real images and validated on artificial images across all variants of the variety of backgronds dataset.}
+		\caption{This table summarizes the mIOUs obtained by both the network backbones of DeepLabv3+ model when trained on real images and validated on artificial images across all variants of the variety of backgrounds dataset.}
 		\label{Table:realaug}
 \end{table}
 
@@ -334,14 +334,25 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
 		\item \textbf{Expected result}: The 8bit models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation. 
-		\item \textbf{Inference from the results}: From Figure \ref{Fig:quant} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit low precision model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies rougly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all 4 variants of the variety of backgrounds dataset is 9.56 \%. This suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This suggests that the Xception network backbone is [\textbf{what does it suggest?}]. Table \ref{Table:quantmIOU} shows the mIOUs obtained.
+		\item \textbf{Inference from the results}: From Figure \ref{Fig:quanta} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit low precision model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies roughly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all 4 variants of the variety of backgrounds dataset is 9.56 \%. This suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This suggests that the Xception network backbone is [\textbf{what does it suggest?}]. Table \ref{Table:quantmIOU} shows the mIOUs obtained.	
 		
+		From Table \ref{Table:quantMetrics}, it is evident that the number of floating operations (FLOPS) drops by rougly 94 \% and 98\% when quantizing DeepLabv3+ with MobileNetv2 and Xception backbones respectively. Yet, the inference time for the quantized models is more than the corresponding high precision models. Quantized models are expected to be faster as they perform low precision calculations. However, the inference time has evidently increased. An initial analysis seems to state that the quantized operations are not yet optimized for CPU inference based on the issue "Slow quantized graph" raised on the tensorflow source repository \footnote{\url{https://github.com/tensorflow/tensorflow/issues/2807}}.
 	\end{itemize}
 	
 	\begin{figure}
-		\centering
-		\includegraphics[width=.5\linewidth]{images/quant}
-		\caption{The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset. The green rectangle represents the desired region in which the mIOU is in the range [90,100] and occupied disk memory is in the range (0,10].}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/quant}
+			\caption{}
+			\label{Fig:quantb}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/quant_time}
+			\caption{}
+			\label{Fig:quanta}
+		\end{subfigure}
+		\caption{(a) The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset. The green rectangle represents the desired region in which the mIOU is in the range [90,100] and occupied disk memory is in the range (0,10]. (b) This plot shows the inference time and disk memory occupied by full precision and quantized DeepLabv3+ models. The region indicated by a green rectangle is the desired region where the inference time is in the range (0, 1] and occupied disk memory is in the range (0, 10].}
 		\label{Fig:quant}
 	\end{figure}
 	
@@ -355,7 +366,7 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\makecell{atWork\_similar\_\\shapes} & 81.91 & 72.22 & 90.75 & 87.50 \\ \hline
 		\makecell{atWork\_binary} & 96.10 & 93.49 & 98.32 & 96.92 \\ \hline
 		\end{tabular}
-		\caption{This table summrizes the mIOU obtained by the quantized and full precision models of both DeepLabv3+ network backbones on all 4 variants of the variety of backgrounds dataset.}
+		\caption{This table summarizes the mIOU obtained by the quantized and full precision models of both DeepLabv3+ network backbones on all 4 variants of the variety of backgrounds dataset.}
 		\label{Table:quantmIOU}
 	\end{table}
 	
@@ -363,13 +374,13 @@ The metrics used for evalution are Mean Intersection Over Union (mIOU), inferenc
 		\centering
 		\begin{tabular}{|l|l|l|l|l|}
 		\hline
-		\makecell{\textbf{Network} \\ \textbf{Backbone}} & \makecell{\textbf{Inference time} \\ \textbf{(ms)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
-		MobileNetv2 &  & 2.11M & 6.41B & 8.7 \\ \hline
-		MobileNetv2-8 &  & 2.11M & 328.87M & 2.8 \\ \hline
-		Xception &  & 41.05M & 126.27B & 165.6 \\ \hline
-		Xception-8 &  & 41.05M & 1.94B & 44.7 \\ \hline
+		\makecell{\textbf{Network} \\ \textbf{Backbone}} & \makecell{\textbf{Inference time} \\ \textbf{(s)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
+		MobileNetv2 & 0.9811 & 2.11M & 6.41B & 8.7 \\ \hline
+		MobileNetv2-8 & 1.4560 & 2.11M & 328.87M & 2.8 \\ \hline
+		Xception & 5.5325 & 41.05M & 126.27B & 165.6 \\ \hline
+		Xception-8 & 7.6256 & 41.05M & 1.94B & 44.7 \\ \hline
 		\end{tabular}
-		\caption{This table summrizes the inference time, number of parameters and floating point operations (FLOPS) of both the quatized and full precision network backbones of DeepLabv3+. "M" denotes million and "B" denotes billion.}
+		\caption{This table summarizes the inference time, number of parameters and floating point operations (FLOPS) of both the quatized and full precision network backbones of DeepLabv3+. "M" denotes million and "B" denotes billion.}
 		\label{Table:quantMetrics}
 	\end{table}
 	

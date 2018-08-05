@@ -69,7 +69,7 @@ As semantic segmentation is a pixelwise classification task, every pixel in the 
 
 \subsection{Context knowledge}
 
-An image can be seen interms of a local or a global context. 
+Objects in general, could be represented by different features. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context, the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distint and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
 
 	\begin{figure}
 		\centering
@@ -83,7 +83,7 @@ An image can be seen interms of a local or a global context.
 			\centering
 			\includegraphics[width=.9\linewidth]{images/motor_context_l}
 			\caption{}
-			\label{Fig:em01l}
+			\label{Fig:motorl}
 		\end{subfigure}
 		\begin{subfigure}{.4\textwidth}
 			\centering
@@ -101,9 +101,8 @@ An image can be seen interms of a local or a global context.
 		\label{Fig:context}
 	\end{figure}
 
-\subsection{Model complexity}
-
-
-
 \section{Problem Statement}
 
+	\begin{itemize}
+		\item 
+	\end{itemize}
