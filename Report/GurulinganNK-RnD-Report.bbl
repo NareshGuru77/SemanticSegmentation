@@ -1,9 +1,17 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Badrinarayanan et~al.(2015)Badrinarayanan, Kendall, and
+  Cipolla]{DBLP:journals/corr/BadrinarayananK15}
+Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla.
+\newblock Segnet: {A} deep convolutional encoder-decoder architecture for image
+  segmentation.
+\newblock \emph{CoRR}, abs/1511.00561, 2015.
+\newblock URL \url{http://arxiv.org/abs/1511.00561}.
 
 \bibitem[Bendersky()]{depthwise}
 Eli Bendersky.
@@ -105,6 +113,14 @@ Jonathan Long, Evan Shelhamer, and Trevor Darrell.
 \newblock \emph{CoRR}, abs/1411.4038, 2014.
 \newblock URL \url{http://arxiv.org/abs/1411.4038}.
 
+\bibitem[Paszke et~al.(2016)Paszke, Chaurasia, Kim, and
+  Culurciello]{DBLP:journals/corr/PaszkeCKC16}
+Adam Paszke, Abhishek Chaurasia, Sangpil Kim, and Eugenio Culurciello.
+\newblock Enet: {A} deep neural network architecture for real-time semantic
+  segmentation.
+\newblock \emph{CoRR}, abs/1606.02147, 2016.
+\newblock URL \url{http://arxiv.org/abs/1606.02147}.
+
 \bibitem[Perez()]{techcrunch}
 Sarah Perez.
 \newblock Google makes the camera smarter with a google lens update,
@@ -184,5 +200,12 @@ Pete Warden.
 \newblock URL
   \url{https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}.
 \newblock Online accessed: 2018-08-03.
+
+\bibitem[Zhao et~al.(2017)Zhao, Qi, Shen, Shi, and
+  Jia]{DBLP:journals/corr/ZhaoQSSJ17}
+Hengshuang Zhao, Xiaojuan Qi, Xiaoyong Shen, Jianping Shi, and Jiaya Jia.
+\newblock Icnet for real-time semantic segmentation on high-resolution images.
+\newblock \emph{CoRR}, abs/1704.08545, 2017.
+\newblock URL \url{http://arxiv.org/abs/1704.08545}.
 
 \end{thebibliography}

@@ -11,6 +11,24 @@
   Url                      = {https://www.cityscapes-dataset.com/examples/#fine-annotations}
 }
 
+@Article{DBLP:journals/corr/BadrinarayananK15,
+  Title                    = {SegNet: {A} Deep Convolutional Encoder-Decoder Architecture for Image
+ Segmentation},
+  Author                   = {Vijay Badrinarayanan and
+ Alex Kendall and
+ Roberto Cipolla},
+  Journal                  = {CoRR},
+  Year                     = {2015},
+  Volume                   = {abs/1511.00561},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/BadrinarayananK15},
+  Eprint                   = {1511.00561},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:10 +0200},
+  Url                      = {http://arxiv.org/abs/1511.00561}
+}
+
 @Misc{depthwise,
   Title                    = {Depthwise separable convolutions for machine learning},
 
@@ -199,6 +217,42 @@
   Doi                      = {10.1109/CVPR.2015.7298965},
   ISSN                     = {1063-6919},
   Keywords                 = {image classification;image segmentation;inference mechanisms;learning (artificial intelligence);fully convolutional networks;semantic segmentation;visual models;pixels-to-pixels;inference;learning;contemporary classification networks;PASCAL VOC;NYUDv2;SIFT flow;Semantics;Training;Convolution;Image segmentation;Computer architecture;Deconvolution;Adaptation models}
+}
+
+@Article{DBLP:journals/corr/LongSD14,
+  Title                    = {Fully Convolutional Networks for Semantic Segmentation},
+  Author                   = {Jonathan Long and
+ Evan Shelhamer and
+ Trevor Darrell},
+  Journal                  = {CoRR},
+  Year                     = {2014},
+  Volume                   = {abs/1411.4038},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/LongSD14},
+  Eprint                   = {1411.4038},
+  Timestamp                = {Wed, 07 Jun 2017 14:42:28 +0200},
+  Url                      = {http://arxiv.org/abs/1411.4038}
+}
+
+@Article{DBLP:journals/corr/PaszkeCKC16,
+  Title                    = {ENet: {A} Deep Neural Network Architecture for Real-Time Semantic
+ Segmentation},
+  Author                   = {Adam Paszke and
+ Abhishek Chaurasia and
+ Sangpil Kim and
+ Eugenio Culurciello},
+  Journal                  = {CoRR},
+  Year                     = {2016},
+  Volume                   = {abs/1606.02147},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/PaszkeCKC16},
+  Eprint                   = {1606.02147},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:20 +0200},
+  Url                      = {http://arxiv.org/abs/1606.02147}
 }
 
 @Misc{techcrunch,

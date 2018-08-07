@@ -19,7 +19,7 @@ Fully Convolutional Networks \cite{DBLP:journals/corr/LongSD14} extend the succe
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/fcn_skip}
-		\caption{This figure illstrates the use of skip connections in Fully Convolutional Networks. Pooling layers downsample the input image. The pool5 layer results in 32 time reduction in spatial resolution of the input image. Three different predictions are shown. In the first, pool5 output is upsampled by 32. In the second, pool5 output is upsampled by 2, added with pool4 output with a skip connection and then upsampled by 16. In the third, pool5 output is upsampled by 2 two times, added with pool3 output using skip connection and then upsampled by 8. This third prediction is experimentally shown to produce finer predictions.}
+		\caption{This figure illstrates the use of skip connections in Fully Convolutional Networks. Pooling layers downsample the input image. The pool5 layer results in 32 time reduction in spatial resolution of the input image. Three different predictions are shown. In the first, pool5 output is upsampled by 32. In the second, pool5 output is upsampled by 2, added with pool4 output with a skip connection and then upsampled by 16. In the third, pool5 output is upsampled by 2 two times, added with pool3 output using skip connection and then upsampled by 8. This third prediction is experimentally shown to produce finer predictions \cite{DBLP:journals/corr/LongSD14}.}
 		\label{Fig:fcn}
 	\end{figure}
 
@@ -34,16 +34,41 @@ In this section we look into semantic segmentation networks which consider both 
 
 \subsection{SegNet}
 
-SegNet proposed the use of an encoder-decoder architecture for semantic segmentation. 
+SegNet \cite{DBLP:journals/corr/BadrinarayananK15} proposed the use of an encoder-decoder architecture for semantic segmentation as shown in Figure \ref{Fig:segnet}. In the encoder, since all the fully connected layers in the underlying VGG16 network is dropped, the number of parameters reduces from 134 million to 14.7 million. To downsample the input image, the authors use max pooling layers. The indices of values selected during max pooing is saved. In the decoder, the max pooling indices from the corresponding max pooling layer in the encoder is used to upsample the image. The authors state that this way of using max pooling indices in the decoder improves object boundary delineation and can be adapted in any encoder-decoder architecture. After upsampling, convolutional layers with trainable parameters are used in the decoder to refine predictions. 
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/segnet}
+		\caption{This figure illustrates the SegNet architecture. The decoder uses max pooling indices from corresponding encoder max pooling layers for upsampling \cite{DBLP:journals/corr/BadrinarayananK15}.}
+		\label{Fig:segnet}
+	\end{figure}
 
 \subsection{ENet}
 
+ENet \cite{DBLP:journals/corr/PaszkeCKC16} is built with the goal of achieving fast inference with high accuracy. ENet also uses a encoder-decoder architecture similar to SegNet. The authors state that the initial layers of the encoder perform expensive computations as they operate on feature maps with high spatial resolution. Optimizing the intial layers will lead to improvements in inference speed. On this regard, ENet encoder heavily downsamples the input feature maps at the intial layers. The ENet initial block shown in Figure \ref{Fig:enet}, which performs early downsampling, downsamples the input image of resolution 512$\times$512 and 3 channels to 16 feature maps of resolution 128$\times$128. This block performs 3$\times$3 convolution with stride 2 and max pooling with non-overlapping 2$\times$2 windows, on the input image whose results are then concatenated. This illustrates ENets approach to optimizing intial layers. In addition, unlike SegNet where the decoder has the same number of layers as the encoder, ENet uses a large encoder and a small decoder. The reduced decoder size is based on the notion that the decoder is only required to fine-tune features already gathered by the encoder. 
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=.4\linewidth]{images/enet}
+		\caption{The ENet initial block which performs convolution with stride 2 and max pooling with 2$\times$2 non-overlapping windows, on the input image to downsample the input image to half the original spatial resolution \cite{DBLP:journals/corr/PaszkeCKC16}.}
+		\label{Fig:enet}
+	\end{figure}
+
 \subsection{ICNet}
+
+ICNet \cite{DBLP:journals/corr/ZhaoQSSJ17} is designed with the intention of obtaining real time semantic segmentation on high resolution images. ICNet consists of a cascade of three branches operating on the input image at the original resolution, half of original resolution and quater of original resolution respectively. The predictions of the three branches are fused together by a cascade feature fusion unit to obtain fine predictions. Each of the branches are guided during training with the corresponding resolution of ground truth. The branch operating on the original resolution only has a limited number of layers resulting in feature maps of 1/8th the original resolution.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/icnet}
+		\caption{ \cite{DBLP:journals/corr/ZhaoQSSJ17}.}
+		\label{Fig:icnet}
+	\end{figure}
 
 \section{Compressing DCNNs}
 \label{section:compress}
 
-In this section, we look into approaches which compress Deep Convolutional Neural Networks (DCNN) by reducing the number of parameters or by using low precision calculations. The goal is to reduce resource requirements while retaining or incurring acceptable loss in accuracy.
+In this section, we look into approaches which compress Deep Convolutional Neural Networks (DCNN) by reducing the number of parameters or by using low precision calculations. The goal is to reduce resource requirements while retaining or incurring acceptable loss in accuracy. 
 
 \subsection{Deep Compression}
 
