@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -99,6 +99,13 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock \emph{CoRR}, abs/1512.03385, 2015.
 \newblock URL \url{http://arxiv.org/abs/1512.03385}.
 
+\bibitem[Huang et~al.(2018)Huang, Zhou, You, and
+  Neumann]{DBLP:journals/corr/abs-1801-07365}
+Qiangui Huang, Shaohua~Kevin Zhou, Suya You, and Ulrich Neumann.
+\newblock Learning to prune filters in convolutional neural networks.
+\newblock \emph{CoRR}, abs/1801.07365, 2018.
+\newblock URL \url{http://arxiv.org/abs/1801.07365}.
+
 \bibitem[Long et~al.(2015)Long, Shelhamer, and Darrell]{7298965}
 J.~Long, E.~Shelhamer, and T.~Darrell.
 \newblock Fully convolutional networks for semantic segmentation.
@@ -112,6 +119,20 @@ Jonathan Long, Evan Shelhamer, and Trevor Darrell.
 \newblock Fully convolutional networks for semantic segmentation.
 \newblock \emph{CoRR}, abs/1411.4038, 2014.
 \newblock URL \url{http://arxiv.org/abs/1411.4038}.
+
+\bibitem[Loshchilov and Hutter(2016)]{DBLP:journals/corr/LoshchilovH16a}
+Ilya Loshchilov and Frank Hutter.
+\newblock {SGDR:} stochastic gradient descent with restarts.
+\newblock \emph{CoRR}, abs/1608.03983, 2016.
+\newblock URL \url{http://arxiv.org/abs/1608.03983}.
+
+\bibitem[Molchanov et~al.(2016)Molchanov, Tyree, Karras, Aila, and
+  Kautz]{DBLP:journals/corr/MolchanovTKAK16}
+Pavlo Molchanov, Stephen Tyree, Tero Karras, Timo Aila, and Jan Kautz.
+\newblock Pruning convolutional neural networks for resource efficient transfer
+  learning.
+\newblock \emph{CoRR}, abs/1611.06440, 2016.
+\newblock URL \url{http://arxiv.org/abs/1611.06440}.
 
 \bibitem[Paszke et~al.(2016)Paszke, Chaurasia, Kim, and
   Culurciello]{DBLP:journals/corr/PaszkeCKC16}
@@ -136,6 +157,13 @@ Param~S. Rajpura, Manik Goyal, Hristo Bojinov, and Ravi~S. Hegde.
   segmentation.
 \newblock \emph{CoRR}, abs/1709.00849, 2017.
 \newblock URL \url{http://arxiv.org/abs/1709.00849}.
+
+\bibitem[Real et~al.(2018)Real, Aggarwal, Huang, and
+  Le]{DBLP:journals/corr/abs-1802-01548}
+Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc~V. Le.
+\newblock Regularized evolution for image classifier architecture search.
+\newblock \emph{CoRR}, abs/1802.01548, 2018.
+\newblock URL \url{http://arxiv.org/abs/1802.01548}.
 
 \bibitem[Redmon et~al.(2015)Redmon, Divvala, Girshick, and
   Farhadi]{DBLP:journals/corr/RedmonDGF15}
@@ -181,6 +209,14 @@ Karen Simonyan and Andrew Zisserman.
 \newblock \emph{CoRR}, abs/1406.2199, 2014.
 \newblock URL \url{http://arxiv.org/abs/1406.2199}.
 
+\bibitem[Szegedy et~al.(2014)Szegedy, Liu, Jia, Sermanet, Reed, Anguelov,
+  Erhan, Vanhoucke, and Rabinovich]{DBLP:journals/corr/SzegedyLJSRAEVR14}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott~E. Reed,
+  Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock \emph{CoRR}, abs/1409.4842, 2014.
+\newblock URL \url{http://arxiv.org/abs/1409.4842}.
+
 \bibitem[Trubetskoy()]{simple_colors}
 Sasha Trubetskoy.
 \newblock List of 20 simple, distinct colors.
@@ -201,11 +237,24 @@ Pete Warden.
   \url{https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}.
 \newblock Online accessed: 2018-08-03.
 
+\bibitem[Wu et~al.(2015)Wu, Leng, Wang, Hu, and
+  Cheng]{DBLP:journals/corr/WuLWHC15}
+Jiaxiang Wu, Cong Leng, Yuhang Wang, Qinghao Hu, and Jian Cheng.
+\newblock Quantized convolutional neural networks for mobile devices.
+\newblock \emph{CoRR}, abs/1512.06473, 2015.
+\newblock URL \url{http://arxiv.org/abs/1512.06473}.
+
 \bibitem[Zhao et~al.(2017)Zhao, Qi, Shen, Shi, and
   Jia]{DBLP:journals/corr/ZhaoQSSJ17}
 Hengshuang Zhao, Xiaojuan Qi, Xiaoyong Shen, Jianping Shi, and Jiaya Jia.
 \newblock Icnet for real-time semantic segmentation on high-resolution images.
 \newblock \emph{CoRR}, abs/1704.08545, 2017.
 \newblock URL \url{http://arxiv.org/abs/1704.08545}.
+
+\bibitem[Zoph and Le(2016)]{DBLP:journals/corr/ZophL16}
+Barret Zoph and Quoc~V. Le.
+\newblock Neural architecture search with reinforcement learning.
+\newblock \emph{CoRR}, abs/1611.01578, 2016.
+\newblock URL \url{http://arxiv.org/abs/1611.01578}.
 
 \end{thebibliography}
