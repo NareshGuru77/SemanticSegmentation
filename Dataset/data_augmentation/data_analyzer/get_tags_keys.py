@@ -4,6 +4,7 @@ import collections
 _PERCENTAGE_KEY = 'Percentage of pixels'
 _COUNT_KEY = 'Class count'
 _WEIGHT_KEY = 'Class weight'
+_SURFACE_AREA_KEY = 'Surface area'
 
 _TRAINING_TAG = 'TrainingSet'
 _VALIDATION_TAG = 'ValidationSet'
@@ -20,6 +21,7 @@ class TagsKeys(
         'percentage_key',
         'count_key',
         'weight_key',
+        'surface_area_key',
         'training_tag',
         'validation_tag',
         'test_tag',
@@ -33,7 +35,7 @@ class TagsKeys(
     def __new__(cls):
 
         return super(TagsKeys, cls).__new__(
-            cls, _PERCENTAGE_KEY, _COUNT_KEY, _WEIGHT_KEY,
+            cls, _PERCENTAGE_KEY, _COUNT_KEY, _WEIGHT_KEY, _SURFACE_AREA_KEY,
             _TRAINING_TAG, _VALIDATION_TAG, _TEST_TAG,
             _TAG_SEPARATOR, _DATA_KEY, _INFO_KEY)
 

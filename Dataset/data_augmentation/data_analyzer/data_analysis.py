@@ -3,10 +3,24 @@ import numpy as np
 import os
 
 
-label_def_similar_shapes = {'background': 0, 'f_s20_40_20_40_B_G': 1, 'm20_100': 2,
-                            'm20_30': 3, 'r20': 4, 'bearing_box': 5, 'bearing': 6,
-                            'axis': 7, 'distance_tube': 8, 'motor': 9, 'container': 10,
-                            'em_01': 11, 'em_02': 12}
+object_to_surface_area_full = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
+                               's40_40_G': 4, 'm20_100': 5, 'm20': 6, 'm30': 7, 'r20': 8,
+                               'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11, 'distance_tube': 12,
+                               'motor': 13, 'container_box_blue': 14, 'container_box_red': 15,
+                               'bearing_box_ax16': 16, 'em_01': 17, 'em_02': 18}
+
+object_to_surface_area_size = {'f_s20_40_20_40_B': 1, 'f_s20_40_20_40_G': 2,
+                               'm20_100': 3, 'm20_30': 4, 'r20': 5, 'bearing_box': 6,
+                               'bearing': 7, 'axis': 8, 'distance_tube': 9, 'motor': 10,
+                               'container_box_blue': 11, 'container_box_red': 12, 'em_01': 13,
+                               'em_02': 14}
+
+object_to_surface_area_shape = {'f_s20_40_20_40_B_G': 1, 'm20_100': 2,
+                                'm20_30': 3, 'r20': 4, 'bearing_box': 5, 'bearing': 6,
+                                'axis': 7, 'distance_tube': 8, 'motor': 9, 'container': 10,
+                                'em_01': 11, 'em_02': 12}
+
+object_to_surface_area_binary = {'foreground': 1}
 
 label_def_full = {'background': 0, 'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
                   's40_40_G': 4, 'm20_100': 5, 'm20': 6, 'm30': 7, 'r20': 8,
@@ -20,20 +34,17 @@ label_def_size_invariant = {'background': 0, 'f_s20_40_20_40_B': 1, 'f_s20_40_20
                             'container_box_blue': 11, 'container_box_red': 12, 'em_01': 13,
                             'em_02': 14}
 
+label_def_similar_shapes = {'background': 0, 'f_s20_40_20_40_B_G': 1, 'm20_100': 2,
+                            'm20_30': 3, 'r20': 4, 'bearing_box': 5, 'bearing': 6,
+                            'axis': 7, 'distance_tube': 8, 'motor': 9, 'container': 10,
+                            'em_01': 11, 'em_02': 12}
+
 label_def_binary = {'background': 0, 'foreground': 1}
 
-variant_to_label_def = {'full': [label_def_full, 'atWork_full', 'f'],
-                        'binary': [label_def_binary, 'atWork_binary', 'b'],
-                        'shape': [label_def_similar_shapes, 'atWork_similar_shapes', 'sh'],
-                        'size': [label_def_size_invariant, 'atWork_size_invariant', 'si'],
-                        'white_full': [label_def_full, 'atWork_full_white', 'wf'],
-                        'white_binary': [label_def_binary, 'atWork_binary_white', 'wb'],
-                        'white_shape': [label_def_similar_shapes, 'atWork_similar_shapes_white', 'wsh'],
-                        'white_size': [label_def_size_invariant, 'atWork_size_invariant_white', 'wsi'],
-                        'real_full': [label_def_full, 'atWork_full_real', 'rf'],
-                        'real_binary': [label_def_binary, 'atWork_binary_real', 'rb'],
-                        'real_shape': [label_def_similar_shapes, 'atWork_similar_shapes_real', 'rsh'],
-                        'real_size': [label_def_size_invariant, 'atWork_size_invariant_real', 'rsi']}
+variant_to_label_def = {'full': [label_def_full, object_to_surface_area_full],
+                        'size': [label_def_size_invariant, object_to_surface_area_size],
+                        'shape': [label_def_similar_shapes, object_to_surface_area_shape],
+                        'binary': [label_def_binary, object_to_surface_area_binary]}
 
 
 class DataAnalysis:
@@ -41,8 +52,6 @@ class DataAnalysis:
     def __init__(self, variant='full',
                  label_path='./objects/real_augmented/training/size_invariant'):
 
-        self.variant = variant_to_label_def[variant][1]
-        self.in_filename = variant_to_label_def[variant][2]
         self.label_path = label_path
         self.label_def = variant_to_label_def[variant][0]
 

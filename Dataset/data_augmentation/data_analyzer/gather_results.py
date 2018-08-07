@@ -3,11 +3,13 @@ from data_augmentation.data_analyzer.get_tags_keys import tags_keys
 
 
 def generate_results(analyzer_train, analyzer_validation,
-                     analyzer_test, set_background_weight=None):
+                     analyzer_test, set_background_weight=None,
+                     variant='atWork_full'):
 
     results = {tags_keys.data_key: {tags_keys.percentage_key: [],
                                     tags_keys.count_key: [],
-                                    tags_keys.weight_key: []},
+                                    tags_keys.weight_key: [],
+                                    tags_keys.surface_area_key: []},
                tags_keys.info_key: [tags_keys.training_tag,
                                     tags_keys.validation_tag,
                                     tags_keys.test_tag]}
@@ -32,5 +34,9 @@ def generate_results(analyzer_train, analyzer_validation,
         percentage_list[2], set_background_weight=set_background_weight)]
 
     results[tags_keys.data_key][tags_keys.weight_key] = weight_list
+
+    surface_area_list = [data_analysis.variant_to_label_def[variant][1]]*3
+
+    results[tags_keys.data_key][tags_keys.surface_area_key] = surface_area_list
 
     return results
