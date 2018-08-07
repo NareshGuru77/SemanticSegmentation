@@ -2,7 +2,7 @@
 
 \chapter{State of the Art}
 
-In the field of deep learning for computer vision, two distinct lines of research could be observed. One line of research includes the likes of ResNet, and Inception which push convolutional neural networks (CNN) deeper and wider. The focus here is to improve the accuracy on the task at hand. Another line of research is more concered with the practical use of deep learning in embedded or mobile devices. Here, approaches tend to focus on finding the best hyperparameters which require the least resources but yet perform with considerable accuracy. The range of approaches include attempts to design an resource efficient architecture by changing the number of layers and so on, attempts to compress CNNs using techniques like pruning, quantization and low-rank decomposition, and attempts to automatically search through the hyperparameter space to find the best hyperparameters by using reinforcement learning and evolutionary algorithms. 
+In the field of deep learning for computer vision, two distinct lines of research could be observed. One line of research includes the likes of ResNet, and Inception which push convolutional neural networks (CNN) deeper and wider. The focus here is to improve the accuracy on the task at hand. Another line of research is more concered with the practical use of deep learning in embedded or mobile devices. Here, approaches tend to focus on finding the best hyperparameters which require the least resources but yet perform with considerable accuracy. The range of approaches include attempts to design a resource efficient architecture by changing the number of layers and so on, attempts to compress CNNs using techniques like pruning, quantization and low-rank decomposition, and attempts to automatically search through the hyperparameter space to find the best hyperparameters by using reinforcement learning and evolutionary algorithms. 
 
 In this chapter, we review networks which focus on improving accuracy (Section \ref{section:impacc}), and networks which focus on both accuracy and resource efficiency (Section \ref{section:acceff}) on the task of semantic segmentation. We also look into compression techniques called pruning and quantization in Section \ref{section:compress} and finally look into a method to generate datasets for semantic segmentation in Section \ref{section:dataset}.
 
@@ -56,12 +56,14 @@ ENet \cite{DBLP:journals/corr/PaszkeCKC16} is built with the goal of achieving f
 
 \subsection{ICNet}
 
-ICNet \cite{DBLP:journals/corr/ZhaoQSSJ17} is designed with the intention of obtaining real time semantic segmentation on high resolution images. ICNet consists of a cascade of three branches operating on the input image at the original resolution, half of original resolution and quater of original resolution respectively. The predictions of the three branches are fused together by a cascade feature fusion unit to obtain fine predictions. Each of the branches are guided during training with the corresponding resolution of ground truth. The branch operating on the original resolution only has a limited number of layers resulting in feature maps of 1/8th the original resolution.
+ICNet \cite{DBLP:journals/corr/ZhaoQSSJ17} is designed with the intention of obtaining real time semantic segmentation on high resolution images. ICNet consists of a cascade of three branches operating on the input image at the original resolution, half of original resolution and quater of original resolution respectively. The predictions of the three branches are fused together by a cascade feature fusion unit to obtain fine predictions. Each of the branches are guided during training with the corresponding resolution of ground truth. 
+
+The number of layers in the three branches are 50, 17 and 3 respectively where the first branch operates on the lowest input resolution, the second branch operates on half the input resolution and the third branch operates on the highest input resolution. The three branches result in feature maps which are 1/32, 1/16 and 1/8 times of the original image resolution respectively. A cascade feature fusion unit combines the feature maps of the three branches by using upsampling, dilated convolutions, batch normalization and sum fusion. This architecture is illustrated in Figure \ref{Fig:icnet}. Overall, by using limited layers on highest resolution input and more layers as input resolution is lowered, computations is reduced when compared to a network with a single branch directly operating on the highest resolution. 
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/icnet}
-		\caption{ \cite{DBLP:journals/corr/ZhaoQSSJ17}.}
+		\caption{Illustration of the image cascade network (ICNet). The number in brackets refer to the ratio of the feature maps resolution to input resolution. CFF refers to the Cascade Feature Fusion unit. SWC refers to sharing weights between first and the second branch. Cascade label guidance is done only during training and upsampling to the original image resolution is done only during testing \cite{DBLP:journals/corr/ZhaoQSSJ17}.}
 		\label{Fig:icnet}
 	\end{figure}
 
@@ -70,11 +72,17 @@ ICNet \cite{DBLP:journals/corr/ZhaoQSSJ17} is designed with the intention of obt
 
 In this section, we look into approaches which compress Deep Convolutional Neural Networks (DCNN) by reducing the number of parameters or by using low precision calculations. The goal is to reduce resource requirements while retaining or incurring acceptable loss in accuracy. 
 
-\subsection{Deep Compression}
-
 \subsection{Pruning CNNs}
 
+Pruning is a technique through which redundant weights in a Deep Neural Network are removed. Weights are considered redundant if they do not contribute significantly to the accuracy of the DNN on the task at hand. 
+
 \subsection{Quantizing CNNs}
+
+
+%\subsection{Deep Compression}
+
+%The authors of Deep Compression \cite{DBLP:journals/corr/HanMD15}, state that the advantages of running Deep Neural Networks (DNNs) on the target embedded device has advantages over running DNNs on the cloud such as better privacy, less network bandwidth required and real time processing. This could be achieved if the storage, energy and inference time requirements of DNNs are reduced. First redundant weights are removed by pruning, then weights are quantized to obtain effective weights and indices and finally huffman coding is used to take advantage of the biased distribution in effective weights. 
+
 
 \section{Dataset}
 \label{section:dataset}
