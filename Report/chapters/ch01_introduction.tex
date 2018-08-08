@@ -6,7 +6,7 @@ In recent years, deep learning has significantly impacted research in the field 
 
 State-of-the-art deep learning techniques in semantic segmentation also make use of the supervised learning paradigm. Semantic segmentation is treated as a pixelwise classification problem with the goal of assigning a class from a list of desired classes to every pixel in an image. The resultant image splits objects of interest into different regions thereby achieving the intended segmentation into meaningful regions.
 
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\begin{subfigure}{.4\textwidth}
 			\centering
@@ -34,7 +34,7 @@ Semantic segmentation provides rich information from image space which could be 
 
 Semantic segmentation can be used in autonomous cars to segment a road scene and extract information such as where the road is, where pedestrains are and so on. An example street scene segmentation is shown in Figure \ref{Fig:appauto}. In robotics, an example application would be segmentation of an indoor dining table shown in Figure \ref{Fig:approbo}. A robot could use this information to identify plates, chairs and so on. In augmented reality, an augmented dog could be placed in a sidewalk to walk a person to his destination as illustrated in Figure \ref{Fig:appaug}. 
 
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\begin{subfigure}{.3\textwidth}
 			\centering
@@ -71,7 +71,7 @@ As semantic segmentation is a pixelwise classification task, every pixel in the 
 
 Objects in general, could be represented by different features. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context, the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distint and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
 
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\begin{subfigure}{.4\textwidth}
 			\centering

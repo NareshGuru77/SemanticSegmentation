@@ -293,7 +293,7 @@ Different variants of the dataset are created based on the properties of the obj
 			\item \textbf{Inability to distinguish subtle variations in color}: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes. This makes it difficult for the segmentation model to learn patterns in color information.
 			\item \textbf{Inability to distinguish shapes}: Certain objects are closly related to each other in terms of shape and differ only slightly. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in Figure \ref{Fig:sim1} and in Figure \ref{Fig:sim2}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
 			
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{.3\textwidth}
   		\centering
@@ -311,7 +311,7 @@ Different variants of the dataset are created based on the properties of the obj
 	\label{Fig:sim1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{.3\textwidth}
   		\centering
@@ -339,7 +339,7 @@ Different variants of the dataset are created based on the properties of the obj
 		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, f\_s20\_40\_20\_40\_B and f\_s20\_40\_20\_40\_G are combined and named f\_s20\_40\_20\_40\_B\_G. The container boxes, container\_box\_red and container\_box\_blue were also combined to form the new class container\_box. This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in Table \ref{Table:variants}.
 		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where are the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in Table \ref{Table:variants}.
 		
-		\begin{table}
+		\begin{table}[h]
 			\centering
 			\begin{tabular}{|c|c|c|c|c|c|c|c|}
 			\hline 

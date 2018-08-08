@@ -40,14 +40,14 @@ In DeepLabv2, Atrous Spatial Pyramid Pooling (ASPP) was used in addition to the 
 
 Atrous Spatial Pyramid Pooling, is used to create multiscale feature representations. Atrous convolutions with different atrous rates are applied to the same feature map. The resulting feature maps from each atrous convolution is processed in separate branches in a similar fashion as in DeepLabv1 by using two 1$\times$1 convolutions. Each of the branches are then fused together to obtain multiscale information. The ASPP module is illustrated in Figure \ref{Fig:aspp}. The difference between the ASPP modules of DeepLabv1 and DeepLabv2 is illustrated in Figure \ref{Fig:v1vsv2}.
 
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\linewidth]{images/aspp}
 		\caption{Illustration of Atrous Spatial Pyramid Pooling (ASPP). Atrous convolutions with 4 different rates convolve on the same input feature map. The field-of-view of each atrous rate is shown using different colors \cite{DBLP:journals/corr/ChenPK0Y16}.}
 		\label{Fig:aspp}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1.03\linewidth]{images/v1_largeFOV}
