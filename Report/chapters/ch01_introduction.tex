@@ -106,8 +106,9 @@ Objects in general, could be represented by different features. In a local conte
 The problems intended to be addressed in this project are listed below:
 
 	\begin{itemize}
-		\item Existing benchmark datasets are not suited when the objects needed to be segmented do not exist in the benchmark dataset. Therefore, a semantic segmentation dataset needs to be created for Robocup @Work.
+		\item Existing benchmark datasets are not suitable when the objects needed to be segmented do not exist in the benchmark dataset. Therefore, a semantic segmentation dataset needs to be created for Robocup @Work.
 		\item Creating semantic segmentation ground truth images is time consuming because of the need to delineate boundaries of @Work objects which have a variety of shapes.
 		\item Since creating annotations is expensive, the dataset needs to be augmented with artificial images. The artificial images need to add diversity in terms of object scales, occlusions and so on.
 		\item One or more semantic segmentation models need to be selected which are resource efficient in terms of both memory and inference time. 
+		\item The selected segmentation models are required to be trained to segment @Work objects with considerable accuracy and at the same time is required to be resource efficient.
 	\end{itemize}

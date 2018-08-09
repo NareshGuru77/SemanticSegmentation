@@ -8,7 +8,7 @@ In this work, state-of-the-art deep learning methods for semantic segmentation w
 
 The major contributions of this work includes:
 	\begin{itemize}
-		\item The creation of a dataset consisting of 18 atWork objects.
+		\item The creation of a semantic segmentation dataset consisting of 18 atWork objects.
 		\item Augmenting this dataset with artificial images created using an artificial image generation algorithm.
 		\item Training DeepLabv3+ models with resource efficient network backbones and analyzing its performance.
 	\end{itemize}
@@ -18,12 +18,12 @@ The major contributions of this work includes:
 Lessons learned out of this work are listed below:
 	\begin{itemize}
 		\item Creating a dataset for a machine learning task is often time consuming. Capturing all the images at one stretch often introduces a bias in the dataset as most images end of being taken under the same real world conditions. A best practice would be to progressively create a dataset over a period of many days. During this time, insights from a trained model could be gathered to further improve the variety of the next round of images taken.
-		\item 
+		\item Useful insights could be obtained by looking into the available data in different perspectives such as how two objects are different and what would happen if they are treated the same. Semantic segmentation models with the same hyperparameter settings could be trained on these different perspectives of data which could help understand how the model behaves in response to data.
 	\end{itemize}
 
 \section{Future work}
 
-The dataset created using the atWork objects at present consist of real images which only have one object per image. Further real images which have multiple objects in them could be added to the dataset. This would enable better assessement of the effectiveness of the artificial images in terms of aiding generalization. The trained DeepLabv3+ models currently available as a result of this work could in theory reduce the labeling cost of the additional real images. 
+The dataset created using the atWork objects at present consist of real images which only have one object per image. Further real images which have multiple objects in them could be added to the dataset. This would enable better assessement of the effectiveness of the artificial images in terms of aiding generalization. The trained DeepLabv3+ models currently available as a result of this work could in theory reduce the labeling cost of the additional real images. Also, additional augmentation methods such as random brightness, contrast shifts, random rotations, and others could be incorporated with the artificial image generation algorithm to improve the robustness of the generated artificial images.
 
 The experiments were centered on the created dataset and did not consider hyperparameter tuning to improve results. Further tuning the different hyperparameters involved such as the decoder output stride, regularization parameter (L2 weight decay) and so on could be explored.
 

@@ -219,46 +219,248 @@ Further details regarding the generator options used to configure the artificial
 
 \chapter{Sample predictions}
 
-	\begin{figure}
+In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the color used for visualizing each objects in all 4 dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgronds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
+	
+	\begin{figure}[h]
 		\centering
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{1\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/s40_40_G_013}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/full_guide}
+			\caption{atWork\_full}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{1\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/s40_40_G_013_mob_bin_gt}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/size_guide}
+			\caption{atWork\_size\_invariant}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{1\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/s40_40_G_013_mob_bin_pred}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/shape_guide}
+			\caption{atWork\_similar\_shapes}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{1\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00132}
+			\includegraphics[width=.5\linewidth]{images/sample_predictions/binary_guide}
+			\caption{atWork\_binary}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\caption{Object names and corresponding colors used for the visualiztion of different dataset variants.}
+		\label{Fig:guide}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00132_mob_bin_gt}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{.24\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00132_mob_bin_pred}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_full_gt}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{.24\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00017}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_full_pred}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{.24\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00017_mob_bin_gt}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_full_pred}
 		\end{subfigure}
-		\begin{subfigure}{.3\textwidth}
+		\begin{subfigure}{.24\textwidth}
 			\centering
-			\includegraphics[width=.9\linewidth]{images/sample_predictions/00017_mob_bin_pred}
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
 		\end{subfigure}
-		\caption{.}
-		\label{Fig:sam}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_full_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_full_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_full_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_full} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_full}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_size_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_size\_invariant} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_size}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_shape_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_shape_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_shape_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_similar\_shapes} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_shape}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_binary_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_binary} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_bin}
 	\end{figure}
 
 \chapter{Hyperparameters}
