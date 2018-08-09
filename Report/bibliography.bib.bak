@@ -206,6 +206,14 @@
   Url                      = {http://arxiv.org/abs/1510.00149}
 }
 
+@Book{haykin,
+  Title                    = {Neural Networks and Learning Machines, Third Edition},
+  Author                   = {Simon Haykin},
+  Note                     = {Online accessed: 2018-08-08},
+
+  Url                      = {http://dai.fmph.uniba.sk/courses/NN/haykin.neural-networks.3ed.2009.pdf}
+}
+
 @Article{DBLP:journals/corr/HeZRS15,
   Title                    = {Deep Residual Learning for Image Recognition},
   Author                   = {Kaiming He and
@@ -350,6 +358,24 @@
   Owner                    = {nareshguru77},
   Timestamp                = {Thu, 05 Oct 2017 09:43:01 +0200},
   Url                      = {http://arxiv.org/abs/1709.00849}
+}
+
+@Article{DBLP:journals/corr/abs-1802-01548,
+  Title                    = {Regularized Evolution for Image Classifier Architecture Search},
+  Author                   = {Esteban Real and
+ Alok Aggarwal and
+ Yanping Huang and
+ Quoc V. Le},
+  Journal                  = {CoRR},
+  Year                     = {2018},
+  Volume                   = {abs/1802.01548},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, https://dblp.org},
+  Biburl                   = {https://dblp.org/rec/bib/journals/corr/abs-1802-01548},
+  Eprint                   = {1802.01548},
+  Timestamp                = {Thu, 01 Mar 2018 15:00:45 +0100},
+  Url                      = {http://arxiv.org/abs/1802.01548}
 }
 
 @Article{DBLP:journals/corr/RedmonDGF15,
@@ -536,5 +562,19 @@
   Eprint                   = {1611.01578},
   Timestamp                = {Wed, 07 Jun 2017 14:42:02 +0200},
   Url                      = {http://arxiv.org/abs/1611.01578}
+}
+
+@Misc{cs231n,
+  Title                    = {CS231n: Convolutional Neural Networks for Visual Recognition},
+  Note                     = {Online accessed: 2018-08-08},
+
+  Url                      = {http://cs231n.github.io/convolutional-networks/}
+}
+
+@Misc{matlab_cnn,
+  Title                    = {Convolutional Neural Network},
+  Note                     = {Online accessed: 2018-08-08},
+
+  Url                      = {https://de.mathworks.com/solutions/deep-learning/convolutional-neural-network.html}
 }
 

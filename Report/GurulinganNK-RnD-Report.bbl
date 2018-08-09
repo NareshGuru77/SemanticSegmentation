@@ -1,9 +1,20 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[cs2()]{cs231n}
+Cs231n: Convolutional neural networks for visual recognition.
+\newblock URL \url{http://cs231n.github.io/convolutional-networks/}.
+\newblock Online accessed: 2018-08-08.
+
+\bibitem[mat()]{matlab_cnn}
+Convolutional neural network.
+\newblock URL
+  \url{https://de.mathworks.com/solutions/deep-learning/convolutional-neural-network.html}.
+\newblock Online accessed: 2018-08-08.
 
 \bibitem[Badrinarayanan et~al.(2015)Badrinarayanan, Kendall, and
   Cipolla]{DBLP:journals/corr/BadrinarayananK15}
@@ -92,6 +103,13 @@ Alberto Garcia{-}Garcia, Sergio Orts{-}Escolano, Sergiu Oprea, Victor
   segmentation.
 \newblock \emph{CoRR}, abs/1704.06857, 2017.
 \newblock URL \url{http://arxiv.org/abs/1704.06857}.
+
+\bibitem[Haykin()]{haykin}
+Simon Haykin.
+\newblock \emph{Neural Networks and Learning Machines, Third Edition}.
+\newblock URL
+  \url{http://dai.fmph.uniba.sk/courses/NN/haykin.neural-networks.3ed.2009.pdf}.
+\newblock Online accessed: 2018-08-08.
 
 \bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{DBLP:journals/corr/HeZRS15}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
