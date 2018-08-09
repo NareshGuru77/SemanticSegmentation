@@ -4,13 +4,14 @@ The top-level auxiliary file: GurulinganNK-RnD-Report.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--string name "cvpr" is undefined
---line 402 of file bibliography.bib.bib
-Warning--to sort, need author or key in cs231n
+--line 420 of file bibliography.bib.bib
 Warning--to sort, need author or key in matlab_cnn
+Warning--to sort, need author or key in cs231n
 Warning--empty year in cs231n
 Warning--empty year in matlab_cnn
 Warning--empty year in depthwise
 Warning--empty year in github_robocup@work
+Warning--empty year in freecodecamp
 Warning--empty year in cityscapes
 Warning--empty year in cls_bal
 Warning--empty publisher in haykin
@@ -23,45 +24,45 @@ Warning--empty year in indoor
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
 Warning--empty year in quant_blog
-You've used 37 entries,
+You've used 38 entries,
             2773 wiz_defined-function locations,
-            793 strings with 12660 characters,
-and the built_in function-call counts, 16044 in all, are:
-= -- 1375
-> -- 1111
-< -- 15
-+ -- 379
-- -- 342
-* -- 1279
-:= -- 2557
-add.period$ -- 145
-call.type$ -- 37
-change.case$ -- 224
-chr.to.int$ -- 37
-cite$ -- 94
-duplicate$ -- 695
-empty$ -- 1198
-format.name$ -- 385
-if$ -- 3304
+            798 strings with 12863 characters,
+and the built_in function-call counts, 16349 in all, are:
+= -- 1402
+> -- 1121
+< -- 16
++ -- 383
+- -- 345
+* -- 1294
+:= -- 2603
+add.period$ -- 149
+call.type$ -- 38
+change.case$ -- 228
+chr.to.int$ -- 38
+cite$ -- 97
+duplicate$ -- 710
+empty$ -- 1230
+format.name$ -- 389
+if$ -- 3369
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 26
-newline$ -- 227
-num.names$ -- 140
-pop$ -- 500
+newline$ -- 233
+num.names$ -- 144
+pop$ -- 516
 preamble$ -- 1
-purify$ -- 188
+purify$ -- 191
 quote$ -- 0
-skip$ -- 565
+skip$ -- 575
 stack$ -- 0
-substring$ -- 112
-swap$ -- 50
+substring$ -- 114
+swap$ -- 51
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 402
-warning$ -- 18
-while$ -- 107
+type$ -- 413
+warning$ -- 19
+while$ -- 110
 width$ -- 0
-write$ -- 528
-(There were 19 warnings)
+write$ -- 541
+(There were 20 warnings)

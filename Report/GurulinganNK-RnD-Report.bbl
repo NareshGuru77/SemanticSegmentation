@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -79,6 +79,13 @@ Fran{\c{c}}ois Chollet.
 \newblock Xception: Deep learning with depthwise separable convolutions.
 \newblock \emph{CoRR}, abs/1610.02357, 2016.
 \newblock URL \url{http://arxiv.org/abs/1610.02357}.
+
+\bibitem[Cornelisse()]{freecodecamp}
+Daphne Cornelisse.
+\newblock An intuitive guide to convolutional neural networks.
+\newblock URL
+  \url{https://medium.freecodecamp.org/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050}.
+\newblock Online accessed: 2018-08-09.
 
 \bibitem[dataset()]{cityscapes}
 Cityscapes dataset.

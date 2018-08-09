@@ -144,6 +144,24 @@
   Url                      = {http://arxiv.org/abs/1610.02357}
 }
 
+@Misc{freecodecamp,
+  Title                    = {An intuitive guide to Convolutional Neural Networks},
+
+  Author                   = {Daphne Cornelisse},
+  Note                     = {Online accessed: 2018-08-09},
+
+  Url                      = {https://medium.freecodecamp.org/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050}
+}
+
+@Misc{towardsdatascience,
+  Title                    = {Applied Deep Learning - Part 4: Convolutional Neural Networks},
+
+  Author                   = {Arden Dertat},
+  Note                     = {Online accessed: 2018-08-09},
+
+  Url                      = {https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2}
+}
+
 @Misc{cls_bal,
   Title                    = {Tensorflow — Dealing with imbalanced data},
 

@@ -418,41 +418,41 @@ The backgrounds used for the artificial image generation process are images with
 			\hline 
   			\textbf{Object name} & \textbf{Assumed shape} & \textbf{Surface area} \\ 
 			\hline
-  			 f20\_20\_B & cuboid &  \\ 
+  			 f20\_20\_B & \makecell{cuboid} &  \\ 
 			\hline
-  			 s40\_40\_G & cuboid &  \\ 
+  			 s40\_40\_G & \makecell{cuboid} &  \\ 
 			\hline
-  			 f20\_20\_G & cuboid &  \\ 
+  			 f20\_20\_G & \makecell{cuboid} &  \\ 
 			\hline
-  			 s40\_40\_G & cuboid &  \\ 
+  			 s40\_40\_G & \makecell{cuboid} &  \\ 
 			\hline
-  			 m20\_100 &  &  \\ 
+  			 m20\_100 & \makecell{hollow cylinder +\\ hexagonal prism} &  \\ 
 			\hline
-  			 m20 &  &  \\ 
+  			 m20 & \makecell{hollow hexagonal prism} &  \\ 
 			\hline
-  			 m30 &  &  \\ 
+  			 m30 & \makecell{hollow hexagonal prism} &  \\ 
 			\hline
-  			 r20 &  &  \\ 
+  			 r20 & \makecell{hollow cylinder} &  \\ 
 			\hline
-  			 bearing\_box\_ax01 &  &  \\ 
+  			 bearing\_box\_ax01 & \makecell{} &  \\ 
 			\hline
-  			 bearing &  &  \\ 
+  			 bearing & \makecell{hollow cylinder} &  \\ 
 			\hline
-  			 axis &  &  \\ 
+  			 axis & \makecell{} &  \\ 
 			\hline
-  			 distance\_tube &  &  \\ 
+  			 distance\_tube & \makecell{hollow cylinder} &  \\ 
 			\hline
-  			 motor &  &  \\ 
+  			 motor & \makecell{cylinder} &  \\ 
 			\hline
-  			 container\_box\_blue &  &  \\ 
+  			 container\_box\_blue & \makecell{} &  \\ 
 			\hline
-  			 container\_box\_red &  &  \\ 
+  			 container\_box\_red & \makecell{} &  \\ 
 			\hline
-  			 bearing\_box\_ax16 &  &  \\ 
+  			 bearing\_box\_ax16 & \makecell{} &  \\ 
 			\hline
-  			 em\_01 &  &  \\ 
+  			 em\_01 & \makecell{} &  \\ 
 			\hline
-  			 em\_02 &  &  \\ 
+  			 em\_02 & \makecell{} &  \\ 
 			\hline
 			\end{tabular}
 			\caption{Assumed shape and surface area of objects} 
@@ -488,11 +488,8 @@ The backgrounds used for the artificial image generation process are images with
 			\caption{Percentage of pixels occupied by every class, except the background class, and corresponding class counts in the atWork\_similar\_shapes variant.}
 			\label{Fig:ana_shape}
 		\end{figure}
-		
-	\subsubsection{atWork\_binary variant}
 	
 
-\newpage
 \section{Meta-data of the dataset}
 
 Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers hold true for all four dataset variants and also for the shades of white dataset. Initially, 30 images were captured for each of the 18 objects leading to a total of 540 images. However, 1 image of "axis" object and 2 images of "s40\_40\_B" were removed as they were blurred.

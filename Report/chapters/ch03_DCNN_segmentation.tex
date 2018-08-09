@@ -1,6 +1,6 @@
 %!TEX root = ../report.tex
 
-\chapter{DCNN and Semantic Segmentation}
+\chapter{Convolutional Neural Networks and Semantic Segmentation}
 
 	In this chapter, we look into the basic concepts of neural networks and later, how such concepts have been used for the task of semantic segmentation. In section  \textbf{[todo]}
 
@@ -29,26 +29,14 @@ Artificial Neural Networks (ANN), inspired by the neural networks in our brain, 
 \subsection{Universal approximation theorem}
 
 
-%\subsection{Multilayer Perceptron}
-
-%The Multilayer Perceptron (MLP) is a feedforward neural network with at least one layer in addition to an input and an output layer. The additional layers lie in between the input and the output layers and are called hidden layers. The input layer 
 
 \section{Convolutional Neural Networks}
 
 Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection and semantic segmentation make use of CNNs. Unlike the multilayer feedforward network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2 dimensional values. A major part of CNNs comprise the use of convolutional layers which greatly reduce the number of parameters in comparison to fully-connected layers.
 
-\subsection{Covolution theorem}
-
 \subsection{CNN Architecture}
 
-An RGB image typically consists of height, width and 3 channels representing red, blue and green. In order to better handle this structure of an input image, the neurons in a convolutional layer are arranged in a 3D volume of height, width and depth. An illustration of the 3D arrangement of neurons can be seen in Figure \ref{Fig:cnn_neuron}. The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layer, pooling layer, normalization layer and pooling layer. Each of the layers are looked into in detail in the subsequent sections.
-
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=.4\linewidth]{images/conv_3dneurons}
-		\caption{Illustration of 3D (height, width, depth) arrangement of neurons in a convolutional layer. The convolutional layer transforms a 3D input volume to a 3D output volume  \cite{cs231n}.}
-		\label{Fig:cnn_neuron}
-	\end{figure}
+The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layer, pooling layer, normalization layer and pooling layer. Each of the layers are looked into in detail in the subsequent sections.
 	
 	\begin{figure}[h]
 		\centering
@@ -59,13 +47,48 @@ An RGB image typically consists of height, width and 3 channels representing red
 
 \subsubsection{Convolutional layer}
 
+An RGB image typically consists of height, width and 3 channels representing red, blue and green. In order to better handle this structure of an input image, the neurons in a convolutional layer are arranged in a 3D volume of height, width and depth. Each neuron is only connected to a small region in the input. This is called "local connectivity" and the extent of the input region to which a neuron connects is controlled by a hyperparameter called receptive field \cite{cs231n}. An illustration of the 3D arrangement of neurons can be seen in Figure \ref{Fig:cnn_neuron}. When moving along the depth dimension, each 2D arrangement of values are called filters or kernels.
 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.4\linewidth]{images/conv_3dneurons}
+		\caption{Illustration of 3D (height, width, depth) arrangement of neurons in a convolutional layer. The convolutional layer transforms a 3D input volume to a 3D output volume  \cite{cs231n}.}
+		\label{Fig:cnn_neuron}
+	\end{figure}
+	
+A filter slides through an input channel, performs convolution and produces output feature maps. A filter looks for specific features like edges and corners, at the input spatial location it convolves over. As an extention, a filter can be seen as a template image and it looks for the template across the input space. Figure \ref{Fig:convolution} illustrates one such filter which looks for vertical lines. 
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.8\linewidth]{images/convolution}
+		\caption{A Sobel kernel convolving over the input. This kernel looks for vertical edges in the input image. The kernel values are multiplied elementwise with the input locations and the results are added together to get the value at the location in the output feature map which corresponds to the center of the image locations  \cite{freecodecamp}.}
+		\label{Fig:convolution}
+	\end{figure}
+	
+The entire 3D convolution filter slides along the height and width of all channels of the input space looking for features along spatial locations and features across input channels. One 3D convolution filter results in a 2D feature map. Multiple such 3D convolutions are used each of which leads to a 2D feature maps which are all stacked along the depth dimension to create the output 3D volume. This process is illustrated in Figure \ref{Fig:3dconv}.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.3\linewidth]{images/3d_conv}
+		\caption{Illustration of 2D feature maps produced by two 3D convolution filters which are arranged along the depth dimension  \cite{towardsdatascience}.}
+		\label{Fig:3dconv}
+	\end{figure}
+	
+In CNNs, the filters are learnt through training the CNN for a specific task such as image classification. Once a CNN is trained, the filters in the lower layers often tend to learn simple features such as edges and corners and filters in the higher layers learn more abstract features building upon the features learned by filters in the previous layer. 
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.8\linewidth]{images/conv_template}
+		\caption{Learned filters of AlexNet CNN architecture. The filters have learned to detect features such as lines, blobs and so on \cite{cs231n}.}
+		\label{Fig:conv_template}
+	\end{figure}
+	
 
 \subsubsection{Pooling layer}
 
-\subsubsection{Normalization layer}
+
 
 \subsubsection{Fully-connected layer}
 
-\section{Deep Learning for Semantic Segmentation}
+\section{CNNs for Semantic Segmentation}
 
