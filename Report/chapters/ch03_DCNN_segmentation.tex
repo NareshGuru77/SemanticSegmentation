@@ -86,6 +86,27 @@ In CNNs, the filters are learnt through training the CNN for a specific task suc
 
 \subsubsection{Pooling layer}
 
+A pooling layer is reponsible for reducing the spatial size of the feature maps leading to reduction in the number of trainable parameters in the network. This reduction in trainable parameters leads to reduced chances of overfitting and reduced computational cost. Additionally, pooling makes CNNs invariant to translations in the input image. This induced translation invariance is desired for tasks such as image classification where it is only required to find objects in an input space irrespective of where the object is located within the image. 
+
+A pooling filter looks at a particular window in a depth slice (one 2D feature map out of 3D input feature maps) of input feature maps and produces one value as output for the window. Two common pooling types are max pooling and average pooling. The pooling filter outputs the maximum of all values and average of all values for max pooling and average pooling respectively. An illustration of max pooling and reduction in spatial size of feature maps is shown in Figure \ref{Fig:pool}.
+
+	\begin{figure}[h]
+	\centering
+		\begin{subfigure}{.35\textwidth}
+  			\centering
+  			\includegraphics[width=1\linewidth]{images/pooling}
+  			\caption{}
+  			\label{Fig:poolb}
+		\end{subfigure}
+		\begin{subfigure}{.55\textwidth}
+  			\centering
+  			\includegraphics[width=1\linewidth]{images/maxpool}
+  			\caption{}
+  			\label{Fig:poola}
+		\end{subfigure}
+		\caption{(a) Illustration of feature maps being downsampled by pooling \cite{towardsdatascience}. (b) Illustration of max pooling where the pooling filter looks at 2$\times$2 input windows. Stride 2 denotes that the window moves two steps when it moves through x or y. Each color in the depth slice of input feature maps indicates a different input window and the corresponding color in the output feature map shows the selected max value \cite{cs231n}.}
+		\label{Fig:pool}
+	\end{figure}	
 
 
 \subsubsection{Fully-connected layer}

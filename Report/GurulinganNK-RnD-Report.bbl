@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -93,6 +93,13 @@ Cityscapes dataset.
 \newblock URL
   \url{https://www.cityscapes-dataset.com/examples/#fine-annotations}.
 \newblock Online accessed: 2018-08-03.
+
+\bibitem[Dertat()]{towardsdatascience}
+Arden Dertat.
+\newblock Applied deep learning - part 4: Convolutional neural networks.
+\newblock URL
+  \url{https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2}.
+\newblock Online accessed: 2018-08-09.
 
 \bibitem[First350()]{cls_bal}
 First350.

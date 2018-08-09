@@ -13,6 +13,7 @@ Warning--empty year in depthwise
 Warning--empty year in github_robocup@work
 Warning--empty year in freecodecamp
 Warning--empty year in cityscapes
+Warning--empty year in towardsdatascience
 Warning--empty year in cls_bal
 Warning--empty publisher in haykin
 Warning--empty year in haykin
@@ -24,45 +25,45 @@ Warning--empty year in indoor
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
 Warning--empty year in quant_blog
-You've used 38 entries,
+You've used 39 entries,
             2773 wiz_defined-function locations,
-            798 strings with 12863 characters,
-and the built_in function-call counts, 16349 in all, are:
-= -- 1402
-> -- 1121
-< -- 16
-+ -- 383
-- -- 345
-* -- 1294
-:= -- 2603
-add.period$ -- 149
-call.type$ -- 38
-change.case$ -- 228
-chr.to.int$ -- 38
-cite$ -- 97
-duplicate$ -- 710
-empty$ -- 1230
-format.name$ -- 389
-if$ -- 3369
+            802 strings with 13056 characters,
+and the built_in function-call counts, 16654 in all, are:
+= -- 1429
+> -- 1131
+< -- 17
++ -- 387
+- -- 348
+* -- 1309
+:= -- 2649
+add.period$ -- 153
+call.type$ -- 39
+change.case$ -- 232
+chr.to.int$ -- 39
+cite$ -- 100
+duplicate$ -- 725
+empty$ -- 1262
+format.name$ -- 393
+if$ -- 3434
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 26
-newline$ -- 233
-num.names$ -- 144
-pop$ -- 516
+newline$ -- 239
+num.names$ -- 148
+pop$ -- 532
 preamble$ -- 1
-purify$ -- 191
+purify$ -- 194
 quote$ -- 0
-skip$ -- 575
+skip$ -- 585
 stack$ -- 0
-substring$ -- 114
-swap$ -- 51
+substring$ -- 116
+swap$ -- 52
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 413
-warning$ -- 19
-while$ -- 110
+type$ -- 424
+warning$ -- 20
+while$ -- 113
 width$ -- 0
-write$ -- 541
-(There were 20 warnings)
+write$ -- 554
+(There were 21 warnings)
