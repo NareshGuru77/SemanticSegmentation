@@ -2,11 +2,12 @@
 
 \chapter{Convolutional Neural Networks and Semantic Segmentation}
 
-	In this chapter, we look into the basic concepts of neural networks and later, how such concepts have been used for the task of semantic segmentation. In section  \textbf{[todo]}
+	In this chapter, we look into the basic concepts of neural networks and later, how such concepts have been used for the task of semantic segmentation. In section \ref{section:ann} we present an overview of Artificial Neural Networks. In \ref{section:cnn} we look into basic concepts underlying Convolutional Neural Networks (CNNs). In \ref{section:cnnseg} we look into how CNNs are adapted for the task of semantic segmentation.
 
 \section{Artificial Neural Networks}
+\label{section:ann}
 
-Artificial Neural Networks (ANN), inspired by the neural networks in our brain, was designed to learn tasks without explicitly programming descriptive features of the concerned tasks. An ANN is made up of processing units called neurons which performs a non-linear transformation, using an activation function, of the weighted linear combination of inputs. Figure \ref{Fig:haykin_ann_n} illustrates a non-linear model of a neuron. Many such neurons are connected to one another in an ANN resulting in its ability to learn highly non-linear function mappings from input to output space. Figure \ref{Fig:haykin_ann_ml} illustrates a multilayer feedforward neural network.
+Artificial Neural Networks (ANN), inspired by the neural networks in our brain, was designed to learn tasks without explicitly programming descriptive features of the concerned tasks. An ANN is made up of processing units called neurons which performs a non-linear transformation, using an activation function, of the weighted linear combination of inputs. Figure \ref{Fig:haykin_ann_n} illustrates a non-linear model of a neuron. Many such neurons are connected to one another in an ANN resulting in its ability to learn highly non-linear function mappings from input to output space. Figure \ref{Fig:haykin_ann_ml} illustrates a multilayer feedforward neural network which is a type of ANN.
 
 	\begin{figure}
 		\centering
@@ -25,12 +26,9 @@ Artificial Neural Networks (ANN), inspired by the neural networks in our brain, 
 		\caption{(a) A non-linear neuron model. $v_k$ = $\sum_{i=1}^{m} w_{ki} x_i$ denotes the local field of the neuron, $\varphi$ is the activation function and $y = \varphi(v_k)$ is the output of the neuron. (b) An illustration of a multilayer feedforward neural network with input source nodes, one hidden layer of neurons and an output layer of neurons \cite{haykin}.}
 		\label{Fig:haykin_ann}
 	\end{figure}
-	
-\subsection{Universal approximation theorem}
-
-
 
 \section{Convolutional Neural Networks}
+\label{section:cnn}
 
 Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection and semantic segmentation make use of CNNs. Unlike the multilayer feedforward network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2 dimensional values. A major part of CNNs comprise the use of convolutional layers which greatly reduce the number of parameters in comparison to fully-connected layers.
 
@@ -111,5 +109,7 @@ A pooling filter looks at a particular window in a depth slice (one 2D feature m
 
 \subsubsection{Fully-connected layer}
 
-\section{CNNs for Semantic Segmentation}
 
+
+\section{CNNs for Semantic Segmentation}
+\label{section:cnnseg}
