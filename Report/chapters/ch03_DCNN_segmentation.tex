@@ -34,12 +34,12 @@ Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neu
 
 \subsection{CNN Architecture}
 
-The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layer, pooling layer, normalization layer and pooling layer. Each of the layers are looked into in detail in the subsequent sections.
+The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layer, pooling layer and fully-connected layer. Each of the layers are looked into in detail in the subsequent sections.
 	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=1\linewidth]{images/cnn_matlab}
-		\caption{This figure illustrates a CNN architecture. A convolution layer convolves on the input image or feature maps followed by an ReLU activation which produces output feature maps. A pooling layer downsamples feature maps. The CNN architecture performs feature learning and classification \cite{matlab_cnn}.}
+		\caption{This figure illustrates a CNN architecture. A convolution layer convolves on the input image or feature maps followed by an ReLU activation which produces output feature maps. A pooling layer downsamples feature maps. The CNN architecture shown, performs feature learning and classification \cite{matlab_cnn}.}
 		\label{Fig:cnn_arch}
 	\end{figure}
 
@@ -109,7 +109,13 @@ A pooling filter looks at a particular window in a depth slice (one 2D feature m
 
 \subsubsection{Fully-connected layer}
 
-
+In fully-connected layers, every neuron in a layer is connected to all neurons or input nodes in the previous layer. The hidden layer shown in Figure \ref{Fig:haykin_ann_ml} illustrates a fully-connected layer. In CNNs, the outputs produced by convolutional layers and pooling layers are 3D feature maps wheraes a fully-connected layer expects a 1D vector as input. Therefore, 3D feature maps are are converted to a 1D vector which is then given as input to fully-connected layers. There are two ways in which this 1D input to fully-connected layers is created in CNNs. One way is to directly flatten the 3D feature maps. For instance, if the 3D feature maps have a dimension of 7$\times$7$\times$5, the values are arranged in the form of a 1D vector with 245 values. In the second way, a technique called global average pooling is used to take the average value out of every depth slice of the 3D feature maps and then create a flattened 1D vector. If the feature map is of dimension 7$\times$7$\times$5, average value out of 5, 7$\times$7 depth slice is taken to get 1$\times$1$\times$5. This is flattened to create a 1D vector input with 5 values as input to fully-connected layers. The output of fully-connected layers are then fed to a softmax function which converts the output into probability scores for the different classes involved.
 
 \section{CNNs for Semantic Segmentation}
 \label{section:cnnseg}
+
+The CNN architecture discussed so far, learns to extract features and perform image classification by resulting in a probability score for each class. For instance, for a 10 class classification problem, for every input image, a trained CNN produces 10 values in the range [0,1] each of which provides the probability that the image belongs to the corresponding class. However, semantic segmentation is a dense prediction task which requires a class to be assigned to every pixel in the input image and hence for every input image, the output is expected to be another image of the same spatial size as the input image and contains in every pixel a value which denotes a class. This output is called a segmentation map. 
+
+For this reason, two changes are done to the CNN architecture. One is replacing the fully-connected layers with convolutional layers or removing them and the other is upsampling the final feature maps produced back to the original input spatial size. 
+
+The resultant CNN produces 3D feature maps with spatial size lower than that of input spatial size. However, the expected output for semantic segmentation is a segmentation map, the 3D feature maps need to be upsampled. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). 
