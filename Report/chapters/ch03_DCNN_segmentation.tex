@@ -119,3 +119,21 @@ The CNN architecture discussed so far, learns to extract features and perform im
 For this reason, two changes are done to the CNN architecture. One is replacing the fully-connected layers with convolutional layers or removing them and the other is upsampling the final feature maps produced back to the original input spatial size. 
 
 The resultant CNN produces 3D feature maps with spatial size lower than that of input spatial size. However, the expected output for semantic segmentation is a segmentation map, the 3D feature maps need to be upsampled. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). 
+
+	\begin{figure}[h]
+	\centering
+		\begin{subfigure}{.45\textwidth}
+  			\centering
+  			\includegraphics[width=.7\linewidth]{images/reg_conv}
+  			\caption{}
+  			\label{Fig:tranconva}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+  			\centering
+  			\includegraphics[width=.7\linewidth]{images/tran_conv}
+  			\caption{}
+  			\label{Fig:tranconvb}
+		\end{subfigure}
+		\caption{ \cite{diff_conv}.}
+		\label{Fig:tranconv}
+	\end{figure}

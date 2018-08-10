@@ -362,6 +362,15 @@
   Url                      = {https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-a-google-lens-update-integration-with-street-view/?guccounter=1}
 }
 
+@Misc{diff_conv,
+  Title                    = {An Introduction to different Types of Convolutions in Deep Learning},
+
+  Author                   = {Paul-Louis Pröve},
+  Note                     = {Online accessed: 2018-08-10},
+
+  Url                      = {https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d}
+}
+
 @Article{DBLP:journals/corr/abs-1709-00849,
   Title                    = {Dataset Augmentation with Synthetic Images Improves Semantic Segmentation},
   Author                   = {Param S. Rajpura and Manik Goyal and Hristo Bojinov and Ravi S. Hegde},
