@@ -405,8 +405,7 @@ The backgrounds used for the artificial image generation process are images with
 \section{Data analysis}
 \label{section:analysis}
 
-\textbf{[Incomplete]}
-	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears in the training set of the variety of backgrounds dataset. 
+	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears in the training set of the variety of backgrounds dataset. This provides insights regarding whether or not all the objects are represented equally by the dataset. If an object occupies pixels which is significantly greater than the pixels occupied by all other objects, this object can be considered to dominate the dataset. Intuitively, a segmentation model would favor a dominant object as classifying this object correctly would take the model closest to a global minimum. On this regard, sorting objects in terms of their dominance in the dataset would help provide clues to why a segmentation model segments certain objects better than others. 
 	
 	\subsection{Surface area of the objects}
 		
@@ -459,11 +458,18 @@ The backgrounds used for the artificial image generation process are images with
 			\label{Table:surface}
 		\end{table}
 		
+		\begin{figure}
+		\centering
+		\includegraphics[scale=0.3]{images/all_objects}
+		\caption{This figure shows all the 18 objects in the dataset arranged in increasing order of surface area from top left to bottom right. First row from left: "distance\_tube", "m20", "bearing", "axis", "r20", "m30", "m20\_100", "motor", "bearing\_box\_ax16", 'bearing\_box\_ax01", "f20\_20\_B", "f20\_20\_G". Second row from left: "em\_01", "s40\_40\_B", "s40\_40\_G", "em\_02", "container\_box\_red", "container\_box\_red".}
+		\label{Fig:allobjects}
+	\end{figure}
+	
 	\subsection{Percentage of pixels and class count}
 		
-		The total pixels occupied by each class in each of the training, validation and test sets is calculated. Next, this count of pixels is converted to percentage with respect to the total number of pixels in the corresponding dataset split. Also, the number of images in which each class of objects appears is counted and called class count. The resulting plots are shown in \ref{Fig:ana_full_b} and \ref{Fig:ana_full}. In \ref{Fig:ana_full_b}, it is evident that compared to the background class, the object classes occupy almost negligible pixel area. This is desired as the background class is present in all images and in most of them, occupies the most pixel area. The larger object classes occupy the most pixel area as can be seen in \ref{Fig:ana_full}. However, in terms of class count all objects are fairly close to each other. A direct reason is infact that larger size occupies more pixel area. Indirectly however, the larger objects are less likely to be rejected by the artificial image generation algorithm after being randomly scaled. This again leads to increased pixel area occupied by the larger objects.
-			
-		\begin{figure}[h]
+		The total pixels occupied by each class in the training set is calculated. Next, this count of pixels is converted to percentage with respect to the total number of pixels in the corresponding dataset split. Also, the number of images in which each class of objects appears is counted and called class count. The lower plot in Figure \ref{Fig:analyzera} shows normalized values of surface area and percentage of pixels of objects in the atWork\_full variant plotted as histograms. The bars are arranged in the increasing order of surface area. The percentage of pixels also seems to increase along with surface area but is not consistent. However, when every 3 classes are combined starting from "distance\_tube", and plotted separately shown in the upper plot of \ref{Fig:analyzera}, an apparent pattern appears which shows an increasing trend followed by percentage of pixels in propotion to surface area. A similar inference could be made for atWork\_size\_invariant and atWork\_similar\_shapes variant from plots in Figure \ref{Fig:analyzerb} and Figure \ref{Fig:analyzerc} respectively.
+		
+		\begin{figure}
 			\begin{subfigure}{1\textwidth}
 				\centering
 				\includegraphics[width=1\linewidth]{images/analyzer_full}
@@ -482,10 +488,13 @@ The backgrounds used for the artificial image generation process are images with
 				\caption{}
 				\label{Fig:analyzerc}
 			\end{subfigure}
-			\caption{. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
+			\caption{This plot shows that the percentage of pixels occupied by objects in the variety of backgrounds dataset is related to the real world surface area of the objects. The plots are for different dataset variants: (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:analyzer}
-		\end{figure}
-	
+		\end{figure}		
+		
+An indirect reason for this apparent increase of percentage of pixels in propotion to surface area could be attributed to the generator options used in the artificial image generation algorithm. The artificial image generator ignores scaled objects which are too small and attempts to generate objects which are bigger. This is done to avoid objects which tend to be not visible in the produced artificial images. As a result, objects which are bigger are more likely to survive the artificial image generation process and appear more in the dataset. 
+
+An important inference from this data analysis is that a segmentation model is likely to ignore smaller objects such as "distance\_tube" and is likely to learn bigger objects such as "container\_box\_red" better. 
 
 \section{Meta-data of the dataset}
 
@@ -504,7 +513,7 @@ Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers ho
 	Total Images & 7500 & 942 & 939 \\ 
 	\hline 
 	\end{tabular}
-	\caption{Meta-data of all 4 variants of the variety of backgrounds and the white backgrounds dataset.} 
+	\caption{Meta-data of all 4 variants of the variety of backgrounds and the white backgrounds dataset.}
 	\label{Table:meta}
 \end{table}
 
