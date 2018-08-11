@@ -1,5 +1,5 @@
-from data_augmentation.data_analyzer import data_analysis
-from data_augmentation.data_analyzer.get_tags_keys import tags_keys
+from data_analyzer import data_analysis
+from data_analyzer.get_tags_keys import tags_keys
 
 
 def generate_results(analyzer_train, analyzer_validation,

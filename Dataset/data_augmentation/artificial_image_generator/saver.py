@@ -1,5 +1,5 @@
-from data_augmentation.arguments import generator_options
-from data_augmentation.visualizer import save_visuals
+from artificial_image_generator.arguments import generator_options
+from artificial_image_generator.visualizer import save_visuals
 import os
 import cv2
 import csv

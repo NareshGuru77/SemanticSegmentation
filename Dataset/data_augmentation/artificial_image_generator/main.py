@@ -1,9 +1,9 @@
-from data_augmentation.arguments import generator_options
-from data_augmentation.arguments import _LABEL_DEF_FULL
-from data_augmentation.generate_artificial_images import perform_augmentation
-from data_augmentation.visualizer import save_visuals
-from data_augmentation.saver import make_save_dirs
-from data_augmentation.get_backgrounds_and_data import fetch_image_gt_paths
+from artificial_image_generator.arguments import generator_options
+from artificial_image_generator.arguments import _LABEL_DEF_FULL
+from artificial_image_generator.generate_artificial_images import perform_augmentation
+from artificial_image_generator.visualizer import save_visuals
+from artificial_image_generator.saver import make_save_dirs
+from artificial_image_generator.get_backgrounds_and_data import fetch_image_gt_paths
 import cv2
 import csv
 import tqdm

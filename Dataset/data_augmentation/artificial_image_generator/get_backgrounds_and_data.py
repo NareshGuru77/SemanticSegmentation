@@ -1,5 +1,5 @@
-from data_augmentation.arguments import generator_options
-from data_augmentation.arguments import LABEL_DEF_MATLAB
+from artificial_image_generator.arguments import generator_options
+from artificial_image_generator.arguments import LABEL_DEF_MATLAB
 import os
 import logging
 import cv2

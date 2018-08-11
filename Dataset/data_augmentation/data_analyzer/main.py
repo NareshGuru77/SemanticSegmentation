@@ -1,8 +1,6 @@
-from data_augmentation.data_analyzer.data_analysis import DataAnalysis
-from data_augmentation.data_analyzer.gather_results import generate_results
-from data_augmentation.data_analyzer.data_analysis import variant_to_label_def
-from data_augmentation.data_analyzer.plot_results import plot
-from data_augmentation.data_analyzer.plot_results import plot_with_area
+from data_analyzer.data_analysis import DataAnalysis
+from data_analyzer.gather_results import generate_results
+from data_analyzer.plot_results import plot_with_area
 import pickle
 import argparse
 
@@ -21,7 +19,7 @@ parser.add_argument('--validation_label_path', default=None, type=str, required=
 parser.add_argument('--test_label_path', default=None, type=str, required=False,
                     help='label path of test set.')
 
-parser.add_argument('--load', default=False, type=bool, required=False,
+parser.add_argument('--load_file', default=False, type=bool, required=False,
                     help='Whether to load the results from txt.')
 
 parser.add_argument('--load_file_path', default=None, type=str, required=False,
@@ -29,27 +27,26 @@ parser.add_argument('--load_file_path', default=None, type=str, required=False,
 
 args = parser.parse_args()
 
+print(args.load_file)
+if not args.load_file:
+    print(True)
+    analyzer_tr = DataAnalysis(variant=args.variant,
+                               label_path=args.train_label_path)
+    analyzer_va = DataAnalysis(variant=args.variant,
+                               label_path=args.validation_label_path)
+    analyzer_te = DataAnalysis(variant=args.variant,
+                               label_path=args.test_label_path)
 
-if not args.load:
-    analyzer_tr = DataAnalysis(variant='shape',
-                               label_path='/home/nareshguru77/Documents/RnD/final_dataset_results/real_augmented/'
-                                          'training/similar_shapes')
-    analyzer_va = DataAnalysis(variant='shape',
-                               label_path='/home/nareshguru77/Documents/RnD/final_dataset_results/real_augmented/'
-                                          'validation/similar_shapes')
-    analyzer_te = DataAnalysis(variant='shape',
-                               label_path='/home/nareshguru77/Documents/RnD/final_dataset_results/real_augmented/'
-                                          'test/similar_shapes')
+    results = generate_results(analyzer_tr, analyzer_va, analyzer_te,
+                               variant=args.variant)
 
-    results = generate_results(analyzer_tr, analyzer_va, analyzer_te, variant='shape')
-
-    with open('./atWork_shape.txt', 'wb') as f:
+    with open(args.load_file_path, 'wb') as f:
         pickle.dump(results, f)
 
-    plot_with_area(results)
+    plot_with_area(results, args.variant)
 
 else:
-    with open('./atWork_full.txt', 'rb') as f:
+    with open(args.load_file_path, 'rb') as f:
         results = pickle.load(f)
 
-    plot_with_area(results)
+    plot_with_area(results, args.variant)

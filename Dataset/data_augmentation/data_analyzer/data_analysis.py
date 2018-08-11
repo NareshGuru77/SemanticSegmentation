@@ -3,22 +3,22 @@ import numpy as np
 import os
 
 
-object_to_surface_area_full = {'f20_20_B': 1, 's40_40_B': 2, 'f20_20_G': 3,
-                               's40_40_G': 4, 'm20_100': 5, 'm20': 6, 'm30': 7, 'r20': 8,
-                               'bearing_box_ax01': 9, 'bearing': 10, 'axis': 11, 'distance_tube': 12,
-                               'motor': 13, 'container_box_blue': 14, 'container_box_red': 15,
-                               'bearing_box_ax16': 16, 'em_01': 17, 'em_02': 18}
+object_to_surface_area_full = {'f20_20_B': 158.36, 's40_40_B': 426.77, 'f20_20_G': 158.36,
+                               's40_40_G': 426.77, 'm20_100': 90.00, 'm20': 37.59, 'm30': 83.84, 'r20': 80.82,
+                               'bearing_box_ax01': 114.83, 'bearing': 59.51, 'axis': 67.30, 'distance_tube': 21.39,
+                               'motor': 112.31, 'container_box_blue': 1244.50, 'container_box_red': 1244.50,
+                               'bearing_box_ax16': 106.38, 'em_01': 372.85, 'em_02': 544.54}
 
-object_to_surface_area_size = {'f_s20_40_20_40_B': 1, 'f_s20_40_20_40_G': 2,
-                               'm20_100': 3, 'm20_30': 4, 'r20': 5, 'bearing_box': 6,
-                               'bearing': 7, 'axis': 8, 'distance_tube': 9, 'motor': 10,
-                               'container_box_blue': 11, 'container_box_red': 12, 'em_01': 13,
-                               'em_02': 14}
+object_to_surface_area_size = {'f_s20_40_20_40_B': 585.13, 'f_s20_40_20_40_G': 585.13,
+                               'm20_100': 90.00, 'm20_30': 121.43, 'r20': 80.82, 'bearing_box': 221.21,
+                               'bearing': 59.51, 'axis': 67.30, 'distance_tube': 21.39, 'motor': 112.31,
+                               'container_box_blue': 1244.50, 'container_box_red': 1244.50, 'em_01': 372.85,
+                               'em_02': 544.54}
 
-object_to_surface_area_shape = {'f_s20_40_20_40_B_G': 1, 'm20_100': 2,
-                                'm20_30': 3, 'r20': 4, 'bearing_box': 5, 'bearing': 6,
-                                'axis': 7, 'distance_tube': 8, 'motor': 9, 'container': 10,
-                                'em_01': 11, 'em_02': 12}
+object_to_surface_area_shape = {'f_s20_40_20_40_B_G': 1170.26, 'm20_100': 90.00,
+                                'm20_30': 121.43, 'r20': 80.82, 'bearing_box': 221.21, 'bearing': 59.51,
+                                'axis': 67.30, 'distance_tube': 21.39, 'motor': 112.31, 'container': 2489,
+                                'em_01': 372.85, 'em_02': 544.54}
 
 object_to_surface_area_binary = {'foreground': 1}
 

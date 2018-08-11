@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
-from data_augmentation.data_analyzer.get_tags_keys import tags_keys
+from data_analyzer.get_tags_keys import tags_keys
 import numpy as np
 import operator
 import copy
+import cycler
+import matplotlib as mpl
 
 
 def plot(results, ignore_background=True,
@@ -57,9 +59,40 @@ def plot(results, ignore_background=True,
     plt.show()
 
 
-def plot_with_area(results, ignore_background=True,
-         bar_width=0.25, set_fonts=14, fig_width=12,
-         fig_height=5, display_title=False, plot_weight=False):
+def infer_relation(area_vals, percent_vals, variant, set_fonts, combine):
+
+    x = np.arange(0, len(area_vals) / combine)
+    area_vals = np.reshape(area_vals,
+                           (int(len(area_vals) / combine), combine))
+    area_vals = np.sum(area_vals, axis=1)
+    percent_vals = np.reshape(percent_vals,
+                              (int(len(percent_vals) / combine), combine))
+    percent_vals = np.sum(percent_vals, axis=1)
+
+    plt.bar(x + 0.3, area_vals, width=0.3, zorder=3, label=tags_keys.surface_area_key)
+    plt.bar(x, percent_vals, width=0.3,
+            align='center', zorder=3, label=tags_keys.percentage_key)
+    plt.xticks([])
+    plt.grid(zorder=0, axis='y')
+
+    plt.tick_params(axis='both', which='major', labelsize=set_fonts)
+    plt.xlabel('Combine every 3 classes' if 'full' in variant else
+               'Combine every 2 classes', fontsize=set_fonts)
+    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102),
+               loc=3, ncol=3,
+               borderaxespad=0., prop={'size': set_fonts})
+    plt.tight_layout()
+
+
+def plot_with_area(results, variant, ignore_background=True,
+                   bar_width=0.3, set_fonts=14, fig_width=9,
+                   fig_height=6, display_title=False,
+                   plot_weight=False):
+
+    num_plots = 5
+    colormap = plt.cm.get_cmap('Dark2')
+    color = colormap(np.linspace(0, 1, num_plots))
+    mpl.rcParams['axes.prop_cycle'] = cycler.cycler('color', color)
 
     any_result = copy.deepcopy(results[tags_keys.data_key][
                                    tags_keys.surface_area_key][0])
@@ -71,26 +104,31 @@ def plot_with_area(results, ignore_background=True,
                               key=operator.itemgetter(1)))[:, 0]
     x = np.arange(0, len(classes))
 
-    cmap = plt.cm.get_cmap('Paired')
-    labels_list = []
-    colors = [cmap(0.2), cmap(0.5), cmap(0.7)]
     figure = plt.figure(figsize=(fig_width, fig_height))
 
     if not plot_weight:
         results[tags_keys.data_key].pop(tags_keys.weight_key, None)
 
-    dictionary = []
-    for index, (key, value) in enumerate(
-            results[tags_keys.data_key].items()):
-        dictionary.append(value[0])
-        labels_list.append(key)
+    count_dict = results[tags_keys.data_key][tags_keys.count_key]
+    results[tags_keys.data_key].pop(tags_keys.count_key, None)
 
-    for index, d in enumerate(dictionary):
-        y = [d[cls] for cls in classes]
-        y = [val/max(y) for val in y]
-        plt.bar(x + (index - 1) * bar_width, y,
-                width=bar_width, align='center', color=colors[index],
-                zorder=3, label=labels_list[index])
+    area_vals = [results[tags_keys.data_key][tags_keys.surface_area_key][0][cls]
+                 for cls in classes]
+    area_vals = [val / sum(area_vals) for val in area_vals]
+
+    percent_vals = [results[tags_keys.data_key][tags_keys.percentage_key][0][cls]
+                 for cls in classes]
+    percent_vals = [val / sum(percent_vals) for val in percent_vals]
+
+    figure.add_subplot(2, 1, 1)
+    infer_relation(area_vals, percent_vals, variant, set_fonts,
+                   3 if 'full' in variant else 2)
+
+    figure.add_subplot(2, 1, 2)
+    plt.bar(x + bar_width, area_vals, width=bar_width, align='center',
+            zorder=3, label=tags_keys.surface_area_key)
+    plt.bar(x, percent_vals, width=bar_width, align='center',
+            zorder=3, label=tags_keys.percentage_key)
 
     plt.xticks([])
     plt.ylabel('Normalized values', fontsize=set_fonts)

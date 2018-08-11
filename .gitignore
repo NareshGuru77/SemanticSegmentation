@@ -21,3 +21,5 @@ Report/GurulinganNK-RnD-Report.synctex.gz
 Report/GurulinganNK-RnD-Report.toc
 Dataset/data_augmentation/data_analyzer/__pycache__/*
 Report/chapters/*.log
+Dataset/data_augmentation/.idea/
+Dataset/data_augmentation/data_analyzer/.idea/

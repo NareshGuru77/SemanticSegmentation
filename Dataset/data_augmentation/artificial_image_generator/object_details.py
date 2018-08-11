@@ -1,6 +1,6 @@
-from data_augmentation.arguments import generator_options, \
+from artificial_image_generator.arguments import generator_options, \
     LABEL_DEF_MATLAB, SCALES_RANGE_DICT
-from data_augmentation.get_backgrounds_and_data import read_image_labels, \
+from artificial_image_generator.get_backgrounds_and_data import read_image_labels, \
     fetch_image_gt_paths
 import tqdm
 import numpy as np

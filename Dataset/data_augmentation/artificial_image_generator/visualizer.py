@@ -1,5 +1,4 @@
-from data_augmentation.arguments import generator_options, LABEL_DEF_MATLAB
-from data_augmentation.get_backgrounds_and_data import fetch_image_gt_paths
+from artificial_image_generator.arguments import generator_options, LABEL_DEF_MATLAB
 import matplotlib.pyplot as plt
 import cv2
 import os
@@ -22,7 +21,6 @@ def plot_preview(image, label, obj_det_label, index):
     """
     This function can be used to plot a preview image,
     which shows the image and labels alongside each other.
-
     :param image: Image to plot.
     :param label: Corresponding segmentation label.
     :param obj_det_label: Corresponding object detection label.

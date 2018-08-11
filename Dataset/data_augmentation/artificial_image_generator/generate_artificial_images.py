@@ -1,8 +1,8 @@
-from data_augmentation.arguments import generator_options, LABEL_DEF_MATLAB
-from data_augmentation.object_details import get_scaled_objects
-from data_augmentation.generate_augmenter_list import create_augmenter_list
-from data_augmentation.saver import make_save_dirs
-from data_augmentation.saver import save_data
+from artificial_image_generator.arguments import generator_options, LABEL_DEF_MATLAB
+from artificial_image_generator.object_details import get_scaled_objects
+from artificial_image_generator.generate_augmenter_list import create_augmenter_list
+from artificial_image_generator.saver import make_save_dirs
+from artificial_image_generator.saver import save_data
 import copy
 import numpy as np
 import tqdm
