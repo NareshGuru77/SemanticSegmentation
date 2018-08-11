@@ -28,11 +28,11 @@ Unlike the task of image classification (Figure \ref{Fig:cls}), where the locati
 
 \section{Motivation}
 
-Semantic segmentation provides rich information from image space which could be interpreted to make useful inferences about the real world scene depicted by the image. We look at three potential applications of sematic segmentation which stand out to show the benefits of information obtained through semantic segmentation. 
+Semantic segmentation provides rich information from image space which could be interpreted to make useful inferences about the real world scene depicted by the image. We look at three potential applications of semantic segmentation which stand out to show the benefits of information obtained through semantic segmentation. 
 
 \subsection{Potential applications}
 
-Semantic segmentation can be used in autonomous cars to segment a road scene and extract information such as where the road is, where pedestrains are and so on. An example street scene segmentation is shown in Figure \ref{Fig:appauto}. In robotics, an example application would be segmentation of an indoor dining table shown in Figure \ref{Fig:approbo}. A robot could use this information to identify plates, chairs and so on. In augmented reality, an augmented dog could be placed in a sidewalk to walk a person to his destination as illustrated in Figure \ref{Fig:appaug}. 
+Semantic segmentation can be used in autonomous cars to segment a road scene and extract information such as where the road is, where pedestrians are and so on. An example street scene segmentation is shown in Figure \ref{Fig:appauto}. In robotics, an example application would be segmentation of an indoor dining table shown in Figure \ref{Fig:approbo}. A robot could use this information to identify plates, chairs and so on. In augmented reality, an augmented dog could be placed in a sidewalk to walk a person to his destination as illustrated in Figure \ref{Fig:appaug}. 
 
 	\begin{figure}[h]
 		\centering
@@ -69,7 +69,7 @@ As semantic segmentation is a pixelwise classification task, every pixel in the 
 
 \subsection{Context knowledge}
 
-Objects in general, could be represented by different features. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context, the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distint and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
+Objects in general, could be represented by different features. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context, the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distinct and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
 
 	\begin{figure}[h]
 		\centering

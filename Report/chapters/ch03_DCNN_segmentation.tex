@@ -116,9 +116,7 @@ In fully-connected layers, every neuron in a layer is connected to all neurons o
 
 The CNN architecture discussed so far, learns to extract features and perform image classification by resulting in a probability score for each class. For instance, for a 10 class classification problem, for every input image, a trained CNN produces 10 values in the range [0,1] each of which provides the probability that the image belongs to the corresponding class. However, semantic segmentation is a dense prediction task which requires a class to be assigned to every pixel in the input image and hence for every input image, the output is expected to be another image of the same spatial size as the input image and contains in every pixel a value which denotes a class. This output is called a segmentation map. 
 
-For this reason, two changes are done to the CNN architecture. One is replacing the fully-connected layers with convolutional layers or removing them and the other is upsampling the final feature maps produced back to the original input spatial size. 
-
-The resultant CNN produces 3D feature maps with spatial size lower than that of input spatial size. However, the expected output for semantic segmentation is a segmentation map, the 3D feature maps need to be upsampled. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). 
+For this reason, two changes are done to the CNN architecture. One is replacing fully-connected layers with convolutional layers and the other is upsampling the final feature maps produced back to the original input spatial size. Fully-connected layers require a flattened 1D input vector and outputs a 1D vector. This is not required for semantic segmentation as the output is a 2D segmentation map. Hence, fully-connected layers can be replaced with convolutional layers. This has the advantage of reducing the number of trainable parameters as convolutional layers use less trainable parameters in comparison to fully-connected layers, leading to a reduction in the chances of overfitting.
 
 	\begin{figure}[h]
 	\centering
@@ -134,6 +132,8 @@ The resultant CNN produces 3D feature maps with spatial size lower than that of 
   			\caption{}
   			\label{Fig:tranconvb}
 		\end{subfigure}
-		\caption{ \cite{diff_conv}.}
+		\caption{(a) 3$\times$3 convolution with stride 2 on a 5$\times$5 feature map (shown in blue) producing a 2$\times$2 feature map (shown in green). (b) 3$\times$3 fractionally strided convolution upsampling a 2$\times$2 feature map (shown in blue) to get a 5$\times$5 feature map (shown in green) \cite{diff_conv}.}
 		\label{Fig:tranconv}
 	\end{figure}
+
+After replacing the fully-connected layers with convolutional layers, we are left with 3D feature maps with reduced spatial size. To get a segmentation map, these 3D feature maps need to be upsampled back to the original input spatial size. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). This type of convolution as shown in Figure \ref{Fig:tranconvb}, pads zeros to the input feature map in a manner which results in the desired upsampling when convolved over. In this example, we see a 2$\times$2 feature map upsampled to 5$\times$5 feature map by adding a row and a column of zeros in between the two existing rows and columns respectively and also zero padding by 2 around the feature map. A 3$\times$3 convolution can now be used to get back a spatial size of 5$\times$5. The advantage of using a fractionally strided convolution is that the parameters of the filter are learned through training instead of using a fixed upsampling method such as interpolation.

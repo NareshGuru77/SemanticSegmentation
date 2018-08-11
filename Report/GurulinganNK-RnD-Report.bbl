@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -181,6 +181,13 @@ Sarah Perez.
 \newblock URL
   \url{https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-a-google-lens-update-integration-with-street-view/?guccounter=1}.
 \newblock Online accessed: 2018-08-03.
+
+\bibitem[Pröve()]{diff_conv}
+Paul-Louis Pröve.
+\newblock An introduction to different types of convolutions in deep learning.
+\newblock URL
+  \url{https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d}.
+\newblock Online accessed: 2018-08-10.
 
 \bibitem[Rajpura et~al.(2017)Rajpura, Goyal, Bojinov, and
   Hegde]{DBLP:journals/corr/abs-1709-00849}

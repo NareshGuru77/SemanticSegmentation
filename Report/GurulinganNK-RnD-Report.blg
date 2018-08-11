@@ -4,7 +4,7 @@ The top-level auxiliary file: GurulinganNK-RnD-Report.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--string name "cvpr" is undefined
---line 420 of file bibliography.bib.bib
+--line 429 of file bibliography.bib.bib
 Warning--to sort, need author or key in matlab_cnn
 Warning--to sort, need author or key in cs231n
 Warning--empty year in cs231n
@@ -19,51 +19,52 @@ Warning--empty publisher in haykin
 Warning--empty year in haykin
 Warning--empty year in haykin
 Warning--empty year in techcrunch
+Warning--empty year in diff_conv
 Warning--empty booktitle in RosCVPR16
 Warning--empty year in mnbb
 Warning--empty year in indoor
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
 Warning--empty year in quant_blog
-You've used 39 entries,
+You've used 40 entries,
             2773 wiz_defined-function locations,
-            802 strings with 13056 characters,
-and the built_in function-call counts, 16654 in all, are:
-= -- 1429
-> -- 1131
-< -- 17
-+ -- 387
-- -- 348
-* -- 1309
-:= -- 2649
-add.period$ -- 153
-call.type$ -- 39
-change.case$ -- 232
-chr.to.int$ -- 39
-cite$ -- 100
-duplicate$ -- 725
-empty$ -- 1262
-format.name$ -- 393
-if$ -- 3434
+            807 strings with 13258 characters,
+and the built_in function-call counts, 16959 in all, are:
+= -- 1456
+> -- 1141
+< -- 18
++ -- 391
+- -- 351
+* -- 1324
+:= -- 2695
+add.period$ -- 157
+call.type$ -- 40
+change.case$ -- 236
+chr.to.int$ -- 40
+cite$ -- 103
+duplicate$ -- 740
+empty$ -- 1294
+format.name$ -- 397
+if$ -- 3499
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 26
-newline$ -- 239
-num.names$ -- 148
-pop$ -- 532
+newline$ -- 245
+num.names$ -- 152
+pop$ -- 548
 preamble$ -- 1
-purify$ -- 194
+purify$ -- 197
 quote$ -- 0
-skip$ -- 585
+skip$ -- 595
 stack$ -- 0
-substring$ -- 116
-swap$ -- 52
+substring$ -- 118
+swap$ -- 53
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 424
-warning$ -- 20
-while$ -- 113
+type$ -- 435
+warning$ -- 21
+while$ -- 116
 width$ -- 0
-write$ -- 554
-(There were 21 warnings)
+write$ -- 567
+(There were 22 warnings)
