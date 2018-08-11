@@ -4,7 +4,7 @@
 
 In recent years, deep learning has significantly impacted research in the field of computer vision. Variations of Convolutional Neural Network architectures have shown state-of-the-art performance in computer vision tasks such as image classification \cite{DBLP:journals/corr/HeZRS15}, object detection \cite{DBLP:journals/corr/RedmonDGF15}, action recognition \cite{DBLP:journals/corr/SimonyanZ14} and semantic segmentation \cite{DBLP:journals/corr/abs-1802-02611}. A considerable part of this success comes from the supervised learning paradigm through which the networks are trained with labeled samples.
 
-State-of-the-art deep learning techniques in semantic segmentation also make use of the supervised learning paradigm. Semantic segmentation is treated as a pixelwise classification problem with the goal of assigning a class from a list of desired classes to every pixel in an image. The resultant image splits objects of interest into different regions thereby achieving the intended segmentation into meaningful regions.
+State-of-the-art deep learning techniques in semantic segmentation also make use of the supervised learning paradigm. Semantic segmentation is treated as a pixel-wise classification problem with the goal of assigning a class from a list of desired classes to every pixel in an image. The resultant image splits objects of interest into different regions thereby achieving the intended segmentation into meaningful regions.
 
 	\begin{figure}[h]
 		\centering
@@ -24,7 +24,7 @@ State-of-the-art deep learning techniques in semantic segmentation also make use
 		\label{Fig:clsseg}
 	\end{figure}
 	
-Unlike the task of image classification (Figure \ref{Fig:cls}), where the location and boundaries of the desired object in the image is irrelevant, semantic segmentation (Figure \ref{Fig:seg}) requires the neural network to be able to spatially localize desired objects, delineate object boundaries and produce single channel segmentation map (output image) which is of the same size as the input image.
+Unlike the task of image classification (Figure \ref{Fig:cls}), where the location and boundaries of the desired object in the image are irrelevant, semantic segmentation (Figure \ref{Fig:seg}) requires the neural network to be able to spatially localize desired objects, delineate object boundaries and produce single channel segmentation map (output image) which is of the same size as the input image.
 
 \section{Motivation}
 
@@ -32,7 +32,7 @@ Semantic segmentation provides rich information from image space which could be 
 
 \subsection{Potential applications}
 
-Semantic segmentation can be used in autonomous cars to segment a road scene and extract information such as where the road is, where pedestrians are and so on. An example street scene segmentation is shown in Figure \ref{Fig:appauto}. In robotics, an example application would be segmentation of an indoor dining table shown in Figure \ref{Fig:approbo}. A robot could use this information to identify plates, chairs and so on. In augmented reality, an augmented dog could be placed in a sidewalk to walk a person to his destination as illustrated in Figure \ref{Fig:appaug}. 
+Semantic segmentation can be used in autonomous cars to segment a road scene and extract information such as where the road is, where pedestrians are and so on. Figure \ref{Fig:appauto} shows an example of one such road scene segmentation. In robotics, an example application would be the segmentation of an indoor dining table shown in Figure \ref{Fig:approbo}. A robot could use this information to identify plates, chairs and so on. In augmented reality, an augmented dog could be placed on a sidewalk to walk a person to his destination as illustrated in Figure \ref{Fig:appaug}. 
 
 	\begin{figure}[h]
 		\centering
@@ -61,15 +61,15 @@ Semantic segmentation can be used in autonomous cars to segment a road scene and
 
 \section{Challenges and Difficulties}
 
-In this section we look at the difficulties posed by semantic segmentation in a deep learning setting.
+In this section, we look at the difficulties posed by semantic segmentation in a deep learning setting.
 
 \subsection{Labeling cost}
 
-As semantic segmentation is a pixelwise classification task, every pixel in the ground truth image needs to be labeled. This can be achieved by first performing accurate object boundary delineation and later annotate each region with the corresponding class. Since objects could have a variety of shapes, this boundary delineation becomes difficult. Object occlusions and image space cluttered with objects further adds to this difficulty.
+As semantic segmentation is a pixel-wise classification task, every pixel in the ground truth image needs to be labeled. This labeling, can be achieved by first performing accurate object boundary delineation and later annotate each region with the corresponding class. Since objects could have a variety of shapes, this boundary delineation becomes difficult. Object occlusions and image space cluttered with objects further add to this difficulty.
 
 \subsection{Context knowledge}
 
-Objects in general, could be represented by different features. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context, the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distinct and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
+Different features could represent objects in general. In a local context, where only a small region inside the object is considered, different objects might have very similar features. Figures \ref{Fig:em01l} and Figure \ref{Fig:motorl} illustrate the selection of two local regions within two different objects. By looking into just these selected regions, it is difficult to the classify the pixels within the regions as in a local context the two objects are similar. However, when a global context is gathered as illustrated in Figures \ref{Fig:em01g} and \ref{Fig:motorg}, the two objects become distinct and it is now possible to classify the pixels within these regions. Therefore, for the task of semantic segmentation, gathering global context is important. 
 
 	\begin{figure}[h]
 		\centering
@@ -107,7 +107,7 @@ The problems intended to be addressed in this project are listed below:
 
 	\begin{itemize}
 		\item Existing benchmark datasets are not suitable when the objects needed to be segmented do not exist in the benchmark dataset. Therefore, a semantic segmentation dataset needs to be created for Robocup @Work.
-		\item Creating semantic segmentation ground truth images is time consuming because of the need to delineate boundaries of @Work objects which have a variety of shapes.
+		\item Creating semantic segmentation ground truth images is time-consuming because of the need to delineate boundaries of @Work objects which have a variety of shapes.
 		\item Since creating annotations is expensive, the dataset needs to be augmented with artificial images. The artificial images need to add diversity in terms of object scales, occlusions and so on.
 		\item One or more semantic segmentation models need to be selected which are resource efficient in terms of both memory and inference time. 
 		\item The selected segmentation models are required to be trained to segment @Work objects with considerable accuracy and at the same time is required to be resource efficient.
