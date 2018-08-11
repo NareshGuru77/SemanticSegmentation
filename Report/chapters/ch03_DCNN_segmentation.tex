@@ -30,11 +30,11 @@ Artificial Neural Networks (ANN), inspired by the neural networks in our brain, 
 \section{Convolutional Neural Networks}
 \label{section:cnn}
 
-Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection and semantic segmentation make use of CNNs. Unlike the multilayer feedforward network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2 dimensional values. A major part of CNNs comprise the use of convolutional layers which greatly reduce the number of parameters in comparison to fully-connected layers.
+Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection, and semantic segmentation make use of CNNs. Unlike the multilayer feedforward neural network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2D values. A major part of CNNs comprise the use of convolutional layers which substantially reduce the number of parameters in comparison to fully-connected layers.
 
 \subsection{CNN Architecture}
 
-The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layer, pooling layer and fully-connected layer. Each of the layers are looked into in detail in the subsequent sections.
+The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A CNN is composed of different layer types such as convolutional layers, pooling layers and fully-connected layers. Each of the layers is looked into in detail in the subsequent sections.
 	
 	\begin{figure}[h]
 		\centering
@@ -45,7 +45,7 @@ The general architecture of a CNN is illustrated in Figure \ref{Fig:cnn_arch}. A
 
 \subsubsection{Convolutional layer}
 
-An RGB image typically consists of height, width and 3 channels representing red, blue and green. In order to better handle this structure of an input image, the neurons in a convolutional layer are arranged in a 3D volume of height, width and depth. Each neuron is only connected to a small region in the input. This is called "local connectivity" and the extent of the input region to which a neuron connects is controlled by a hyperparameter called receptive field \cite{cs231n}. An illustration of the 3D arrangement of neurons can be seen in Figure \ref{Fig:cnn_neuron}. When moving along the depth dimension, each 2D arrangement of values are called filters or kernels.
+An RGB image typically consists of height, width and 3 channels representing red, blue and green. In order to better handle this structure of an input image, the neurons in a convolutional layer are arranged in a 3D volume of height, width, and depth. Each neuron is only connected to a small region in the input resulting in "local connectivity".  A hyperparameter called receptive field \cite{cs231n} controls the extent of the input region to which a neuron connects. An illustration of the 3D arrangement of neurons can be seen in Figure \ref{Fig:cnn_neuron}. When moving along the depth dimension, each 2D arrangement of values are called filters or kernels.
 
 	\begin{figure}[h]
 		\centering
@@ -54,12 +54,12 @@ An RGB image typically consists of height, width and 3 channels representing red
 		\label{Fig:cnn_neuron}
 	\end{figure}
 	
-A filter slides through an input channel, performs convolution and produces output feature maps. A filter looks for specific features like edges and corners, at the input spatial location it convolves over. As an extention, a filter can be seen as a template image and it looks for the template across the input space. Figure \ref{Fig:convolution} illustrates one such filter which looks for vertical lines. 
+A convolution filter slides through an input channel, performs convolution and produces output feature maps. A filter looks for specific features like edges and corners, at the input spatial location it convolves over. As an extension, a filter can be seen as a template image looking for a template across the input space. Figure \ref{Fig:convolution} illustrates one such filter which looks for vertical lines. 
 
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=.8\linewidth]{images/convolution}
-		\caption{A Sobel kernel convolving over the input. This kernel looks for vertical edges in the input image. The kernel values are multiplied elementwise with the input locations and the results are added together to get the value at the location in the output feature map which corresponds to the center of the image locations  \cite{freecodecamp}.}
+		\caption{This figure shows a Sobel kernel convolving over an input. This kernel looks for vertical edges in the input image. The kernel values are multiplied elementwise with the input locations, and the results are added together to get the value at the location in the output feature map which corresponds to the center of the image locations  \cite{freecodecamp}.}
 		\label{Fig:convolution}
 	\end{figure}
 	
@@ -72,7 +72,7 @@ The entire 3D convolution filter slides along the height and width of all channe
 		\label{Fig:3dconv}
 	\end{figure}
 	
-In CNNs, the filters are learnt through training the CNN for a specific task such as image classification. Once a CNN is trained, the filters in the lower layers often tend to learn simple features such as edges and corners and filters in the higher layers learn more abstract features building upon the features learned by filters in the previous layer. 
+In CNNs, the filters are learned through training the CNN for a specific task such as image classification. Once a CNN is trained, the filters in the lower layers often tend to learn simple features such as edges and corners and filters in the higher layers learn more abstract features building upon the features learned by filters in the previous layer. 
 
 	\begin{figure}[h]
 		\centering
@@ -84,9 +84,9 @@ In CNNs, the filters are learnt through training the CNN for a specific task suc
 
 \subsubsection{Pooling layer}
 
-A pooling layer is reponsible for reducing the spatial size of the feature maps leading to reduction in the number of trainable parameters in the network. This reduction in trainable parameters leads to reduced chances of overfitting and reduced computational cost. Additionally, pooling makes CNNs invariant to translations in the input image. This induced translation invariance is desired for tasks such as image classification where it is only required to find objects in an input space irrespective of where the object is located within the image. 
+A pooling layer is responsible for reducing the spatial size of the feature maps leading to a reduction in the number of trainable parameters in the network. This reduction in trainable parameters leads to reduced chances of overfitting and reduced computational cost. Additionally, pooling makes CNNs invariant to translations in the input image. This induced translation invariance is desired for tasks such as image classification where it is only required to find objects in an input space irrespective of where the object is located within the image. 
 
-A pooling filter looks at a particular window in a depth slice (one 2D feature map out of 3D input feature maps) of input feature maps and produces one value as output for the window. Two common pooling types are max pooling and average pooling. The pooling filter outputs the maximum of all values and average of all values for max pooling and average pooling respectively. An illustration of max pooling and reduction in spatial size of feature maps is shown in Figure \ref{Fig:pool}.
+A pooling filter looks at a particular window in a depth slice (one 2D feature map out of 3D input feature maps) of input feature maps and produces one value as output for the window. Two common pooling types are max pooling and average pooling. The pooling filter outputs the maximum of all values and average of all values for max pooling and average pooling respectively. An illustration of max pooling and reduction in the spatial size of feature maps is shown in Figure \ref{Fig:pool}.
 
 	\begin{figure}[h]
 	\centering
@@ -109,14 +109,14 @@ A pooling filter looks at a particular window in a depth slice (one 2D feature m
 
 \subsubsection{Fully-connected layer}
 
-In fully-connected layers, every neuron in a layer is connected to all neurons or input nodes in the previous layer. The hidden layer shown in Figure \ref{Fig:haykin_ann_ml} illustrates a fully-connected layer. In CNNs, the outputs produced by convolutional layers and pooling layers are 3D feature maps wheraes a fully-connected layer expects a 1D vector as input. Therefore, 3D feature maps are are converted to a 1D vector which is then given as input to fully-connected layers. There are two ways in which this 1D input to fully-connected layers is created in CNNs. One way is to directly flatten the 3D feature maps. For instance, if the 3D feature maps have a dimension of 7$\times$7$\times$5, the values are arranged in the form of a 1D vector with 245 values. In the second way, a technique called global average pooling is used to take the average value out of every depth slice of the 3D feature maps and then create a flattened 1D vector. If the feature map is of dimension 7$\times$7$\times$5, average value out of 5, 7$\times$7 depth slice is taken to get 1$\times$1$\times$5. This is flattened to create a 1D vector input with 5 values as input to fully-connected layers. The output of fully-connected layers are then fed to a softmax function which converts the output into probability scores for the different classes involved.
+In fully-connected layers, every neuron in a layer is connected to all neurons or input nodes in the previous layer. The hidden layer shown in Figure \ref{Fig:haykin_ann_ml} illustrates a fully-connected layer. In CNNs, the outputs produced by convolutional layers and pooling layers are 3D feature maps whereas a fully-connected layer expects a 1D vector as input. Therefore, 3D feature maps are converted to a 1D vector which is then given as input to fully-connected layers. There are two ways in which this 1D input to fully-connected layers is created in CNNs. One way is to flatten the 3D feature maps directly. For instance, if the 3D feature maps have a dimension of 7$\times$7$\times$5, the values are arranged in the form of a 1D vector with 245 values. In a second way, a technique called global average pooling is used to take the average value out of every depth slice of the 3D feature maps and then create a flattened 1D vector. If the feature map is of dimension 7$\times$7$\times$5, average value out of 5, 7$\times$7 depth slice is taken to get 1$\times$1$\times$5 feature maps. These feature maps are flattened to create a 1D vector input with 5 values as input to fully-connected layers. The output of fully-connected layers is then fed to a softmax function which converts the output into probability scores for the different classes involved.
 
 \section{CNNs for Semantic Segmentation}
 \label{section:cnnseg}
 
 The CNN architecture discussed so far, learns to extract features and perform image classification by resulting in a probability score for each class. For instance, for a 10 class classification problem, for every input image, a trained CNN produces 10 values in the range [0,1] each of which provides the probability that the image belongs to the corresponding class. However, semantic segmentation is a dense prediction task which requires a class to be assigned to every pixel in the input image and hence for every input image, the output is expected to be another image of the same spatial size as the input image and contains in every pixel a value which denotes a class. This output is called a segmentation map. 
 
-For this reason, two changes are done to the CNN architecture. One is replacing fully-connected layers with convolutional layers and the other is upsampling the final feature maps produced back to the original input spatial size. Fully-connected layers require a flattened 1D input vector and outputs a 1D vector. This is not required for semantic segmentation as the output is a 2D segmentation map. Hence, fully-connected layers can be replaced with convolutional layers. This has the advantage of reducing the number of trainable parameters as convolutional layers use less trainable parameters in comparison to fully-connected layers, leading to a reduction in the chances of overfitting.
+For this reason, two changes are done to the CNN architecture. One is replacing fully-connected layers with convolutional layers, and the other is upsampling the final feature maps produced back to the original input spatial size. Fully-connected layers require a flattened 1D input vector and produce a 1D vector as output. However, semantic segmentation requires a 2D segmentation map as output. Hence, fully-connected layers are replaced with convolutional layers. This replacement has the advantage of reducing the number of trainable parameters as convolutional layers use less trainable parameters in comparison to fully-connected layers, leading to a reduction in the chances of overfitting.
 
 	\begin{figure}[h]
 	\centering
@@ -136,4 +136,4 @@ For this reason, two changes are done to the CNN architecture. One is replacing 
 		\label{Fig:tranconv}
 	\end{figure}
 
-After replacing the fully-connected layers with convolutional layers, we are left with 3D feature maps with reduced spatial size. To get a segmentation map, these 3D feature maps need to be upsampled back to the original input spatial size. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). This type of convolution as shown in Figure \ref{Fig:tranconvb}, pads zeros to the input feature map in a manner which results in the desired upsampling when convolved over. In this example, we see a 2$\times$2 feature map upsampled to 5$\times$5 feature map by adding a row and a column of zeros in between the two existing rows and columns respectively and also zero padding by 2 around the feature map. A 3$\times$3 convolution can now be used to get back a spatial size of 5$\times$5. The advantage of using a fractionally strided convolution is that the parameters of the filter are learned through training instead of using a fixed upsampling method such as interpolation.
+After replacing the fully-connected layers with convolutional layers, we are left with 3D feature maps with reduced spatial size. These 3D feature maps need to be upsampled back to the original input spatial size. One way to do this is to use an interpolation method such as bilinear interpolation to increase the spatial resolution. This is considered as a naive method of upsampling. An alternative would be to use fractionally strided convolutions (also known as transpose convolution or deconvolution). This type of convolution as shown in Figure \ref{Fig:tranconvb}, pads zeros to the input feature map in a manner which results in the desired upsampling when convolved over. In this example, we see a 2$\times$2 feature map upsampled to 5$\times$5 feature map by adding a row and a column of zeros in between the two existing rows and columns respectively and also zero padding by 2 around the feature map. A 3$\times$3 convolution can now be used to get back a spatial size of 5$\times$5. The advantage of using a fractionally strided convolution is that the parameters of the filter are learned through training instead of using a fixed upsampling method such as interpolation.
