@@ -1,9 +1,21 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[atw({\natexlab{a}})]{atwork_models}
+3d cad models of the manipulation objects, platforms and other environmental
+  items, {\natexlab{a}}.
+\newblock URL \url{https://github.com/robocup-at-work/models}.
+\newblock Online accessed: 2018-08-11.
+
+\bibitem[atw({\natexlab{b}})]{atwork_models_rockin}
+This repository contains all kind of 2d/3d models of the rockin@work test bed
+  environment, {\natexlab{b}}.
+\newblock URL \url{https://github.com/rockin-robot-challenge/at_work_models}.
+\newblock Online accessed: 2018-08-11.
 
 \bibitem[cs2()]{cs231n}
 Cs231n: Convolutional neural networks for visual recognition.

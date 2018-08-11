@@ -7,6 +7,10 @@ Warning--string name "cvpr" is undefined
 --line 429 of file bibliography.bib.bib
 Warning--to sort, need author or key in matlab_cnn
 Warning--to sort, need author or key in cs231n
+Warning--to sort, need author or key in atwork_models
+Warning--to sort, need author or key in atwork_models_rockin
+Warning--empty year in atwork_models
+Warning--empty year in atwork_models_rockin
 Warning--empty year in cs231n
 Warning--empty year in matlab_cnn
 Warning--empty year in depthwise
@@ -26,45 +30,45 @@ Warning--empty year in indoor
 Warning--empty year in simple_colors
 Warning--empty year in image_downloader
 Warning--empty year in quant_blog
-You've used 40 entries,
+You've used 42 entries,
             2773 wiz_defined-function locations,
-            807 strings with 13258 characters,
-and the built_in function-call counts, 16959 in all, are:
-= -- 1456
+            814 strings with 13586 characters,
+and the built_in function-call counts, 17469 in all, are:
+= -- 1508
 > -- 1141
 < -- 18
-+ -- 391
++ -- 394
 - -- 351
-* -- 1324
-:= -- 2695
-add.period$ -- 157
-call.type$ -- 40
-change.case$ -- 236
-chr.to.int$ -- 40
-cite$ -- 103
-duplicate$ -- 740
-empty$ -- 1294
+* -- 1362
+:= -- 2739
+add.period$ -- 163
+call.type$ -- 42
+change.case$ -- 242
+chr.to.int$ -- 41
+cite$ -- 113
+duplicate$ -- 770
+empty$ -- 1364
 format.name$ -- 397
-if$ -- 3499
-int.to.chr$ -- 1
+if$ -- 3623
+int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 26
-newline$ -- 245
+newline$ -- 255
 num.names$ -- 152
-pop$ -- 548
+pop$ -- 580
 preamble$ -- 1
-purify$ -- 197
+purify$ -- 201
 quote$ -- 0
-skip$ -- 595
+skip$ -- 612
 stack$ -- 0
-substring$ -- 118
-swap$ -- 53
+substring$ -- 124
+swap$ -- 57
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 435
-warning$ -- 21
+type$ -- 457
+warning$ -- 25
 while$ -- 116
 width$ -- 0
-write$ -- 567
-(There were 22 warnings)
+write$ -- 591
+(There were 26 warnings)

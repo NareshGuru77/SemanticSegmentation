@@ -406,56 +406,56 @@ The backgrounds used for the artificial image generation process are images with
 \label{section:analysis}
 
 \textbf{[Incomplete]}
-	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears. 
+	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears in the training set of the variety of backgrounds dataset. 
 	
 	\subsection{Surface area of the objects}
 		
-		In order to comprehend the reasons as to why an object constitutes a certain percentage of pixels in a dataset split, the surface area of the objects in the real world could be considered. It is natural to assume that the percentage of pixels occupied by the objects is roughly proportional to the surface area of the object. However, not all objects have a strictly defined geometric shape. For this reason, the closest geometric shape to each object is assumed to calculate the surface area. The table provides details about the assumed geometric shapes and the surface areas for each object.
+		In order to comprehend the reasons as to why an object constitutes a certain percentage of pixels in the training set, the surface area of the objects in the real world could be considered. It is natural to assume that the percentage of pixels occupied by the objects is roughly proportional to the surface area of the object. The surface area of all the objects in the dataset is obtained using 3D CAD models available in the atWork github repositories \cite{atwork_models} and \cite{atwork_models_rockin}. The surface areas are listed in Table \ref{Table:surface}.
 		
 		\begin{table}
 			\centering
 			\begin{tabular}{|c|c|c|c|c|c|c|c|}
 			\hline 
-  			\textbf{Object name} & \textbf{Surface area ($cm^2$)} & \textbf{Percentage of pixels} & \textbf{Class count} \\ 
+  			\textbf{Object name} & \textbf{Surface area ($cm^2$)} & \makecell{\textbf{Percentage} \\ \textbf{of pixels (\%)}} & \textbf{Class count} \\ 
 			\hline
-  			 f20\_20\_B & 158.36 &  & \\ 
+  			 f20\_20\_B & 158.36 & 0.2948 & 1126 \\ 
 			\hline
-  			 s40\_40\_B & 426.77 &  &  \\ 
+  			 s40\_40\_B & 426.77 & 0.4218 & 1118 \\ 
 			\hline
-  			 f20\_20\_G & 158.36 &  &  \\ 
+  			 f20\_20\_G & 158.36 & 0.2683 & 1177 \\ 
 			\hline
-  			 s40\_40\_G & 426.77 &  &  \\ 
+  			 s40\_40\_G & 426.77 & 0.896 & 1245 \\ 
 			\hline
-  			 m20\_100 & 90.00 &  &  \\ 
+  			 m20\_100 & 90.00 & 0.4577 & 1173 \\ 
 			\hline
-  			 m20 & 37.59 &  &  \\ 
+  			 m20 & 37.59 & 0.2981 & 1120 \\ 
 			\hline
-  			 m30 & 83.84 &  &  \\ 
+  			 m30 & 83.84 & 0.2921 & 1087 \\ 
 			\hline
-  			 r20 & 80.82 &  &  \\ 
+  			 r20 & 80.82 & 0.3648 & 1117 \\ 
 			\hline
-  			 bearing\_box\_ax01 & 114.83 &  &  \\ 
+  			 bearing\_box\_ax01 & 114.83 & 0.8653 & 1369 \\ 
 			\hline
-  			 bearing & 59.51 &  &  \\ 
+  			 bearing & 59.51 & 0.2526 & 1195 \\ 
 			\hline
-  			 axis & 67.30 &  &  \\ 
+  			 axis & 67.30 & 0.4214 & 1190 \\ 
 			\hline
-  			 distance\_tube & 21.39 &  &  \\ 
+  			 distance\_tube & 21.39 & 0.2321 & 1028 \\ 
 			\hline
-  			 motor & 112.31 &  &  \\ 
+  			 motor & 112.31 & 0.486 & 1079 \\ 
 			\hline
-  			 container\_box\_blue & 1244.50 &  &  \\ 
+  			 container\_box\_blue & 1244.50 & 2.6529 & 1680 \\ 
 			\hline
-  			 container\_box\_red & 1244.50 &  &  \\ 
+  			 container\_box\_red & 1244.50 & 2.2299 & 1375 \\ 
 			\hline
-  			 bearing\_box\_ax16 & 106.38 &  &  \\ 
+  			 bearing\_box\_ax16 & 106.38 & 0.5657 & 1313 \\ 
 			\hline
-  			 em\_01 & 372.85 &  &  \\ 
+  			 em\_01 & 372.85 & 1.224 & 1271 \\ 
 			\hline
-  			 em\_02 & 544.54 &  &  \\ 
+  			 em\_02 & 544.54 & 1.5624 & 1261 \\ 
 			\hline
 			\end{tabular}
-			\caption{Assumed shape and surface area of objects} 
+			\caption{This table lists the surface area occupied by all the 18 objects and their corresponding percentage of pixels and class count on the atWork\_full variant of the variety of backgrounds dataset.} 
 			\label{Table:surface}
 		\end{table}
 		

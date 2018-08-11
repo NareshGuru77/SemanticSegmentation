@@ -274,7 +274,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 				\caption{}
 				\label{Fig:clsiouc}
 			\end{subfigure}
-			\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
+			\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. Both the individual class IOUs and percentage of pixels are normalized to lie in the range of [0,1]. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:clsiou}
 		\end{figure}
 
@@ -353,7 +353,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\caption{}
 			\label{Fig:quanta}
 		\end{subfigure}
-		\caption{(a) The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset. The green rectangle represents the desired region in which the mIOU is in the range [90,100] and occupied disk memory is in the range (0,10]. (b) This plot shows the inference time and disk memory occupied by full precision and quantized DeepLabv3+ models. The region indicated by a green rectangle is the desired region where the inference time is in the range (0, 1] and occupied disk memory is in the range (0, 10].}
+		\caption{(a) The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds of dataset. Different shapes denote the different network backbones of DeepLabv3+ and different colors denote the different dataset variants. The green rectangle represents the desired region in which the mIOU is in the range [90,100] and occupied disk memory is in the range (0,10]. (b) This plot shows the inference time and disk memory occupied by full precision and quantized DeepLabv3+ models. The region indicated by a green rectangle is the desired region where the inference time is in the range (0, 1] and occupied disk memory is in the range (0, 10].}
 		\label{Fig:quant}
 	\end{figure}
 	
