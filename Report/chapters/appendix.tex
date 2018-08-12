@@ -451,4 +451,38 @@ In this appendix chapter, visualizations of the predictions obtained through Dee
 	\end{figure}
 
 \chapter{Hyperparameters}
-Your second chapter appendix
+In this chapter, the hyperparameters used to train DeepLabv3+ with MobileNetv2 and Xception network backbones is provided (Table \ref{Table:hyper}). Also, information regarding the hardware used for training, validation and testing is provided. No form of input pre-processing was performed for DeepLabv3+ with both network backbones.
+
+	\begin{table}
+		\centering
+		\begin{tabular}{|l|l|r|}
+		\hline
+		\multicolumn{ 1}{|l|}{\makecell{\textbf{Hyperparameter}}} & \multicolumn{ 2}{l|}{\makecell{\textbf{DeepLabv3+ network backbone}}} \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & \makecell{\textbf{MobileNetv2}} & \multicolumn{1}{l|}{\makecell{\textbf{Xception}}} \\ \hline
+		\makecell{Learning rate policy} & \makecell{Cosine restarts} & \multicolumn{1}{l|}{\makecell{Cosine restarts}} \\ \hline
+		\makecell{Initial learning rate} & \multicolumn{1}{r|}{\makecell{0.01}} & \makecell{0.07} \\ \hline
+		\makecell{Learning rate decay factor} & \multicolumn{1}{r|}{\makecell{0.1}} & \makecell{0.1} \\ \hline
+		\makecell{Learning rate decay step} & \multicolumn{1}{r|}{\makecell{2000}} & \makecell{2000} \\ \hline
+		\makecell{Number of training steps} & \multicolumn{1}{r|}{\makecell{30000}} & \makecell{30000} \\ \hline
+		\makecell{Momentum} & \multicolumn{1}{r|}{\makecell{0.9}} & \makecell{0.9} \\ \hline
+		\makecell{Training batch size} & \multicolumn{1}{r|}{\makecell{8}} & \makecell{4} \\ \hline
+		\makecell{L2 weight decay} & \multicolumn{1}{r|}{\makecell{0.00004}} & \makecell{0.00004} \\ \hline
+		\makecell{Input image spatial resolution} & \makecell{481, 641} & \multicolumn{1}{l|}{\makecell{481, 641}} \\ \hline
+		\makecell{Fine tune batch norm parameters} & \makecell{Yes} & \multicolumn{1}{l|}{\makecell{Yes}} \\ \hline
+		\makecell{Output stride} & \multicolumn{1}{r|}{\makecell{16}} & \makecell{16} \\ \hline
+		\makecell{Atrous rates} & \makecell{None} & \multicolumn{1}{l|}{\makecell{6, 12, 18}} \\ \hline
+		\makecell{Image level feature for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Batch norm parameters for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Separable convolution for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Decoder output stride} & \makecell{None} & \makecell{4} \\ \hline
+\makecell{Separable convolution for decoder} & \makecell{None} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Randomly scale input images} & \makecell{Yes} & \multicolumn{1}{l|}{\makecell{Yes}} \\ \hline
+		\makecell{Mininum scale factor for random scaling} & \multicolumn{1}{r|}{\makecell{0.5}} & \makecell{0.5} \\ \hline
+		\makecell{Maximum scale factor for random scaling} & \multicolumn{1}{r|}{\makecell{2}} & \makecell{2} \\ \hline
+		\makecell{Scale factor step size  for random scaling} & \multicolumn{1}{r|}{\makecell{0.25}} & \makecell{0.25} \\ \hline
+		\end{tabular}
+		\caption{This table lists the hyperparameters used during training of DeepLabv3+ with MobileNetv2 and Xception network backbone.}
+		\label{Table:hyper}
+	\end{table}
+
+
