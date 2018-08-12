@@ -9,14 +9,14 @@ import matplotlib as mpl
 
 def plot(results, ignore_background=True,
          bar_width=0.3, set_fonts=14, fig_width=10,
-         fig_height=7, display_title=False, plot_weight=False):
+         fig_height=7, plot_weight=False):
 
     any_result = copy.deepcopy(results[tags_keys.data_key][
                                    tags_keys.percentage_key][0])
 
     if ignore_background:
         any_result.pop('background', None)
-    #classes = list(any_result.keys())
+
     classes = np.array(sorted(any_result.items(),
                        key=operator.itemgetter(1)))[:, 0]
     x = np.arange(0, len(classes))
@@ -86,8 +86,7 @@ def infer_relation(area_vals, percent_vals, variant, set_fonts, combine):
 
 def plot_with_area(results, variant, ignore_background=True,
                    bar_width=0.3, set_fonts=14, fig_width=9,
-                   fig_height=6, display_title=False,
-                   plot_weight=False):
+                   fig_height=6, plot_weight=False):
 
     num_plots = 5
     colormap = plt.cm.get_cmap('Dark2')
@@ -99,7 +98,7 @@ def plot_with_area(results, variant, ignore_background=True,
 
     if ignore_background:
         any_result.pop('background', None)
-    # classes = list(any_result.keys())
+
     classes = np.array(sorted(any_result.items(),
                               key=operator.itemgetter(1)))[:, 0]
     x = np.arange(0, len(classes))
@@ -109,7 +108,6 @@ def plot_with_area(results, variant, ignore_background=True,
     if not plot_weight:
         results[tags_keys.data_key].pop(tags_keys.weight_key, None)
 
-    count_dict = results[tags_keys.data_key][tags_keys.count_key]
     results[tags_keys.data_key].pop(tags_keys.count_key, None)
 
     area_vals = [results[tags_keys.data_key][tags_keys.surface_area_key][0][cls]
@@ -117,7 +115,7 @@ def plot_with_area(results, variant, ignore_background=True,
     area_vals = [val / sum(area_vals) for val in area_vals]
 
     percent_vals = [results[tags_keys.data_key][tags_keys.percentage_key][0][cls]
-                 for cls in classes]
+                    for cls in classes]
     percent_vals = [val / sum(percent_vals) for val in percent_vals]
 
     figure.add_subplot(2, 1, 1)
@@ -134,10 +132,6 @@ def plot_with_area(results, variant, ignore_background=True,
     plt.ylabel('Normalized values', fontsize=set_fonts)
     plt.grid(zorder=0, axis='y')
     plt.tick_params(axis='both', which='major', labelsize=set_fonts)
-
-    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102),
-               loc=3, ncol=3,
-               borderaxespad=0., prop={'size': set_fonts})
     plt.xticks(x, classes, rotation=80)
     plt.tight_layout()
     plt.show()
