@@ -2,30 +2,17 @@
 
 \chapter{Further details regarding the Dataset}\label{appendix:dataset}
 
-\section{Selection of a labeling tool}
-
-\textbf{[Incomplete]}
+\section{Annotation tools}
 
 In order to reduce the time required to annotate an image, it was imperative to select a tool which is designed explicitly for semantic segmentation and also provides algorithms which help the annotator by providing labeling automation to the highest possible extent.
 
-The following available tools were evaluated for ease of use and time taken for annotation:
-	\begin{itemize}
-		\item LabelMe: web based tool is public and data would also be public.
-		\item LabelMe Matlab toolbox: yet to try..
-		\item University bonn annotation tool:
-		\item Pixel annotation tool (using watershed algorithm): works in windows. Seems to be useful.
-		\item Ratsnake: tool dint seem to be useful although the website had options like superpixel suggestions.
-		\item LabelImg: Can be used but time consuming.
-		\item Figi: used in medical image segmentation. Has many options. Still exploring.
-		\item Supervisely.
-		\item MATLAB ImageLabeler available in release R2017b (Computer Vision Toolbox).
-	\end{itemize}
+There are several available annotation tools such as LabelMe \footnote{\url{https://github.com/CSAILVision/LabelMeToolbox}}, Labelbox \footnote{\url{https://github.com/Labelbox/Labelbox}}, Annotation Tool \footnote{\url{http://www.ipb.uni-bonn.de/html/software/annotation_tool/}}, PixelAnnotationTool \footnote{\url{https://github.com/abreheret/PixelAnnotationTool}}, LEAR \footnote{\url{https://lear.inrialpes.fr/people/klaeser/software_image_annotation}}, Ratsnake Annotation Tool \footnote{\url{https://is-innovation.eu/ratsnake/download.html}}, LabelImg \footnote{\url{https://github.com/tzutalin/labelImg}}, Supervisely \footnote{\url{https://supervise.ly/}} and MATLAB ImageLabeler available in release R2017b (Computer Vision System Toolbox) \footnote{\url{https://de.mathworks.com/help/vision/ref/imagelabeler-app.html}}. The MATLAB ImageLabeler was used for this project because of its ease of use and the availability of a free academic licence for MATLAB.
 
 \section{Description of the labeling process}
 \label{section:process}
-MATLAB ImageLabeler was used for the labeling process. At first, label definitions are created and exported to a .mat file. This file is used to load label definitions for all images to maintain consistency of labels. The contents of the .mat file is shown in the Figure \ref{Fig:labeldef}.
+At first, label definitions are created and exported to a .mat file. This file is used to load label definitions for all images to maintain consistency of labels. The contents of the .mat file is shown in the Figure \ref{Fig:labeldef}.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/labelDef}

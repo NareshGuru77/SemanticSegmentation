@@ -69,13 +69,6 @@
 
 \usepackage{lipsum} % Used to test
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    linkbordercolor=0 1 1,
-    filecolor=magenta,      
-    urlcolor=magenta,
-}
 
 \onehalfspacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -99,6 +92,15 @@ not set. Please fix this.}
 \definecolor{comments}{RGB}{0,100,50}
 \definecolor{stringred}{RGB}{160,0,0}
 \definecolor{codeblue}{RGB}{0,0,150}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=hbrs,
+    citecolor=keywords,
+    linkbordercolor=0 1 1,
+    filecolor=codeblue,      
+    urlcolor=stringred,
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page
