@@ -6,7 +6,7 @@
 
 \textbf{[Incomplete]}
 
-In order to reduce the time required to annotate an image, it was imperative to select a tool which is specifically designed for semantic segmentation and also provides algorithms which helps the annotator by providing labeling automation to the highest possible extent.
+In order to reduce the time required to annotate an image, it was imperative to select a tool which is designed explicitly for semantic segmentation and also provides algorithms which help the annotator by providing labeling automation to the highest possible extent.
 
 The following available tools were evaluated for ease of use and time taken for annotation:
 	\begin{itemize}
@@ -42,7 +42,7 @@ MATLAB ImageLabeler was used for the labeling process. At first, label definitio
 		\label{Fig:def_ROI}
 	\end{figure}
 	
-The ImageLabeler app, by default, provides different tools which help create pixelwise labels. The tools are shown in the Figure \ref{Fig:IL_tools}. These tools become accessible once an image and the label definitions are loaded. A short description of the tools is given below:
+The ImageLabeler app, by default, provides different tools which help create pixel-wise labels. The tools are shown in the Figure \ref{Fig:IL_tools}. These tools become accessible once an image and the label definitions are loaded. A short description of the tools is given below:
 	\begin{figure}
 		\centering
 		\includegraphics[scale=0.55]{images/label_tools}
@@ -52,10 +52,10 @@ The ImageLabeler app, by default, provides different tools which help create pix
 	
 	\begin{itemize}
 		\item Polygon: This can be used to trace an object boundary by placing dots. Once a closed contour is created, pixels within the contour get assigned the corresponding object label.
-		\item Smart Polygon: Can be used in a similar fashion like the Polygon tool. This tool, in addition, tries to reach out to the nearby edges of the drawn polygon.
+		\item Smart Polygon: Smart Polygon is similar to Polygon in terms of usage. This tool, in addition, tries to reach out to the nearby edges of the drawn polygon.
 		\item Brush and Erase: Square shaped brush and eraser to either label a region or remove labels from a region. The size of the square can be changed by using the Brush Size slider.
-		\item Flood Fill: This tool provides same labels to pixels which are similar in terms of the intensity with the selected pixel.
-		\item Label Opacity: This tool provides a sliding bar which varies the opacity of the overlayed labels on the image. This is helpful to visualize the assigned labels.
+		\item Flood Fill: This tool provides the same labels to pixels which are similar in terms of the intensity with the selected pixel.
+		\item Label Opacity: This tool provides a sliding bar which varies the opacity of the overlayed labels on the image. This option is helpful to visualize the assigned labels.
 		\item Zoom In, Zoom Out, Pan: These tools improve the ease of labeling by providing means to focus on particular regions by zooming and panning.
 	\end{itemize}
 	
@@ -72,12 +72,12 @@ The ImageLabeler app does not provide any tool to label all unlabeled pixels as 
 	\begin{itemize}
 		\item The images taken for the dataset each have only one object in them.
 		\item Only the object region is labeled.
-		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which simply reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
+		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
 	\end{itemize}
 	
-The Export Labels --$>$ To File option can be used to save the annotations. This is done for all images individually to arrive at the folder structure shown in Figure \ref{Fig:fsa}.
+The Export Labels --$>$ To File option can be used to save the annotations. Annotations for all images are saved individually to arrive at the folder structure shown in Figure \ref{Fig:fsa}.
 	
-The saved .mat file can be loaded into ImageLabeler again to further modify labels if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in Figure  \ref{Fig:fsa}) is the label image. This image is renamed to have the same name as the image file and a folder structure as in Figure  \ref{Fig:fsb} is created by using a python code.
+The saved .mat file can be loaded into ImageLabeler again to modify labels further if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in Figure  \ref{Fig:fsa}) is the label image. This image is renamed to have the same name as the image file, and a folder structure as in Figure \ref{Fig:fsb} is created by using python code.
 	
 \begin{center}
 	\begin{figure}
@@ -219,7 +219,7 @@ Further details regarding the generator options used to configure the artificial
 
 \chapter{Sample predictions}
 
-In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the color used for visualizing each objects in all 4 dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgronds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
+In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the color used for visualizing each object in all four dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgrounds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
 	
 	\begin{figure}[h]
 		\centering
