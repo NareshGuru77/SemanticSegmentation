@@ -68,6 +68,14 @@
 \titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
 
 \usepackage{lipsum} % Used to test
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linkbordercolor=0 1 1,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
 
 \onehalfspacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
