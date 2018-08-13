@@ -4,7 +4,6 @@
 
 Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when different training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides conclusions and further insights gained through the experiments. 
 
-
 \section{About the metrics}
 \label{section:metrics}
 
@@ -34,6 +33,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of DeepLabv3+ on the different dataset variants.
 		\item \textbf{Expected result}: DeepLabv3+ is expected to obtain a higher mIOU when the number of classes is lower. This expectation is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.		
+		
 		\item \textbf{Inference from the results}: Deeplabv3+ with both the MobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real-world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, DeepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the DeepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by DeepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
 	\end{itemize}
 	
@@ -66,7 +66,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 		\caption{mIOU of Deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on the variety of backgrounds dataset, (b) MobileNetv2 network backbone on the white backgrounds dataset, (c) Xception network backbone on the variety of backgrounds dataset, (d) Xception network backbone on the white backgrounds dataset.}
 		\label{Fig:vars}
 	\end{figure}
-	
+		
 	\begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -92,10 +92,10 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on each of the datasets and its variants.
-		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the MobileNetv2 network backbone. In essence, the Xception network backbone has more "learning capacity" than the MobileNetv2 network backbone leading to its ability to learn a better decision boundary.
+		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the MobileNetv2 network backbone. In essence, the Xception network backbone has more "learning capacity" than the MobileNetv2 network backbone leading to its ability to learn a better decision boundary.		
 		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the MobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieve slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset which could be because the white backgrounds dataset has fewer variations in terms of backgrounds.
 	\end{itemize}
-
+	
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
