@@ -112,7 +112,7 @@ The MobileNetv2 and Xception encoders make use of depthwise separable convolutio
 
 The MobileNetv2 architecture is designed to work on mobile and embedded devices where computational resources are limited. The authors state that their main contribution is the use of a novel layer module called the inverted residual with linear bottleneck. 
 
-Depthwise separable convolutions, known for its efficiency, is used in this work. Standard convolution layers are replaced with two layers where the first layer performs depthwise convolution and the second layer performs pointwise convolution. A depthwise convolution layer uses a single filter per input channel to perform convolution. The pointwise convolution layer consists of 1$\times$1 convolutions which perform weighted linear combination on the input channels and projects them to a new channel space. This factorization of standard convolution layer into two separate depthwise and pointwise layers leads to roughly $k^2$ times reduction in computation cost where k is the kernel size of the convolutional filter. Figure \ref{Fig:depthwise} illustrates depthwise convolution. In this case, pointwise convolution performs dimensionality reduction as the number of output channels is less than the number of input channels. However, if more than 3 pointwise convolutions are used, the dimensionality of output channels can be increased.
+Depthwise separable convolutions, known for its efficiency, is used in this work. Standard convolution layers are replaced with two layers where the first layer performs depthwise convolution and the second layer performs pointwise convolution. A depthwise convolution layer uses a single filter per input channel to perform convolution. The pointwise convolution layer consists of 1$\times$1 convolutions which perform weighted linear combination of the output channels of the depthwise convolution layer and projects them to a new channel space. This factorization of standard convolution layer into two separate depthwise and pointwise layers leads to roughly $k^2$ times reduction in computation cost where k is the kernel size of the convolutional filter. Figure \ref{Fig:depthwise} illustrates depthwise convolution. In this case, pointwise convolution performs dimensionality reduction as the number of output channels is less than the number of input channels. However, if more than 3 pointwise convolutions are used, the dimensionality of output channels can be increased.
 
 	\begin{figure}
 		\centering
@@ -136,17 +136,17 @@ The authors of MobileNetv2 propose the use of inverted residual block which take
 			\includegraphics[width=.8\linewidth]{images/inverted_residual}
 			\caption{Inverted residual block}
 		\end{subfigure}
-		\caption{Illustration of the original residual block and the inverted residual block used by MobileNetv2 \cite{DBLP:journals/corr/abs-1801-04381}.}
+		\caption{Illustration of (a) the original residual block, (b) the inverted residual block used by MobileNetv2 \cite{DBLP:journals/corr/abs-1801-04381}.}
 		\label{Fig:residual}
 	\end{figure}
 
 This hypothesis is based on the notion that the ReLU activation layer used, leads to information loss due to loss of values less than 0. However, loss of too much information due to the induced nonlinearity by the activation can be prevented by the use of linear activation in the bottleneck layer. The authors show that a linear activation is empirically better than a nonlinear activation in the bottleneck layer.
 
-The inverted residual block has less number of parameters than the residual block and with linear bottleneck is shown to achieve state-of-the-art performance. The inverted residual block is visualized in the architecture of MobileNetv2 in Figure \ref{Fig:mobileNetv2bb}.
+The inverted residual block has less number of parameters than the residual block and with linear bottleneck is shown to achieve state of the art performance. The inverted residual block is visualized in the architecture of MobileNetv2 in Figure \ref{Fig:mobileNetv2bb}.
 
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=.7\linewidth]{images/mobileNetv2_bb}
+		\includegraphics[width=1\linewidth]{images/mobileNetv2_bb}
 		\caption{The building block of MobileNetv2. The compressed representation obtained could be used for tasks such as image classification, object detection and semantic segmentation \cite{mnbb}.}
 		\label{Fig:mobileNetv2bb}
 	\end{figure}
@@ -154,11 +154,11 @@ The inverted residual block has less number of parameters than the residual bloc
 \section{Xception}
 \label{section:xcep}
 
-The Xception architecture is derived based on two hypothesis made by the authors. One hypothesis is based on the inception architecture and the other is a stronger version of the inception hypothesis. Standard convolution layers have 3D convolution kernels which map both spatial correlations and cross-channel correlations at the same time. Here spatial correlations are obtained by mapping correlations across the height and the width of every channel separately. Cross-channel correlations are obtained at every spatial location across the height and width of the channels, from each of the channels in the input. 
+The Xception architecture is derived based on two hypothesis made by the authors. One hypothesis is based on the inception architecture called the inception hypothesis and the other is a stronger version of this inception hypothesis. Standard convolution layers have 3D convolution kernels which map both spatial correlations and cross-channel correlations at the same time. Here spatial correlations are obtained by mapping correlations across the height and the width of every channel separately. Cross-channel correlations are obtained at every spatial location across the height and width of the channels, from each of the channels in the input. 
 
-In the Inception architecture, an inception module consists of 4 branches operating on the same input feature maps. The different branches of the inceptionv3 module are shown in Figure \ref{Fig:xceptiona}. In the second branch with 1$\times$1 convolution followed by a 3$\times$3 convolution, the 1$\times$1 convolution calculates the cross-channel correlation between the input channels and performs dimensionality reduction by reducing the number of input channels. Next, the 3$\times$3 convolution is a standard convolution which looks for both spatial and cross-channel correlations in this reduced input channel space. Since this inception module has produced state-of-the-art classification results, the authors hypothesize that the cross-channel correlations and spatial correlations are decoupled and can be mapped separately. This is evidently based on the fact that the inception module partially handles spatial and cross-channel correlations in a decoupled fashion by using a 1$\times$1 convolution followed by a 3$\times$3 convolution. 
+In the Inception architecture, an inception module consists of 4 branches operating on the same input feature maps. The different branches of the inceptionv3 module are shown in Figure \ref{Fig:xceptiona}. In the second branch with 1$\times$1 convolution followed by a 3$\times$3 convolution, the 1$\times$1 convolution calculates the cross-channel correlation between the input channels and performs dimensionality reduction by reducing the number of input channels. Next, the 3$\times$3 convolution is a standard convolution which looks for both spatial and cross-channel correlations in this reduced input channel space. Since this inception module has produced state of the art classification results, the authors hypothesize that the cross-channel correlations and spatial correlations are decoupled and can be mapped separately. This is evidently based on the fact that the inception module partially handles spatial and cross-channel correlations in a decoupled fashion by using a 1$\times$1 convolution followed by a 3$\times$3 convolution. 
 
-	\begin{figure}
+	\begin{figure}[h]
 		\begin{subfigure}{.5\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/inception_v3}
@@ -189,11 +189,11 @@ The authors show that the use of depthwise separable convolutions enables the Xc
 
 \section{Quantization}
 
-This work makes use of the quantization method available in tensorflow source repository \footnote{\url{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/quantization/quantize_graph.py}}. "eightbit" mode is used to obtain a quantized tensorflow inference graph. The blog in \cite{quant_blog} describes this quantization procedure.
+This work makes use of the quantization method available in tensorflow source repository \footnote{\url{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/quantization/quantize_graph.py}}. "eightbit" mode is used to obtain a quantized tensorflow inference graph. The blog in \cite{quant_blog} describes this quantization method.
 
 Neural networks, in general, learn features which are robust to noise in the input image such as changes in illumination. As an extension, it is possible to speculate that loss of precision induced by low-precision calculations is ignored by a neural network as another source of noise. High precision calculation, though necessary to handle gradient propagation during training, might not be necessary during inference. Quantizing neural network calculations to low-precision could, therefore, be a way to reduce computation cost without much loss in accuracy in order to facilitate usage on an embedded device. More specifically, quantizing calculations to eight-bit calculations would make a neural network faster and reduce storage requirements on embedded devices. 
 
-	\begin{figure}
+	\begin{figure}[h]
 		\begin{subfigure}{.4\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{images/quantization1}
@@ -206,8 +206,8 @@ Neural networks, in general, learn features which are robust to noise in the inp
 			\caption{}
 			\label{Fig:quantizationa}
 		\end{subfigure}
-		\caption{ This figure shows illustrations of the quantization procedure available in tensorflow source. (a) Replacing an operation with a subgraph which performs qantization, corresponding quantized operation and dequantization. (b) The figure on the left shows a redundant subgraph (indicated in red) in between two quantized operations and the figure on the right shows the graph obtained after removing the redundant subgraph \cite{quant_blog}.}
+		\caption{ This figure shows illustrations of the quantization procedure available in tensorflow source. (a) Replacing an operation with a subgraph which performs quantization, corresponding quantized operation and dequantization. (b) The figure on the left shows a redundant subgraph (indicated in red) in between two quantized operations and the figure on the right shows the graph obtained after removing the redundant subgraph \cite{quant_blog}.}
 		\label{Fig:quantization}
 	\end{figure}
 
-The quantization algorithm replaces common operations such as convolution, activation functions and pooling operations with equivalent quantized operations. The input data is converted from float to eight-bit precision by adding a subgraph as illustrated in Figure \ref{Fig:quantizationa}. The algorithm also identifies sequences of quantized operations and removes subgraphs which perform redundant conversion as illustrated in Figure \ref{Fig:quantizationb}. The overall maximum and minimum possible values of weights and activation tensors are represented by the lowest and highest quantized values respectively which is 0 and 255 for eight bit. The rest of the values of the tensors are then represented within the range of eight bits. This format of quantization brings certain advantages such as the ability to represent arbitrary ranges and negative numbers, and the linear spread of values facilitates multiplication. The minimum and maximum values are determined by the "QuantizeDownAndShrinkRange" operator which analyzes and rescales the tensor to eight-bit in a manner that the range of eight bit values is used effectively.
+The quantization algorithm replaces common operations such as convolution, activation functions and pooling operations with equivalent quantized operations. The input data is converted from float to eight-bit precision by adding a subgraph as illustrated in Figure \ref{Fig:quantizationa}. The algorithm also identifies sequences of quantized operations and removes subgraphs which perform redundant conversion as illustrated in Figure \ref{Fig:quantizationb}. The overall maximum and minimum possible values of weights and activation tensors are represented by the lowest and highest quantized values respectively which is 0 and 255 for eight bit. The rest of the values of the tensors are then represented within the range of eight bits. This format of quantization brings certain advantages such as the ability to represent arbitrary ranges and negative numbers, and the linear spread of values facilitates multiplication. The minimum and maximum values of a weight matrix are determined by the "QuantizeDownAndShrinkRange" operator which analyzes and rescales the weight matrix to eight-bit in a manner that the range of eight bit values is used effectively.
