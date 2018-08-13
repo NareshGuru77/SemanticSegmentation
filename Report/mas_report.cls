@@ -59,7 +59,7 @@
 \usepackage{subcaption}
 \usepackage{makecell}
 \usepackage{multirow}
-\usepackage{url}
+\usepackage[hyphens]{url}
 % \usepackage{showframe}
 \usepackage{titlesec}
 \setcounter{secnumdepth}{6}
