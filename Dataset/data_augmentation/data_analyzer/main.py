@@ -7,6 +7,13 @@ import argparse
 parser = argparse.ArgumentParser(
     description='Arguments for data_analysis.')
 
+
+def is_true(s):
+    if s not in {'False', 'True'}:
+        raise ValueError('Not a valid boolean string')
+    return s == 'True'
+
+
 parser.add_argument('--variant', default='full', type=str, required=False,
                     help='The dataset variant.')
 
@@ -19,7 +26,7 @@ parser.add_argument('--validation_label_path', default=None, type=str, required=
 parser.add_argument('--test_label_path', default=None, type=str, required=False,
                     help='label path of test set.')
 
-parser.add_argument('--load_file', default=False, type=bool, required=False,
+parser.add_argument('--load_file', default=True, type=is_true, required=False,
                     help='Whether to load the results from txt.')
 
 parser.add_argument('--load_file_path', default=None, type=str, required=False,
@@ -27,9 +34,8 @@ parser.add_argument('--load_file_path', default=None, type=str, required=False,
 
 args = parser.parse_args()
 
-print(args.load_file)
 if not args.load_file:
-    print(True)
+
     analyzer_tr = DataAnalysis(variant=args.variant,
                                label_path=args.train_label_path)
     analyzer_va = DataAnalysis(variant=args.variant,
