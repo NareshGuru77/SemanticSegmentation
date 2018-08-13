@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: GurulinganNK-RnD-Report.aux
+The style file: plainnat.bst
+Database file #1: bibliography.bib.bib
+Warning--string name "cvpr" is undefined
+--line 429 of file bibliography.bib.bib
+Warning--to sort, need author or key in matlab_cnn
+Warning--to sort, need author or key in cs231n
+Warning--to sort, need author or key in atwork_models
+Warning--to sort, need author or key in atwork_models_rockin
+Warning--empty year in atwork_models
+Warning--empty year in atwork_models_rockin
+Warning--empty year in cs231n
+Warning--empty year in matlab_cnn
+Warning--empty year in depthwise
+Warning--empty year in github_robocup@work
+Warning--empty year in freecodecamp
+Warning--empty year in cityscapes
+Warning--empty year in towardsdatascience
+Warning--empty year in cls_bal
+Warning--empty publisher in haykin
+Warning--empty year in haykin
+Warning--empty year in haykin
+Warning--empty year in techcrunch
+Warning--empty year in diff_conv
+Warning--empty booktitle in RosCVPR16
+Warning--empty year in mnbb
+Warning--empty year in indoor
+Warning--empty year in simple_colors
+Warning--empty year in image_downloader
+Warning--empty year in quant_blog
+You've used 42 entries,
+            2773 wiz_defined-function locations,
+            814 strings with 13586 characters,
+and the built_in function-call counts, 17469 in all, are:
+= -- 1508
+> -- 1141
+< -- 18
++ -- 394
+- -- 351
+* -- 1362
+:= -- 2739
+add.period$ -- 163
+call.type$ -- 42
+change.case$ -- 242
+chr.to.int$ -- 41
+cite$ -- 113
+duplicate$ -- 770
+empty$ -- 1364
+format.name$ -- 397
+if$ -- 3623
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 26
+newline$ -- 255
+num.names$ -- 152
+pop$ -- 580
+preamble$ -- 1
+purify$ -- 201
+quote$ -- 0
+skip$ -- 612
+stack$ -- 0
+substring$ -- 124
+swap$ -- 57
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 457
+warning$ -- 25
+while$ -- 116
+width$ -- 0
+write$ -- 591
+(There were 26 warnings)

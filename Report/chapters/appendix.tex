@@ -1,0 +1,488 @@
+%!TEX root = ../report.tex
+
+\chapter{Further details regarding the Dataset}\label{appendix:dataset}
+
+\section{Annotation tools}
+
+In order to reduce the time required to annotate an image, it was imperative to select a tool which is designed explicitly for semantic segmentation and also provides algorithms which help the annotator by providing labeling automation to the highest possible extent.
+
+There are several available annotation tools such as LabelMe \footnote{\url{https://github.com/CSAILVision/LabelMeToolbox}}, Labelbox \footnote{\url{https://github.com/Labelbox/Labelbox}}, Annotation Tool \footnote{\url{http://www.ipb.uni-bonn.de/html/software/annotation_tool/}}, PixelAnnotationTool \footnote{\url{https://github.com/abreheret/PixelAnnotationTool}}, LEAR \footnote{\url{https://lear.inrialpes.fr/people/klaeser/software_image_annotation}}, Ratsnake Annotation Tool \footnote{\url{https://is-innovation.eu/ratsnake/download.html}}, LabelImg \footnote{\url{https://github.com/tzutalin/labelImg}}, Supervisely \footnote{\url{https://supervise.ly/}} and MATLAB ImageLabeler available in release R2017b (Computer Vision System Toolbox) \footnote{\url{https://de.mathworks.com/help/vision/ref/imagelabeler-app.html}}. The MATLAB ImageLabeler was used for this project because of its ease of use and the availability of a free academic licence for MATLAB.
+
+\section{Description of the labeling process}
+\label{section:process}
+At first, label definitions are created and exported to a .mat file. This file is used to load label definitions for all images to maintain consistency of labels. The contents of the .mat file is shown in the Figure \ref{Fig:labeldef}.
+	
+	\begin{figure}[h]
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/labelDef}
+			\caption{}
+			\label{Fig:labeldef}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=0.83\linewidth]{images/roi_label_defintions}
+			\caption{}
+			\label{Fig:ROI}
+		\end{subfigure}
+		\caption{(a) Contents of the labelDefs .mat file, (b) ROI Label Definitions window.}
+		\label{Fig:def_ROI}
+	\end{figure}
+	
+The ImageLabeler app, by default, provides different tools which help create pixel-wise labels. The tools are shown in the Figure \ref{Fig:IL_tools}. These tools become accessible once an image and the label definitions are loaded. A short description of the tools is given below:
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.55]{images/label_tools}
+		\caption{Tools provided by the ImageLabeler app}
+		\label{Fig:IL_tools}
+	\end{figure}
+	
+	\begin{itemize}
+		\item Polygon: This can be used to trace an object boundary by placing dots. Once a closed contour is created, pixels within the contour get assigned the corresponding object label.
+		\item Smart Polygon: Smart Polygon is similar to Polygon in terms of usage. This tool, in addition, tries to reach out to the nearby edges of the drawn polygon.
+		\item Brush and Erase: Square shaped brush and eraser to either label a region or remove labels from a region. The size of the square can be changed by using the Brush Size slider.
+		\item Flood Fill: This tool provides the same labels to pixels which are similar in terms of the intensity with the selected pixel.
+		\item Label Opacity: This tool provides a sliding bar which varies the opacity of the overlayed labels on the image. This option is helpful to visualize the assigned labels.
+		\item Zoom In, Zoom Out, Pan: These tools improve the ease of labeling by providing means to focus on particular regions by zooming and panning.
+	\end{itemize}
+	
+The ImageLabeler app by default assigns different colors to different objects to aid visualization. The label colors are shown in the ROI Label Definition window shown in Figure \ref{Fig:ROI}. An example of an object in the ImageLabeler tool once the annotation is complete is shown in Figure \ref{Fig:ex_ann}.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.2]{images/imglabler_eg}
+		\caption{An object labeled in the ImageLabeler.}
+		\label{Fig:ex_ann}
+	\end{figure}
+	
+The ImageLabeler app does not provide any tool to label all unlabeled pixels as background. In order to save time, the following workarounds have been used:
+	\begin{itemize}
+		\item The images taken for the dataset each have only one object in them.
+		\item Only the object region is labeled.
+		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
+	\end{itemize}
+	
+The Export Labels --$>$ To File option can be used to save the annotations. Annotations for all images are saved individually to arrive at the folder structure shown in Figure \ref{Fig:fsa}.
+	
+The saved .mat file can be loaded into ImageLabeler again to modify labels further if required later. The 'Label\_1.png' file located in the PixelLabelData folder (as can be seen in Figure  \ref{Fig:fsa}) is the label image. This image is renamed to have the same name as the image file, and a folder structure as in Figure \ref{Fig:fsb} is created by using python code.
+	
+\begin{center}
+	\begin{figure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/folder_structure}
+			\caption{Folder structure of saved labels}
+			\label{Fig:fsa}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/folder_structure_aug}
+			\caption{Rearranged folder structure}
+			\label{Fig:fsb}
+		\end{subfigure}
+		\caption{Different folder structures}
+		\label{Fig:fs}
+	\end{figure}
+\end{center}
+
+The final folder structure is shown in Figure \ref{Fig:fsil}. The image folder and label folder are similar and contain object images and corresponding label images with same names.
+
+\begin{center}
+	\begin{figure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=.7\linewidth]{images/folder_image}
+			%\caption{}
+			\label{Fig:fsila}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=.7\linewidth]{images/folder_label}
+			%\caption{}
+			\label{Fig:fsilb}
+		\end{subfigure}
+		\caption{Folder structure showing different object folders in both image and label folders.}
+		\label{Fig:fsil}
+	\end{figure}
+\end{center}
+
+\section{Search keywords for background images}
+
+Keywords used for downloading background images are listed in Table \ref{Table:download}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline 
+    Used in & Search keyword(s) & \makecell{Number of \\images selected} \\ 
+	\hline 
+	Training set & \makecell{640x480 background images, \\640x480 textures images, \\640x480 wallpapers} & 150 \\ 
+	\hline 
+	Validation set & 640x480 abstract & 25 \\ 
+	\hline 
+	Test set & 640x480 paintings & 25 \\ 
+	\hline 
+	Shades of white & \makecell{640x480 white abstract, \\640x480 white backgrounds, \\640x480 white textures, \\640x480 white wallpaper, \\light gray, white, white clouds, \\white floors, white frost, white mist, \\white pebbles, white snow, \\white table textures} & 150 \\ 
+	\hline 
+	\end{tabular}
+	\caption{This table lists the keywords used to download images used as background for artificial image generation.} 
+	\label{Table:download}
+\end{table}
+
+\section{Generator option details}
+
+Further details regarding the generator options used to configure the artificial image generation algorithm is given in Table \ref{Table:govals}.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{Generator options} & Default value & \makecell{Is required?} \\ 
+\hline 
+\textbf{mode} & \makecell{1} & \makecell{Not required} \\ 
+\hline 
+\textbf{image\_dimension} & \makecell{[480, 640]} & \makecell{Not required} \\ 
+\hline 
+\textbf{num\_scales} & \makecell{'randomize'} & \makecell{Not required} \\ 
+\hline 
+\textbf{backgrounds\_path} & \makecell{None} & \makecell{Required if mode is 1} \\ 
+\hline 
+\textbf{image\_path} & \makecell{-} & \makecell{Required} \\ 
+\hline 
+\textbf{label\_path} & \makecell{-} & \makecell{Required} \\ 
+\hline 
+\textbf{obj\_det\_label\_path} & \makecell{None} & \makecell{Required if save\_label\_preview \\is True and mode is 2} \\ 
+\hline 
+\textbf{real\_img\_type} & \makecell{'.jpg'} & \makecell{Not required} \\ 
+\hline 
+\textbf{min\_obj\_area} & \makecell{20} & \makecell{Not required} \\ 
+\hline 
+\textbf{max\_obj\_area} & \makecell{70} & \makecell{Not required} \\ 
+\hline 
+\textbf{save\_label\_preview} & \makecell{False} & \makecell{Not required} \\ 
+\hline 
+\textbf{save\_obj\_det\_label} & \makecell{False} & \makecell{Not required} \\ 
+\hline  
+\textbf{save\_mask} & \makecell{False} & \makecell{Not required} \\ 
+\hline 
+\textbf{save\_overlay} & \makecell{False} & \makecell{Not required} \\ 
+\hline 
+\textbf{overlay\_opacity} & \makecell{0.6} & \makecell{Not required} \\ 
+\hline 
+\textbf{image\_save\_path} & \makecell{None} & \makecell{Required if \\mode is 1} \\ 
+\hline 
+\textbf{label\_save\_path} & \makecell{None} & \makecell{Required if \\mode is 1} \\ 
+\hline 
+\textbf{preview\_save\_path} & \makecell{None} & \makecell{Required if \\save\_label\_preview is True} \\ 
+\hline 
+\textbf{obj\_det\_save\_path} & \makecell{None} & \makecell{Required if \\save\_obj\_det\_label is True} \\ 
+\hline 
+\textbf{mask\_save\_path} & \makecell{None} & \makecell{Required if \\save\_mask is True} \\ 
+\hline 
+\textbf{overlay\_save\_path} & \makecell{None} & \makecell{Required if \\save\_overlay is True} \\ 
+\hline 
+\textbf{start\_index} & \makecell{0 if mode is 1 \\ '' if mode is 2} & \makecell{Not required} \\ 
+\hline 
+\textbf{name\_format} & \makecell{'\%05d'} & \makecell{Not required} \\
+\hline 
+\textbf{remove\_clutter} & \makecell{True} & \makecell{Not required} \\
+\hline 
+\textbf{num\_images} & \makecell{20} & \makecell{Not required} \\ 
+\hline 
+\textbf{max\_objects} & \makecell{10} & \makecell{Not required} \\ 
+\hline 
+\textbf{num\_regenerate} & \makecell{100} & \makecell{Not required} \\ 
+\hline 
+\textbf{min\_distance} & \makecell{100} & \makecell{Not required} \\ 
+\hline 
+\textbf{max\_occupied\_area} & \makecell{0.8} & \makecell{Not required} \\ 
+\hline 
+\textbf{scale\_ranges} & \makecell{None} & \makecell{Not required} \\ 
+\hline 
+\end{tabular}
+\caption{Default value of generator options and whether the options are required to be set.}
+\label{Table:govals}
+\end{table}
+
+\chapter{Sample predictions}
+
+In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the color used for visualizing each object in all four dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgrounds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{1\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/full_guide}
+			\caption{atWork\_full}
+		\end{subfigure}
+		\begin{subfigure}{1\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/size_guide}
+			\caption{atWork\_size\_invariant}
+		\end{subfigure}
+		\begin{subfigure}{1\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/shape_guide}
+			\caption{atWork\_similar\_shapes}
+		\end{subfigure}
+		\begin{subfigure}{1\textwidth}
+			\centering
+			\includegraphics[width=.5\linewidth]{images/sample_predictions/binary_guide}
+			\caption{atWork\_binary}
+		\end{subfigure}
+		\caption{Object names and corresponding colors used for the visualiztion of different dataset variants.}
+		\label{Fig:guide}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_full_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_full_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_full_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_full_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_full_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_full} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_full}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_size_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_size_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_size_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_size\_invariant} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_size}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_shape_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_shape_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_shape_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_shape_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_shape_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_similar\_shapes} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_shape}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/s40_40_G_013_xcep_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00132_xcep_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_binary_gt}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_mob_binary_pred}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/sample_predictions/00017_xcep_binary_pred}
+		\end{subfigure}
+		\caption{Predictions of DeepLabv3+ on the \textbf{atWork\_binary} variant of the variety of backgrounds dataset and the white backgrounds dataset.}
+		\label{Fig:sam_bin}
+	\end{figure}
+
+\chapter{Hyperparameters}
+In this chapter, the hyperparameters used to train DeepLabv3+ with MobileNetv2 and Xception network backbones is provided (Table \ref{Table:hyper}).
+
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|l|r|}
+		\hline
+		\multicolumn{ 1}{|l|}{\makecell{\textbf{Hyperparameter}}} & \multicolumn{ 2}{l|}{\makecell{\textbf{DeepLabv3+ network backbone}}} \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & \makecell{\textbf{MobileNetv2}} & \multicolumn{1}{l|}{\makecell{\textbf{Xception}}} \\ \hline
+		\makecell{Learning rate policy} & \makecell{Cosine restarts} & \multicolumn{1}{l|}{\makecell{Cosine restarts}} \\ \hline
+		\makecell{Initial learning rate} & \multicolumn{1}{r|}{\makecell{0.01}} & \makecell{0.07} \\ \hline
+		\makecell{Learning rate decay factor} & \multicolumn{1}{r|}{\makecell{0.1}} & \makecell{0.1} \\ \hline
+		\makecell{Learning rate decay step} & \multicolumn{1}{r|}{\makecell{2000}} & \makecell{2000} \\ \hline
+		\makecell{Number of training steps} & \multicolumn{1}{r|}{\makecell{30000}} & \makecell{30000} \\ \hline
+		\makecell{Momentum} & \multicolumn{1}{r|}{\makecell{0.9}} & \makecell{0.9} \\ \hline
+		\makecell{Training batch size} & \multicolumn{1}{r|}{\makecell{8}} & \makecell{4} \\ \hline
+		\makecell{L2 weight decay} & \multicolumn{1}{r|}{\makecell{0.00004}} & \makecell{0.00004} \\ \hline
+		\makecell{Input image spatial resolution} & \makecell{481, 641} & \multicolumn{1}{l|}{\makecell{481, 641}} \\ \hline
+		\makecell{Fine tune batch norm parameters} & \makecell{Yes} & \multicolumn{1}{l|}{\makecell{Yes}} \\ \hline
+		\makecell{Output stride} & \multicolumn{1}{r|}{\makecell{16}} & \makecell{16} \\ \hline
+		\makecell{Atrous rates} & \makecell{None} & \multicolumn{1}{l|}{\makecell{6, 12, 18}} \\ \hline
+		\makecell{Image level feature for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Batch norm parameters for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Separable convolution for ASPP} & \makecell{Used} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Decoder output stride} & \makecell{None} & \makecell{4} \\ \hline
+\makecell{Separable convolution for decoder} & \makecell{None} & \multicolumn{1}{l|}{\makecell{Used}} \\ \hline
+		\makecell{Randomly scale input images} & \makecell{Yes} & \multicolumn{1}{l|}{\makecell{Yes}} \\ \hline
+		\makecell{Mininum scale factor for random scaling} & \multicolumn{1}{r|}{\makecell{0.5}} & \makecell{0.5} \\ \hline
+		\makecell{Maximum scale factor for random scaling} & \multicolumn{1}{r|}{\makecell{2}} & \makecell{2} \\ \hline
+		\makecell{Scale factor step size  for random scaling} & \multicolumn{1}{r|}{\makecell{0.25}} & \makecell{0.25} \\ \hline
+		\end{tabular}
+		\caption{This table lists the hyperparameters used during training of DeepLabv3+ with MobileNetv2 and Xception network backbone.}
+		\label{Table:hyper}
+	\end{table}
+
+

@@ -1,0 +1,311 @@
+\begin{thebibliography}{42}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[atw({\natexlab{a}})]{atwork_models}
+3d cad models of the manipulation objects, platforms and other environmental
+  items, {\natexlab{a}}.
+\newblock URL \url{https://github.com/robocup-at-work/models}.
+\newblock Online accessed: 2018-08-11.
+
+\bibitem[atw({\natexlab{b}})]{atwork_models_rockin}
+This repository contains all kind of 2d/3d models of the rockin@work test bed
+  environment, {\natexlab{b}}.
+\newblock URL \url{https://github.com/rockin-robot-challenge/at_work_models}.
+\newblock Online accessed: 2018-08-11.
+
+\bibitem[cs2()]{cs231n}
+Cs231n: Convolutional neural networks for visual recognition.
+\newblock URL \url{http://cs231n.github.io/convolutional-networks/}.
+\newblock Online accessed: 2018-08-08.
+
+\bibitem[mat()]{matlab_cnn}
+Convolutional neural network.
+\newblock URL
+  \url{https://de.mathworks.com/solutions/deep-learning/convolutional-neural-network.html}.
+\newblock Online accessed: 2018-08-08.
+
+\bibitem[Badrinarayanan et~al.(2015)Badrinarayanan, Kendall, and
+  Cipolla]{DBLP:journals/corr/BadrinarayananK15}
+Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla.
+\newblock Segnet: {A} deep convolutional encoder-decoder architecture for image
+  segmentation.
+\newblock \emph{CoRR}, abs/1511.00561, 2015.
+\newblock URL \url{http://arxiv.org/abs/1511.00561}.
+
+\bibitem[Bendersky()]{depthwise}
+Eli Bendersky.
+\newblock Depthwise separable convolutions for machine learning.
+\newblock URL
+  \url{https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for-machine-learning/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Carstensen et~al.()Carstensen, Hochgeschwender, Kraetzschmar, Nowak,
+  and Zug]{github_robocup@work}
+Jan Carstensen, Nico Hochgeschwender, Gerhard Kraetzschmar, Walter Nowak, and
+  Sebastian Zug.
+\newblock Robocup@work rulebook version 2016.
+\newblock URL
+  \url{http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Chen et~al.(2014)Chen, Papandreou, Kokkinos, Murphy, and
+  Yuille]{DBLP:journals/corr/ChenPKMY14}
+Liang{-}Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, and
+  Alan~L. Yuille.
+\newblock Semantic image segmentation with deep convolutional nets and fully
+  connected crfs.
+\newblock \emph{CoRR}, abs/1412.7062, 2014.
+\newblock URL \url{http://arxiv.org/abs/1412.7062}.
+
+\bibitem[Chen et~al.(2016)Chen, Papandreou, Kokkinos, Murphy, and
+  Yuille]{DBLP:journals/corr/ChenPK0Y16}
+Liang{-}Chieh Chen, George Papandreou, Iasonas Kokkinos, Kevin Murphy, and
+  Alan~L. Yuille.
+\newblock Deeplab: Semantic image segmentation with deep convolutional nets,
+  atrous convolution, and fully connected crfs.
+\newblock \emph{CoRR}, abs/1606.00915, 2016.
+\newblock URL \url{http://arxiv.org/abs/1606.00915}.
+
+\bibitem[Chen et~al.(2017)Chen, Papandreou, Schroff, and
+  Adam]{DBLP:journals/corr/ChenPSA17}
+Liang{-}Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam.
+\newblock Rethinking atrous convolution for semantic image segmentation.
+\newblock \emph{CoRR}, abs/1706.05587, 2017.
+\newblock URL \url{http://arxiv.org/abs/1706.05587}.
+
+\bibitem[Chen et~al.(2018)Chen, Zhu, Papandreou, Schroff, and
+  Adam]{DBLP:journals/corr/abs-1802-02611}
+Liang{-}Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, and Hartwig
+  Adam.
+\newblock Encoder-decoder with atrous separable convolution for semantic image
+  segmentation.
+\newblock \emph{CoRR}, abs/1802.02611, 2018.
+\newblock URL \url{http://arxiv.org/abs/1802.02611}.
+
+\bibitem[Chollet(2016)]{DBLP:journals/corr/Chollet16a}
+Fran{\c{c}}ois Chollet.
+\newblock Xception: Deep learning with depthwise separable convolutions.
+\newblock \emph{CoRR}, abs/1610.02357, 2016.
+\newblock URL \url{http://arxiv.org/abs/1610.02357}.
+
+\bibitem[Cornelisse()]{freecodecamp}
+Daphne Cornelisse.
+\newblock An intuitive guide to convolutional neural networks.
+\newblock URL
+  \url{https://medium.freecodecamp.org/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050}.
+\newblock Online accessed: 2018-08-09.
+
+\bibitem[dataset()]{cityscapes}
+Cityscapes dataset.
+\newblock Examples of fine annotations.
+\newblock URL
+  \url{https://www.cityscapes-dataset.com/examples/#fine-annotations}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Dertat()]{towardsdatascience}
+Arden Dertat.
+\newblock Applied deep learning - part 4: Convolutional neural networks.
+\newblock URL
+  \url{https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2}.
+\newblock Online accessed: 2018-08-09.
+
+\bibitem[First350()]{cls_bal}
+First350.
+\newblock Tensorflow — dealing with imbalanced data.
+\newblock URL
+  \url{https://blog.node.us.com/tensorflow-dealing-with-imbalanced-data-eb0108b10701}.
+\newblock Online accessed: 2018-08-04.
+
+\bibitem[Garcia{-}Garcia et~al.(2017)Garcia{-}Garcia, Orts{-}Escolano, Oprea,
+  Villena{-}Martinez, and
+  Rodr{\'{\i}}guez]{DBLP:journals/corr/Garcia-GarciaOO17}
+Alberto Garcia{-}Garcia, Sergio Orts{-}Escolano, Sergiu Oprea, Victor
+  Villena{-}Martinez, and Jos{\'{e}}~Garc{\'{\i}}a Rodr{\'{\i}}guez.
+\newblock A review on deep learning techniques applied to semantic
+  segmentation.
+\newblock \emph{CoRR}, abs/1704.06857, 2017.
+\newblock URL \url{http://arxiv.org/abs/1704.06857}.
+
+\bibitem[Haykin()]{haykin}
+Simon Haykin.
+\newblock \emph{Neural Networks and Learning Machines, Third Edition}.
+\newblock URL
+  \url{http://dai.fmph.uniba.sk/courses/NN/haykin.neural-networks.3ed.2009.pdf}.
+\newblock Online accessed: 2018-08-08.
+
+\bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{DBLP:journals/corr/HeZRS15}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock \emph{CoRR}, abs/1512.03385, 2015.
+\newblock URL \url{http://arxiv.org/abs/1512.03385}.
+
+\bibitem[Huang et~al.(2018)Huang, Zhou, You, and
+  Neumann]{DBLP:journals/corr/abs-1801-07365}
+Qiangui Huang, Shaohua~Kevin Zhou, Suya You, and Ulrich Neumann.
+\newblock Learning to prune filters in convolutional neural networks.
+\newblock \emph{CoRR}, abs/1801.07365, 2018.
+\newblock URL \url{http://arxiv.org/abs/1801.07365}.
+
+\bibitem[Long et~al.(2015)Long, Shelhamer, and Darrell]{7298965}
+J.~Long, E.~Shelhamer, and T.~Darrell.
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock In \emph{2015 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 3431--3440, June 2015.
+\newblock \doi{10.1109/CVPR.2015.7298965}.
+
+\bibitem[Long et~al.(2014)Long, Shelhamer, and
+  Darrell]{DBLP:journals/corr/LongSD14}
+Jonathan Long, Evan Shelhamer, and Trevor Darrell.
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock \emph{CoRR}, abs/1411.4038, 2014.
+\newblock URL \url{http://arxiv.org/abs/1411.4038}.
+
+\bibitem[Loshchilov and Hutter(2016)]{DBLP:journals/corr/LoshchilovH16a}
+Ilya Loshchilov and Frank Hutter.
+\newblock {SGDR:} stochastic gradient descent with restarts.
+\newblock \emph{CoRR}, abs/1608.03983, 2016.
+\newblock URL \url{http://arxiv.org/abs/1608.03983}.
+
+\bibitem[Molchanov et~al.(2016)Molchanov, Tyree, Karras, Aila, and
+  Kautz]{DBLP:journals/corr/MolchanovTKAK16}
+Pavlo Molchanov, Stephen Tyree, Tero Karras, Timo Aila, and Jan Kautz.
+\newblock Pruning convolutional neural networks for resource efficient transfer
+  learning.
+\newblock \emph{CoRR}, abs/1611.06440, 2016.
+\newblock URL \url{http://arxiv.org/abs/1611.06440}.
+
+\bibitem[Paszke et~al.(2016)Paszke, Chaurasia, Kim, and
+  Culurciello]{DBLP:journals/corr/PaszkeCKC16}
+Adam Paszke, Abhishek Chaurasia, Sangpil Kim, and Eugenio Culurciello.
+\newblock Enet: {A} deep neural network architecture for real-time semantic
+  segmentation.
+\newblock \emph{CoRR}, abs/1606.02147, 2016.
+\newblock URL \url{http://arxiv.org/abs/1606.02147}.
+
+\bibitem[Perez()]{techcrunch}
+Sarah Perez.
+\newblock Google makes the camera smarter with a google lens update,
+  integration with street view.
+\newblock URL
+  \url{https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-a-google-lens-update-integration-with-street-view/?guccounter=1}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Pröve()]{diff_conv}
+Paul-Louis Pröve.
+\newblock An introduction to different types of convolutions in deep learning.
+\newblock URL
+  \url{https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d}.
+\newblock Online accessed: 2018-08-10.
+
+\bibitem[Rajpura et~al.(2017)Rajpura, Goyal, Bojinov, and
+  Hegde]{DBLP:journals/corr/abs-1709-00849}
+Param~S. Rajpura, Manik Goyal, Hristo Bojinov, and Ravi~S. Hegde.
+\newblock Dataset augmentation with synthetic images improves semantic
+  segmentation.
+\newblock \emph{CoRR}, abs/1709.00849, 2017.
+\newblock URL \url{http://arxiv.org/abs/1709.00849}.
+
+\bibitem[Real et~al.(2018)Real, Aggarwal, Huang, and
+  Le]{DBLP:journals/corr/abs-1802-01548}
+Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc~V. Le.
+\newblock Regularized evolution for image classifier architecture search.
+\newblock \emph{CoRR}, abs/1802.01548, 2018.
+\newblock URL \url{http://arxiv.org/abs/1802.01548}.
+
+\bibitem[Redmon et~al.(2015)Redmon, Divvala, Girshick, and
+  Farhadi]{DBLP:journals/corr/RedmonDGF15}
+Joseph Redmon, Santosh~Kumar Divvala, Ross~B. Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock \emph{CoRR}, abs/1506.02640, 2015.
+\newblock URL \url{http://arxiv.org/abs/1506.02640}.
+
+\bibitem[Ros et~al.(2016)Ros, Sellart, Materzynska, Vazquez, and
+  Lopez]{RosCVPR16}
+German Ros, Laura Sellart, Joanna Materzynska, David Vazquez, and Antonio
+  Lopez.
+\newblock {The SYNTHIA Dataset}: A large collection of synthetic images for
+  semantic segmentation of urban scenes.
+\newblock 2016.
+
+\bibitem[Sandler and Howard()]{mnbb}
+Mark Sandler and Andrew Howard.
+\newblock Mobilenetv2: The next generation of on-device computer vision
+  networks.
+\newblock URL
+  \url{https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Sandler et~al.(2018)Sandler, Howard, Zhu, Zhmoginov, and
+  Chen]{DBLP:journals/corr/abs-1801-04381}
+Mark Sandler, Andrew~G. Howard, Menglong Zhu, Andrey Zhmoginov, and
+  Liang{-}Chieh Chen.
+\newblock Inverted residuals and linear bottlenecks: Mobile networks for
+  classification, detection and segmentation.
+\newblock \emph{CoRR}, abs/1801.04381, 2018.
+\newblock URL \url{http://arxiv.org/abs/1801.04381}.
+
+\bibitem[Silberman()]{indoor}
+Nathan Silberman.
+\newblock Nyu depth dataset v2.
+\newblock URL \url{https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Simonyan and Zisserman(2014)]{DBLP:journals/corr/SimonyanZ14}
+Karen Simonyan and Andrew Zisserman.
+\newblock Two-stream convolutional networks for action recognition in videos.
+\newblock \emph{CoRR}, abs/1406.2199, 2014.
+\newblock URL \url{http://arxiv.org/abs/1406.2199}.
+
+\bibitem[Szegedy et~al.(2014)Szegedy, Liu, Jia, Sermanet, Reed, Anguelov,
+  Erhan, Vanhoucke, and Rabinovich]{DBLP:journals/corr/SzegedyLJSRAEVR14}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott~E. Reed,
+  Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock \emph{CoRR}, abs/1409.4842, 2014.
+\newblock URL \url{http://arxiv.org/abs/1409.4842}.
+
+\bibitem[Trubetskoy()]{simple_colors}
+Sasha Trubetskoy.
+\newblock List of 20 simple, distinct colors.
+\newblock URL
+  \url{https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Vasa()]{image_downloader}
+Hardik Vasa.
+\newblock hardikvasa/google-images-download.
+\newblock URL \url{https://github.com/hardikvasa/google-images-download/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Warden()]{quant_blog}
+Pete Warden.
+\newblock How to quantize neural networks with tensorflow.
+\newblock URL
+  \url{https://petewarden.com/2016/05/03/how-to-quantize-neural-networks-with-tensorflow/}.
+\newblock Online accessed: 2018-08-03.
+
+\bibitem[Wu et~al.(2015)Wu, Leng, Wang, Hu, and
+  Cheng]{DBLP:journals/corr/WuLWHC15}
+Jiaxiang Wu, Cong Leng, Yuhang Wang, Qinghao Hu, and Jian Cheng.
+\newblock Quantized convolutional neural networks for mobile devices.
+\newblock \emph{CoRR}, abs/1512.06473, 2015.
+\newblock URL \url{http://arxiv.org/abs/1512.06473}.
+
+\bibitem[Zhao et~al.(2017)Zhao, Qi, Shen, Shi, and
+  Jia]{DBLP:journals/corr/ZhaoQSSJ17}
+Hengshuang Zhao, Xiaojuan Qi, Xiaoyong Shen, Jianping Shi, and Jiaya Jia.
+\newblock Icnet for real-time semantic segmentation on high-resolution images.
+\newblock \emph{CoRR}, abs/1704.08545, 2017.
+\newblock URL \url{http://arxiv.org/abs/1704.08545}.
+
+\bibitem[Zoph and Le(2016)]{DBLP:journals/corr/ZophL16}
+Barret Zoph and Quoc~V. Le.
+\newblock Neural architecture search with reinforcement learning.
+\newblock \emph{CoRR}, abs/1611.01578, 2016.
+\newblock URL \url{http://arxiv.org/abs/1611.01578}.
+
+\end{thebibliography}
