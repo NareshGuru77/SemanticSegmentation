@@ -2,7 +2,7 @@
 
 \chapter{Convolutional Neural Networks and Semantic Segmentation}
 
-	In this chapter, we look into the basic concepts of neural networks and later, how such concepts have been used for the task of semantic segmentation. In section \ref{section:ann} we present an overview of Artificial Neural Networks. In \ref{section:cnn} we look into basic concepts underlying Convolutional Neural Networks (CNNs). In \ref{section:cnnseg} we look into how CNNs are adapted for the task of semantic segmentation.
+	In this chapter, we look into the basic concepts of neural networks and later, how such concepts have been used for the task of semantic segmentation. In section \ref{section:ann} we present an overview of Artificial Neural Networks. In section \ref{section:cnn} we look into basic concepts underlying Convolutional Neural Networks (CNNs). In section \ref{section:cnnseg} we look into how CNNs are adapted for the task of semantic segmentation.
 
 \section{Artificial Neural Networks}
 \label{section:ann}
@@ -30,7 +30,7 @@ Artificial Neural Networks (ANN), inspired by the neural networks in our brain, 
 \section{Convolutional Neural Networks}
 \label{section:cnn}
 
-Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection, and semantic segmentation make use of CNNs. Unlike the multilayer feedforward neural network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2D values. A major part of CNNs comprise the use of convolutional layers which substantially reduce the number of parameters in comparison to fully-connected layers.
+Convolutional Neural Networks (CNNs or Conv Nets) are a class of feedforward neural networks which are used in the field of computer vision. Tasks such as image classification, object detection, and semantic segmentation make use of CNNs. Unlike the multilayer feedforward neural network shown in Figure \ref{Fig:haykin_ann_ml}, CNNs are designed to handle image data which is usually represented as a stack of 2D matrices. A major part of CNNs comprises the use of convolutional layers which substantially reduce the number of parameters in comparison to fully-connected layers.
 
 \subsection{CNN Architecture}
 
@@ -63,7 +63,7 @@ A convolution filter slides through an input channel, performs convolution and p
 		\label{Fig:convolution}
 	\end{figure}
 	
-The entire 3D convolution filter slides along the height and width of all channels of the input space looking for features along spatial locations and features across input channels. One 3D convolution filter results in a 2D feature map. Multiple such 3D convolutions are used each of which leads to a 2D feature maps which are all stacked along the depth dimension to create the output 3D volume. This process is illustrated in Figure \ref{Fig:3dconv}.
+The entire 3D convolution filter slides along the height and width of all channels of the input space looking for features along spatial locations and features across input channels. One 3D convolution filter results in a 2D feature map. Multiple such 3D convolutions are used each of which outputs a 2D feature map which are all stacked along the depth dimension to create the output 3D volume. This process is illustrated in Figure \ref{Fig:3dconv}.
 
 	\begin{figure}[h]
 		\centering
