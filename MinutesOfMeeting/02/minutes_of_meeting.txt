@@ -1,8 +1,0 @@
-conventional methods:  graph based methods
-cloud based training
-run the methods on a set of images(300 or 400) and make a note of time metric, accuracy
-use this standard set of metrics and images for different methods for comparision...
-
-
-methods to generate dataset..
-look into RGGB-D..
