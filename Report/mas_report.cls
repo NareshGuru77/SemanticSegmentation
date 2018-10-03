@@ -23,15 +23,15 @@
 \DeclareOption{rnd}{\project{R\&D Project}}
 
 % Report options
-\DeclareOption{openany}{
+\DeclareOption{twosides}{
   \PassOptionsToClass{\CurrentOption}{book}
 }
-\DeclareOption{openany}{
+\DeclareOption{oneside}{
     \PassOptionsToClass{\CurrentOption}{book}
 }
 % Execute the default option
 \ExecuteOptions{thesis}
-\ExecuteOptions{openany}
+\ExecuteOptions{twosides}
 % Process other options
 \ProcessOptions\relax
 
@@ -59,7 +59,7 @@
 \usepackage{subcaption}
 \usepackage{makecell}
 \usepackage{multirow}
-\usepackage{url}
+\usepackage[hyphens]{url}
 % \usepackage{showframe}
 \usepackage{titlesec}
 \setcounter{secnumdepth}{6}
@@ -134,7 +134,7 @@ not set. Please fix this.}
 \vspace{1.5cm}
 {\huge\bfseries\@title\unskip\strut\par}
 \vspace{2cm}
-{\Large\bf\@author\unskip\strut\par}
+{\Large\itshape\@author\unskip\strut\par}
 \vfill
 
 {\normalsize Submitted to Hochschule Bonn-Rhein-Sieg,\\
@@ -175,7 +175,7 @@ Supervised by\par
 
     \vskip -3pt
 
-    \leftline{\hspace{1.5cm} Date \hfill \@author \hspace{1.5cm}}
+    \leftline{\hspace{1.5cm} Date \hfill \@author \hspace{0.02cm}}
 
     \vskip 60pt
     \clearpage

@@ -41,7 +41,7 @@ The ImageLabeler app, by default, provides different tools which help create pix
 		\item Polygon: This can be used to trace an object boundary by placing dots. Once a closed contour is created, pixels within the contour get assigned the corresponding object label.
 		\item Smart Polygon: Smart Polygon is similar to Polygon in terms of usage. This tool, in addition, tries to reach out to the nearby edges of the drawn polygon.
 		\item Brush and Erase: Square shaped brush and eraser to either label a region or remove labels from a region. The size of the square can be changed by using the Brush Size slider.
-		\item Flood Fill: This tool provides the same labels to pixels which are similar in terms of the intensity with the selected pixel.
+		\item Flood Fill: This tool provides the same labels to pixels which are similar to the selected pixel in terms of intensity.
 		\item Label Opacity: This tool provides a sliding bar which varies the opacity of the overlayed labels on the image. This option is helpful to visualize the assigned labels.
 		\item Zoom In, Zoom Out, Pan: These tools improve the ease of labeling by providing means to focus on particular regions by zooming and panning.
 	\end{itemize}
@@ -59,7 +59,7 @@ The ImageLabeler app does not provide any tool to label all unlabeled pixels as 
 	\begin{itemize}
 		\item The images taken for the dataset each have only one object in them.
 		\item Only the object region is labeled.
-		\item Since the ImageLabeler app does not provide any tool to label all unlabeled pixels as background, a python code which reads the label image and replaces unlabeled values 0 with background label value 19, was used for this purpose. The code is also used to double check the label image in order to avoid noisy labeling.
+		\item A python code which reads the label image and replaces unlabeled values 0 with background label value 19, was used. The code is also used to double check the label image in order to avoid noisy labeling.
 	\end{itemize}
 	
 The Export Labels --$>$ To File option can be used to save the annotations. Annotations for all images are saved individually to arrive at the folder structure shown in Figure \ref{Fig:fsa}.
@@ -114,7 +114,7 @@ Keywords used for downloading background images are listed in Table \ref{Table:d
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
 	\hline 
-    Used in & Search keyword(s) & \makecell{Number of \\images selected} \\ 
+    \makecell{\textbf{Used in}} & \makecell{\textbf{Search keyword(s)}} & \makecell{\textbf{Number of} \\\textbf{images selected}} \\ 
 	\hline 
 	Training set & \makecell{640x480 background images, \\640x480 textures images, \\640x480 wallpapers} & 150 \\ 
 	\hline 
@@ -122,7 +122,7 @@ Keywords used for downloading background images are listed in Table \ref{Table:d
 	\hline 
 	Test set & 640x480 paintings & 25 \\ 
 	\hline 
-	Shades of white & \makecell{640x480 white abstract, \\640x480 white backgrounds, \\640x480 white textures, \\640x480 white wallpaper, \\light gray, white, white clouds, \\white floors, white frost, white mist, \\white pebbles, white snow, \\white table textures} & 150 \\ 
+	\makecell{White backgrounds \\ dataset} & \makecell{640x480 white abstract, \\640x480 white backgrounds, \\640x480 white textures, \\640x480 white wallpaper, \\light gray, white, white clouds, \\white floors, white frost, white mist, \\white pebbles, white snow, \\white table textures} & 150 \\ 
 	\hline 
 	\end{tabular}
 	\caption{This table lists the keywords used to download images used as background for artificial image generation.} 
@@ -137,7 +137,7 @@ Further details regarding the generator options used to configure the artificial
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{Generator options} & Default value & \makecell{Is required?} \\ 
+\textbf{Generator options} & \textbf{Default value} & \makecell{\textbf{Is required?}} \\ 
 \hline 
 \textbf{mode} & \makecell{1} & \makecell{Not required} \\ 
 \hline 
@@ -206,7 +206,7 @@ Further details regarding the generator options used to configure the artificial
 
 \chapter{Sample predictions}
 
-In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the color used for visualizing each object in all four dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgrounds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
+In this appendix chapter, visualizations of the predictions obtained through DeepLabv3+ models is provided. In Figure \ref{Fig:guide}, the colors used for visualizing each object in all four dataset variants are shown. In Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, the first column shows the input images, the second column shows the corresponding ground truths, the third column shows the predictions obtained with MobileNetv2 network backbone and the fourth column shows the predictions obtained with the Xception network backbone. Also, in Figures \ref{Fig:sam_full}, \ref{Fig:sam_size}, \ref{Fig:sam_shape} and \ref{Fig:sam_bin}, results shown in the first two rows are from DeepLabv3+ trained on the variety of backgrounds dataset and the results in the third row is from DeepLabv3+ trained on the white backgrounds dataset.
 	
 	\begin{figure}[h]
 		\centering

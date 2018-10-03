@@ -139,15 +139,15 @@ Details regarding the labeling tools and the description of the labeling process
 		\item Labeling images with multiple objects would take an even longer time.
 	\end{itemize}
 	
-These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically. A new code is written as part of this work to generate such artificial images and is called the artificial image generation algorithm.
+These drawbacks could be overcome by randomly placing objects on a variety of different background images automatically. A new code was written as part of this work to generate such artificial images and is called the artificial image generation algorithm.
 
 \subsection{Process of artificial image generation}
-The artificial image generation algorithm requires that every image provided must have just one object. The algorithm can be used in two modes named "Generate artificial images" and "Save visuals." The first mode can be used to generate artificial images and if required save visualizations of labels. The second mode can be used to save visualizations. Under the first mode, the entire process can be divided into 7 broad steps:
+The artificial image generation algorithm requires that every image provided must have just one object. The algorithm can be used in two modes named "Generate artificial images" and "Save visuals." The first mode can be used to generate artificial images and if required save visualizations of labels. The second mode can be used to save visualizations of labels alone. Under the first mode, the entire process can be divided into 7 broad steps:
 	\begin{itemize}
 		\item[1] \textbf{External interface}: An interface to obtain possible parameters to control the generation process. These parameters are obtained through argparse command line and are called generator options.
 		\item[2] \textbf{Get backgrounds and data}: Fetch all the backgrounds, images and corresponding labels from the provided background, image and label paths respectively. First, all the images in the backgrounds path are read. Then, all available images in the label path is read and the corresponding image files in the provided image path is read. The images in the image path must have the same name as that of the corresponding labels but can be of a different format. The default image format is ".jpg."
 		\item[3] \textbf{Get object details}: Fetch details regarding every object and its different scales. The details include information regarding object locations in an image, object values, label values, the object name, points in pixel space denoting a bounding rectangle around the object, and object area. The scales for every object is determined at random. Scaled objects which are too small or too big as determined by generator options are removed.
-		\item[4] \textbf{Generate augmenter list}: Every element in the augmenter list denotes an artificial image and contains information including the chosen background image, the number of objects to place in the artificial image, which objects from the object details list are selected and locations in pixel space where the selected objects need to be placed. In this stage, elements which are cluttered with too many objects are removed as determined by the generator options.
+		\item[4] \textbf{Generate augmenter list}: Every element in the augmenter list denotes an artificial image and contains information including the chosen background image, the number of objects to place in the artificial image, which objects from the object details list are selected, and locations in pixel space where the selected objects need to be placed. In this stage, elements which are cluttered with too many objects are removed as determined by the generator options.
 		\item[5] \textbf{Generate artificial images}: Based on every element in the augmenter list, artificial images and corresponding labels are generated. Every element is taken one by one. The selected objects are placed on the selected background in the corresponding specified location, one by one. The resultant artificial image and semantic label are saved in the directory specified using generator options. Additionally, object detection labels, semantic masks, and visualization previews can be saved by configuring generator options.
 		\item[6] \textbf{Visualize results}: The generated images and labels are visualized to verify the generation process.
 		\item[7] \textbf{Save results}: The obtained resultant artificial images, corresponding labels, and generated visualizations are saved.
@@ -186,7 +186,7 @@ A number of arguments can be configured to control the generation process. The c
 \hline 
 \textbf{max\_obj\_area} & \makecell{Maximum area in percentage allowed for \\an object in image space.} \\ 
 \hline 
-\textbf{save\_label\_preview} & \makecell{Save image+label in single image for preview.} \\ 
+\textbf{save\_label\_preview} & \makecell{Save image+label in a single image for preview.} \\ 
 \hline 
 \textbf{save\_obj\_det\_label} & \makecell{Save object detection labels in csv files.} \\ 
 \hline  
@@ -194,13 +194,13 @@ A number of arguments can be configured to control the generation process. The c
 \hline 
 \textbf{save\_overlay} & \makecell{Save segmentation label overlaid on image.} \\ 
 \hline 
-\textbf{overlay\_opacity} & \makecell{Opacity of label on the overlaid image.} \\ 
+\textbf{overlay\_opacity} & \makecell{Opacity of the label on the overlaid image.} \\ 
 \hline 
 \textbf{image\_save\_path} & \makecell{Path where the generated artificial image needs\\ to be saved.} \\ 
 \hline 
 \textbf{label\_save\_path} & \makecell{Path where the generated segmentation label needs\\ to be saved.} \\ 
 \hline 
-\textbf{preview\_save\_path} & \makecell{Path where object detection labels needs to be saved.} \\ 
+\textbf{preview\_save\_path} & \makecell{Path where preview image needs to be saved.} \\ 
 \hline 
 \textbf{obj\_det\_save\_path} & \makecell{Path where object detection labels needs to be saved.} \\ 
 \hline 
@@ -218,7 +218,7 @@ A number of arguments can be configured to control the generation process. The c
 \hline 
 \textbf{max\_objects} & \makecell{Maximum number of objects allowed in an image.} \\ 
 \hline 
-\textbf{num\_regenerate} & \makecell{Number of regeneration attempts of removed details dict.} \\ 
+\textbf{num\_regenerate} & \makecell{Number of regeneration attempts of removed object details.} \\ 
 \hline 
 \textbf{min\_distance} & \makecell{Minimum pixel distance required between two objects.} \\ 
 \hline 
@@ -227,7 +227,7 @@ A number of arguments can be configured to control the generation process. The c
 \textbf{scale\_ranges} & \makecell{Can be used to change the zoom range of specific objects.} \\ 
 \hline 
 \end{tabular}
-\caption{Description of generator options} 
+\caption{Description of generator options.} 
 \label{Table:godes}
 \end{table}
 
@@ -244,7 +244,7 @@ Sample results of the artificial image generation algorithm can be seen in Figur
 	\end{figure}
 	
 \subsection{Downloading background images}
-Different background images were used for the artificial image generation process. Since a large number of backgrounds were required, manual download was time-consuming. Hence, the "google-images-download" \cite{image_downloader} script was used to auto download images. The search keywords used to obtain the background images are listed in Appendix A. From the downloaded images, the required number of images for each dataset split were selected. For the white backgrounds dataset, many different search keywords were tried because many of the downloaded images did not contain sufficient white regions. Images which were not of the dimensions used in the dataset (480$\times$640) were rescaled.
+Different background images were used for the artificial image generation process. Since a large number of backgrounds were required, manual download was time-consuming. Hence, the "google-images-download" \cite{image_downloader} script was used to auto download images. The search keywords used to obtain the background images are listed in Appendix A. From the downloaded images, the required number of images for each dataset split were selected. For the white backgrounds dataset (described in Section \ref{section:white}), many different search keywords were tried because many of the downloaded images did not contain sufficient white regions. Images which do not have a spatial resolution of 480$\times$640 were rescaled to this resolution.
 
 	
 \subsection{Notable features of the artificial image generator}
@@ -287,11 +287,11 @@ The real images are split into training, validation and test sets. Real images i
 \section{Creation of dataset variants}
 Different variants of the dataset are created based on the properties of the objects in the dataset, and the type of background images used for the generation of artificial images.
 	\subsection{Motivation}
-		Looking into the objects present in the dataset, it is apparent that some objects are similar in certain aspects. For instance, the objects m20 and m30 are very similar to each other except that m30 is bigger in size and has a slightly different color. Because of the similarities existing among objects, the segmentation model could face certain difficulties as listed below:
+		Looking into the objects present in the dataset, it is apparent that some objects are similar in certain aspects. For instance, the objects "m20" and "m30" are very similar to each other except that "m30" is bigger in size and has a slightly different color. Because of the similarities existing among objects, the segmentation model could face certain difficulties as listed below:
 		\begin{itemize}
-			\item \textbf{Inability to distinguish size}: The segmentation model is given no information regarding the positions of the camera or the object in the real world. If camera extrinsic calibration information is available to the segmentation model, the model could learn to distinguish different sizes. However, such information is not available. Also, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
+			\item \textbf{Inability to distinguish size}: The segmentation model is given no information regarding the positions of the camera or the object in the real-world. If camera extrinsic calibration information is available to the segmentation model, the model could learn to distinguish different sizes. However, such information is not available. Also, the objects in the artificial images are randomly scaled to different sizes thereby removing any size related information available.
 			\item \textbf{Inability to distinguish subtle variations in color}: The real images were taken under different lighting conditions. As a result, there is no consistent difference in color information available between classes which makes it difficult for the segmentation model to learn patterns in color information.
-			\item \textbf{Inability to distinguish shapes}: Certain objects are closely related to each other in terms of shape. For instance, bearing\_box\_ax16 and bearing\_box\_ax01 are similar in shape except in a few viewpoints as illustrated in Figure \ref{Fig:sim1} and in Figure \ref{Fig:sim2}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
+			\item \textbf{Inability to distinguish shapes}: Certain objects are closely related to each other in terms of shape. For instance, "bearing\_box\_ax16" and "bearing\_box\_ax01" are similar in shape except in a few viewpoints as illustrated in Figure \ref{Fig:sim1} and in Figure \ref{Fig:sim2}. In such cases, in certain viewpoints, the segmentation model would not be able to distinguish between similarly shaped objects.
 			
 \begin{figure}[h]
 	\centering
@@ -307,7 +307,7 @@ Different variants of the dataset are created based on the properties of the obj
   		\caption{A viewpoint of \\bearing box ax16}
   		\label{Fig:sim1b}
 	\end{subfigure}%
-	\caption{A viewpoint of bearing box ax01 and bearing box ax16 where the difference in shapes between the two objects is clearly visible.}
+	\caption{A viewpoint of "bearing\_box\_ax01" and "bearing\_box\_ax16" where the difference in shapes between the two objects is clearly visible.}
 	\label{Fig:sim1}
 \end{figure}
 
@@ -325,7 +325,7 @@ Different variants of the dataset are created based on the properties of the obj
   		\caption{A viewpoint of \\bearing box ax16}
   		\label{Fig:sim2b}
 	\end{subfigure}%
-	\caption{A viewpoint of bearing box ax01 and bearing box ax16 where they appear similar in shape.}
+	\caption{A viewpoint of "bearing\_box\_ax01" and "bearing\_box\_ax16" where they appear similar in shape.}
 	\label{Fig:sim2}
 \end{figure}	
 	\end{itemize}
@@ -334,10 +334,10 @@ Different variants of the dataset are created based on the properties of the obj
 	
 	Four different dataset variants have been created as listed below:
 	\begin{itemize}
-		\item \textbf{atWork\_full}: This variant has different label values for all the 18 objects in the dataset and an additional label value for the background class. The total number of classes is 19 including background and the label values range from 0 to 18. The different classes in this variant along with their label values are listed in Table \ref{Table:variants}.
-		\item \textbf{atWork\_size\_invariant}: In this variant, objects which are similar to each other in terms of shape but differ in size are combined together into one class. On this regard, f20\_20\_B and s40\_40\_B are combined and named f\_s20\_40\_20\_40\_B. Similarly, f20\_20\_G and s40\_40\_G are combined and named f\_s20\_40\_20\_40\_G. m20 and m30 are combined and named m20\_30. The two bearing boxes, bearing\_box\_ax01 and bearing\_box\_ax16 are also combined as they are similar to each other in certain viewpoints. They form the new class bearing\_box. The objects in this variant along with their label values are listed in Table \ref{Table:variants}. This variant is named "atWork\_size\_invariant" as in this variant, the major change deals with the ignorance of the size of the objects as distinguishing information.
-		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, f\_s20\_40\_20\_40\_B and f\_s20\_40\_20\_40\_G are combined and named f\_s20\_40\_20\_40\_B\_G. The container boxes, container\_box\_red and container\_box\_blue were also combined to form the new class container\_box. This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in Table \ref{Table:variants}.
-		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where are the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in Table \ref{Table:variants}.
+		\item \textbf{atWork\_full}: This variant has different label values for all the 18 objects in the dataset and an additional label value for the "background" class. The total number of classes is 19 including "background" and the label values range from 0 to 18. The different classes in this variant along with their label values are listed in Table \ref{Table:variants}.
+		\item \textbf{atWork\_size\_invariant}: In this variant, objects which are similar to each other in terms of shape but differ in size are combined together into one class. On this regard, "f20\_20\_B" and "s40\_40\_B" are combined and named "f\_s20\_40\_20\_40\_B". Similarly, "f20\_20\_G" and "s40\_40\_G" are combined and named "f\_s20\_40\_20\_40\_G". "m20" and "m30" are combined and named "m20\_30". The two bearing boxes, "bearing\_box\_ax01" and "bearing\_box\_ax16" are also combined as they are similar to each other in certain viewpoints. They form the new class "bearing\_box". The objects in this variant along with their label values are listed in Table \ref{Table:variants}. This variant is named "atWork\_size\_invariant" as in this variant, the major change deals with the ignorance of the size of the objects as distinguishing information.
+		\item \textbf{atWork\_similar\_shapes}: In the previous variant "atWork\_size\_invariant", objects similar in terms of shape but different in terms of color were treated as separate classes. In this variant, variation in terms of color is also ignored. In addition to the previous variant, "f\_s20\_40\_20\_40\_B" and "f\_s20\_40\_20\_40\_G" are combined and named "f\_s20\_40\_20\_40\_B\_G". The container boxes, "container\_box\_red" and "container\_box\_blue" were also combined to form the new class "container." This variant is named "atWork\_similar\_shapes" as objects with similar shapes are given equal label values. Details regarding this variant are listed in Table \ref{Table:variants}.
+		\item \textbf{atWork\_binary}: An interesting question would be, "how would a segmentation model perform when it is just tasked with segmenting foreground from background". To address this question, an additional variant is created called "atWork\_binary" where all the objects of interest are combined to form the "foreground" class with label value 1. The "background" class retains its label value of 0. The classes in this variant are listed in Table \ref{Table:variants}.
 		
 		\begin{table}[h]
 			\centering
@@ -391,21 +391,22 @@ Different variants of the dataset are created based on the properties of the obj
 	\end{itemize}
 
 	\subsection{White backgrounds dataset}
-The backgrounds used for the artificial image generation process are images with a variety of different colors, textures and so on. In essence, the background images do not seem to follow any pattern as such. As a result, the generated artificial images are unlikely to be similar to an image taken by an atWork robot. In order to address this, the background images used in the artificial image generation process are all replaced by images which mostly contain shades of white color in them. With this as the only change, the entire artificial image generation process and variant creation process is repeated to arrive at a new dataset which is named "white backgrounds dataset." Sample visualizations of artificial images generated for this dataset can be seen in Figure \ref{Fig:samplewhite}.
+	\label{section:white}
+The backgrounds used for the artificial image generation process are images with a variety of different colors, textures and so on. In essence, the background images do not seem to follow any pattern as such. As a result, the generated artificial images are unlikely to be similar to an image taken by an atWork robot. In order to address this, the background images used in the artificial image generation process are all replaced by images which mostly contain shades of white color in them. With this as the only change, the entire artificial image generation process and variant creation process is repeated to arrive at a new dataset which is named as "white backgrounds dataset." Sample visualizations of artificial images generated for this dataset can be seen in Figure \ref{Fig:samplewhite}.
 
 	\begin{figure}
 		\centering
 		\includegraphics[scale=0.3]{images/sample_white_1}
 		\includegraphics[scale=0.3]{images/sample_white_2}
 		\includegraphics[scale=0.3]{images/sample_white_3}
-		\caption{Sample results produced by the artificial image generation algorithm for the "white backgrounds dataset".}
+		\caption{Sample results produced by the artificial image generation algorithm for the white backgrounds dataset. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated}
 		\label{Fig:samplewhite}
 	\end{figure}
 	
 \section{Data analysis}
 \label{section:analysis}
 
-	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears in the training set of the variety of backgrounds dataset. This analysis provides insights regarding whether or not all the objects are represented equally by the dataset. If an object occupies pixels which is significantly greater than the pixels occupied by all other objects, this object can be considered to dominate the dataset. Intuitively, a segmentation model would favor a dominant object as classifying this object correctly would take the model closest to a global minimum. On this regard, sorting objects in terms of their dominance in the dataset would help provide clues to why a segmentation model segments some objects better than others. 
+	All the variants of the dataset are analyzed in terms of the pixels occupied by each class in percentage and the number of images in which each class appears in the training set of the variety of backgrounds dataset. This analysis provides insights regarding whether or not all the objects are represented equally by the dataset. If an object occupies pixels which is significantly greater than the pixels occupied by all other objects, this object can be considered to dominate the dataset. Intuitively, a segmentation model would favor a dominant object as classifying this object correctly would lead to a faster minimization of the loss function used by the model. On this regard, sorting objects in terms of their dominance in the dataset would help provide clues to why a segmentation model segments some objects better than others. 
 	
 	\subsection{Surface area of the objects}
 		
@@ -458,16 +459,16 @@ The backgrounds used for the artificial image generation process are images with
 			\label{Table:surface}
 		\end{table}
 		
-		\begin{figure}
+		\begin{figure}[h]
 		\centering
 		\includegraphics[scale=0.3]{images/all_objects}
-		\caption{This figure shows all the 18 objects in the dataset arranged in increasing order of surface area from top left to bottom right. First row from left: "distance\_tube", "m20", "bearing", "axis", "r20", "m30", "m20\_100", "motor", "bearing\_box\_ax16", 'bearing\_box\_ax01", "f20\_20\_B", "f20\_20\_G". Second row from left: "em\_01", "s40\_40\_B", "s40\_40\_G", "em\_02", "container\_box\_red", "container\_box\_red".}
+		\caption{This figure shows all the 18 objects in the dataset arranged in increasing order of surface area from top left to bottom right. First row from left: "distance\_tube", "m20", "bearing", "axis", "r20", "m30", "m20\_100", "motor", "bearing\_box\_ax16", 'bearing\_box\_ax01", "f20\_20\_B", "f20\_20\_G". Second row from left: "em\_01", "s40\_40\_B", "s40\_40\_G", "em\_02", "container\_box\_red", "container\_box\_blue".}
 		\label{Fig:allobjects}
 	\end{figure}
 	
 	\subsection{Percentage of pixels and class count}
 		
-		The total pixels occupied by each class in the training set is calculated. Next, this count of pixels is converted to percentage with respect to the total number of pixels in the corresponding dataset split. Also, the number of images in which each class of objects appears is counted and called class count. The lower plot in Figure \ref{Fig:analyzera} shows normalized values of surface area, and percentage of pixels of objects in the atWork\_full variant plotted as histograms. The bars are arranged in the increasing order of surface area. The percentage of pixels also seems to increase along with surface area but is not consistent. However, when every 3 classes are combined starting from "distance\_tube", and plotted separately shown in the upper plot of \ref{Fig:analyzera}, an apparent pattern appears which shows an increasing trend followed by the percentage of pixels in proportion to surface area. A similar inference could be made for atWork\_size\_invariant and atWork\_similar\_shapes variant from plots in Figure \ref{Fig:analyzerb} and Figure \ref{Fig:analyzerc} respectively.
+		The total pixels occupied by each class in the training set is calculated. Next, this count of pixels is converted to percentage with respect to the total number of pixels in the corresponding dataset split and is called percentage of pixels. Also, the number of images in which each class of objects appears is counted and called class count. The lower plot in Figure \ref{Fig:analyzera} shows normalized values of surface area, and percentage of pixels of objects in the atWork\_full variant plotted as histograms. The bars are arranged in the increasing order of surface area. The percentage of pixels also seems to increase along with surface area but is not consistent. However, when every 3 classes are combined starting from "distance\_tube", and plotted separately shown in the upper plot of \ref{Fig:analyzera}, an apparent pattern appears which shows an increasing trend followed by the percentage of pixels in proportion to surface area. A similar inference could be made for atWork\_size\_invariant and atWork\_similar\_shapes variant from plots in Figure \ref{Fig:analyzerb} and Figure \ref{Fig:analyzerc} respectively.
 		
 		\begin{figure}
 			\begin{subfigure}{1\textwidth}
@@ -488,7 +489,7 @@ The backgrounds used for the artificial image generation process are images with
 				\caption{}
 				\label{Fig:analyzerc}
 			\end{subfigure}
-			\caption{This plot shows that the percentage of pixels occupied by objects in the variety of backgrounds dataset is related to the real world surface area of the objects. The plots are for different dataset variants: (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
+			\caption{This plot shows that the percentage of pixels occupied by objects in the variety of backgrounds dataset is related to the real-world surface area of the objects. The plots are for different dataset variants: (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:analyzer}
 		\end{figure}		
 		
@@ -506,7 +507,7 @@ Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers ho
 	\hline 
     & Training & Validation & Test \\ 
 	\hline 
-	Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & 				\makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$18)-3=69} \\ 
+	Real Images & \makecell{22 per object.\\ Total: 22$\times$18=396} & \makecell{4 per object.\\ Total: 4$\times$18=72} & 				\makecell{"axis"=3; \\"s40\_40\_B"=2; \\All other objects=4\\ Total: (4$\times$16)+3+2=69} \\ 
 	\hline 
 	Artificial Images & 7104 & 870 & 870 \\ 
 	\hline 
@@ -519,7 +520,7 @@ Meta-data of the dataset is provided in Table \ref{Table:meta}. These numbers ho
 
 \section{Possible directions of improvement}
 
-Creating a custom dataset for the desired application is challenging. To overcome the time-consuming nature of creating annotations for semantic segmentation, choices such as 1. placing just 1 object per image while taking real images and 2. augmenting the objects on a random selection of diverse backgrounds, were made. This method of augmentation, although inspired by the dataset generation method used in \cite{DBLP:journals/corr/abs-1709-00849} and the Synthia dataset \cite{RosCVPR16}, takes a different approach. Unlike \cite{DBLP:journals/corr/abs-1709-00849}, which uses 3D CAD models, this approach does not require any 3D models. Also, this approach does not require a virtual world as used by the Synthia dataset \cite{RosCVPR16}. 
+Creating a custom dataset for the desired application is challenging. To overcome the time-consuming nature of creating annotations for semantic segmentation, choices such as placing just one object per image while taking real images and augmenting the objects on a random selection of diverse backgrounds, were made. This method of augmentation, although inspired by the dataset generation method used in \cite{DBLP:journals/corr/abs-1709-00849} and the Synthia dataset \cite{RosCVPR16}, takes a different approach. Unlike \cite{DBLP:journals/corr/abs-1709-00849}, which uses 3D CAD models, this approach does not require any 3D models. Also, this approach does not require a virtual world as used by the Synthia dataset \cite{RosCVPR16}. 
 The following list provides possible directions of improvement:
 	\begin{itemize}
 		\item The ImageLabeler app by default saves the label '.png' file with the name 'Label\_1.png' in a folder called PixelLabelData. An automation script can be written and added to the ImageLabeler to provide options to save the label file in a way the user wants.

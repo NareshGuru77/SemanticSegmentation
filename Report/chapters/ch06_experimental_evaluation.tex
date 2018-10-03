@@ -4,7 +4,6 @@
 
 Since the major contribution of this work is the creation of the dataset, the experiments are focused on validating the effectiveness of the dataset. This chapter is divided into 9 sections. Section \ref{section:metrics} called "About the metrics" describes the different metrics used for evaluation. Section \ref{section:variants} called "Comparing dataset variants" compares the performance of DeepLabv3+ across the 4 variants of the dataset. Section \ref{section:backbones} called "Comparing DeepLabv3+ backbones" compares the two network backbones MobileNetv2 and Xception of DeepLabv3+. Section \ref{section:diffdata} called "Training with different data" compares the performance of DeepLabv3+ on the real validation set when different training data combinations such as only training with real data and training with a combination of real and artificial data is used. Section \ref{section:indcls} called "Comparing individual classes" compares the performance of DeepLabv3+ with MobileNetv2 network backbone on different classes of objects using confusion matrix and individual class IOUs. Section \ref{section:lr} called "Comparing learning rate policies" compares two different learning rate decay policies considered for this work. Section \ref{section:clsbal} called "Effects of class balancing" describes the attempt made to use a weighted loss function to prevent DeepLabv3+ model from favoring dominant classes. Section \ref{section:quant} called "Effects of quantizing the inference graph" looks into the differences between full precision models and corresponding low precision models. Section \ref{section:dis} called "Discussions" provides conclusions and further insights gained through the experiments. 
 
-
 \section{About the metrics}
 \label{section:metrics}
 
@@ -15,12 +14,12 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			IOU = \frac{ground\_truth \: \cap \: prediction}{ground\_truth \: \cup \: prediction}.
 		\end{equation}
 		
-		mIOU is the mean of IOUs of all classes in the dataset. IOU could also be interpreted as shown in equation (6.2) on the pixel level where, TP denotes True Positives which is the total number of pixels correctly predicted, FP denotes False Positives which is the total number of pixels which does not belong to the particular class according to the ground truth but is predicted as belonging to the class and FN denotes False Negatives which is the total number of pixels not belonging to the class but is predicted as belonging to the class.
+		mIOU is the mean of IOUs of all classes in the dataset. IOU could also be interpreted as shown in equation (6.2) on the pixel level where, TP denotes True Positives which is the total number of pixels correctly predicted, FP denotes False Positives which is the total number of pixels which does not belong to a particular class according to the ground truth but is predicted as belonging to the class and FN denotes False Negatives which is the total number of pixels belonging to a class according to the ground truth but is predicted as not belonging to the class.
 		\begin{equation}
 			IOU = \frac{TP}{TP+FP+FN}
 		\end{equation}
 		
-		When the ground truth and predictions have no pixels intersecting for a class, the corresponding class IOU will be 0 percent. Similarly, if there is a perfect union between the ground truth and the prediction, the corresponding class IOU will be 100 percent.
+		When the ground truth and predictions have no intersecting pixels for a class, the corresponding class IOU will be 0 percent. Similarly, if there is a perfect union between the ground truth and the prediction, the corresponding class IOU will be 100 percent.
 		\item \textbf{Inference time}: The time taken, in seconds, by a segmentation model to calculate the output predictions for one input image.
 		\item \textbf{Number of parameters}: The total number of trainable parameters in a segmentation model which are updated during training. Convolution kernel weights, biases, batch normalization parameters are examples of trainable parameters.
 		\item \textbf{Floating point operations (FLOPS)}: The total number of floating point operations performed when one image goes through the network in one forward pass.
@@ -33,11 +32,12 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the performance of DeepLabv3+ on the different dataset variants.
-		\item \textbf{Expected result}: DeepLabv3+ is expected to obtain a higher mIOU when the number of classes is lower. This expectation is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.
-		\item \textbf{Inference from the results}: Deeplabv3+ with both the MobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, DeepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the DeepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by DeepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
+		\item \textbf{Expected result}: DeepLabv3+ is expected to obtain a higher mIOU when the number of classes is lower. This expectation is based on the notion that when similar objects are considered as different classes, the model would not have sufficient features to distinguish them.		
+		
+		\item \textbf{Inference from the results}: Deeplabv3+ with both the MobileNetv2 network backbone and the Xception network backbone are evaluated on all variants of variety of backgrounds and white backgrounds dataset. From Figure \ref{Fig:vars}, it is evident that the mIOU obtained on each variant is dependent on the properties of objects in the variant. The atWork\_full variant treats all the 18 objects in the dataset as different classes. As a result, for instance, "m20" and "m30" have different labels despite the fact that the two objects only differ in size and slightly in color. The segmentation model is thus forced to distinguish between such objects. Since the objects occur in the dataset at arbitrary scales and are subject to differences in illumination, the real-world differences between such similar objects become insignificant in the dataset. Thus, the mIOU obtained on the atWork\_full variant is indeed the lowest as expected. The two variants atWork\_size\_invariant and atWork\_similar\_shapes combine objects which are similar. As a result, DeepLabv3+ achieves better mIOU on these variants. The atWork\_binary variant requires the DeepLabv3+ to only distinguish foreground from background leading to the highest mIOU. Evidently, the stated inferences are independent of the network backbone used by DeepLabv3+. The mIOU values obtained are tabulated in Table \ref{Table:vars}.
 	\end{itemize}
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\begin{subfigure}{.45\textwidth}
 			\centering
@@ -63,11 +63,11 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\caption{}
 			\label{Fig:xcepvarsb}
 		\end{subfigure}
-		\caption{mIOU of Deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on variety of backgrounds dataset, (b) MobileNetv2 network backbone on white backgrounds dataset, (c) Xception network backbone on variety of backgrounds dataset, (d) Xception network backbone on white backgrounds dataset.}
+		\caption{mIOU of Deeplabv3+ on the different dataset variants. (a) MobileNetv2 network backbone on the variety of backgrounds dataset, (b) MobileNetv2 network backbone on the white backgrounds dataset, (c) Xception network backbone on the variety of backgrounds dataset, (d) Xception network backbone on the white backgrounds dataset.}
 		\label{Fig:vars}
 	\end{figure}
-	
-	\begin{table}
+		
+	\begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
 	\hline 
@@ -85,17 +85,17 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 	\end{tabular}
 	\caption{This table lists the mIOU obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on 4 dataset variants of VB: variety of backgrounds dataset and WB: white backgrounds dataset.} 
 	\label{Table:vars}
-\end{table}
+	\end{table}	
 
 \section{Comparing DeepLabv3+ backbones}
 \label{section:backbones}
 
 	\begin{itemize}
 		\item \textbf{Objective}: The objective of this experiment is to compare the mIOUs obtained by DeepLabv3+ with MobileNetv2 and Xception network backbones on each of the datasets and its variants.
-		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the MobileNetv2 network backbone. In essence, the Xception network backbone has more "learning capacity" than the MobileNetv2 network backbone leading to the ability to learn a better decision boundary.
-		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the MobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieve slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset because the white backgrounds dataset has fewer variations in terms of backgrounds.
+		\item \textbf{Expected result}: The Xception network backbone is expected to obtain higher mIOU because of the higher number of learnable parameters in comparison with the MobileNetv2 network backbone. In essence, the Xception network backbone has more "learning capacity" than the MobileNetv2 network backbone leading to its ability to learn a better decision boundary.		
+		\item \textbf{Inference from the results}: The results obtained are shown in Figure \ref{Fig:backbones}. Across all the dataset variants, the Xception network backbone achieves higher mIOU than the MobileNetv2 network backbone consistently. Another inference is that the models trained and validated on the white backgrounds dataset achieve slightly higher mIOU than corresponding models trained on the variety of backgrounds dataset which could be because the white backgrounds dataset has fewer variations in terms of backgrounds.
 	\end{itemize}
-
+	
 	\begin{figure}
 		\begin{subfigure}{.5\textwidth}
 			\centering
@@ -137,21 +137,21 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\item[4] Only the real training images.
 		\end{itemize}
 	The validation set only consists of the real validation images in order to consider only real-world conditions.
-		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This expectation is based on the notion that the artificial images force the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the whole variety of backgrounds training set. Training with white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to result in the worst mIOU as it does not expose the segmentation model to real-world conditions.
+		\item \textbf{Expected result}: Training with the entire training set of the variety of backgrounds dataset is expected to achieve the highest mIOU. This expectation is based on the notion that the artificial images force the segmentation model to learn features independent of the background. Also, the model is expected to have improved robustness towards varying object scales and occlusions. Training with just the real training images is also expected to perform well but second to the performance obtained with the whole variety of backgrounds training set. Training with the white backgrounds dataset is expected to perform well except in cases where the background is not predominantly white. Training only with the artificial images is expected to result in the worst mIOU as it does not expose the segmentation model to real-world conditions.
 		\item \textbf{Inference from the results}: From the results shown in Figure \ref{Fig:realval} and in Table \ref{Table:realval}, it is evident that in all variants, training with just the real images achieves the best mIOU on the real validation set. This observation is in contrast to the notion that augmenting with artificial images improves mIOU. This apparent contrast begs to question the need for artificial images and states that they are not required. However, looking into the limitations of the real validation set could help reinstate the importance of the artificial images.
 		\begin{itemize}
 			\item[1] The real validation images only contain one object per image which in most images is clearly visible. There are no cases of occlusion or existence of multiple objects. 
 			\item[2] The backgrounds in the real validation set is already seen in the training set. Only three different real backgrounds were used.
 		\end{itemize}
-		These two limitations exist in the real validation because of the need to reduce the labeling cost. Creating real-world variations in terms of multiple objects per image and random occlusions is time-consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time-consuming. The artificial images address these limitations by placing objects at arbitrary scales in random locations on varied backgrounds.
-		In addition to the existing limitations, the artificial images inherently impose a regularization effect on the training process. This effect can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
+		These two limitations exist in the real validation images because of the need to reduce the labeling cost. Creating real-world variations in terms of multiple objects per image and random occlusions is time-consuming and also leads to increase in annotation time. Introducing varied backgrounds in real images is also time-consuming. The artificial images address these limitations by placing objects at arbitrary scales in random locations on varied backgrounds. Therefore, the existing real validation set is not diverse enough to evaluate the effectiveness of artificial images.
+		On the other hand, the artificial images inherently impose a regularization effect on the training process. This effect can be attributed to the existence of many different backgrounds. On this regard, the existing L2 regularization weight decay term might need to be lowered to enable the model to better fit to the training data.
 		\item \textbf{Suggestions to improve the experiment}: Adding a limited number of real validation images which have multiple objects and occlusions, reducing the value of L2 weight decay are two possible changes which can be introduced to arrive at a better inference. However, at this point in order to validate these speculations, the model trained only on real data is validated on artificial data. The results are shown in Figure \ref{Fig:realaug} and Table \ref{Table:realaug} summarizes the mIOU values. In this case, training with just the real data consistently obtains low mIOU across all variants using both Xception and MobileNetv2 network backbones. This result suggests that the speculations made could be further explored.
 	\end{itemize}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/real_val}
-		\caption{This plot shows the mIOUs obtained when training DeepLabv3+ on different training sets. "full" denotes the atWork\_full variant, "size" denotes the atWork\_size\_invariant variant, "shape" denotes the atWork\_similar\_shapes variant, "binary" denotes the atWork\_binary variant.}
+		\caption{This plot shows the mIOUs obtained when training DeepLabv3+ on different training sets. "full" denotes the atWork\_full variant, "size" denotes the atWork\_size\_invariant variant, "shape" denotes the atWork\_similar\_shapes variant, "binary" denotes the atWork\_binary variant. "VB" denotes the variety of backgrounds dataset and "WB" denotes the white backgrounds dataset.}
 		\label{Fig:realval}
 	\end{figure}
 
@@ -187,7 +187,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\label{realaugb}
 			\caption{}
 		\end{subfigure}
-		\caption{This figure shows the mIOUs obtained when trained on real images and validated on artificial images across all 4 variants of the variety of backgrounds dataset. (a) mIOU obtained by MobileNetv2 network backbone, (b) mIOU obtained by Xception network backbone.}
+		\caption{This figure shows the mIOUs obtained when trained on real images and validated on artificial images across all four variants of the variety of backgrounds dataset. (a) mIOU obtained by MobileNetv2 network backbone, (b) mIOU obtained by Xception network backbone.}
 		\label{Fig:realaug}
 	\end{figure}
 	
@@ -216,9 +216,9 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 	\subsection{Confusion matrix}
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this section is to analyze the DeepLabv3+ model's inability to distinguish between different objects. 
-			\item \textbf{Expected result}: The variants with the higher number of classes is expected to have more nonleading diagonal terms in the confusion matrix. This expectation is based on the belief that the segmentation model would face difficulties distinguishing objects very similar to each other. This problem is expected to be alleviated by the atWork\_size\_invariant and atWork\_similar\_shapes variants. On the atWork\_binary variant, there is a possibility that a certain percentage of foreground pixels are confused with the background.
-			\item \textbf{Inference from the results}: The obtained confusion matrices are shown in Figure \ref{Fig:cm}. On all the confusion matrices, the leading diagonal elements have the highest values in each row. This result is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of m30 is confused as m20. This confusion is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in "distance\_tube" are confused with the background. This confusion could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
-			Confusion between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This result can be attributed to the combining of similar objects to one class. The confusion between motor and m20\_100 and the confusion between motor and r20 needs to be addressed.
+			\item \textbf{Expected result}: The variants with the higher number of classes are expected to have high values in nonleading diagonal locations of the confusion matrix. This expectation is based on the belief that the segmentation model would face difficulties distinguishing objects very similar to each other. This problem is expected to be alleviated by the atWork\_size\_invariant and atWork\_similar\_shapes variants. On the atWork\_binary variant, there is a possibility that a certain percentage of foreground pixels are confused with the background.
+			\item \textbf{Inference from the results}: The obtained confusion matrices are shown in Figure \ref{Fig:cm}. On all the confusion matrices, the leading diagonal elements have the highest values in each row. This result is expected and suggests that the model correctly classifies a majority of pixels in each class. Notably, the objects confused with each other are either similar in terms of color or shape. For instance, around 10 percent of "m30" is confused as "m20". This confusion is reasonable as the objects are similar in shape and only differ in size. The difference in size cannot be picked up by the model as no consistent information regarding the object size is available in the dataset. 41.18 percent of pixels in "distance\_tube" are confused with the background. This confusion could be because the number of pixels occupied by distance tube in the dataset is small in comparison to the other objects.
+			Confusion between objects has reduced on the atWork\_size\_invariant and atWork\_similar\_shapes dataset in comparison to the atWork\_full variant. This result can be attributed to the combining of similar objects to one class. The confusion between "motor" and "m20\_100" and the confusion between "motor" and "r20" needs to be addressed.
 		\end{itemize}
 
 		\begin{figure}
@@ -242,7 +242,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 				\includegraphics[width=1\linewidth]{images/cm_binary}
 				\caption{}
 			\end{subfigure}
-			\caption{Confusion matrix of DeepLabv3+ with MobileNetv2 backbone based on number of classified pixels on all 4 variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
+			\caption{Confusion matrix of DeepLabv3+ with MobileNetv2 network backbone based on number of classified pixels on all four variants of the variety of backgrounds dataset. The number of pixels in each row is normalized by the total number of pixels in the row. (a): atWork\_full variant, (b): atWork\_size\_invariant, (c): atWork\_similar\_shapes and (d): atWork\_binary.}
 			\label{Fig:cm}
 		\end{figure}
 	
@@ -251,7 +251,8 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 		\begin{itemize}
 			\item \textbf{Objective}: The objective of this experiment is to look for a relationship between the individual class IOUs and the percentage of pixels occupied by each class in the dataset. In extension, a relationship between class IOUs and the real-world surface area of objects could also be obtained.
 			\item \textbf{Expected result}: With the increase in the percentage of pixels, the class IOU is expected to increase. This expectation is based on the notion that the segmentation model gives preference to objects which dominate the dataset. 
-			\item \textbf{Inference from the results}: For each class, the mean over 30000 training steps of class IOU is calculated. Both the percentage of pixels and the class IOU is normalized with respect to the maximum value out of all objects. The classes are arranged in increasing order of percentage of pixels. The plots are shown in Figure \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in Figure \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every 3 classes starting from class distance\_tube are combined and plotted separately, (shown in the upper graph of Figure \ref{Fig:clsioua}), the class IOUs show an increasing trend in proportion to the percentage of pixels. Similar observations can be made for the other two variants as shown in Figure \ref{Fig:clsioub} and in Figure \ref{Fig:clsiouc}. 
+			\item \textbf{Inference from the results}: For each class, the mean class IOU over 30000 training steps is considered as its class IOU. Both the percentage of pixels and the class IOU is normalized to lie in the range of [0, 1]. The classes are arranged in increasing order of percentage of pixels. The plots are shown in Figure \ref{Fig:clsiou}. From the lower histogram plot for atWork\_full variant shown in Figure \ref{Fig:clsioua}, the class IOUs denoted by the green bars do not seem to show an increasing trend. However, when every three classes starting from class "distance\_tube" are combined and plotted separately, (shown in the upper graph of Figure \ref{Fig:clsioua}), the class IOUs show an increasing trend in proportion to the percentage of pixels. Similar observations can be made for the other two variants as shown in Figure \ref{Fig:clsioub} and in Figure \ref{Fig:clsiouc}. These results lead to the inference that the class IOUs are proportional to the real-world surface area of objects. This extended inference is based on the inference already obtained during the dataset analysis that the percentage of pixels is proportional to the real-world surface area.
+			
 			Another interesting result is that the segmentation model seems to learn the object "bearing" well even though the object only occupies few pixels in the dataset. This result could be because of the distinct black ring in between two silver rings present in the bearing. This pattern seems unique, and the model probably picks up this pattern with ease.
 		\end{itemize}
 	
@@ -274,7 +275,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 				\caption{}
 				\label{Fig:clsiouc}
 			\end{subfigure}
-			\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 backbone is plotted with the percentage of pixels occupied on all 4 variants of the variety of backgrounds dataset. Both the individual class IOUs and percentage of pixels are normalized to lie in the range of [0,1]. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
+			\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 network backbone is plotted with the percentage of pixels occupied on all four variants of the variety of backgrounds dataset. Both the individual class IOUs and percentage of pixels are normalized to lie in the range of [0,1]. (a): atWork\_full variant, (b): atWork\_size\_invariant, and (c): atWork\_similar\_shapes.}
 			\label{Fig:clsiou}
 		\end{figure}
 
@@ -316,7 +317,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\alpha_c = median\_freq/freq(c)
 		\end{equation}
 	
-		 In equation (6.3), $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage values and "freq(c)" refers to the corresponding class percentage. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function.
+		 In equation (6.3), $\alpha_c$ is the class coefficients, "median\_freq" refers to the median of all class percentage of pixels and "freq(c)" refers to the corresponding class percentage of pixels. These weight coefficients are multiplied with the loss term of the corresponding class in the loss function. The higher the percentage of pixels for a class, the lower is its weight coefficient. Therefore, DeepLabv3+ gets a higher loss if it favors dominant classes.
 		\item \textbf{Expected result}: The model is expected to achieve similar class IOUs on all the objects. The overall mIOU is also expected to be at least slightly better than the mIOU obtained without class balancing.
 		\item \textbf{Inference from the results}: From Figure \ref{Fig:clsbal}, it is evident the IOU obtained on each class reduces after performing class balancing. This result suggests that class balancing using median-frequency re-weighting is undesirable. The cause for this result is unclear and needs further analysis.
 	\end{itemize}
@@ -332,8 +333,8 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 \label{section:quant}
 	
 	\begin{itemize}
-		\item \textbf{Objective}: The objective of this experiment is to compare a model with floating point weights and the corresponding model with fixed point weights in terms of mIOU, occupied disk memory and inference time.
-		\item \textbf{Expected result}: The 8bit models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation. 
+		\item \textbf{Objective}: The objective of this experiment is to compare DeepLabv3+ with the corresponding quantized DeepLabv3+ in terms of mIOU, occupied disk memory, and inference time.
+		\item \textbf{Expected result}: The 8bit low precision models are expected to occupy less disk memory and have less inference time in comparison with the corresponding full precision models. In terms of mIOU, the 8bit models are expected to achieve comparable mIOU to the corresponding full precision models despite the reduced "learning capacity" due to the use of a fixed point representation.
 		\item \textbf{Inference from the results}: From Figure \ref{Fig:quanta} it is evident that across all the variants and network backbones of DeepLabv3+, the 8bit low precision model occupies less disk memory than its corresponding full precision model. The 8bit DeepLabv3+ model with the MobileNetv2 network backbone occupies roughly 67 \% less disk memory relative to the corresponding full precision model. However, the average drop in mIOU across all four variants of the variety of backgrounds dataset is 9.56 \%. This high average drop in mIOU suggests that the full precision MobileNetv2 network backbone has sufficient "learning capacity" and a drop in this "learning capacity" affects the mIOU drastically. In contrast, it can be seen that the 8bit DeepLabv3+ model with the Xception network backbone leads to roughly 73 \% percent drop in memory but only 2.02 \% average drop in mIOU across all variety of backgrounds dataset variants. This low average drop in mIOU suggests that the low precision DeepLabv3+ with Xception network backbone still retains sufficient "learning capacity" in order to treat the low precision calculations as noise. Table \ref{Table:quantmIOU} shows the mIOUs obtained.	
 		
 		From Table \ref{Table:quantMetrics}, it is evident that the number of floating operations (FLOPS) drops by roughly 94 \% and 98\% when quantizing DeepLabv3+ with MobileNetv2 and Xception backbones respectively. However, the inference time for the quantized models is more than the corresponding high precision models. Quantized models are expected to be faster as they perform low precision calculations but the inference time has increased. An initial analysis seems to state that the quantized operations are not yet optimized for CPU inference based on the issue "Slow quantized graph" raised on the tensorflow source repository \footnote{\url{https://github.com/tensorflow/tensorflow/issues/2807}}.
@@ -353,7 +354,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 			\caption{}
 			\label{Fig:quanta}
 		\end{subfigure}
-		\caption{(a) The plot shows mIOU and disk memory occupied by both the network backbones of DeepLabv3+ on all the variants of the variety of backgrounds dataset. Different shapes denote the different network backbones of DeepLabv3+, and different colors denote the different dataset variants. The green rectangle represents the desired region in which the mIOU is in the range [90,100], and occupied disk memory is in the range (0,10]. (b) This plot shows the inference time and disk memory occupied by full precision and quantized DeepLabv3+ models. The region indicated by a green rectangle is the desired region where the inference time is in the range (0, 1] and occupied disk memory is in the range (0, 10].}
+		\caption{(a) This plot shows mIOU and disk memory occupied by full precision and quantized DeepLabv3+ models on all the variants of the variety of backgrounds dataset. Different shapes denote the different network backbones of DeepLabv3+, and different colors denote the different dataset variants. The green rectangle represents the desired region in which the mIOU is in the range [90,100], and occupied disk memory is in the range (0,10]. (b) This plot shows the inference time and disk memory occupied by full precision and quantized DeepLabv3+ models. The region indicated by a green rectangle is the desired region where the inference time is in the range (0, 1] and occupied disk memory is in the range (0, 10].}
 		\label{Fig:quant}
 	\end{figure}
 	
@@ -367,7 +368,7 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 		\makecell{atWork\_similar\_\\shapes} & 81.91 & 72.22 & 90.75 & 87.50 \\ \hline
 		\makecell{atWork\_binary} & 96.10 & 93.49 & 98.32 & 96.92 \\ \hline
 		\end{tabular}
-		\caption{This table summarizes the mIOU obtained by the quantized and full precision models of both DeepLabv3+ network backbones on all 4 variants of the variety of backgrounds dataset.}
+		\caption{This table summarizes the mIOU obtained by the quantized and full precision models of both DeepLabv3+ network backbones on all four variants of the variety of backgrounds dataset.}
 		\label{Table:quantmIOU}
 	\end{table}
 	
@@ -381,22 +382,22 @@ The metrics used for evaluation are Mean Intersection Over Union (mIOU), inferen
 		Xception & 5.5325 & 41.05M & 126.27B & 165.6 \\ \hline
 		Xception-8 & 7.6256 & 41.05M & 1.94B & 44.7 \\ \hline
 		\end{tabular}
-		\caption{This table summarizes the inference time, number of parameters and floating point operations (FLOPS) of both the quatized and full precision network backbones of DeepLabv3+. "M" denotes million and "B" denotes billion.}
+		\caption{This table summarizes the inference time, number of parameters, and floating point operations (FLOPS) of both the quantized and full precision network backbones of DeepLabv3+. "M" denotes million and "B" denotes billion.}
 		\label{Table:quantMetrics}
 	\end{table}
 	
 \section{Discussions}
 \label{section:dis}
 
-This chapter addresses the different experiments performed to evaluate the DeepLabv3+ segmentation model with experiments centering around the created dataset. A summary of the observations is presented below:
+This chapter addresses the different experiments performed to evaluate the DeepLabv3+ segmentation model using the created dataset. A summary of the observations is presented below:
 
 	\begin{itemize}
 		\item We showed that when similar objects in the dataset are combined to a single class, DeepLabv3+ achieves a better mIOU. As an extension, when all objects are combined into a single class and DeepLabv3+ is tasked with only foreground and background segmentation, the mIOU achieved is the highest.
-		\item We showed that the Xception network backbone learns better than the MobileNetv2 backbone because of its higher "learning capacity."
+		\item We showed that the Xception network backbone learns better than the MobileNetv2 network backbone because of its higher "learning capacity."
 		\item We showed that the real images in the validation set need to be made more diverse by adding images with multiple objects and occlusions in order to better understand the effectiveness of the artificial images.
 		\item We showed that the DeepLabv3+ model favors objects which dominate the dataset. Objects which occupy a higher number of pixels tend to be learned better. Another interesting observation is that the existence of distinct features such as alternating concentric silver, and black circular strips in object "bearing" aids DeepLabv3+ to distinguish the object better.
-		\item We showed that objects are similar are confused with each other in the atWork\_full dataset variant. This confusion reduces in the atWork\_size\_invariant and atWork\_similar\_shapes variants where similar objects are combined.
+		\item We showed that objects which are similar are confused with each other in the atWork\_full dataset variant. This confusion reduces in the atWork\_size\_invariant and atWork\_similar\_shapes variants where similar objects are combined.
 		\item We showed that the cosine restarts learning rate decay policy leads to slightly better mIOU than the poly learning rate decay policy.
 		\item We showed that performing median-frequency re-weighting to induce class balancing in the loss function, unfortunately, does not prevent the model from favoring classes which are dominant in the dataset as intended. The cause of this result is left to be analyzed in future work.
-		\item We showed that low precision models occupy low disk space. Low precision DeepLabv3+ with MobileNetv2 network backbone shows a significant drop in mIOU but DeepLabv3+ the Xception network backbone only suffers from a minor loss in mIOU. This drop in mIOU suggests that low precision DeepLabv3+ with MobileNetv2 network backbone cannot afford to lose anymore "learning capacity" while the low precision DeepLabv3+ with Xception network backbone still retains sufficient "learning capacity" to treat low precision calculations as noise.
+		\item We showed that low precision models occupy low disk space. Low precision DeepLabv3+ with MobileNetv2 network backbone shows a significant drop in mIOU, but DeepLabv3+ with Xception network backbone only suffers from a minor drop in mIOU. These drops in mIOU suggest that low precision DeepLabv3+ with MobileNetv2 network backbone cannot afford to lose anymore "learning capacity" while the low precision DeepLabv3+ with Xception network backbone still retains sufficient "learning capacity" to treat low precision calculations as noise.
 	\end{itemize} 

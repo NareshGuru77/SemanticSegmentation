@@ -15,7 +15,7 @@
 \author{Naresh Kumar Gurulingan}
 \title{Semantic Segmentation using Resource Efficient Deep Learning}
 \supervisors{%
-Prof. Dr Paul G. Pl\"oger\\ %Plöger
+Prof. Dr. Paul G. Pl\"oger\\ %Plöger
 M. Sc. Deebul Nair
 }
 \date{August 2018}
@@ -39,12 +39,18 @@ M. Sc. Deebul Nair
 \statementpage
 
 \begin{abstract}
-Semantic segmentation provides rich information about objects, object locations and object boundaries in an image. 
+Semantic segmentation is a pixel-wise classification problem where a convolutional neural network (CNN) is trained to assign a class to every pixel in an input image. The output produced is a 2D segmentation map through which we can infer what objects are present in the image, their corresponding pixel locations, and object boundaries. The need to classify every pixel calls for dense annotation of every label image. Consequently, creating manual annotations for a new dataset is expensive. Nevertheless, this project creates a limited dataset consisting of 540 images with manual annotations. In order to improve the diversity and robustness of this limited dataset, it is augmented with artificial images. Four different variants of the dataset called "atWork\_full", "atWork\_size\_invariant", "atWork\_similar\_shapes", and "atWork\_binary" are created based on the similarity in size, shape and color of objects. We show that the dataset variants which combine similar objects lead to higher Mean Intersection Over Union(mIOU). 
+
+The DeepLabv3+ segmentation model, in addition to its focus on improving mIOU, also uses MobileNetv2 and Xception networks as network backbones (encoders) to improve resource efficiency. The MobileNetv2 network backbone requires an inference time of 0.98 seconds per image, occupies 8.7 MB disk memory, and achieves a mIOU of 77.47 \% on the "atWork\_full" dataset variant. In contrast, the Xception network backbone achieves 89.63 \% percent on the same dataset variant but is less resource efficient as it requires 5.53 seconds inference time and 165.6 MB disk memory. The quantized versions of the two network backbones are shown to be more efficient in terms of disk memory occupied. However, roughly 9 \% and 2 \% average drop in mIOU across all four dataset variants is observed for the quantized versions of MobileNetv2 and Xception network backbones respectively.
 \end{abstract}
 
 
 \begin{acknowledgements}
-Thanks to ....
+I would like to thank my supervisors Prof. Dr. Paul G. Pl\"oger and M. Sc. Deebul Nair for providing the opportunity to work on this Research and Development project. I thank M. Sc. Deebul Nair and M. Sc. Santosh Thoduka for their continuous guidance and valuable support throughout the entire duration of this project.
+
+The support provided by Aaqib Parvez Mohammed by aiding in capturing images for the dataset creation, and by pointing out potential bugs and possible improvements in the artificial image generation algorithm was beneficial for which I would like to thank him. I thank Senthilkumar Sockalingam Kathiresan for his ideas to effectively set up the university GPU cluster. I would also like to thank M. Sc. Santosh Thoduka, M. Sc. Deebul Nair, Jeeveswaran Kishaan, Iswariya Manivannan, and Sathiya Ramesh for their valuable suggestions to improve this report.
+
+Finally, I extend my gratitude to my family and friends for their enduring support, undying inspiration, and endless encouragement.
 \end{acknowledgements}
 
 
