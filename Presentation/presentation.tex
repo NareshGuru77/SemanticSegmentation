@@ -1,0 +1,209 @@
+\documentclass{beamer}
+\usepackage{etoolbox}
+\newtoggle{german}
+
+% % % % % LANGUAGE % % % %
+% Make your choice here
+\togglefalse{german} % English
+%\toggletrue{german} % German
+% % % % % \LANGUAGE % % % %
+
+% % % Handouts % % %
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{2 on 1 with notes landscape}[a4paper,border shrink=5mm]
+% % % Handouts % % %
+
+
+\iftoggle{german}{
+\usepackage[ngerman]{babel} % Deutsche Sprachanpassungen
+\usepackage[T1]{fontenc}    % Silbentrennung bei Sonderzeichen
+\usepackage[utf8]{inputenc} % Direkte Angabe von Umlauten im Dokument.Wenn Sie an einem Mac sitzen,verwenden Sie ggf. „macce“ anstatt „utf8“.
+\usepackage[autostyle=true,german=quotes]{csquotes} % Anfuehrungszeichen\
+}{
+\usepackage[utf8]{inputenc}}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\setbeamercovered{transparent}
+\usepackage{default}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,amssymb} % Mathe
+\usepackage{eurosym}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[labelformat=empty]{caption}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{hypernat}
+\usepackage{tabularx}
+\usepackage[]{units}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage{subfigure}
+\usepackage{wasysym}
+\usepackage{ulem}
+\usepackage[printonlyused]{acronym} 
+\usepackage{tabularx}
+\usepackage{appendixnumberbeamer}
+\usepackage{epigraph}
+\usepackage{remreset}% tiny package containing just the \@removefromreset command
+\usepackage{./pdfpcnotes}% Usefull package for notes for presentations
+
+\let\Tiny=\tiny % Reduces a few recent error on Unix systems
+
+\usepackage[sorting=none,style=numeric-comp,backend=bibtex,firstinits=true]{biblatex} % load the package
+\addbibresource{./references.bib} % Add your bib file
+\renewcommand*{\bibfont}{\footnotesize}
+
+% % % % Style % % % %
+% Some colours as used in other programms like openoffice
+\definecolor{red}{RGB}{184,71,71}
+\definecolor{green}{RGB}{51,204,102}
+\definecolor{blue}{RGB}{0,153,255}
+\definecolor{fhblau}{rgb}{0, 0.594, 0.949}
+
+\setbeamercolor{title}{bg=fhblau, fg=white}
+\setbeamercolor{frametitle}{bg=fhblau, fg=white}
+\setbeamercolor{structure}{fg=fhblau}
+
+% MISC Styles %
+\setbeamertemplate{bibliography item}[text]
+\usetheme{default}
+\setbeamertemplate{footline}[frame number]
+\setbeamersize{text margin left=0.3cm,text margin right=0.3cm}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+
+% Here are some usefulf different fonts. Use them in every flooting enviroment with \usebeamerfont{AAA}
+\setbeamerfont{AAA}{size*={16.00}{15.00}}
+\setbeamerfont{aaa}{size*={12.00}{11.00}}
+\setbeamerfont{bbb}{size*={11.00}{11.00}}
+\setbeamerfont{ccc}{size*={10.00}{11.00}}
+\setbeamerfont{ddd}{size*={9.00}{11.00}}
+\setbeamerfont{eee}{size*={8.00}{11.00}}
+\setbeamerfont{fff}{size*={7.75}{10.75}}
+\setbeamerfont{ggg}{size*={7.50}{10.50}}
+\setbeamerfont{hhh}{size*={7.25}{10.25}}
+\setbeamerfont{iii}{size*={7.00}{10.00}}
+\setbeamerfont{jjj}{size*={6.00}{9.00}}
+\setbeamerfont{kkk}{size*={5.00}{8.00}}
+\setbeamerfont{lll}{size*={4.00}{7.00}}
+\setbeamerfont{mmm}{size*={3.00}{6.00}}
+\setbeamerfont{nnn}{size*={2.00}{5.00}} 
+
+% Set some beamer fonts
+\setbeamerfont{title}{size=\Large,series=\bfseries,parent=structure}
+\setbeamerfont{caption}{size=\footnotesize \itshape}
+\setbeamertemplate{footline}[text line]{%
+	\parbox{\linewidth}{\vspace*{-8pt}\hspace{1em}\insertshortauthor\hfill\insertpagenumber}}
+
+\renewcommand*{\bibfont}{\usebeamerfont{kkk}}
+
+% A new cell type
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% This is usefull if you want to use enumerations over several frames
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+% logo of my university
+\titlegraphic{
+\centering %\includegraphics[height=1.5cm]{./logos/logo_hbrs.png} \hspace{2cm} % For external companies
+\includegraphics[height=1.5cm]{./logos/logo_hbrs.png}}
+
+
+% % % % % Opening % % % %
+\title[]{My awesome title}
+%\author[John Doe]{John Doe \\ \footnotesize john.doe@h-brs.de}
+\date{\today}
+\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\def\ThesisPubDate{\today} % Change here to the date you are going to print your thesis
+\subject{My awesome title}
+\keywords{}
+
+
+\begin{document}
+
+% Title Frame
+\begin{frame}
+\pnote{Here are some nodes. They are not visible on the first slides} % Notes
+\titlepage
+\end{frame}
+
+\iftoggle{german}{
+\begin{frame}{Agenda}
+\usebeamerfont{ccc}
+\tableofcontents
+\end{frame}
+}{
+\begin{frame}{Table of Contents}
+\usebeamerfont{ccc}
+\tableofcontents
+\end{frame}
+}
+
+
+
+% First Frame
+\begin{frame}{Introduction and Motivation}
+\section{Introduction and Motivation}
+\begin{columns}
+    \begin{column}{0.62\textwidth}
+		\begin{itemize}
+			\item Some great points \cite{Robinson2004}
+			\item Which need a citation \cite{Mangold2003}
+			\item All of them \cite{Kong2004}
+			\item Because they are great \cite{Engelstad2005}
+\end{itemize}
+\end{column}
+	\begin{column}{0.39\textwidth}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.7\textwidth]{./pictures/breitband_atlas.png}
+			\caption{A map of Germany not from \cite{Banchs2005}}
+		\end{figure}    
+	\end{column}
+\end{columns}
+%\vfill
+\centering
+Research questions:
+\vfill
+\begin{columns}
+	\begin{column}{0.25\textwidth}
+		\textbf{Variation}
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		\textbf{Samples needed}
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		\textbf{Distribution}
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		\textbf{Impact of}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Thank you very much!}
+\usebeamerfont{AAA}
+Are there any questions? \\
+%\noindent\begin{minipage}{.68\linewidth}
+%\hfill \includegraphics[width=\textwidth]{./logos/visitenkarte.pdf} % Great if you have a business card
+%\end{minipage}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  \printbibliography[title={References}]   
+\end{frame}
+
+\end{document}
