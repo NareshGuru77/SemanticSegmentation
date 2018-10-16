@@ -23,3 +23,10 @@ Dataset/data_augmentation/data_analyzer/__pycache__/*
 Report/chapters/*.log
 Dataset/data_augmentation/.idea/
 Dataset/data_augmentation/data_analyzer/.idea/
+Presentation/presentation.aux
+Presentation/presentation.log
+Presentation/presentation.out
+Presentation/presentation.synctex.gz
+Presentation/presentation.toc
+Presentation/presentation.run.xml
+
