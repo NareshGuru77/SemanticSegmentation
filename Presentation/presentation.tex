@@ -1,4 +1,9 @@
+% source: https://git.fslab.de/mmklab/latex-templates/tree/master/presentation
+
 \documentclass{beamer}
+
+%\useoutertheme{progress}
+
 \usepackage{etoolbox}
 \newtoggle{german}
 
@@ -41,7 +46,7 @@
 \usepackage[]{units}
 \usepackage{caption}
 \usepackage{comment}
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage{wasysym}
 \usepackage{ulem}
 \usepackage[printonlyused]{acronym} 
@@ -49,7 +54,11 @@
 \usepackage{appendixnumberbeamer}
 \usepackage{epigraph}
 \usepackage{remreset}% tiny package containing just the \@removefromreset command
-\usepackage{./pdfpcnotes}% Usefull package for notes for presentations
+\usepackage{subcaption}
+\usepackage{pdfpcnotes}% Usefull package for notes for presentations
+\usepackage{colorbar}
+%\usepackage{./progbar}
+%\usepackage{./beamerouterthemeprogress}
 
 \let\Tiny=\tiny % Reduces a few recent error on Unix systems
 
@@ -101,7 +110,7 @@
 \setbeamerfont{title}{size=\Large,series=\bfseries,parent=structure}
 \setbeamerfont{caption}{size=\footnotesize \itshape}
 \setbeamertemplate{footline}[text line]{%
-	\parbox{\linewidth}{\vspace*{-8pt}\hspace{1em}\insertshortauthor\hfill\insertpagenumber}}
+	\parbox{\linewidth}{\vspace*{-8pt}\hspace{1em}\insertshortauthor\hspace{8mm} Sematic Segmentation using Resource Efficient Deep Learning \hfill\insertpagenumber/\inserttotalframenumber}}
 
 \renewcommand*{\bibfont}{\usebeamerfont{kkk}}
 
@@ -121,12 +130,12 @@
 
 
 % % % % % Opening % % % %
-\title[]{My awesome title}
-%\author[John Doe]{John Doe \\ \footnotesize john.doe@h-brs.de}
+\title[]{Sematic Segmentation using\\ Resource Efficient Deep Learning}
+\author[Naresh Kumar Gurulingan]{Naresh Kumar Gurulingan \\ \footnotesize naresh.gurulingan@smail.inf.h-brs.de}
 \date{\today}
 \institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
 \def\ThesisPubDate{\today} % Change here to the date you are going to print your thesis
-\subject{My awesome title}
+\subject{Sematic Segmentation using Resource Efficient Deep Learning}
 \keywords{}
 
 
@@ -150,55 +159,204 @@
 \end{frame}
 }
 
-
-
+\section{Introduction}
 % First Frame
-\begin{frame}{Introduction and Motivation}
-\section{Introduction and Motivation}
-\begin{columns}
-    \begin{column}{0.62\textwidth}
-		\begin{itemize}
-			\item Some great points \cite{Robinson2004}
-			\item Which need a citation \cite{Mangold2003}
-			\item All of them \cite{Kong2004}
-			\item Because they are great \cite{Engelstad2005}
-\end{itemize}
-\end{column}
-	\begin{column}{0.39\textwidth}
-		\begin{figure}[h!]
+\begin{frame}{Introduction}
+
+	\textbf{Semantic segmentation}
+	
+	Divide an input image into different regions which contain a desired object or background.
+	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=.6\linewidth]{images/em_01_023}
+		\caption{Left: Input image; Right: Segmentation result.}
+		\label{Fig:real}
+	\end{figure}
+
+\end{frame}
+
+\section{Applications}
+% First Frame
+\begin{frame}{Applications}
+	\begin{itemize}
+  \item[a] {
+    Autonomous cars
+  }
+  \item[b] {
+    Robotics
+  }
+  \item[c] {
+    Augmented reality
+  }
+  \end{itemize}
+  
+  \begin{figure}
+		\begin{subfigure}{0.3\textwidth}
 			\centering
-			\includegraphics[width=0.7\textwidth]{./pictures/breitband_atlas.png}
-			\caption{A map of Germany not from \cite{Banchs2005}}
-		\end{figure}    
-	\end{column}
-\end{columns}
-%\vfill
-\centering
-Research questions:
-\vfill
-\begin{columns}
-	\begin{column}{0.25\textwidth}
-		\textbf{Variation}
-	\end{column}
-	\begin{column}{0.25\textwidth}
-		\textbf{Samples needed}
-	\end{column}
-	\begin{column}{0.25\textwidth}
-		\textbf{Distribution}
-	\end{column}
-	\begin{column}{0.25\textwidth}
-		\textbf{Impact of}
-	\end{column}
-\end{columns}
+			\includegraphics[width=0.95\linewidth]{images/auto_driving}
+			\caption{Street scene}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/indoor}
+			\caption{Indoor scene}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vr_dog}
+			\caption{Augmented guide}
+		\end{subfigure}
+		%\caption{(a)Street scene, (b) Indoor scene, (c) Augmented guide.}
+		\label{Fig:app}
+	\end{figure}
+
+\end{frame}
+
+\section{Dataset}
+
+\begin{frame}{Dataset}
+	
+	\textbf{Objects in the dataset}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.2]{images/all_objects}
+		\caption{This figure shows all the 18 objects in the dataset. First row from left: "distance\_tube", "m20", "bearing", "axis", "r20", "m30", "m20\_100", "motor", "bearing\_box\_ax16", 'bearing\_box\_ax01", "f20\_20\_B", "f20\_20\_G". Second row from left: "em\_01", "s40\_40\_B", "s40\_40\_G", "em\_02", "container\_box\_red", "container\_box\_blue".}
+		\label{Fig:allobjects}
+	\end{figure}
+
+\end{frame}
+
+\section{Annotation process}
+
+\begin{frame}{Annotation process}
+
+
+\end{frame}
+
+\section{Artificial image generation}
+
+\begin{frame}{Artificial image generation}
+
+
+\end{frame}
+
+\section{Dataset variants}
+
+\begin{frame}{Dataset variants}
+
+
+\end{frame}
+
+\section{Dataset analysis}
+
+\begin{frame}{Dataset analysis}
+
+
+\end{frame}
+
+\section{DeepLabv3+}
+
+\begin{frame}{DeepLabv3+}
+
+
+\end{frame}
+
+
+\begin{frame}{DeepLabv3+}
+
+
+\end{frame}
+
+\begin{frame}{DeepLabv3+}
+
+
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+
+\end{frame}
+
+\section{Contributions and future work}
+
+\begin{frame}{Conclusion and future work}
+\textbf{Contributions}
+	\begin{itemize}
+		\item Artificial image generation algorithm.
+		\item Segmentation dataset with 18 atWork objects.
+		\item Evaluation of DeepLabv3+ with resource efficient encoders MobileNetv2 and Xception.
+	\end{itemize}
+	
+\vspace{5mm}
+\textbf{Future work}
+	\begin{itemize}
+		\item Model interpretability.
+		\item Architecture search.
+		\item Fusion of 2D image data with point cloud information.
+	\end{itemize}
+
 \end{frame}
 
 
 \begin{frame}{Thank you very much!}
 \usebeamerfont{AAA}
 Are there any questions? \\
-%\noindent\begin{minipage}{.68\linewidth}
-%\hfill \includegraphics[width=\textwidth]{./logos/visitenkarte.pdf} % Great if you have a business card
-%\end{minipage}
 \end{frame}
 
 \begin{frame}
