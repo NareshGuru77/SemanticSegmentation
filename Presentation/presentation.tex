@@ -55,6 +55,7 @@
 \usepackage{epigraph}
 \usepackage{remreset}% tiny package containing just the \@removefromreset command
 \usepackage{subcaption}
+\usepackage{makecell}
 \usepackage{pdfpcnotes}% Usefull package for notes for presentations
 \usepackage{colorbar}
 %\usepackage{./progbar}
@@ -230,7 +231,14 @@
 \section{Annotation process}
 
 \begin{frame}{Annotation process}
-
+	
+	\textbf{MATLAB ImageLabeler}
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=.8\linewidth]{images/imglabler_eg}
+		\caption{A sample object being labeled in ImageLabeler.}
+		\label{Fig:annotate}
+	\end{figure}
 
 \end{frame}
 
@@ -238,100 +246,254 @@
 
 \begin{frame}{Artificial image generation}
 
+	\textbf{Motivation}
+		\begin{itemize}
+			\item For an image containing 1 desired object, roughly 4 minutes was spent for manual annotation.
+			\item Capturing diverse real-world variations is time consuming.
+		\end{itemize}
+		
+	\vspace{5mm}
+		
+	\textbf{Process}
+		\begin{itemize}
+			\item Collect RGB intensity values of objects using manual annotation.
+			\item Create a list of all the collected objects.
+			\item For an artificial image, select a background image and random objects from the list of objects. 
+			\item Place the selected objects at random locations and at random scales. 
+			\item Correspondingly generate semantic labels and object detection labels.
+		\end{itemize}
 
+\end{frame}
+
+\begin{frame}{Artificial image generation}
+	
+	\textbf{Sample result}	
+		
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.26]{images/sample_result_1}
+		\caption{Sample results produced by the artificial image generation algorithm. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated.}
+		\label{Fig:sample}
+	\end{figure}
 \end{frame}
 
 \section{Dataset variants}
 
 \begin{frame}{Dataset variants}
 
+	\textbf{Motivation}
+		\begin{itemize}
+			\item Inability to distinguish size.
+		\end{itemize}
+		
+		\begin{itemize}
+			\item Inability to distinguish shape.
+		\end{itemize}
+		
+		\begin{table}
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+    		& Training & Validation & Test \\ 
+			\hline 
+			Real Images & 396 & 72 & 69 \\ 
+			\hline 
+			Artificial Images & 7104 & 870 & 870 \\ 
+			\hline 
+			Total Images & 7500 & 942 & 939 \\ 
+			\hline 
+			\end{tabular}
+			\caption{Meta-data of the dataset.}
+			\label{Table:meta}
+		\end{table}
 
 \end{frame}
 
 \section{Dataset analysis}
 
 \begin{frame}{Dataset analysis}
-
+\label{slide:analysis}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.35]{images/analyzer_full}
+		\caption{Relation between percentage of pixels occupied by different objects and their corresponding real-world surface area. (Percentage of pixels of an object = $\frac{NP_o}{NP_s}$. \\
+		$NP_o$ = Number of pixels occupied by the object in the training set and $NP_s$ = Total number of pixels in the training set)}
+		\label{Fig:surarea}
+	\end{figure}
 
 \end{frame}
 
 \section{DeepLabv3+}
 
-\begin{frame}{DeepLabv3+}
-
+\begin{frame}{Architecture of DeepLabv3+}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/deepLabv4}
+		\caption{An illustration of DeepLabv3+ architecture. The encoder extracts features at different scales and the decoder refines object boundary delineation.}
+		\label{Fig:deepLabv4}
+	\end{figure}
 
 \end{frame}
 
 
-\begin{frame}{DeepLabv3+}
-
+\begin{frame}{Depthwise seperable convolutions}
+	
+	\begin{itemize}
+		\item First depthwise convolution, then pointwise convolution.
+		\item Row 2 to row 5: depthwise convolution, 6th row: pointwise convolution.
+	\end{itemize}
+	 
+	\begin{figure}
+		\centering
+		\includegraphics[width=.3\linewidth]{images/depthwise}
+		\caption{Depthwise seperable convolution.}
+		\label{Fig:depthwise}
+	\end{figure}
 
 \end{frame}
 
-\begin{frame}{DeepLabv3+}
+\begin{frame}{MobileNetv2 encoder of DeepLabv3+}
+
+	\begin{itemize}
+		\item Depthwise seperable convolutions.
+		\item Inverted residual with linear bottleneck.
+	\end{itemize}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=.6\linewidth]{images/inverted_residual}
+		\caption{Inverted residual block}
+		\label{Fig:residual}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Xception encoder of DeepLabv3+}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/extreme_inception}
+		\caption{Xception module}
+		\label{Fig:xception}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Atrous separable convolutions}
 
 
 \end{frame}
 
 \section{Results}
 
-\begin{frame}{Results}
+\begin{frame}{Comparing encoders}
 
+	\begin{itemize}
+		\item 
+		Per class IOU = $\frac{ground\_truth \: \cap \: prediction}{ground\_truth \: \cup \: prediction}$
+		\item mIOU = mean of all class IOUs.
+		\item DeepLabv3+ with Xception encoder achieves higher mIOU on all four dataset variants.
+	\end{itemize}
+	
+	\begin{table}[h]
+		\begin{tabular}{|l|r|r|}
+		\hline
+		\multicolumn{ 1}{|l|}{\makecell{\textbf{Dataset variant}}} & \multicolumn{ 2}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{MobileNetv2} & 			\multicolumn{1}{l|}{Xception} \\ \hline
+		atWork\_full & 77.47 & 89.63 \\ \hline
+		atWork\_size\_invariant & 83.10 & 92.47 \\ \hline
+		atWork\_similar\_shapes & 82.10 & 90.71 \\ \hline
+		atWork\_binary & 96.06 & 98.68 \\ \hline
+		\end{tabular}
+		\captionsetup{justification=centering,margin=2cm}
+		\caption{This table lists the mIOU obtained by DeepLabv3+ with MobileNetv2 and Xception encoders on 4 dataset variants.} 
+	\label{Table:vars}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Comparing dataset variants}
+	
+	\begin{itemize}
+		\item Background/foreground segmentation leads to the highest mIOU.
+		\item Treating all objects as different classes leads to the lowest mIOU.
+		\item Combining objects similar in shape, size or color improves mIOU.
+	\end{itemize}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/xcep_4vars}
+		\captionsetup{justification=centering,margin=2cm}
+		\caption{mIOU (\%) vs Number of training steps \\ DeepLabv3+ with Xception encoder on all dataset variants}
+		\label{Fig:variants}
+	\end{figure}
 
 \end{frame}
 
 
-\begin{frame}{Results}
+%\begin{frame}{Training with different data}
+%
+%
+%\end{frame}
+
+
+\begin{frame}{Comparing individual classes}
 
 
 \end{frame}
 
+\begin{frame}{Comparing individual classes}
 
-\begin{frame}{Results}
+	\begin{itemize}
+		\item Class IOU shows an increasing trend with increase in Percentage of pixels.
+		\item Percentage of pixels is shown to increase with surface area [Slide \ref{slide:analysis}].
+		\item DeepLabv3+ tends to learn larger objects first.
+	\end{itemize}
 
-
-\end{frame}
-
-
-\begin{frame}{Results}
-
-
-\end{frame}
-
-\begin{frame}{Results}
-
-
-\end{frame}
-
-
-\begin{frame}{Results}
-
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.57\linewidth]{images/cls_iou_full}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Individual class IOUs achieved by DeepLabv3+ with MobileNetv2 encoder is plotted with the percentage of pixels.}
+		\label{Fig:variants}
+	\end{figure}
 
 \end{frame}
 
 
-\begin{frame}{Results}
+\begin{frame}{Quantizing the inference graph}
 
+	\begin{itemize}
+		\item The inference graph is quantized.
+		\item With MobileNetv2 encoder, 67 \% drop in occupied disk memory is achieved. Drop in mIOU is around 9 \%.
+		\item With Xception encoder, 73 \% drop in occupied disk memory is achieved. Drop in mIOU is around 2 \%.
+	\end{itemize}
+
+	
+	
+\end{frame}
+
+\begin{frame}{Quantizing the inference graph}
+
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\makecell{\textbf{Encoder}} & \makecell{\textbf{mIOU} \\ \textbf{(\%)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
+		MobileNetv2 & 84.66 & 2.11M & 6.41B & 8.7 \\ \hline
+		MobileNetv2-8 & 75.17 & 2.11M & 328.87M & 2.8 \\ \hline
+		Xception & 92.42 & 41.05M & 126.27B & 165.6 \\ \hline
+		Xception-8 & 90.4 & 41.05M & 1.94B & 44.7 \\ \hline
+		\end{tabular}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{This table summarizes the average mIOU across all four dataset variants, number of parameters, and floating point operations (FLOPS) of both the quantized and full precision encoders of DeepLabv3+. "M" denotes million and "B" denotes billion.}
+		\label{Table:quantMetrics}
+	\end{table}	
 
 \end{frame}
 
-
-\begin{frame}{Results}
-
-
-\end{frame}
-
-
-\begin{frame}{Results}
-
-
-\end{frame}
-
-
-\begin{frame}{Results}
-
-
-\end{frame}
 
 \section{Contributions and future work}
 
@@ -361,7 +523,7 @@ Are there any questions? \\
 
 \begin{frame}
   \frametitle{References}
-  \printbibliography[title={References}]   
+  \printbibliography[title={References}]
 \end{frame}
 
 \end{document}
