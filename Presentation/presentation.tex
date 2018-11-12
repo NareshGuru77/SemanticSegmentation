@@ -38,7 +38,7 @@
 \usepackage{eurosym}
 \usepackage{tikz}
 \usepackage{graphicx}
-\usepackage[labelformat=empty]{caption}
+%\usepackage[labelformat=empty]{caption}
 \usepackage{verbatim}
 \usepackage{color}
 \usepackage{hypernat}
@@ -64,7 +64,7 @@
 \let\Tiny=\tiny % Reduces a few recent error on Unix systems
 
 \usepackage[sorting=none,style=numeric-comp,backend=bibtex,firstinits=true]{biblatex} % load the package
-\addbibresource{./references.bib} % Add your bib file
+\addbibresource{./bibliography.bib} % Add your bib file
 \renewcommand*{\bibfont}{\footnotesize}
 
 % % % % Style % % % %
@@ -82,6 +82,7 @@
 \setbeamertemplate{bibliography item}[text]
 \usetheme{default}
 \setbeamertemplate{footline}[frame number]
+\setbeamertemplate{caption}[numbered]
 \setbeamersize{text margin left=0.3cm,text margin right=0.3cm}
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \makeatletter
@@ -109,7 +110,7 @@
 
 % Set some beamer fonts
 \setbeamerfont{title}{size=\Large,series=\bfseries,parent=structure}
-\setbeamerfont{caption}{size=\footnotesize \itshape}
+\setbeamerfont{caption}{size=\footnotesize}
 \setbeamertemplate{footline}[text line]{%
 	\parbox{\linewidth}{\vspace*{-8pt}\hspace{1em}\insertshortauthor\hspace{8mm} Sematic Segmentation using Resource Efficient Deep Learning \hfill\insertpagenumber/\inserttotalframenumber}}
 
@@ -132,7 +133,7 @@
 
 % % % % % Opening % % % %
 \title[]{Sematic Segmentation using\\ Resource Efficient Deep Learning}
-\author[Naresh Kumar Gurulingan]{Naresh Kumar Gurulingan \\ \footnotesize naresh.gurulingan@smail.inf.h-brs.de}
+\author[Naresh Kumar Gurulingan]{Naresh Kumar Gurulingan, Deebul Nair, Paul G. Pl\"oger}
 \date{\today}
 \institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
 \def\ThesisPubDate{\today} % Change here to the date you are going to print your thesis
@@ -196,17 +197,20 @@
 		\begin{subfigure}{0.3\textwidth}
 			\centering
 			\includegraphics[width=0.95\linewidth]{images/auto_driving}
-			\caption{Street scene}
+			\captionsetup{justification=centering,margin=0.2cm}
+			\caption{Street scene \cite{cityscapes}}
 		\end{subfigure}
 		\begin{subfigure}{0.3\textwidth}
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/indoor}
-			\caption{Indoor scene}
+			\captionsetup{justification=centering,margin=0.2cm}
+			\caption{Indoor scene \cite{indoor}}
 		\end{subfigure}
 		\begin{subfigure}{0.3\textwidth}
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vr_dog}
-			\caption{Augmented guide}
+			\captionsetup{justification=centering,margin=0.2cm}
+			\caption{Augmented guide \cite{techcrunch}}
 		\end{subfigure}
 		%\caption{(a)Street scene, (b) Indoor scene, (c) Augmented guide.}
 		\label{Fig:app}
@@ -219,10 +223,17 @@
 \begin{frame}{Dataset}
 	
 	\textbf{Objects in the dataset}
+	\begin{small}
+		\begin{itemize}
+			\item First row from left: distance\_tube, m20, bearing, axis, r20, m30, m20\_100, motor, bearing\_box\_ax16, bearing\_box\_ax01, f20\_20\_B, f20\_20\_G. 
+			\item Second row from left: em\_01, s40\_40\_B, s40\_40\_G, em\_02, container\_box\_red, container\_box\_blue.
+		\end{itemize}
+	\end{small}
 	\begin{figure}[h]
 		\centering
 		\includegraphics[scale=0.2]{images/all_objects}
-		\caption{This figure shows all the 18 objects in the dataset. First row from left: "distance\_tube", "m20", "bearing", "axis", "r20", "m30", "m20\_100", "motor", "bearing\_box\_ax16", 'bearing\_box\_ax01", "f20\_20\_B", "f20\_20\_G". Second row from left: "em\_01", "s40\_40\_B", "s40\_40\_G", "em\_02", "container\_box\_red", "container\_box\_blue".}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{18 objects in the dataset.}
 		\label{Fig:allobjects}
 	\end{figure}
 
@@ -236,6 +247,7 @@
 	\begin{figure}[!htb]
 		\centering
 		\includegraphics[width=.8\linewidth]{images/imglabler_eg}
+		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{A sample object being labeled in ImageLabeler.}
 		\label{Fig:annotate}
 	\end{figure}
@@ -247,14 +259,17 @@
 \begin{frame}{Artificial image generation}
 
 	\textbf{Motivation}
+	\begin{small}
 		\begin{itemize}
 			\item For an image containing 1 desired object, roughly 4 minutes was spent for manual annotation.
 			\item Capturing diverse real-world variations is time consuming.
 		\end{itemize}
+	\end{small}
 		
 	\vspace{5mm}
 		
 	\textbf{Process}
+	\begin{small}
 		\begin{itemize}
 			\item Collect RGB intensity values of objects using manual annotation.
 			\item Create a list of all the collected objects.
@@ -262,6 +277,7 @@
 			\item Place the selected objects at random locations and at random scales. 
 			\item Correspondingly generate semantic labels and object detection labels.
 		\end{itemize}
+	\end{small}
 
 \end{frame}
 
@@ -272,7 +288,8 @@
 	\begin{figure}
 		\centering
 		\includegraphics[scale=0.26]{images/sample_result_1}
-		\caption{Sample results produced by the artificial image generation algorithm. In each row, the image on the left shows the generated artificial image and the image on the right shows a visualization of the semantic segmentation label and object detection label. At the top of every label visualization image, the objects in the image and their corresponding colors in the visualization are indicated.}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Sample results produced by the artificial image generation algorithm.}
 		\label{Fig:sample}
 	\end{figure}
 \end{frame}
@@ -280,16 +297,93 @@
 \section{Dataset variants}
 
 \begin{frame}{Dataset variants}
+\label{slide:motivvariants}
 
 	\textbf{Motivation}
+	\begin{small}
+	
 		\begin{itemize}
 			\item Inability to distinguish size.
-		\end{itemize}
-		
-		\begin{itemize}
+				\begin{figure}
+				\centering
+				\begin{subfigure}{.2\textwidth}
+  					\centering
+  					\includegraphics[width=.35\linewidth]{images/M20}
+  					\caption{m20}
+  					\label{Fig:size1}
+				\end{subfigure}%
+				\begin{subfigure}{.2\textwidth}
+  					\centering
+  					\includegraphics[width=.35\linewidth]{images/M30}
+  					\caption{m30}
+  					\label{Fig:size2}
+				\end{subfigure}%
+				\caption{m30 is larger than m20}
+				\label{Fig:size}
+				\end{figure}
+				
 			\item Inability to distinguish shape.
+				\begin{figure}
+				\centering
+				\begin{subfigure}{.2\textwidth}
+  					\centering
+  					\includegraphics[width=.3\linewidth]{images/ax01_diff}
+  					\caption{ax16}
+  					\label{Fig:sim1a}
+				\end{subfigure}%
+				\begin{subfigure}{.2\textwidth}
+  					\centering
+  					\includegraphics[width=.3\linewidth]{images/ax16_diff}
+  					\caption{ax01}
+  					\label{Fig:sim1b}
+				\end{subfigure}%
+				\begin{subfigure}{.23\textwidth}
+  					\centering
+  					\includegraphics[width=.3\linewidth]{images/ax01_similar}
+  					\caption{ax16}
+  					\label{Fig:sim2a}
+				\end{subfigure}%
+				\begin{subfigure}{.21\textwidth}
+  					\centering
+  					\includegraphics[width=.3\linewidth]{images/ax16_similar}
+  					\caption{ax01}
+  					\label{Fig:sim2b}
+				\end{subfigure}%
+				\caption{Bearing\_box ax16 and ax01 are distinguishable from similar viewpoints (a) and (b) but are indistinguishable from similar viewpoints (c) and (d).}
+				\label{Fig:shape}
+			\end{figure}
 		\end{itemize}
+			
+	\end{small}
+
+\end{frame}
+
+
+\begin{frame}{Dataset variants}
+	\textbf{Number of classes}
+	\begin{small}
+		\begin{table}
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline 
+    		Variant & \makecell{Number of classes \\ including background} \\ 
+			\hline 
+			atWork\_full & 19 \\ 
+			\hline 
+			atWork\_size\_invariant & 15 \\ 
+			\hline 
+			atWork\_similar\_shapes & 13 \\ 
+			\hline 
+			atWork\_binary & 2 \\ 
+			\hline 
+			\end{tabular}
+			\caption{Number of classes in dataset variants.}
+			\label{Table:meta}
+		\end{table}
+	\end{small}
 		
+	\textbf{Number of images}
+	\begin{small}	
 		\begin{table}
 			\centering
 			\begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -303,9 +397,10 @@
 			Total Images & 7500 & 942 & 939 \\ 
 			\hline 
 			\end{tabular}
-			\caption{Meta-data of the dataset.}
+			\caption{Number of images in the dataset.}
 			\label{Table:meta}
 		\end{table}
+	\end{small}
 
 \end{frame}
 
@@ -313,14 +408,19 @@
 
 \begin{frame}{Dataset analysis}
 \label{slide:analysis}
-	
+	\begin{small}
+	\begin{itemize}
+		\item Percentage of pixels of an object = $\frac{NP_o}{NP_s}$. \\
+		$NP_o$ = Number of pixels occupied by the object in the training set. \\ $NP_s$ = Total number of pixels in the training set.
+	\end{itemize}
 	\begin{figure}
 		\centering
 		\includegraphics[scale=0.35]{images/analyzer_full}
-		\caption{Relation between percentage of pixels occupied by different objects and their corresponding real-world surface area. (Percentage of pixels of an object = $\frac{NP_o}{NP_s}$. \\
-		$NP_o$ = Number of pixels occupied by the object in the training set and $NP_s$ = Total number of pixels in the training set)}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Percentage of pixels vs corresponding real-world surface area}
 		\label{Fig:surarea}
 	\end{figure}
+	\end{small}
 
 \end{frame}
 
@@ -331,6 +431,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/deepLabv4}
+		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{An illustration of DeepLabv3+ architecture. The encoder extracts features at different scales and the decoder refines object boundary delineation.}
 		\label{Fig:deepLabv4}
 	\end{figure}
@@ -339,15 +440,17 @@
 
 
 \begin{frame}{Depthwise seperable convolutions}
-	
+	\begin{small}
 	\begin{itemize}
 		\item First depthwise convolution, then pointwise convolution.
 		\item Row 2 to row 5: depthwise convolution, 6th row: pointwise convolution.
 	\end{itemize}
+	\end{small}
 	 
 	\begin{figure}
 		\centering
 		\includegraphics[width=.3\linewidth]{images/depthwise}
+		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{Depthwise seperable convolution.}
 		\label{Fig:depthwise}
 	\end{figure}
@@ -355,15 +458,17 @@
 \end{frame}
 
 \begin{frame}{MobileNetv2 encoder of DeepLabv3+}
-
+	\begin{small}
 	\begin{itemize}
 		\item Depthwise seperable convolutions.
 		\item Inverted residual with linear bottleneck.
 	\end{itemize}
+	\end{small}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=.6\linewidth]{images/inverted_residual}
+		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{Inverted residual block}
 		\label{Fig:residual}
 	\end{figure}
@@ -375,6 +480,7 @@
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\linewidth]{images/extreme_inception}
+		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{Xception module}
 		\label{Fig:xception}
 	\end{figure}
@@ -389,38 +495,40 @@
 \section{Results}
 
 \begin{frame}{Comparing encoders}
-
-	\begin{itemize}
-		\item 
+	\begin{small}
+		\begin{itemize}
+			\item 
 		Per class IOU = $\frac{ground\_truth \: \cap \: prediction}{ground\_truth \: \cup \: prediction}$
-		\item mIOU = mean of all class IOUs.
-		\item DeepLabv3+ with Xception encoder achieves higher mIOU on all four dataset variants.
-	\end{itemize}
+			\item mIOU = mean of all class IOUs.
+			\item DeepLabv3+ with Xception encoder achieves higher mIOU on all four dataset variants.
+		\end{itemize}
 	
-	\begin{table}[h]
-		\begin{tabular}{|l|r|r|}
-		\hline
-		\multicolumn{ 1}{|l|}{\makecell{\textbf{Dataset variant}}} & \multicolumn{ 2}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 2- 3}
-		\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{MobileNetv2} & 			\multicolumn{1}{l|}{Xception} \\ \hline
-		atWork\_full & 77.47 & 89.63 \\ \hline
-		atWork\_size\_invariant & 83.10 & 92.47 \\ \hline
-		atWork\_similar\_shapes & 82.10 & 90.71 \\ \hline
-		atWork\_binary & 96.06 & 98.68 \\ \hline
-		\end{tabular}
-		\captionsetup{justification=centering,margin=2cm}
-		\caption{This table lists the mIOU obtained by DeepLabv3+ with MobileNetv2 and Xception encoders on 4 dataset variants.} 
-	\label{Table:vars}
-\end{table}
+		\begin{table}[h]
+			\begin{tabular}{|l|r|r|}
+			\hline
+			\multicolumn{ 1}{|l|}{\makecell{\textbf{Dataset variant}}} & \multicolumn{ 2}{l|}{\makecell{\textbf{mIOU in \%}}} \\ \cline{ 2- 3}
+			\multicolumn{ 1}{|l|}{} & \multicolumn{1}{l|}{MobileNetv2} & 			\multicolumn{1}{l|}{Xception} \\ \hline
+			atWork\_full & 77.47 & 89.63 \\ \hline
+			atWork\_size\_invariant & 83.10 & 92.47 \\ \hline
+			atWork\_similar\_shapes & 82.10 & 90.71 \\ \hline
+			atWork\_binary & 96.06 & 98.68 \\ \hline
+			\end{tabular}
+			\captionsetup{justification=centering,margin=2cm}
+			\caption{This table lists the mIOU obtained by DeepLabv3+ with MobileNetv2 and Xception encoders on 4 dataset variants.} 
+			\label{Table:vars}
+		\end{table}
+	\end{small}
 
 \end{frame}
 
 \begin{frame}{Comparing dataset variants}
-	
-	\begin{itemize}
-		\item Background/foreground segmentation leads to the highest mIOU.
-		\item Treating all objects as different classes leads to the lowest mIOU.
-		\item Combining objects similar in shape, size or color improves mIOU.
-	\end{itemize}
+	\begin{small}
+		\begin{itemize}
+			\item Background/foreground segmentation leads to the highest mIOU.
+			\item Treating all objects as different classes leads to the lowest mIOU.
+			\item Combining objects similar in shape, size or color improves mIOU.
+		\end{itemize}
+	\end{small}
 	
 	\begin{figure}[h]
 		\centering
@@ -441,16 +549,31 @@
 
 \begin{frame}{Comparing individual classes}
 
+	\begin{small}
+		\begin{itemize}
+			\item 9.88 \% of pixels belonging to m30 is classified as m20. 
+			\item 9.97 \% of pixels belonging to bearing box ax16 is classified as bearing box ax01 [Slide \ref{slide:motivvariants}].
+		\end{itemize}
+	\end{small}		
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.65\linewidth]{images/cm_full}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Confusion matrix on atWork\_full dataset variant by DeepLabv3+ with MobileNetv2 encoder.}
+		\label{Fig:variants}
+	\end{figure}
 
 \end{frame}
 
 \begin{frame}{Comparing individual classes}
-
-	\begin{itemize}
-		\item Class IOU shows an increasing trend with increase in Percentage of pixels.
-		\item Percentage of pixels is shown to increase with surface area [Slide \ref{slide:analysis}].
-		\item DeepLabv3+ tends to learn larger objects first.
-	\end{itemize}
+	\begin{small}
+		\begin{itemize}
+			\item Class IOU shows an increasing trend with increase in Percentage of pixels.
+			\item Percentage of pixels is shown to increase with surface area [Slide \ref{slide:analysis}].
+		\	item DeepLabv3+ tends to learn larger objects first.
+		\end{itemize}
+	\end{small}
 
 	\begin{figure}[h]
 		\centering
@@ -464,33 +587,34 @@
 
 
 \begin{frame}{Quantizing the inference graph}
-
-	\begin{itemize}
-		\item The inference graph is quantized.
-		\item With MobileNetv2 encoder, 67 \% drop in occupied disk memory is achieved. Drop in mIOU is around 9 \%.
-		\item With Xception encoder, 73 \% drop in occupied disk memory is achieved. Drop in mIOU is around 2 \%.
-	\end{itemize}
-
+	\begin{small}
+		\begin{itemize}
+			\item The inference graph is quantized.
+			\item With MobileNetv2 encoder, 67 \% drop in occupied disk memory is achieved. Drop in mIOU is around 9 \%.
+			\item With Xception encoder, 73 \% drop in occupied disk memory is achieved. Drop in mIOU is around 2 \%.
+		\end{itemize}
+	\end{small}
 	
 	
 \end{frame}
 
 \begin{frame}{Quantizing the inference graph}
-
-	\begin{table}[h]
-		\centering
-		\begin{tabular}{|l|l|l|l|l|}
-		\hline
-		\makecell{\textbf{Encoder}} & \makecell{\textbf{mIOU} \\ \textbf{(\%)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
-		MobileNetv2 & 84.66 & 2.11M & 6.41B & 8.7 \\ \hline
-		MobileNetv2-8 & 75.17 & 2.11M & 328.87M & 2.8 \\ \hline
-		Xception & 92.42 & 41.05M & 126.27B & 165.6 \\ \hline
-		Xception-8 & 90.4 & 41.05M & 1.94B & 44.7 \\ \hline
-		\end{tabular}
-		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{This table summarizes the average mIOU across all four dataset variants, number of parameters, and floating point operations (FLOPS) of both the quantized and full precision encoders of DeepLabv3+. "M" denotes million and "B" denotes billion.}
-		\label{Table:quantMetrics}
-	\end{table}	
+	\begin{small}
+		\begin{table}[h]
+			\centering
+			\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			\makecell{\textbf{Encoder}} & \makecell{\textbf{mIOU} \\ \textbf{(\%)}} & \makecell{\textbf{Number of} \\ \textbf{parameters}} & \makecell{\textbf{FLOPS}} & \makecell{\textbf{Disk memory} \\ \textbf{(MB)}} \\ \hline
+			MobileNetv2 & 84.66 & 2.11M & 6.41B & 8.7 \\ \hline
+			MobileNetv2-8 & 75.17 & 2.11M & 328.87M & 2.8 \\ \hline
+			Xception & 92.42 & 41.05M & 126.27B & 165.6 \\ \hline
+			Xception-8 & 90.4 & 41.05M & 1.94B & 44.7 \\ \hline
+			\end{tabular}
+			\captionsetup{justification=centering,margin=0.2cm}
+			\caption{This table summarizes the average mIOU across all four dataset variants, number of parameters, and floating point operations (FLOPS) of both the quantized and full precision encoders of DeepLabv3+. "M" denotes million and "B" denotes billion.}
+			\label{Table:quantMetrics}
+		\end{table}	
+	\end{small}
 
 \end{frame}
 
@@ -499,19 +623,23 @@
 
 \begin{frame}{Conclusion and future work}
 \textbf{Contributions}
-	\begin{itemize}
-		\item Artificial image generation algorithm.
-		\item Segmentation dataset with 18 atWork objects.
-		\item Evaluation of DeepLabv3+ with resource efficient encoders MobileNetv2 and Xception.
-	\end{itemize}
+	\begin{small}
+		\begin{itemize}
+			\item Artificial image generation algorithm.
+			\item Segmentation dataset with 18 atWork objects.
+			\item Evaluation of DeepLabv3+ with resource efficient encoders MobileNetv2 and Xception.
+		\end{itemize}
+	\end{small}
 	
 \vspace{5mm}
 \textbf{Future work}
-	\begin{itemize}
-		\item Model interpretability.
-		\item Architecture search.
-		\item Fusion of 2D image data with point cloud information.
-	\end{itemize}
+	\begin{small}
+		\begin{itemize}
+			\item Model interpretability.
+			\item Architecture search.
+			\item Fusion of 2D image data with point cloud information.
+		\end{itemize}
+	\end{small}
 
 \end{frame}
 
@@ -523,7 +651,7 @@ Are there any questions? \\
 
 \begin{frame}
   \frametitle{References}
-  \printbibliography[title={References}]
+  \printbibliography[title={References}]	
 \end{frame}
 
 \end{document}

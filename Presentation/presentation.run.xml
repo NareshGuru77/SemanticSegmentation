@@ -82,7 +82,7 @@
       <file>presentation-blx.bib</file>
     </requires>
     <requires type="editable">
-      <file>./references.bib</file>
+      <file>./bibliography.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
