@@ -106,6 +106,50 @@
   \endverb
 \endentry
 
+\entry{DBLP:journals/corr/ChenPK0Y16}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Liang{-}Chieh}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papandreou}{P.}%
+     {George}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kokkinos}{K.}%
+     {Iasonas}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Murphy}{M.}%
+     {Kevin}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yuille}{Y.}%
+     {Alan~L.}{A.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CL+1}
+  \strng{fullhash}{CLPGKIMKYAL1}
+  \verb{eprint}
+  \verb 1606.00915
+  \endverb
+  \field{title}{DeepLab: Semantic Image Segmentation with Deep Convolutional
+  Nets, Atrous Convolution, and Fully Connected CRFs}
+  \verb{url}
+  \verb http://arxiv.org/abs/1606.00915
+  \endverb
+  \field{volume}{abs/1606.00915}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2016}
+\endentry
+
 \entry{DBLP:journals/corr/abs-1802-02611}{article}{}
   \name{author}{5}{}{%
     {{}%
@@ -166,73 +210,6 @@
   \verb https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for
   \verb -machine-learning/
   \endverb
-\endentry
-
-\entry{DBLP:journals/corr/abs-1801-04381}{article}{}
-  \name{author}{5}{}{%
-    {{}%
-     {Sandler}{S.}%
-     {Mark}{M.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Howard}{H.}%
-     {Andrew~G.}{A.~G.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Zhu}{Z.}%
-     {Menglong}{M.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Zhmoginov}{Z.}%
-     {Andrey}{A.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Chen}{C.}%
-     {Liang{-}Chieh}{L.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{SM+1}
-  \strng{fullhash}{SMHAGZMZACL1}
-  \verb{eprint}
-  \verb 1801.04381
-  \endverb
-  \field{title}{Inverted Residuals and Linear Bottlenecks: Mobile Networks for
-  Classification, Detection and Segmentation}
-  \verb{url}
-  \verb http://arxiv.org/abs/1801.04381
-  \endverb
-  \field{volume}{abs/1801.04381}
-  \field{journaltitle}{CoRR}
-  \field{eprinttype}{arXiv}
-  \field{year}{2018}
-\endentry
-
-\entry{DBLP:journals/corr/Chollet16a}{article}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Chollet}{C.}%
-     {Fran{\c{c}}ois}{F.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{CF1}
-  \strng{fullhash}{CF1}
-  \verb{eprint}
-  \verb 1610.02357
-  \endverb
-  \field{title}{Xception: Deep Learning with Depthwise Separable Convolutions}
-  \verb{url}
-  \verb http://arxiv.org/abs/1610.02357
-  \endverb
-  \field{volume}{abs/1610.02357}
-  \field{journaltitle}{CoRR}
-  \field{eprinttype}{arXiv}
-  \field{year}{2016}
 \endentry
 
 \lossort

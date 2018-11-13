@@ -129,14 +129,24 @@
 \centering %\includegraphics[height=1.5cm]{./logos/logo_hbrs.png} \hspace{2cm} % For external companies
 \includegraphics[height=1.5cm]{./logos/logo_hbrs.png}}
 
+\iffalse
 \AtBeginSection[]{
-  \begin{frame}
+  \begin{frame}[plain,noframenumbering]
+      \addtocounter{framenumber}{-1}
   \vfill
   \centering
   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
     \usebeamerfont{title}\insertsectionhead\par%
   \end{beamercolorbox}
   \vfill
+  \end{frame}
+}
+\fi
+
+\AtBeginSection[]{
+  \begin{frame}[plain]{Table of Contents}
+  	\tableofcontents[currentsection, hideallsubsections]
+   	%\addtocounter{framenumber}{-1}
   \end{frame}
 }
 
@@ -491,7 +501,7 @@
 		\centering
 		\includegraphics[width=0.5\linewidth]{images/aspp}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution.}
+		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
 		\label{Fig:deepLabv4}
 	\end{figure}
 
@@ -563,6 +573,16 @@
 
 \begin{frame}{MobileNetv2 and Xception}
 
+	\begin{small}
+		\begin{itemize}
+			\item Both MobileNetv2 and Xception use depthwise separable convolutions.
+			\item Module: An arrangement of separable convolutions and pooling operations.
+			\item The two networks use different modules.
+			\item Differ in the number of trainable parameters.
+			\item DeepLabv3+ with MobileNetv2 has 2.11 Million trainable parametres and with Xception has 41.05 Million trainable parameters.
+			\item With the Xception encoder, DeepLabv3+ has a higher learning capacity.
+		\end{itemize}
+	\end{small}
 
 \end{frame}
 
@@ -664,7 +684,8 @@
 \begin{frame}{Quantizing the inference graph}
 	\begin{small}
 		\begin{itemize}
-			\item The inference graph is quantized.
+			\item Common operations such as convolution and pooling are replaced by quantized equivalents.
+			\item The inputs to quantized operations are converted to 8 bit.
 			\item With MobileNetv2 encoder, 67 \% drop in occupied disk memory is achieved. Drop in mIOU is around 9 \%.
 			\item With Xception encoder, 73 \% drop in occupied disk memory is achieved. Drop in mIOU is around 2 \%.
 		\end{itemize}
