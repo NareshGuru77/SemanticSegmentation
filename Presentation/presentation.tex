@@ -27,7 +27,6 @@
 }{
 \usepackage[utf8]{inputenc}}
 
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -130,6 +129,17 @@
 \centering %\includegraphics[height=1.5cm]{./logos/logo_hbrs.png} \hspace{2cm} % For external companies
 \includegraphics[height=1.5cm]{./logos/logo_hbrs.png}}
 
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
 
 % % % % % Opening % % % %
 \title[]{Sematic Segmentation using\\ Resource Efficient Deep Learning}
@@ -178,7 +188,7 @@
 
 \end{frame}
 
-\section{Applications}
+\subsection{Applications}
 % First Frame
 \begin{frame}{Applications}
 	\begin{itemize}
@@ -218,7 +228,7 @@
 
 \end{frame}
 
-\section{Dataset}
+\section{RoboCup@Work Semantic Segmentation Dataset}
 
 \begin{frame}{Dataset}
 	
@@ -239,7 +249,7 @@
 
 \end{frame}
 
-\section{Annotation process}
+\subsection{Annotation process}
 
 \begin{frame}{Annotation process}
 	
@@ -254,7 +264,7 @@
 
 \end{frame}
 
-\section{Artificial image generation}
+\subsection{Artificial image generation}
 
 \begin{frame}{Artificial image generation}
 
@@ -294,7 +304,7 @@
 	\end{figure}
 \end{frame}
 
-\section{Dataset variants}
+\subsection{Dataset variants}
 
 \begin{frame}{Dataset variants}
 \label{slide:motivvariants}
@@ -309,13 +319,13 @@
 				\begin{subfigure}{.2\textwidth}
   					\centering
   					\includegraphics[width=.35\linewidth]{images/M20}
-  					\caption{m20}
+  					\caption{m20 \cite{github_robocup@work}}
   					\label{Fig:size1}
 				\end{subfigure}%
 				\begin{subfigure}{.2\textwidth}
   					\centering
   					\includegraphics[width=.35\linewidth]{images/M30}
-  					\caption{m30}
+  					\caption{m30 \cite{github_robocup@work}}
   					\label{Fig:size2}
 				\end{subfigure}%
 				\caption{m30 is larger than m20}
@@ -404,7 +414,7 @@
 
 \end{frame}
 
-\section{Dataset analysis}
+\subsection{Dataset analysis}
 
 \begin{frame}{Dataset analysis}
 \label{slide:analysis}
@@ -426,13 +436,75 @@
 
 \section{DeepLabv3+}
 
+\begin{frame}{Local and Global context}
+
+	\begin{small}
+		\begin{itemize}
+			\item Similar local context.
+			\item Global context required to classify pixels.
+		\end{itemize}
+	\end{small}
+
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.45\textwidth}
+			\centering
+			\includegraphics[width=.4\linewidth]{images/em_01_context_l}
+			\caption{}
+			\label{Fig:em01l}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\centering
+			\includegraphics[width=.4\linewidth]{images/motor_context_l}
+			\caption{}
+			\label{Fig:motorl}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\centering
+			\includegraphics[width=.4\linewidth]{images/em_01_context_g}
+			\caption{}
+			\label{Fig:em01g}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\centering
+			\includegraphics[width=.4\linewidth]{images/motor_context_g}
+			\caption{}
+			\label{Fig:motorg}
+		\end{subfigure}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Local context in (a) "em\_01" and (b) "motor". Global context in (c) "em\_01" and (d) "motor".}
+		\label{Fig:context}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Atrous convolution and ASPP}
+
+	\begin{small}
+		\begin{itemize}
+			\item Increasing the atrous rate increases the receptive field.
+			\item Atrous spatial pyramid pooing (ASPP) on the same input feature map to gather different contexts.
+		\end{itemize}
+	\end{small}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/aspp}
+		\captionsetup{justification=centering,margin=0.2cm}
+		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution.}
+		\label{Fig:deepLabv4}
+	\end{figure}
+
+\end{frame}
+
+
 \begin{frame}{Architecture of DeepLabv3+}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/deepLabv4}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{An illustration of DeepLabv3+ architecture. The encoder extracts features at different scales and the decoder refines object boundary delineation.}
+		\caption{An illustration of DeepLabv3+ architecture. The encoder extracts features at different scales and the decoder refines object boundary delineation \cite{DBLP:journals/corr/abs-1802-02611}.}
 		\label{Fig:deepLabv4}
 	\end{figure}
 
@@ -451,25 +523,26 @@
 		\centering
 		\includegraphics[width=.3\linewidth]{images/depthwise}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Depthwise seperable convolution.}
+		\caption{Depthwise seperable convolution \cite{depthwise}.}
 		\label{Fig:depthwise}
 	\end{figure}
 
 \end{frame}
 
+\iffalse
 \begin{frame}{MobileNetv2 encoder of DeepLabv3+}
 	\begin{small}
-	\begin{itemize}
-		\item Depthwise seperable convolutions.
-		\item Inverted residual with linear bottleneck.
-	\end{itemize}
+		\begin{itemize}
+			\item Depthwise seperable convolutions.
+			\item Inverted residual with linear bottleneck.
+		\end{itemize}
 	\end{small}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=.6\linewidth]{images/inverted_residual}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Inverted residual block}
+		\caption{Inverted residual block \cite{DBLP:journals/corr/abs-1801-04381}.}
 		\label{Fig:residual}
 	\end{figure}
 
@@ -481,16 +554,18 @@
 		\centering
 		\includegraphics[width=0.5\linewidth]{images/extreme_inception}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Xception module}
+		\caption{Xception module \cite{DBLP:journals/corr/Chollet16a}.}
 		\label{Fig:xception}
 	\end{figure}
 
 \end{frame}
+\fi
 
-\begin{frame}{Atrous separable convolutions}
+\begin{frame}{MobileNetv2 and Xception}
 
 
 \end{frame}
+
 
 \section{Results}
 
@@ -643,15 +718,27 @@
 
 \end{frame}
 
-
-\begin{frame}{Thank you very much!}
-\usebeamerfont{AAA}
-Are there any questions? \\
+\begin{frame}{Acknowledgements}
+	\usebeamerfont{eee}
+		\begin{itemize}
+			\item MATLAB ImageLabeler. URL: \url{https://de.mathworks.com/help/vision/ref/imagelabeler-app.html}
+			\item 20 different colors. URL: \url{ https://sashat.
+me/2017/01/11/list-of-20-simple-distinct-colors/}
+			\item Google image downloader. URL: \url{ https://github.
+com/hardikvasa/google-images-download/}
+			\item Surface area from 3D CAD models. URL: \url{ https://github.com/robocup-at-work/models} and \url{https://github.com/rockin-robot-challenge/at_work_models}
+			\item HBRS latex beamer template. URL: \url{https://git.fslab.de/mmklab/latex-templates/tree/master/presentation}
+		\end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{References}
   \printbibliography[title={References}]	
+\end{frame}
+
+\begin{frame}{Thank you very much!}
+\usebeamerfont{AAA}
+Are there any questions? \\
 \end{frame}
 
 \end{document}

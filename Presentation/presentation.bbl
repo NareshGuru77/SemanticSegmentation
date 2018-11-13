@@ -69,6 +69,172 @@
   \endverb
 \endentry
 
+\entry{github_robocup@work}{misc}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Carstensen}{C.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hochgeschwender}{H.}%
+     {Nico}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kraetzschmar}{K.}%
+     {Gerhard}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nowak}{N.}%
+     {Walter}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zug}{Z.}%
+     {Sebastian}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CJ+1}
+  \strng{fullhash}{CJHNKGNWZS1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{RoboCup@Work Rulebook Version 2016}
+  \verb{url}
+  \verb http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf
+  \endverb
+\endentry
+
+\entry{DBLP:journals/corr/abs-1802-02611}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Liang{-}Chieh}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Yukun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papandreou}{P.}%
+     {George}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schroff}{S.}%
+     {Florian}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adam}{A.}%
+     {Hartwig}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CL+1}
+  \strng{fullhash}{CLZYPGSFAH1}
+  \verb{eprint}
+  \verb 1802.02611
+  \endverb
+  \field{title}{Encoder-Decoder with Atrous Separable Convolution for Semantic
+  Image Segmentation}
+  \verb{url}
+  \verb http://arxiv.org/abs/1802.02611
+  \endverb
+  \field{volume}{abs/1802.02611}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2018}
+\endentry
+
+\entry{depthwise}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bendersky}{B.}%
+     {Eli}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BE1}
+  \strng{fullhash}{BE1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{Depthwise separable convolutions for machine learning}
+  \verb{url}
+  \verb https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for
+  \verb -machine-learning/
+  \endverb
+\endentry
+
+\entry{DBLP:journals/corr/abs-1801-04381}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Sandler}{S.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howard}{H.}%
+     {Andrew~G.}{A.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Menglong}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhmoginov}{Z.}%
+     {Andrey}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Liang{-}Chieh}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SM+1}
+  \strng{fullhash}{SMHAGZMZACL1}
+  \verb{eprint}
+  \verb 1801.04381
+  \endverb
+  \field{title}{Inverted Residuals and Linear Bottlenecks: Mobile Networks for
+  Classification, Detection and Segmentation}
+  \verb{url}
+  \verb http://arxiv.org/abs/1801.04381
+  \endverb
+  \field{volume}{abs/1801.04381}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2018}
+\endentry
+
+\entry{DBLP:journals/corr/Chollet16a}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Chollet}{C.}%
+     {Fran{\c{c}}ois}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CF1}
+  \strng{fullhash}{CF1}
+  \verb{eprint}
+  \verb 1610.02357
+  \endverb
+  \field{title}{Xception: Deep Learning with Depthwise Separable Convolutions}
+  \verb{url}
+  \verb http://arxiv.org/abs/1610.02357
+  \endverb
+  \field{volume}{abs/1610.02357}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2016}
+\endentry
+
 \lossort
 \endlossort
 
