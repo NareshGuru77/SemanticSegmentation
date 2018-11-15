@@ -153,7 +153,7 @@
 
 % % % % % Opening % % % %
 \title[]{Sematic Segmentation using\\ Resource Efficient Deep Learning}
-\author[Naresh Kumar Gurulingan]{Naresh Kumar Gurulingan, Deebul Nair, Paul G. Pl\"oger}
+\author[Naresh Kumar Gurulingan]{Naresh Kumar Gurulingan, \\ M. Sc. Deebul Nair, Prof. Dr. Paul G. Pl\"oger}
 \date{\today}
 \institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
 \def\ThesisPubDate{\today} % Change here to the date you are going to print your thesis
@@ -369,7 +369,7 @@
   					\caption{ax01}
   					\label{Fig:sim2b}
 				\end{subfigure}%
-				\caption{Bearing\_box ax16 and ax01 are distinguishable from similar viewpoints (a) and (b) but are indistinguishable from similar viewpoints (c) and (d).}
+				\caption{Bearing\_box ax16 and ax01 are distinguishable in a viewpoint from the side ((a), (b)) but are indistinguishable in a viewpoint from the top ((c), (d)).}
 				\label{Fig:shape}
 			\end{figure}
 		\end{itemize}
@@ -450,39 +450,39 @@
 
 	\begin{small}
 		\begin{itemize}
-			\item Similar local context.
+			\item Two different objects are similar in local context.
 			\item Global context required to classify pixels.
 		\end{itemize}
 	\end{small}
 
 	\begin{figure}[h]
 		\centering
-		\begin{subfigure}{.45\textwidth}
+		\begin{subfigure}{.49\textwidth}
 			\centering
-			\includegraphics[width=.4\linewidth]{images/em_01_context_l}
-			\caption{}
+			\includegraphics[width=.6\linewidth]{images/em_01_context_l}
+			%\caption{em\_01}
 			\label{Fig:em01l}
 		\end{subfigure}
-		\begin{subfigure}{.45\textwidth}
+		\begin{subfigure}{.49\textwidth}
 			\centering
-			\includegraphics[width=.4\linewidth]{images/motor_context_l}
-			\caption{}
+			\includegraphics[width=.6\linewidth]{images/motor_context_l}
+			%\caption{motor}
 			\label{Fig:motorl}
 		\end{subfigure}
-		\begin{subfigure}{.45\textwidth}
+		\begin{subfigure}{.49\textwidth}
 			\centering
-			\includegraphics[width=.4\linewidth]{images/em_01_context_g}
-			\caption{}
+			\includegraphics[width=.6\linewidth]{images/em_01_context_g}
+			%\caption{em\_01}
 			\label{Fig:em01g}
 		\end{subfigure}
-		\begin{subfigure}{.45\textwidth}
+		\begin{subfigure}{.49\textwidth}
 			\centering
-			\includegraphics[width=.4\linewidth]{images/motor_context_g}
-			\caption{}
+			\includegraphics[width=.6\linewidth]{images/motor_context_g}
+			%\caption{motor}
 			\label{Fig:motorg}
 		\end{subfigure}
 		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Local context in (a) "em\_01" and (b) "motor". Global context in (c) "em\_01" and (d) "motor".}
+		\caption{Row 1: local context, row 2: global context.}
 		\label{Fig:context}
 	\end{figure}
 
@@ -757,9 +757,11 @@ com/hardikvasa/google-images-download/}
   \printbibliography[title={References}]	
 \end{frame}
 
-\begin{frame}{Thank you very much!}
-\usebeamerfont{AAA}
-Are there any questions? \\
+\begin{frame}{Thank you!}
+	\usebeamerfont{AAA}
+	\begin{center}
+		Questions?
+	\end{center}
 \end{frame}
 
 \end{document}
