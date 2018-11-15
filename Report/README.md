@@ -5,7 +5,7 @@ Semantic segmentation is a pixel-wise classification problem where a convolution
 The DeepLabv3+ segmentation model, in addition to its focus on improving mIOU, also uses MobileNetv2 and Xception networks as network backbones (encoders) to improve resource efficiency. The MobileNetv2 network backbone requires an inference time of 0.98 seconds per image, occupies 8.7 MB disk memory, and achieves a mIOU of 77.47 % on the "atWork_full" dataset variant. In contrast, the Xception network backbone achieves 89.63 % percent on the same dataset variant but is less resource efficient as it requires 5.53 seconds inference time and 165.6 MB disk memory. The quantized versions of the two network backbones are shown to be more efficient in terms of disk memory occupied. However, roughly 9 % and 2 % average drop in mIOU across all four dataset variants is observed for the quantized versions of MobileNetv2 and Xception network backbones respectively.
 
 
-The table of contents:
+# The table of contents:
 * Introduction
     * Motivation
         * Potential applications
