@@ -8,11 +8,11 @@ The process of artificial image generation is described in the [final research r
 * Both semantic segmentation and object detection labels.
 * The labels can be visualized in three different ways called 1. mask, 2. overlay, 3. preview.
 1. Mask:
-[sample result 1](..../Report/images/eg_mask.png)
+![sample result 1](..../Report/images/eg_mask.png)
 2. Overlay:
-[sample result 1](..../Report/images/eg_overlay.png)
+![sample result 1](..../Report/images/eg_overlay.png)
 3. Preview:
-[sample result 1](..../Report/images/sample_white_1.png)
+![sample result 1](..../Report/images/sample_white_1.png)
 
 # Generator options:
 The various arguments which can be tweaked to control the way in which artificial images are generated.
@@ -25,24 +25,19 @@ The various arguments which can be tweaked to control the way in which artificia
      **backgrounds_path**     Path to directory where the background images are located.                 
         **image_path**             Path to directory where real images are located.                      
         **label_path**               Path to directory where labels are located.                         
-   **obj_det_label_path**          Path to directory where the object detection                        
-    csv labels are located.                                                                               
+    **obj_det_label_path**          Path to directory where the object detection csv labels are located.                  
       **real_img_type**                    The format of the real image.                                
-      **min_obj_area**                 Minimum area in percentage allowed for                           
-   an object in image space.                                                                              
-      **max_obj_area**                 Maximum area in percentage allowed for                           
-   an object in image space.                                                                              
-   **save_label_preview**         Save image+label in a single image for preview.                       
-   **save_obj_det_label**           Save object detection labels in csv files.                         
+      **min_obj_area**                 Minimum area in percentage allowed for an object in image space.                      
+    **max_obj_area**                 Maximum area in percentage allowed for an object in image space.
+    **save_label_preview**         Save image+label in a single image for preview.                       
+    **save_obj_det_label**           Save object detection labels in csv files.                         
         **save_mask**                 Save images showing the segmentation mask.                         
        **save_overlay**               Save segmentation label overlaid on image.                         
      **overlay_opacity**             Opacity of the label on the overlaid image.                         
-     **image_save_path**          Path where the generated artificial image needs                       
-         to be saved.                                                                                     
-     **label_save_path**         Path where the generated segmentation label needs                      
-         to be saved.                                                                                     
+     **image_save_path**          Path where the generated artificial image needs to be saved.                  
+     **label_save_path**         Path where the generated segmentation label needs to be saved.                 
     **preview_save_path**           Path where preview image needs to be saved.                         
-   **obj_det_save_path**      Path where object detection labels needs to be saved.                    
+    **obj_det_save_path**      Path where object detection labels needs to be saved.                    
      **mask_save_path**           Path where segmentation masks needs to be saved.                      
     **overlay_save_path**          Path where overlaid images needs to be saved.                        
        **start_index**              from which image and label names should start.                       
@@ -56,6 +51,6 @@ The various arguments which can be tweaked to control the way in which artificia
        **scale_ranges**       Can be used to change the zoom range of specific objects. 
 
 # Sample results:
-* [sample result 1](..../Report/images/sample_result_1.png)
-* [sample result 2](..../Report/images/sample_result_2.png)
-* [sample result 3](..../Report/images/sample_result_3.png)
+* ![sample result 1](..../Report/images/sample_result_1.png)
+* ![sample result 2](..../Report/images/sample_result_2.png)
+* ![sample result 3](..../Report/images/sample_result_3.png)
