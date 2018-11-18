@@ -1,4 +1,4 @@
-This folder contains the initial report documenting the dataset creation process. The report has been later included and rearranged in the [final research report](..../Report/GurulinganNK-RnD-Report.pdf).
+This folder contains the initial report documenting the dataset creation process. The report has been later included and rearranged in the [final research report](https://github.com/NareshGuru77/SemanticSegmentation/blob/master/Report/GurulinganNK-RnD-Report.pdf).
 
 The contents of this report includes:
 * Overview of the dataset
