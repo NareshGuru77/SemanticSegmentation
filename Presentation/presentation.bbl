@@ -1,0 +1,218 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{cityscapes}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {dataset}{d.}%
+     {Cityscapes}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{dC1}
+  \strng{fullhash}{dC1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{Examples of fine annotations}
+  \verb{url}
+  \verb https://www.cityscapes-dataset.com/examples/#fine-annotations
+  \endverb
+\endentry
+
+\entry{indoor}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Silberman}{S.}%
+     {Nathan}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SN1}
+  \strng{fullhash}{SN1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{NYU Depth Dataset V2}
+  \verb{url}
+  \verb https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html
+  \endverb
+\endentry
+
+\entry{techcrunch}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Perez}{P.}%
+     {Sarah}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PS1}
+  \strng{fullhash}{PS1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{Google makes the camera smarter with a Google Lens update,
+  integration with Street View}
+  \verb{url}
+  \verb https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-
+  \verb a-google-lens-update-integration-with-street-view/?guccounter=1
+  \endverb
+\endentry
+
+\entry{github_robocup@work}{misc}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Carstensen}{C.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hochgeschwender}{H.}%
+     {Nico}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kraetzschmar}{K.}%
+     {Gerhard}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nowak}{N.}%
+     {Walter}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zug}{Z.}%
+     {Sebastian}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CJ+1}
+  \strng{fullhash}{CJHNKGNWZS1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{RoboCup@Work Rulebook Version 2016}
+  \verb{url}
+  \verb http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf
+  \endverb
+\endentry
+
+\entry{DBLP:journals/corr/ChenPK0Y16}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Liang{-}Chieh}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papandreou}{P.}%
+     {George}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kokkinos}{K.}%
+     {Iasonas}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Murphy}{M.}%
+     {Kevin}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yuille}{Y.}%
+     {Alan~L.}{A.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CL+1}
+  \strng{fullhash}{CLPGKIMKYAL1}
+  \verb{eprint}
+  \verb 1606.00915
+  \endverb
+  \field{title}{DeepLab: Semantic Image Segmentation with Deep Convolutional
+  Nets, Atrous Convolution, and Fully Connected CRFs}
+  \verb{url}
+  \verb http://arxiv.org/abs/1606.00915
+  \endverb
+  \field{volume}{abs/1606.00915}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2016}
+\endentry
+
+\entry{DBLP:journals/corr/abs-1802-02611}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Liang{-}Chieh}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Yukun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papandreou}{P.}%
+     {George}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schroff}{S.}%
+     {Florian}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adam}{A.}%
+     {Hartwig}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CL+1}
+  \strng{fullhash}{CLZYPGSFAH1}
+  \verb{eprint}
+  \verb 1802.02611
+  \endverb
+  \field{title}{Encoder-Decoder with Atrous Separable Convolution for Semantic
+  Image Segmentation}
+  \verb{url}
+  \verb http://arxiv.org/abs/1802.02611
+  \endverb
+  \field{volume}{abs/1802.02611}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2018}
+\endentry
+
+\entry{depthwise}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bendersky}{B.}%
+     {Eli}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BE1}
+  \strng{fullhash}{BE1}
+  \field{note}{Online accessed: 2018-08-03}
+  \field{title}{Depthwise separable convolutions for machine learning}
+  \verb{url}
+  \verb https://eli.thegreenplace.net/2018/depthwise-separable-convolutions-for
+  \verb -machine-learning/
+  \endverb
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
