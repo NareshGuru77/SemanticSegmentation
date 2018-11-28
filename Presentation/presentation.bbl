@@ -50,25 +50,6 @@
   \endverb
 \endentry
 
-\entry{techcrunch}{misc}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Perez}{P.}%
-     {Sarah}{S.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{PS1}
-  \strng{fullhash}{PS1}
-  \field{note}{Online accessed: 2018-08-03}
-  \field{title}{Google makes the camera smarter with a Google Lens update,
-  integration with Street View}
-  \verb{url}
-  \verb https://techcrunch.com/2018/05/08/google-makes-the-camera-smarter-with-
-  \verb a-google-lens-update-integration-with-street-view/?guccounter=1
-  \endverb
-\endentry
-
 \entry{github_robocup@work}{misc}{}
   \name{author}{5}{}{%
     {{}%
@@ -104,6 +85,50 @@
   \verb{url}
   \verb http://www.robocupatwork.org/download/rulebook-2016-01-15.pdf
   \endverb
+\endentry
+
+\entry{DBLP:journals/corr/Garcia-GarciaOO17}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Garcia{-}Garcia}{G.}%
+     {Alberto}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Orts{-}Escolano}{O.}%
+     {Sergio}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Oprea}{O.}%
+     {Sergiu}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Villena{-}Martinez}{V.}%
+     {Victor}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rodr{\'{\i}}guez}{R.}%
+     {Jos{\'{e}}~Garc{\'{\i}}a}{J.~G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GA+1}
+  \strng{fullhash}{GAOSOSVVRJG1}
+  \verb{eprint}
+  \verb 1704.06857
+  \endverb
+  \field{title}{A Review on Deep Learning Techniques Applied to Semantic
+  Segmentation}
+  \verb{url}
+  \verb http://arxiv.org/abs/1704.06857
+  \endverb
+  \field{volume}{abs/1704.06857}
+  \field{journaltitle}{CoRR}
+  \field{eprinttype}{arXiv}
+  \field{year}{2017}
 \endentry
 
 \entry{DBLP:journals/corr/ChenPK0Y16}{article}{}

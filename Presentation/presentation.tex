@@ -483,17 +483,38 @@
 
 	\begin{small}
 		\begin{itemize}
-			\item Increasing the atrous rate increases the receptive field.
+			\item Increasing the atrous rate (r) increases the receptive field.
 			\item Atrous spatial pyramid pooing (ASPP) on the same input feature map to gather different contexts.
 		\end{itemize}
 	\end{small}
 	
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.5\linewidth]{images/aspp}
+%		\captionsetup{justification=centering,margin=0.2cm}
+%		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
+%		\label{Fig:deepLabv4}
+%	\end{figure}
+	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/aspp}
-		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
-		\label{Fig:deepLabv4}
+		\begin{subfigure}{.23\textwidth}
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/r_1}
+			\caption{r = 1}
+		\end{subfigure}
+		\begin{subfigure}{.23\textwidth}
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/r_2}
+			\caption{r = 2}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/aspp}
+			\caption{ASPP}
+		\end{subfigure}
+		\caption{3$\times$3 atrous convolution with three different atrous rates \cite{DBLP:journals/corr/Garcia-GarciaOO17}. Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
+		\label{Fig:atconv}
 	\end{figure}
 
 \end{frame}
@@ -638,13 +659,13 @@
 	\begin{small}
 		\begin{itemize}
 			\item 9.88 \% of pixels belonging to m30 is classified as m20. 
-			\item 9.97 \% of pixels belonging to bearing box ax16 is classified as bearing box ax01 [Slide \ref{slide:motivvariants}].
+			\item 0.58 \% of pixels belonging to m20 is classified as m30 [Slide \ref{slide:motivvariants}].
 		\end{itemize}
 	\end{small}		
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.65\linewidth]{images/cm_full}
+		\includegraphics[width=0.70\linewidth]{images/cm_full}
 		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{Confusion matrix on atWork\_full dataset variant by DeepLabv3+ with MobileNetv2 encoder.}
 		\label{Fig:variants}
