@@ -536,16 +536,29 @@
 \begin{frame}{Depthwise seperable convolutions}
 	\begin{small}
 	\begin{itemize}
-		\item First depthwise convolution, then pointwise convolution.
-		\item Row 2 to row 5: depthwise convolution, 6th row: pointwise convolution.
+		\item Standard: Spatial and cross channel correlation at the same time.
+		\item Depthwise seperable convolutions: First spatial correlation, then cross channel correlation.
 	\end{itemize}
 	\end{small}
-	 
+	
 	\begin{figure}
 		\centering
-		\includegraphics[width=.3\linewidth]{images/depthwise}
-		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Depthwise seperable convolution \cite{depthwise}.}
+		\begin{subfigure}{.2\textwidth}
+			\centering
+			\includegraphics[width=0.9\linewidth]{images/standard_conv}
+			\caption{Standard}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{images/depthwise_conv}
+			\caption{Depthwise}
+		\end{subfigure}
+		\begin{subfigure}{.2\textwidth}
+			\centering
+			\includegraphics[width=.9\linewidth]{images/pointwise_conv}
+			\caption{Pointwise}
+		\end{subfigure}
+		\caption{Standard and depthwise seperable convolution \cite{depthwise}.}
 		\label{Fig:depthwise}
 	\end{figure}
 
@@ -588,8 +601,7 @@
 	\begin{small}
 		\begin{itemize}
 			\item Both MobileNetv2 and Xception use depthwise separable convolutions.
-			\item Module: An arrangement of separable convolutions and pooling operations.
-			\item The two networks use different modules.
+			\item Both are used as encoders in DeepLabv3+.
 			\item Differ in the number of trainable parameters.
 			\item DeepLabv3+ with MobileNetv2 has 2.11 Million trainable parametres and with Xception has 41.05 Million trainable parameters.
 			\item With the Xception encoder, DeepLabv3+ has a higher learning capacity.
