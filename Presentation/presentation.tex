@@ -208,9 +208,6 @@
   \item[b] {
     Robotics
   }
-  \item[c] {
-    Augmented reality
-  }
   \end{itemize}
   
   \begin{figure}
@@ -225,12 +222,6 @@
 			\includegraphics[width=0.8\linewidth]{images/indoor}
 			\captionsetup{justification=centering,margin=0.2cm}
 			\caption{Indoor scene \cite{indoor}}
-		\end{subfigure}
-		\begin{subfigure}{0.3\textwidth}
-			\centering
-			\includegraphics[width=0.8\linewidth]{images/vr_dog}
-			\captionsetup{justification=centering,margin=0.2cm}
-			\caption{Augmented guide \cite{techcrunch}}
 		\end{subfigure}
 		%\caption{(a)Street scene, (b) Indoor scene, (c) Augmented guide.}
 		\label{Fig:app}
@@ -492,17 +483,38 @@
 
 	\begin{small}
 		\begin{itemize}
-			\item Increasing the atrous rate increases the receptive field.
+			\item Increasing the atrous rate (r) increases the receptive field.
 			\item Atrous spatial pyramid pooing (ASPP) on the same input feature map to gather different contexts.
 		\end{itemize}
 	\end{small}
 	
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.5\linewidth]{images/aspp}
+%		\captionsetup{justification=centering,margin=0.2cm}
+%		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
+%		\label{Fig:deepLabv4}
+%	\end{figure}
+	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/aspp}
-		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
-		\label{Fig:deepLabv4}
+		\begin{subfigure}{.23\textwidth}
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/r_1}
+			\caption{r = 1}
+		\end{subfigure}
+		\begin{subfigure}{.23\textwidth}
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/r_2}
+			\caption{r = 2}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{images/aspp}
+			\caption{ASPP}
+		\end{subfigure}
+		\caption{3$\times$3 atrous convolution with three different atrous rates \cite{DBLP:journals/corr/Garcia-GarciaOO17}. Atrous spatial pyramid pooling (ASPP) and atrous convolution \cite{DBLP:journals/corr/ChenPK0Y16}.}
+		\label{Fig:atconv}
 	\end{figure}
 
 \end{frame}
@@ -524,16 +536,29 @@
 \begin{frame}{Depthwise seperable convolutions}
 	\begin{small}
 	\begin{itemize}
-		\item First depthwise convolution, then pointwise convolution.
-		\item Row 2 to row 5: depthwise convolution, 6th row: pointwise convolution.
+		\item Standard: Spatial and cross channel correlation at the same time.
+		\item Depthwise seperable convolutions: First spatial correlation, then cross channel correlation.
 	\end{itemize}
 	\end{small}
-	 
+	
 	\begin{figure}
 		\centering
-		\includegraphics[width=.3\linewidth]{images/depthwise}
-		\captionsetup{justification=centering,margin=0.2cm}
-		\caption{Depthwise seperable convolution \cite{depthwise}.}
+		\begin{subfigure}{.2\textwidth}
+			\centering
+			\includegraphics[width=0.9\linewidth]{images/standard_conv}
+			\caption{Standard}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{images/depthwise_conv}
+			\caption{Depthwise}
+		\end{subfigure}
+		\begin{subfigure}{.2\textwidth}
+			\centering
+			\includegraphics[width=.9\linewidth]{images/pointwise_conv}
+			\caption{Pointwise}
+		\end{subfigure}
+		\caption{Standard and depthwise seperable convolution \cite{depthwise}.}
 		\label{Fig:depthwise}
 	\end{figure}
 
@@ -576,8 +601,7 @@
 	\begin{small}
 		\begin{itemize}
 			\item Both MobileNetv2 and Xception use depthwise separable convolutions.
-			\item Module: An arrangement of separable convolutions and pooling operations.
-			\item The two networks use different modules.
+			\item Both are used as encoders in DeepLabv3+.
 			\item Differ in the number of trainable parameters.
 			\item DeepLabv3+ with MobileNetv2 has 2.11 Million trainable parametres and with Xception has 41.05 Million trainable parameters.
 			\item With the Xception encoder, DeepLabv3+ has a higher learning capacity.
@@ -647,13 +671,13 @@
 	\begin{small}
 		\begin{itemize}
 			\item 9.88 \% of pixels belonging to m30 is classified as m20. 
-			\item 9.97 \% of pixels belonging to bearing box ax16 is classified as bearing box ax01 [Slide \ref{slide:motivvariants}].
+			\item 0.58 \% of pixels belonging to m20 is classified as m30 [Slide \ref{slide:motivvariants}].
 		\end{itemize}
 	\end{small}		
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.65\linewidth]{images/cm_full}
+		\includegraphics[width=0.70\linewidth]{images/cm_full}
 		\captionsetup{justification=centering,margin=0.2cm}
 		\caption{Confusion matrix on atWork\_full dataset variant by DeepLabv3+ with MobileNetv2 encoder.}
 		\label{Fig:variants}
